@@ -1,18 +1,18 @@
 # Idea backlog (first queued = next to run)
 
-1. [running] Period open/close levels (Shen, 2026-10-09). Red = every weekly open & close; white =
+1. [done] Period open/close levels (Shen, 2026-10-09). Red = every weekly open & close; white =
    monthly/quarterly/half-year/yearly open & close. Claim: LTF price pulls back to the level,
    respects the area, reverses. Test: bt/period_levels.py on gold M1 2012-2026 (1/5/15-min
    confirmation, 3R; coin-flip and fake-level benchmarks; reaction odds 0.2 ATR). Then the same on
    US100/US500/TSLA M5 2021-2026 (ftmo() in smc_data.py; nyd/nym present).
-2. [queued] Weekly-open bias (online: "trade with the weekly open"). Measurement: sign of
+2. [done] Weekly-open bias (online: "trade with the weekly open"). Measurement: sign of
    (Monday 17:00 NY close - weekly open) vs rest-of-week return; and as a direction filter on the
    opening-candle trades (TSLA/US100 pickles). Gold, US500, US100.
-3. [queued] Weekly-open magnet (online claim: price revisits the weekly open ~70-80% of weeks).
+3. [done] Weekly-open magnet (online claim: price revisits the weekly open ~70-80% of weeks).
    Measure: % of weeks price comes back within 0.05 ATR of the weekly open after first moving
    > 0.5 ATR away; same for the daily open (NY midnight / 9:30). Compare with the same statistic
    for a fake open (+0.37 ATR). If strong, a mean-reversion rule: fade moves > 1 ATR from the open.
-4. [queued] Turn-of-the-month (watch list): buy close of T-1 (last trading day minus one), sell
+4. [done] Turn-of-the-month (watch list): buy close of T-1 (last trading day minus one), sell
    close of T+3. US500, US100, gold M30 2017-2026. Costs + overnight swap (use 0.01%/night approx).
    Per-year table; Monte Carlo pass odds via lab/ftmo_sim.py if positive.
 5. [queued] Opening-gap fade US100/US500 (M5 2021-2026): gap = 9:30 NY open - prior 16:00 close;

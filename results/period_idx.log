@@ -1,0 +1,16 @@
+US100 5m: real                         n= 1616  avgR=+0.159  t=+3.5  win=30%  stop=70%  gross=+0.190 | fake avgR=+0.002 n=1620
+   per year: {2025: 0.2, 2026: 0.13}
+US100 15m: real                         n= 1031  avgR=+0.180  t=+3.2  win=29%  stop=69%  gross=+0.201 | fake avgR=+0.007 n=803
+   per year: {2025: 0.25, 2026: 0.13}
+US500 5m: real                         n= 1529  avgR=-0.101  t=-2.3  win=23%  stop=76%  gross=-0.049 | fake avgR=-0.152 n=1786
+   per year: {2025: -0.04, 2026: -0.13}
+US500 15m: real                         n= 1018  avgR=-0.042  t=-0.8  win=24%  stop=74%  gross=-0.006 | fake avgR=-0.113 n=942
+   per year: {2025: -0.07, 2026: -0.03}
+TSLA 5m: real                         n= 2837  avgR=-0.032  t=-1.0  win=25%  stop=75%  gross=-0.004 | fake avgR=-0.053 n=2763
+   per year: {2021: -0.12, 2022: -0.16, 2023: 0.08, 2024: 0.05, 2025: -0.05, 2026: -0.07}
+TSLA 15m: real                         n= 1762  avgR=+0.019  t=+0.5  win=25%  stop=73%  gross=+0.037 | fake avgR=-0.035 n=1806
+   per year: {2021: 0.16, 2022: -0.08, 2023: 0.13, 2024: 0.11, 2025: -0.17, 2026: 0.11}
+AAPL 5m: real                         n= 2880  avgR=-0.095  t=-3.0  win=24%  stop=75%  gross=-0.032 | fake avgR=-0.129 n=2776
+   per year: {2021: -0.1, 2022: -0.11, 2023: 0.08, 2024: -0.08, 2025: -0.29, 2026: -0.07}
+AAPL 15m: real                         n= 1739  avgR=-0.064  t=-1.6  win=24%  stop=75%  gross=-0.022 | fake avgR=-0.075 n=1853
+   per year: {2021: -0.03, 2022: -0.02, 2023: 0.06, 2024: -0.09, 2025: -0.17, 2026: -0.13}

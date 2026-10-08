@@ -1,0 +1,32 @@
+levels: 4164 {'W': 3044, 'M': 706, 'Q': 238, 'H': 118, 'Y': 58}
+
+== reaction odds (0.2 ATR away before 0.2 ATR through), real levels ==
+res   break  neither  respect      n
+kind                                
+H     0.388    0.000    0.612   7890
+M     0.385    0.000    0.614  32828
+Q     0.381    0.000    0.619  16140
+W     0.379    0.001    0.621  79390
+Y     0.377    0.001    0.623   3843
+
+== same, fake levels (shifted +0.37 ATR) ==
+res   break  neither  respect      n
+kind                                
+H     0.377    0.000    0.622   8258
+M     0.382    0.000    0.618  31891
+Q     0.378    0.000    0.622  16339
+W     0.381    0.001    0.618  71613
+Y     0.374    0.000    0.625   4192
+
+== 1-minute confirmation, 3R ==
+real levels, all             n=48391  avgR=-0.247  t=-32.6  win=22%  stop=78%  gross=-0.110
+  W levels                   n=35522  avgR=-0.236  t=-26.6  win=22%  stop=77%  gross=-0.102
+  M levels                   n= 8331  avgR=-0.277  t=-15.3  win=22%  stop=78%  gross=-0.133
+  Q levels                   n= 2763  avgR=-0.290  t=-9.3  win=21%  stop=78%  gross=-0.138
+  H levels                   n= 1384  avgR=-0.276  t=-6.2  win=22%  stop=78%  gross=-0.127
+  Y levels                   n=  391  avgR=-0.215  t=-2.5  win=23%  stop=77%  gross=-0.069
+  first touch                n= 3774  avgR=-0.217  t=-7.9  win=23%  stop=77%  gross=-0.067
+year      2012     2013     2014     2015     2016     2017     2018     2019     2020     2021     2022     2023     2024    2025     2026
+count  2801.00  3183.00  3129.00  2886.00  3650.00  3331.00  3678.00  3391.00  3097.00  3502.00  3481.00  3683.00  3557.00  3129.0  1893.00
+mean     -0.24    -0.29    -0.46    -0.34    -0.34    -0.41    -0.45    -0.29    -0.18    -0.11    -0.07    -0.13    -0.19    -0.1    -0.08
+fake levels                  n=40205  avgR=-0.223  t=-26.6  win=23%  stop=77%  gross=-0.091

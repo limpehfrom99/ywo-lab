@@ -1,0 +1,27 @@
+
+==== gold (758 weeks) ====
+2a Monday above/below weekly open -> rest-of-week return (ATR): {'count': {-1.0: 386, 1.0: 372}, 'mean': {-1.0: 0.037, 1.0: 0.162}}
+   corr(sign(mon-wo), rest) = 0.041
+2b day return (ATR) when day opens above(+1)/below(-1) weekly open: {'count': {-1.0: 1853, 0.0: 762, 1.0: 1915}, 'mean': {-1.0: 0.0, 0.0: 0.015, 1.0: 0.035}}
+   by half: {-1.0: -0.031, 0.0: -0.001, 1.0: -0.004} {-1.0: 0.034, 0.0: 0.031, 1.0: 0.07}
+3a returns to weekly open after moving 0.5 ATR away: real 73%  fake(+0.37 ATR) 74%  (weeks=759)
+3b fade 1-ATR move back to weekly open (stop 1 ATR further): n=667 avgR=-0.082 t=-2.4 win=33%
+   per year: {2012: -0.12, 2013: -0.02, 2014: -0.08, 2015: -0.14, 2016: -0.22, 2017: -0.16, 2018: 0.16, 2019: 0.09, 2020: -0.1, 2021: 0.12, 2022: -0.05, 2023: -0.02, 2024: -0.23, 2025: -0.29, 2026: -0.09}
+
+==== US100 (453 weeks) ====
+2a Monday above/below weekly open -> rest-of-week return (ATR): {'count': {-1.0: 189, 1.0: 264}, 'mean': {-1.0: 0.169, 1.0: -0.007}}
+   corr(sign(mon-wo), rest) = -0.061
+2b day return (ATR) when day opens above(+1)/below(-1) weekly open: {'count': {-1.0: 875, 0.0: 457, 1.0: 1224}, 'mean': {-1.0: 0.048, 0.0: 0.033, 1.0: 0.034}}
+   by half: {-1.0: 0.038, 0.0: 0.035, 1.0: 0.024} {-1.0: 0.059, 0.0: 0.031, 1.0: 0.044}
+3a returns to weekly open after moving 0.5 ATR away: real 70%  fake(+0.37 ATR) 75%  (weeks=454)
+3b fade 1-ATR move back to weekly open (stop 1 ATR further): n=377 avgR=+0.013 t=+0.3 win=31%
+   per year: {2018: -0.08, 2019: 0.01, 2020: 0.04, 2021: -0.06, 2022: -0.04, 2023: 0.09, 2024: 0.09, 2025: -0.05, 2026: 0.12}
+
+==== US500 (453 weeks) ====
+2a Monday above/below weekly open -> rest-of-week return (ATR): {'count': {-1.0: 195, 0.0: 1, 1.0: 257}, 'mean': {-1.0: 0.055, 0.0: 1.437, 1.0: 0.055}}
+   corr(sign(mon-wo), rest) = -0.000
+2b day return (ATR) when day opens above(+1)/below(-1) weekly open: {'count': {-1.0: 898, 0.0: 457, 1.0: 1201}, 'mean': {-1.0: 0.034, 0.0: 0.014, 1.0: 0.038}}
+   by half: {-1.0: 0.017, 0.0: 0.004, 1.0: 0.034} {-1.0: 0.053, 0.0: 0.026, 1.0: 0.041}
+3a returns to weekly open after moving 0.5 ATR away: real 71%  fake(+0.37 ATR) 76%  (weeks=455)
+3b fade 1-ATR move back to weekly open (stop 1 ATR further): n=367 avgR=-0.042 t=-0.9 win=27%
+   per year: {2018: 0.04, 2019: -0.02, 2020: -0.08, 2021: -0.01, 2022: -0.13, 2023: -0.19, 2024: 0.1, 2025: -0.18, 2026: 0.13}
