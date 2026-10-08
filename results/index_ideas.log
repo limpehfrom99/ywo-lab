@@ -1,0 +1,34 @@
+
+==== US100.cash 2021-09-14 .. 2026-10-07 (1254 days) ====
+/home/claude/bt/index_ideas.py:51: RuntimeWarning: divide by zero encountered in scalar divide
+  rows.append(dict(day=day, year=day.year, gap_atr=abs(gap) / A, R=(side * (px - entry) - sp / 2) / risk, why=why))
+5 gap fade 0.3-1.0 ATR: n=528 avgR=-0.010 t=-0.3 win=49%  halves -0.030/+0.009
+   per year: {2021: 0.09, 2022: -0.13, 2023: 0.02, 2024: 0.01, 2025: 0.03, 2026: -0.02}
+/usr/local/lib/python3.13/dist-packages/pandas/core/nanops.py:1028: RuntimeWarning: invalid value encountered in subtract
+  sqr = _ensure_numeric((avg - values) ** 2)
+   baseline: small gaps < 0.3 ATR, same rule: n=673 avgR=-inf t=+nan win=36%  halves -0.390/-inf
+   per year: {2021: -0.15, 2022: -0.36, 2023: -0.52, 2024: -0.26, 2025: -0.31, 2026: -inf}
+   fill rate: 23%  gaps > 1 ATR: n=52 avgR=+0.037
+6 overnight (15:30 -> next 9:30 close): n=1253 avgR=+0.015 t=+1.0 win=54%  halves -0.011/+0.041
+   per year: {2021: 0.02, 2022: -0.06, 2023: 0.04, 2024: 0.04, 2025: 0.03, 2026: 0.03}
+   intraday (9:30 -> 15:30 close): n=1253 avgR=+0.007 t=+0.4 win=55%  halves +0.024/-0.010
+   per year: {2021: 0.01, 2022: -0.03, 2023: 0.06, 2024: -0.0, 2025: -0.01, 2026: 0.03}
+7 pre-FOMC (day-before 15:30 -> FOMC day 13:30): n=41 avgR=+0.176 t=+2.3 win=63%  halves +0.160/+0.192
+   per year: {2021: 0.12, 2022: 0.42, 2023: 0.05, 2024: 0.28, 2025: 0.02, 2026: 0.12}
+   baseline: every other day, same window: n=1212 avgR=+0.025 t=+1.2 win=54%  halves +0.001/+0.048
+   per year: {2021: -0.01, 2022: -0.11, 2023: 0.1, 2024: 0.06, 2025: 0.02, 2026: 0.07}
+
+==== US500.cash 2021-09-14 .. 2026-10-07 (1254 days) ====
+5 gap fade 0.3-1.0 ATR: n=540 avgR=-0.027 t=-0.8 win=49%  halves -0.053/-0.000
+   per year: {2021: -0.09, 2022: -0.13, 2023: 0.04, 2024: -0.05, 2025: 0.07, 2026: -0.04}
+   baseline: small gaps < 0.3 ATR, same rule: n=658 avgR=-0.413 t=-6.8 win=38%  halves -0.334/-0.491
+   per year: {2021: -0.32, 2022: -0.39, 2023: -0.26, 2024: -0.62, 2025: -0.38, 2026: -0.47}
+   fill rate: 21%  gaps > 1 ATR: n=55 avgR=+0.035
+6 overnight (15:30 -> next 9:30 close): n=1253 avgR=+0.010 t=+0.7 win=54%  halves -0.010/+0.031
+   per year: {2021: 0.06, 2022: -0.06, 2023: 0.01, 2024: 0.05, 2025: 0.01, 2026: 0.02}
+   intraday (9:30 -> 15:30 close): n=1253 avgR=-0.003 t=-0.2 win=53%  halves +0.014/-0.020
+   per year: {2021: -0.02, 2022: -0.03, 2023: 0.04, 2024: -0.01, 2025: -0.01, 2026: 0.01}
+7 pre-FOMC (day-before 15:30 -> FOMC day 13:30): n=41 avgR=+0.113 t=+1.6 win=56%  halves +0.107/+0.118
+   per year: {2021: 0.18, 2022: 0.31, 2023: 0.02, 2024: 0.24, 2025: 0.04, 2026: -0.14}
+   baseline: every other day, same window: n=1212 avgR=+0.022 t=+1.1 win=53%  halves +0.001/+0.042
+   per year: {2021: 0.05, 2022: -0.1, 2023: 0.06, 2024: 0.06, 2025: 0.02, 2026: 0.07}
