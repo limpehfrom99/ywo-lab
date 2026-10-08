@@ -1,0 +1,11 @@
+version,trades,win%,avg R,t,cost R,pos years,2012-19,2020-26,gross R,exits,sec
+"2022 model: 4h bias, killzones, FVG limit, 2R",1460,34,-0.208,-5.5,0.208,3/15,-0.351,-0.032,0.0,"{'stop': 950, 'target': 456, 'time': 54}",8
+"2022 model: 4h bias, killzones, FVG limit, target = draw (PDH/PDL)",1106,19,-0.222,-2.7,0.235,7/15,-0.463,0.077,0.013,"{'stop': 878, 'target': 147, 'time': 81}",16
+"2022 model: premium/discount bias, killzones, 2R",1628,32,-0.259,-7.3,0.213,2/15,-0.442,-0.058,-0.046,"{'stop': 1081, 'target': 484, 'time': 63}",23
+"2022 model: both biases agree, killzones, 2R",476,36,-0.162,-2.4,0.231,5/15,-0.376,0.092,0.069,"{'stop': 298, 'target': 161, 'time': 17}",29
+"2022 model: 4h bias, market entry at the MSS, 2R",2705,36,-0.088,-3.4,0.102,2/15,-0.133,-0.034,0.014,"{'stop': 1605, 'target': 767, 'time': 333}",37
+"2022 model: 4h bias, any time of day, 2R",2113,35,-0.223,-7.2,0.227,4/15,-0.366,-0.064,0.004,"{'stop': 1328, 'target': 631, 'time': 154}",45
+"Silver Bullet windows: 4h bias, FVG limit, 2R",479,35,-0.205,-3.1,0.237,3/15,-0.366,0.002,0.032,"{'stop': 304, 'target': 153, 'time': 22}",52
+"Silver Bullet windows: no bias, no sweep, first FVG after an MSS",3964,36,-0.144,-6.7,0.139,1/15,-0.199,-0.082,-0.005,"{'stop': 2343, 'target': 1067, 'time': 554}",59
+"baseline: 4h bias + MSS + FVG, no sweep required",4550,33,-0.192,-9.3,0.16,1/15,-0.275,-0.097,-0.033,"{'stop': 2983, 'target': 1366, 'time': 201}",66
+"baseline: same setups, coin-flip direction",2187,18,-0.251,-0.5,0.299,2/15,-0.32,-0.168,0.048,"{'stop': 1788, 'target': 343, 'time': 56}",74

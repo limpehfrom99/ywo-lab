@@ -1,0 +1,170 @@
+<title>Strategy map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a field guide. One column of family sections, each a grid of small record cards; a status filter at the top. */
+:root {
+  --bg: #F6F7F4; --fg: #1A2230; --muted: #5E6975; --rule: #D7DCD5; --card: #FFFFFF;
+  --accent: #2457C5;
+  --live: #1F7A48; --live-bg: #DDF0E3; --watch: #9A6A0C; --watch-bg: #F7E9C6; --dead: #A3382F; --dead-bg: #F6DEDA;
+  --filter: #1F5FA6; --filter-bg: #DCE8F8; --open: #5A5F66; --open-bg: #E6E8E4; --test: #6C45B8; --test-bg: #E7E0F6;
+  --sans: "IBM Plex Sans", system-ui, "Helvetica Neue", Arial, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141A21; --fg: #E6EBF0; --muted: #9AA6B2; --rule: #2B343D; --card: #1C242D; --accent: #8FB1FF;
+  --live: #7DD3A0; --live-bg: #1E3A2B; --watch: #E8C06A; --watch-bg: #3F3418; --dead: #F09A8F; --dead-bg: #46262A;
+  --filter: #8FB1FF; --filter-bg: #1E2E4F; --open: #B3BBC4; --open-bg: #2A323B; --test: #C3ACF2; --test-bg: #33284F; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #141A21; --fg: #E6EBF0; --muted: #9AA6B2; --rule: #2B343D; --card: #1C242D; --accent: #8FB1FF;
+  --live: #7DD3A0; --live-bg: #1E3A2B; --watch: #E8C06A; --watch-bg: #3F3418; --dead: #F09A8F; --dead-bg: #46262A;
+  --filter: #8FB1FF; --filter-bg: #1E2E4F; --open: #B3BBC4; --open-bg: #2A323B; --test: #C3ACF2; --test-bg: #33284F; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.5; }
+main { max-width: 1040px; margin: 0 auto; padding-block: 28px 64px; padding-inline: 20px; }
+h1 { font-size: 30px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; text-wrap: balance; }
+.lede { color: var(--muted); max-width: 66ch; margin: 0 0 18px; }
+h2 { font-size: 20px; font-weight: 600; margin: 40px 0 4px; text-wrap: balance; }
+.fam-note { color: var(--muted); font-size: 14px; margin: 0 0 12px; max-width: 70ch; }
+.counts { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 14px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 13px; font-weight: 500; line-height: 1.3; white-space: nowrap; }
+.chip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; background: currentColor; }
+.s-live { color: var(--live); background: var(--live-bg); } .s-watch { color: var(--watch); background: var(--watch-bg); }
+.s-dead { color: var(--dead); background: var(--dead-bg); } .s-filter { color: var(--filter); background: var(--filter-bg); }
+.s-open { color: var(--open); background: var(--open-bg); } .s-test { color: var(--test); background: var(--test-bg); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.filters span { color: var(--muted); font-size: 13px; margin-right: 4px; }
+.filters button { font: inherit; font-size: 13px; font-weight: 500; color: var(--fg); background: var(--card); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.filters button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 6px; min-width: 0; }
+.card.hide { display: none; }
+.card h3 { font-size: 15px; font-weight: 600; margin: 0; line-height: 1.3; }
+.card .rule { font-size: 14px; color: var(--fg); margin: 0; }
+.card .meta { font-size: 13px; color: var(--muted); margin: 0; }
+.card .res { font-family: var(--mono); font-size: 13px; margin: 0; color: var(--fg); font-variant-numeric: tabular-nums; }
+.card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.card .top .chip { flex: none; }
+.idea .res { color: var(--muted); font-family: var(--sans); }
+.legend { font-size: 13px; color: var(--muted); margin: 14px 0 0; max-width: 70ch; }
+footer { margin-top: 40px; color: var(--muted); font-size: 13px; max-width: 70ch; }
+@media (prefers-reduced-motion: no-preference) { .filters button { transition: background .12s; } }
+</style>
+<main>
+  <h1>Strategy map</h1>
+  <p class="lede">Every strategy tested or planned in this project, grouped by the idea behind it, with its verdict. Results are average R per trade after FTMO costs. Updated 8 October 2026.</p>
+  <div class="counts">
+    <span class="chip s-live"><i></i>Live: 2</span>
+    <span class="chip s-filter"><i></i>Adopted as a filter: 2</span>
+    <span class="chip s-watch"><i></i>Watch list: 3</span>
+    <span class="chip s-test"><i></i>Testing tonight: 1</span>
+    <span class="chip s-dead"><i></i>Dead: 36</span>
+    <span class="chip s-open"><i></i>Untested: 8</span>
+  </div>
+  <div class="filters" role="group" aria-label="Show strategies by status">
+    <span>Show</span>
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="live" aria-pressed="false">Live and filters</button>
+    <button type="button" data-f="watch" aria-pressed="false">Watch list</button>
+    <button type="button" data-f="open" aria-pressed="false">Untested</button>
+    <button type="button" data-f="dead" aria-pressed="false">Dead</button>
+  </div>
+
+  <h2>Session-open direction</h2>
+  <p class="fam-note">The first candle after a real open sets the day's direction. The one family that produced a survivor.</p>
+  <div class="grid">
+    <div class="card" data-s="live"><div class="top"><h3>Opening candle, TSLA</h3><span class="chip s-live"><i></i>Live</span></div><p class="rule">At 10:00 NY, trade the direction of the first 30-minute candle; stop at its far end; exit 15:59 NY. Fed days skipped.</p><p class="meta">TSLA, 30-min bars, 2022–2026</p><p class="res">+0.105R · 1,139 trades · positive 5 of 5 years</p></div>
+    <div class="card" data-s="live"><div class="top"><h3>Opening candle, US100</h3><span class="chip s-live"><i></i>Live</span></div><p class="rule">Same rule on the Nasdaq index CFD.</p><p class="meta">US100.cash, 30-min bars, 2022–2026</p><p class="res">+0.099R · 1,137 trades · 2026 so far −0.07R</p></div>
+    <div class="card" data-s="filter"><div class="top"><h3>Fed decision day skip</h3><span class="chip s-filter"><i></i>Filter</span></div><p class="rule">No opening-candle trade on the 8 days a year the Fed announces at 2pm NY.</p><p class="meta">Both live symbols</p><p class="res">Fed days: −0.36R TSLA, −0.31R US100 (40 each)</p></div>
+    <div class="card" data-s="watch"><div class="top"><h3>Opening candle, US500</h3><span class="chip s-watch"><i></i>Watch</span></div><p class="rule">Same rule on the S&amp;P 500 CFD.</p><p class="meta">US500.cash, 2022–2026</p><p class="res">+0.04R to +0.08R · weaker in the late half</p></div>
+    <div class="card" data-s="test"><div class="top"><h3>Opening candle at other opens</h3><span class="chip s-test"><i></i>Testing</span></div><p class="rule">Same rule at Frankfurt 9:00, London 8:00, Tokyo 9:00 and Hong Kong 9:30, each market's own open.</p><p class="meta">GER40, UK100, JP225, HK50 from MT5 history; the lab's nightly run</p><p class="res">First results in the morning report</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Opening candle, other US stocks</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Same rule on AAPL, NVDA, META, AMZN, MSFT.</p><p class="meta">2022–2026</p><p class="res">AAPL −0.06R · the rest within ±0.02R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Opening candle, oil</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Same rule at the 9:00 NY open.</p><p class="meta">USOIL.cash, 2022–2026</p><p class="res">−0.09R · 1,138 trades</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Gold opening candles</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">First 30 minutes at the NY 8:30, London 8:00 and Tokyo 9:00 opens.</p><p class="meta">XAUUSD, 2012–2026</p><p class="res">−0.07R · −0.08R · −0.24R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>5-minute opening range breakout</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Direction of the first 5 minutes, stop at its far end, 10R target (a published rule).</p><p class="meta">TSLA, AAPL, US100, US500</p><p class="res">TSLA +0.14R before 2024, but FTMO stocks now open at 9:35, so it can't be traded; indices −0.12R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>15-minute range breakout</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Close beyond the first 15 minutes' range, stop at its middle, 2R, out in 90 minutes.</p><p class="meta">US100, TSLA, gold, US500, 5-min bars</p><p class="res">Best was TSLA +0.04R, flipping sign by year</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Intraday momentum</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">First half hour's direction predicts the last half hour (published in 2018).</p><p class="meta">US500, US100, 2022–2026</p><p class="res">−0.02R · 0.00R, same as a coin flip</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>London breakout of the Asian range</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">First close beyond the Asian range after 7:00 London, stop at the range middle, 2R.</p><p class="meta">Gold, 15-min bars, 2012–2024</p><p class="res">+0.02R development, −0.03R validation</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Last-hour continuation</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">At 15:00 NY, trade the direction of the day so far, hold to the close.</p><p class="meta">US100, TSLA, gold, US500</p><p class="res">−0.08R · −0.02R · +0.06R (286 trades) · −0.10R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>4-hour open reaction</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">At every 4-hour boundary, trade the first 1, 5 or 15-minute candle's direction.</p><p class="meta">Gold, 2012–2026</p><p class="res">22,000 trades · 0.00R before costs · −0.3R to −1.2R after</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Period-open reaction</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">First 1, 5 or 30-minute candle after the month, quarter, half-year or year opens.</p><p class="meta">Gold, 2012–2026</p><p class="res">Negative in every version with a usable sample</p></div>
+  </div>
+
+  <h2>Gold session lines (the original project)</h2>
+  <p class="fam-note">Horizontal lines at each session's open, traded on dips, crosses and rejections. Tested on 15 years of 1-minute data with FTMO's real spreads.</p>
+  <div class="grid">
+    <div class="card" data-s="dead"><div class="top"><h3>Tokyo sweep</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Dip at least 1 ATR below the Tokyo open, close back above, buy; hold to the London open.</p><p class="meta">XAUUSD, 2012–2026</p><p class="res">+0.03R · 2,747 trades · buying at the open every day made −0.03R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Tokyo sweep, variants</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">With a 2R target; both directions; with a trend filter.</p><p class="meta">XAUUSD</p><p class="res">−0.01R · −0.03R · sells −0.07R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>NY open line: cross</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">After the first 2-ATR spike from the NY open price, trade a close back through the line against the spike.</p><p class="meta">XAUUSD, 2012–2026</p><p class="res">0.00R · 1,619 trades</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>NY open line: reject</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">A touch of the line that fails, traded with the spike.</p><p class="meta">XAUUSD</p><p class="res">−0.09R · 1,535 trades · t −2.6</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>First NY spike: fade or follow</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Trade against (or with) the first 2-ATR move after the NY open.</p><p class="meta">XAUUSD</p><p class="res">Fade −0.02R · follow −0.08R, losing 14 of 16 years</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>8:30 news-spike fade or follow</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Same idea anchored on the 8:30 release, split by release type.</p><p class="meta">XAUUSD, with the economic calendar</p><p class="res">Nothing positive in both periods · chasing big releases −0.2R</p></div>
+  </div>
+
+  <h2>Trend and momentum</h2>
+  <p class="fam-note">Go with the move. The one direction with a mild pulse on trending stocks.</p>
+  <div class="grid">
+    <div class="card" data-s="watch"><div class="top"><h3>Turn-of-the-month hold</h3><span class="chip s-watch"><i></i>Watch</span></div><p class="rule">Own the market from the close of the second-to-last trading day through the third day of the new month.</p><p class="meta">US500, US100, gold, daily data 2012–2026</p><p class="res">+0.43% · +0.55% · +0.29% per month, vs +0.18% · +0.29% · +0.08% for 4 ordinary days</p></div>
+    <div class="card" data-s="watch"><div class="top"><h3>Structure-break continuation, TSLA</h3><span class="chip s-watch"><i></i>Watch</span></div><p class="rule">A 5-minute close beyond the last swing (CHoCH) with a 1-ATR candle, traded in its direction, 2R.</p><p class="meta">TSLA, 2021–2026</p><p class="res">+0.05R · 2,078 trades · overlaps the opening candle</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>1-hour trend pullback</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">EMA 50 above 200, RSI 14 dips below 40 and recovers, 2R.</p><p class="meta">Gold, 2012–2024</p><p class="res">0.00R dev, +0.05R val · trend-only baseline +0.03R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>4-hour breakout</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Close beyond the 20-bar high or low, 2 ATR stop, 3R.</p><p class="meta">Gold, 2012–2024</p><p class="res">0.00R dev, +0.02R val · random-in-trend baseline did better</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Busy-market filter</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Trade the above only when the daily range is above its one-year median.</p><p class="meta">Gold</p><p class="res">Made breakouts worse: −0.29R dev, −0.17R val</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Structure-break continuation, gold and indices</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">The CHoCH-only rule on the other markets.</p><p class="meta">Gold 2012–2026, US100, US500, AAPL</p><p class="res">Gold −0.08R (19,498 trades) · indices 0.00R · AAPL −0.07R</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Multi-day trend following</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Breakout of a 50 to 100-day channel, ATR trailing stop, across many CFDs at once.</p><p class="meta">Needs daily data for 10+ markets; swap costs matter</p><p class="res">Decades of published evidence; slow, with long flat spells</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Post-earnings drift</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Buy stocks that beat estimates and gap up, hold for days to weeks.</p><p class="meta">Needs earnings dates and surprise data</p><p class="res">One of the oldest documented stock effects</p></div>
+  </div>
+
+  <h2>Reversal and liquidity</h2>
+  <p class="fam-note">Fade the move at a level. Every version lost, and the baselines show why: the level predicts nothing.</p>
+  <div class="grid">
+    <div class="card" data-s="dead"><div class="top"><h3>Liquidity sweep fade</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Price trades through the previous day's, a session's or an equal high/low and closes back; fade it, 2R.</p><p class="meta">Gold 2012–2026, indices, stocks</p><p class="res">Gold −0.29R · 18,594 trades · 0.00R before costs</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>High-timeframe S/R with 1-minute entry</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Touch of a daily, weekly or 4H level, then a 1-minute structure shift, stop beyond the touch, 1:3.</p><p class="meta">Gold 2012–2026, TSLA, US100</p><p class="res">−0.07R · 4,882 trades · 61% stopped · wide-stop version also negative</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>SMC, single timeframe</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Sweep then change of character on 5-minute bars; entries at market, the fair value gap or the order block.</p><p class="meta">Gold, US100, US500, TSLA, AAPL</p><p class="res">Gold −0.17R, 0 of 15 years · TSLA +0.13R on 333 trades, mostly its CHoCH baseline</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>ICT 2022 model</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">4-hour bias, sweep against it in a killzone, 5-minute displacement and shift, limit at the gap's midpoint, target the draw.</p><p class="meta">Gold 2012–2026, indices, stocks</p><p class="res">Gold −0.21R after costs, 0.00R before · others within ±0.1R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Silver Bullet</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">The first gap formed inside 3–4am, 10–11am or 2–3pm NY, with or without a bias.</p><p class="meta">Gold, US100, US500, TSLA, AAPL</p><p class="res">US100 −0.03R both ways · gold −0.21R</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Pairs trades</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">When two correlated markets diverge by 2 standard deviations, bet they converge.</p><p class="meta">US500/US100, AAPL/US100, TSLA/US100, daily 2020–2026</p><p class="res">−0.31% · +0.08% · −2.6% per trade</p></div>
+  </div>
+
+  <h2>Mean reversion and scalping</h2>
+  <p class="fam-note">Short holds with small stops. Costs run 0.1 to 1.2R per trade at this scale, and the gross edge was zero anyway.</p>
+  <div class="grid">
+    <div class="card" data-s="dead"><div class="top"><h3>VWAP stretch fade</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Close more than 2 ATR from the day's VWAP, fade back to it, 1 ATR stop, out in an hour.</p><p class="meta">5-minute and 1-minute bars; gold, indices, stocks</p><p class="res">−0.02R to −0.30R everywhere · gold 1-min −0.20R on 28,005 trades</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Momentum-burst scalp</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">A candle twice the ATR closing near its extreme; follow it, 2R, out in 30 minutes (6 minutes on 1-min bars).</p><p class="meta">5-minute and 1-minute bars</p><p class="res">−0.08R to −0.16R · gold 1-min −0.14R on 12,611 trades</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>First-candle scalps</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Direction of the first 1 or 5-minute candle of the session, 2R, out in 10 to 60 minutes.</p><p class="meta">TSLA, US100, gold</p><p class="res">−0.03R on 5-min · −0.17R to −0.21R on 1-min</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Short-term index reversal</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Buy the index after two or three down days (or RSI-2 below 10), exit on a close above the 5-day average.</p><p class="meta">US500, US100 daily; data in hand</p><p class="res">The strongest entry in the StatOasis test (t 3.4 on SPY); needs our costs</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Opening gap fade or follow</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">When the 9:30 open gaps from yesterday's close, trade toward the gap's fill (or away from it) with a fixed exit.</p><p class="meta">US100, US500, TSLA; data in hand</p><p class="res">A classic with mixed evidence; cheap to test</p></div>
+  </div>
+
+  <h2>Calendar, news and macro</h2>
+  <p class="fam-note">Time, not price. The useful part was knowing when volatility arrives, not which way it goes.</p>
+  <div class="grid">
+    <div class="card" data-s="filter"><div class="top"><h3>News calendar as a volatility map</h3><span class="chip s-filter"><i></i>Filter</span></div><p class="rule">High-impact 8:30 releases move the 30-minute bar 4 to 6 times a normal bar; direction is unpredictable.</p><p class="meta">MT5 economic calendar, 2012–2026</p><p class="res">Used to skip Fed days and to size expectations, never for direction</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>News surprise as direction</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Trade the day in the direction of the jobs or CPI surprise.</p><p class="meta">US100 2022–2026</p><p class="res">Correlation −0.01 over the day; sign flips by year</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Macro bias from fundamentals</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Rising unemployment leads to Fed cuts; CPI leads hikes; position on that.</p><p class="meta">Calendar data 2012–2026</p><p class="res">Real over 12 months (correlations −0.37 and +0.72), useless at our horizon</p></div>
+    <div class="card" data-s="dead"><div class="top"><h3>Regime switching</h3><span class="chip s-dead"><i></i>Dead</span></div><p class="rule">Turn strategies on or off by volatility, trend, previous day, gap size, weekday or news type.</p><p class="meta">Six families on gold, the live strategy on TSLA and US100</p><p class="res">114 gold cells, none positive and stable · live edge spread evenly, splits contradict across symbols</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Overnight return effect</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Hold stocks or indices from the close to the next open only.</p><p class="meta">Daily open/close data in hand; swap costs decide it</p><p class="res">Documented: most equity returns accrue overnight</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Index expiry and rebalance days</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Different behaviour on quarterly expiry days and index rebalances.</p><p class="meta">Needs the dates; small samples</p><p class="res">Plausible flows, thin evidence</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Crypto weekend effect</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Bitcoin's weekend moves versus the week's.</p><p class="meta">BTC daily since 2020 in hand</p><p class="res">FTMO's crypto commission costs 0.2R per trade, so the bar is high</p></div>
+    <div class="card idea" data-s="open"><div class="top"><h3>Opening candle plus volatility sizing</h3><span class="chip s-open"><i></i>Untested</span></div><p class="rule">Scale the live strategy's risk by yesterday's volatility rather than a flat 0.5%.</p><p class="meta">A sizing change, not a new signal</p><p class="res">Could smooth drawdowns; must not become a filter</p></div>
+  </div>
+
+  <p class="legend">How to read a verdict. Dead means the rule lost or sat within noise after FTMO costs, with its baseline shown where one was run. Watch means a small positive result that hasn't earned trading money. Live means it passed every check and runs on the trial. Untested means the idea has published evidence and data we can get, so it's a fair next test.</p>
+  <footer>Built from FTMO MT5 exports (indices and stocks 2021–2026, gold 2020–2026), MT4 gold minutes 2012–2026 and the MT5 economic calendar. Costs are FTMO's spread history plus commission. Nothing here is a guarantee of future results.</footer>
+</main>
+<script>
+(function () {
+  var buttons = document.querySelectorAll(".filters button");
+  var cards = document.querySelectorAll(".card");
+  var groups = { all: null, live: ["live", "filter"], watch: ["watch", "test"], open: ["open"], dead: ["dead"] };
+  function apply(f) {
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.f === f ? "true" : "false"); });
+    cards.forEach(function (c) { c.classList.toggle("hide", groups[f] ? groups[f].indexOf(c.dataset.s) < 0 : false); });
+    try { localStorage.setItem("strategy-map-filter", f); } catch (e) {}
+  }
+  buttons.forEach(function (b) { b.addEventListener("click", function () { apply(b.dataset.f); }); });
+  var saved = "all";
+  try { saved = localStorage.getItem("strategy-map-filter") || "all"; } catch (e) {}
+  if (!groups.hasOwnProperty(saved)) saved = "all";
+  apply(saved);
+})();
+</script>
