@@ -166,3 +166,38 @@ Codeable and tested (bt/ff_rules.py):
     as written -1.27R/-0.92R (wicks smaller than costs); wick >= 10x spread: -0.109 / -0.099R, 0-2/15 years; coin -0.07. DEAD.
 Not codeable (discretionary or closed-source): THV, Pivot Trading, Gold Levels (needs options gamma data), BiteFX, Sniper,
 DTS, Scalping Gold 1-min, 5m 4R/R (pattern undefined). M1 Countertrend is a no-stop grid: not for a prop account.
+
+### 22. FTMO scenario engine: P(pass by 1/2/3/4 months), fail odds, income — by risk level and strategy mix   [2026-10-09 11:30 MYT]
+Monte Carlo on the real trade lists (10-day block resampling, FTMO 10%+5%, 5% daily, 10% total, min 4 days), bt/scenario.py, results/scenarios.csv.
+Live mix (OC TSLA + OC US100, 2022-26):
+  risk 0.25%: pass 4m 2%, 12m 42%, fail 2%, median 8.3 mo | 0.50%: 2m 5%, 3m 15%, 4m 26%, 12m 71%, fail 19%, median 4.9 mo, maxDD 12%
+  0.75%: 2m 18%, 3m 33%, 4m 44%, 12m 65%, fail 34%, median 3.0 mo | 1.0%: 1m 9%, 2m 30%, 3m 43%, 4m 50%, 12m 58%, fail 42%, median 2.0 mo
+  1.5%: 1m 18%, 2m 38%, 12m 48%, fail 52% | 2.0%: 1m 24%, 2m 39%, 12m 42%, fail 58%, maxDD 37%.  Half edge at 0.5%: 47% pass / 39% fail.
+Adding gold trend + pre-FOMC: +2 to +4 points at every risk level (0.5%: 75% pass, fail 18%). Gold trend alone at 0.5%: +0.21%/month, never passes.
+Funded (12 months, 80% split, $10k): 0.5% -> keep 65%, ~$160-180/month; 0.75% -> keep 30%, ~$190-210; 1% -> keep 12-14%.
+Reading: "fast pass" (1-2 months) needs 1-2% risk and is a coin flip with a 50-58% chance of losing the fee; the honest fast route is ~0.75%
+(1 in 3 passes by 3 months, 1 in 3 fails). The high-probability route is 0.5% (71% within a year, 19% fail).
+
+### 23. Opening-candle variations (TSLA, US100, US500 M30 2022-26; fixed list, every cell reported) — base rule stands   [11:45 MYT]
+  60-min candle: TSLA +0.055 (worse), US100 +0.093, US500 +0.059. Exit 12:00 worse everywhere; exit 14:00 = 16:00.
+  Candle range buckets: no monotonic pattern (tiny candles: TSLA n=25). Body/range >= 0.7: TSLA +0.13, US100 +0.16, US500 +0.01; dojis (<0.3) still >= 0.
+  Candle against the overnight gap beats with-the-gap on all three (TSLA +0.12 vs +0.09; US100 +0.16 vs +0.04; US500 +0.19 vs -0.04) — report only.
+  Weekday cells (TSLA Tue -0.14, Mon/Fri +0.24; US100 Mon -0.13): 15 cells, treated as noise. Cross-asset agreement filters: no effect.
+  Daily R correlations: TSLA/US100 0.14, US100/US500 0.48.
+  Stop-and-reverse after a stop-out: on 30-min bars looked like +0.17/+0.14/+0.18 but the 30-min bar hides the leg-2 stop; on 5-minute
+  bars (proper check) TSLA +0.126 vs base +0.098 (reversal leg +0.066R, t 0.9), US100 2025-26 0.00, AAPL ~0. WATCH on TSLA only, not deployable.
+Verdict: no variation beats the base rule with evidence; keep it as is. (bt/oc_var.py, bt/oc_sar_m5.py)
+
+### 24. Online daily rules: RSI(2) and IBS mean reversion (Connors / Quantified Strategies; backtrex.com third-party test) — IBS on US100 WATCH   [2026-10-09 12:05 MYT]
+Sources: backtrex.com RSI(2) NAS100 2016-26: CAGR +2.4%, 65 trades, 75% wins, maxDD -25% ("wins often, earns little");
+quantifiedstrategies.substack.com IBS+RSI (rules paywalled; IBS rule used in its public form).
+RSI(2) (<5 long above the 200-SMA, exit close > 5-SMA; mirror): US100 n=48 +0.27 ATR t=1.3; US500 n=52 +0.28 t=1.3; AAPL n=67 +0.23 t=1.6; TSLA +0.05. Too few trades.
+IBS (<0.2 long above 200-SMA, exit on a close above the prior high or 5 days; mirror), with a 2-ATR stop, R per planned risk (bt/ibs.py):
+  US100 2018-26: n=278 +0.083R t=2.3, 69% wins, halves +0.10/+0.07, last 60 +0.03, longs +0.13 (n=211) shorts -0.08; 6/9 years > 0.
+  US500 +0.01; AAPL +0.04 (threshold 0.1: +0.195 t=4.1 — one cell, neighbours weak); TSLA -0.07. Stop 1 ATR kills it (44% stops).
+Verdict: WATCH — US100 longs only, ~25 trades a year, about +1.5%/year at 0.5% risk; a diversifier, not a challenge strategy.
+
+### 25. Queue items: expiry days DEAD, post-FOMC afternoon DEAD   [12:05 MYT]
+  3rd-Friday day return: US100 -0.10 ATR, US500 -0.12, AAPL -0.12, TSLA -0.05 (all days +0.03/+0.04) -> slightly negative days, no rule.
+  Monday after expiry: +0.02 / -0.01 / +0.13 / +0.10 — inconsistent. Post-FOMC 14:30-candle direction held to 16:00: US100 -3.3R/US500 -1.5R
+  per unit of candle body (41 events, ~50% wins): the first 30 minutes after the statement reverse as often as they continue. DEAD.
