@@ -26,6 +26,13 @@ for s in ("gold", "TSLA", "AAPL", "US100", "US500"):
 X = os.path.join(D, "x")
 if os.path.isdir(X) and not os.path.exists("/home/claude/data/x"):
     os.symlink(X, "/home/claude/data/x"); print("full export linked:", len(os.listdir(X)), "files")
+# forex exports (EURUSD, GBPUSD, USDCHF M1/M5/M30, Oct 2026) -> /home/claude/data/fx2/*.csv (bt/fx_cross_check.py and others)
+import gzip
+FX = "/home/claude/data/fx2"; os.makedirs(FX, exist_ok=True)
+for f in glob.glob(os.path.join(D, "raw", "*.csv.gz")):
+    name = os.path.basename(f)[:-3]
+    if name.split("_")[0] in ("EURUSD", "GBPUSD", "USDCHF") and not os.path.exists(os.path.join(FX, name)):
+        with gzip.open(f, "rb") as fi, open(os.path.join(FX, name), "wb") as fo: fo.write(fi.read())
 shutil.copy(os.path.join(D, "news", "news_usd.csv"), "/home/claude/news/news_usd.csv")
 for f in glob.glob(os.path.join(ROOT, "lab", "*.py")): shutil.copy(f, "/home/claude/lab/")
 for f in glob.glob(os.path.join(ROOT, "bt", "*.py")): shutil.copy(f, "/home/claude/bt/")
