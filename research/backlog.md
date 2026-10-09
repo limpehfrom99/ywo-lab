@@ -97,3 +97,4 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     trailing stop, mirror for shorts, ATR position sizing; portfolio of all markets vs each group. (Overlaps quant/ rule books.)
 38. [queued] freqtrade-strategies (github.com/freqtrade/freqtrade-strategies): port the 5 most-starred long-only rules, test on BTC M30
     2020+ and ETH [needs export]; FTMO crypto costs 0.0325%/side. Low priority (1:1 leverage).
+39. [queued, needs export] Trend-following exit grid across every market (#32D): entries = close above the 20/55-day high (long and short), exits = 2/3/4-ATR chandelier, 10-day low, 50-day MA, hold 20/60; random-entry baseline per cell; real swaps from symbol_specs.csv; pooled by group; walk-forward choice of exit (quant/walkforward.py).
