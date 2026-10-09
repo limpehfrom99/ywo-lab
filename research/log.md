@@ -424,3 +424,30 @@ Verdict: S1, S2 DEAD. S3 meets the CANDIDATE bar on gold (n >= 200, both halves 
 robust to every setting, both sides, same sign on 3 timeframes. Warnings: best of 15 cells tried in this video; ~7R a year at
 55 trades. With #33 it is the second "break, then retest with a structural stop" rule to work; check their overlap. Next: the same
 rule unchanged on FX, indices, silver, oil from the full export (backlog #41), then paper-trade.
+
+### 36. Three RedNote videos on pullback entries and trend strength — pullback methods DEAD; the momentum score helps a little, no edge   [2026-10-09 23:10 MYT]
+Sources: 杰明GW "SMC，FVG和回撤进场，三法结合YYDS" (13.7 min: Fibonacci 0.618-0.886 / FVG / breakout-retest pullbacks, best when all
+three coincide); 熊猫教练 "合格的短线选手，一定要看得懂动能" (7.6 min: a 10-point momentum score — trend candles, counter pullbacks,
+unfilled FVGs +4, low overlap +3, inside a range -2; 8-10 = strong); 趋势周期形态 "如何判断趋势动能强劲" (4.5 min: same idea).
+Fixed before running (bt/pullback_lab.py docstring): legs = confirmed swing high above the previous one, start = lowest swing low
+between; limit entries for 48 bars after the high is confirmed, cancelled by a new high or a close below the start. FIB618 /
+FIB786 (stop below the start), FVG (latest unfilled gap's top, stop below its first candle), BRK (the broken swing high), CONF
+(gap inside the 0.618-0.886 zone with the broken high inside the gap). Targets: the leg high or 2R. Score computed per the table.
+Gold 2012-Oct 2026, 15m / 1h / 4h, longs + shorts, exits on 1-min, FTMO costs, coin flip. 30 cells:
+  15-min: all 10 negative, -0.04 to -0.09R (2,700-15,000 trades each; t to -7).
+  1-hour: FIB618 -0.07 / -0.03, FIB786 -0.03 / -0.04, FVG +0.01 / +0.05 (1,548, t 1.5), BRK -0.09 / -0.04, CONF +0.01 / +0.04 (388).
+  4-hour: -0.12 to +0.02.  "All three combined" (CONF) is no better than any single method.
+  Momentum score (2R target, all cells pooled): legs scoring <= 4 (85% of legs) -0.063R (51,006 trades), 5-7 -0.008R (8,557),
+    8-10 -0.017R (642). On 1-hour: <= 4 -0.037, 5-7 +0.084 (1,460), 8-10 +0.076 (103); 15-min and 4-hour no lift.
+Verdict: the three pullback methods and their combination DEAD on gold. The momentum score removes some of the worst trades
+(about +0.05R) but does not create an edge; the "8-10 strong trend" is rare (1% of legs). Worth one pre-registered test as a
+filter on #33 and #35 (backlog #42), nothing more.
+
+### 37. RedNote video "交易升级打怪": "FVG不是碰线就买，确认还在后面" (4-hour gap + 15-minute three-step confirmation) — DEAD   [2026-10-09 23:10 MYT]
+Rule (41 s): a 4-hour bullish gap is only the location; on 15-minute: (1) the prior low is pierced and the candle closes back above;
+(2) a close above the local bounce high leaves a new bullish gap; (3) price holds on the retest of that gap and strengthens -> buy;
+abandon if the swept low breaks; example target = the prior high. Fixed before running (bt/fvg_htf_confirm.py docstring).
+Gold 2012-Oct 2026, longs + shorts, exits on 1-min, FTMO costs:
+  target prior 4-hour high: -0.129R (578 trades, t -2.7, 4/15 years > 0); with an extra confirmation candle +0.026R (249, t 0.4).
+  target 2R: -0.106R (687); with the extra candle -0.031R (367).
+Verdict: DEAD. Same family as #31 (higher-timeframe zone + lower-timeframe sweep/gap entry with a stop under the sweep).
