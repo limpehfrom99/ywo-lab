@@ -287,3 +287,12 @@ the stop and target are a whole leg apart. The leak is the ENTRY candle (bt/ict_
   four +1.118R 62.5%. US100: honest -0.197 -> look-ahead + all four +1.799R 82.6%.
 Fix for the poster: check the stop on the entry candle itself, never count the target on the entry candle, drop setups whose
 entry candle also breaks 0.0, confirm swings n candles late, and build the setup only from candles before the entry candle.
+
+### 28. Reddit post (pasted): "Day trading stock indexes is dead — 72.4% of the Nasdaq's >1% moves in 2024 happened after hours; trade the night" — claims false on our data, overnight trades DEAD   [2026-10-09 15:10 MYT]
+No rules in the post; checked its two claims and the obvious overnight trades on US100/US500 30-min bars 2021-09..2026-10 (FTMO).
+  Claim 1: days with a >1% move overnight (16:00 -> 9:30) vs in regular hours (9:30 -> 16:00): US100 2024 29 vs 52 (overnight 36%), 2021-26 242 vs 400
+    (38%); US500 2024 15 vs 22 (41%). Overnight share of variance 35-43% over 17.5 hours vs 57-65% in 6.5 regular hours.
+  Claim 2: FTMO tick volume (CFD quote updates, not futures contracts) 49-50% in 9:30-16:00 -> per hour the session is ~2.7x busier.
+  Trades (enter at the 16:00 close, exit at the 9:30 open, spread both ways + swap 0.01%/night): with the day's direction US100 -4.1 bp/night (t -1.7),
+    US500 -2.9; against the day -0.7 / -3.0; always long +0.9 / -0.6 (t 0.4 / -0.3). Agrees with #6 (overnight premium ~+0.015 ATR, too small).
+Verdict: DEAD. Overnight holds also put gap risk on FTMO's 5% daily limit.
