@@ -306,3 +306,13 @@ limit 24 bars (1H) / 32 bars (15m). Signal: RSI(14) crosses 50 in the 1H 200-EMA
   stops "fill" at the stop price through overnight gaps. Same-day only: 1H +0.04/+0.05/+0.05R (t 1.3-1.5), 15m +0.02/+0.07/+0.06 (t 0.7-2.1),
   coin flip ~0 to +0.02 -> ~+0.05R excess, longs carry it: the same TSLA intraday trend as #20, #26b and the opening candle.
 Verdict: DEAD on gold/US100/US500; nothing new on TSLA. The post's claim is survival ("kept my accounts alive"), not profit.
+
+### 30. Reddit post (pasted): "How to become profitable: learn to trade liquidity" (4H swing = liquidity; after price takes it, 1H close back through the level, stop behind the sweep, target the next 4H swing, >= 1:2, breakeven) — DEAD on gold/US100/US500   [2026-10-09 15:35 MYT]
+Poster trades GBPUSD/majors (~2 setups a week), gives no statistics; "breakdown" level and the 15-min early exit are discretionary.
+Mechanical version fixed before running (bt/liq_4h1h.py): 4H n-bar fractal swings (n=3/5), usable once confirmed, each traded once;
+sweep = 1H high above an unswept 4H swing high (mirror for lows); trigger = first 1H close back below the level within 12h; stop =
+sweep extreme + 0.05 daily ATR; target = nearest unswept opposing 4H swing (only if >= 2R) or fixed 2R; breakeven at +1R or none; 5-day limit.
+  gold 2012-26: swing target -0.02 to -0.05R (~20 trades/yr, 17-22% wins), 2R target -0.02 to -0.07R (130-200/yr); coin flip similar
+    (swing-target coin flips +0.09..+0.18 = gold's uptrend on flipped longs).
+  US100 2021-26: -0.02 to -0.30R. US500: -0.33 to +0.12R (the +0.12 cell t 0.9, its neighbours negative).
+Verdict: DEAD on our instruments. Not tested on his market (no FX data in the repo) — would need GBPUSD/EURUSD H1 exports.
