@@ -296,3 +296,13 @@ No rules in the post; checked its two claims and the obvious overnight trades on
   Trades (enter at the 16:00 close, exit at the 9:30 open, spread both ways + swap 0.01%/night): with the day's direction US100 -4.1 bp/night (t -1.7),
     US500 -2.9; against the day -0.7 / -3.0; always long +0.9 / -0.6 (t 0.4 / -0.3). Agrees with #6 (overnight premium ~+0.015 ATR, too small).
 Verdict: DEAD. Overnight holds also put gap risk on FTMO's 5% daily limit.
+
+### 29. Reddit post (pasted): "15 years trading indices: mark S/R on daily/hourly, trade only in the direction of the 1H 200 EMA, enter when RSI crosses 50" — DEAD (TSLA shows the known TSLA trend effect only)   [2026-10-09 15:20 MYT]
+S/R marking is discretionary (and levels are dead in #0/#1); no stop/exit given -> fixed before running: stop 1.5 x ATR(14), targets 1R/2R/3R,
+limit 24 bars (1H) / 32 bars (15m). Signal: RSI(14) crosses 50 in the 1H 200-EMA direction, on 1H and on 15m. Costs + coin flip (bt/ema200_rsi50.py).
+  gold 2014-26: 1H -0.036/-0.011/+0.020R (1R/2R/3R), 15m -0.106/-0.091/-0.065R; coin flip about the same.
+  US100 2021-26: 1H -0.04/-0.05/-0.02, 15m -0.06/-0.04/-0.01 (coin flip -0.01..+0.05). US500: -0.01 to -0.08 everywhere.
+  TSLA with overnight holds looked like +0.15/+0.21R (1H 2R/3R) and +0.20/+0.30R (15m) — but the coin flip also scored +0.07 to +0.21R:
+  stops "fill" at the stop price through overnight gaps. Same-day only: 1H +0.04/+0.05/+0.05R (t 1.3-1.5), 15m +0.02/+0.07/+0.06 (t 0.7-2.1),
+  coin flip ~0 to +0.02 -> ~+0.05R excess, longs carry it: the same TSLA intraday trend as #20, #26b and the opening candle.
+Verdict: DEAD on gold/US100/US500; nothing new on TSLA. The post's claim is survival ("kept my accounts alive"), not profit.
