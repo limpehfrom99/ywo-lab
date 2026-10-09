@@ -1018,3 +1018,70 @@ stop. SEAS — every N trading days take the side of the seasonal mean for the n
 + commission + swap per night. R = the 2-ATR stop. Baseline: same side and holding from 20 random days of the same year.
 Pass bar: pooled n >= 200, edge over baseline >= +0.05R with t >= 2, positive in both halves (FX/metals split at 2018, others at 2023),
 edge > 0 on >= 60% of markets. Then permutation test before CANDIDATE.
+
+### 67. Pre-registered (BEFORE running) — Bernd's "UnFilled Order" zones as his indicator page defines them, alone and filtered by his bias tools, on every export symbol and timeframe (bt/xrules_bernd2.py)   [2026-10-10 02:20 MYT]
+Sources: bernd-skorupinski.com (4 indicator pages; formulas not published, scripts invite-only), Shen's screenshots of those pages,
+his 41 reels (#58), podcast notes (Scott D. Clary; TradingNut #318: "at least 1:2", "a 40% win rate can be profitable", swing trading,
+set-and-forget limit orders, only risk per trade changes). His method is the Online Trading Academy supply/demand school (odds
+enhancers: how price left the level, time at the level, freshness, profit margin, big picture, location) plus a fundamental bias
+from COT, valuation and seasonality.
+UFO zone: ONE base candle with body <= 0.5 x its range and <= 0.5 x the smaller neighbouring body; leg-in body >= 0.5 x range (any
+colour: drop-base-rally or rally-base-rally); leg-out bullish, body >= 0.5 x range, close above the base high. Proximal = base body top
+(his "buy limit on the proximal (upper) level"), distal = min(base low, leg-out low); first return only; stop = distal - 0.05 daily ATR;
+fill checked first (no same-bar look-ahead). Cells: 2R; 3R; 2R with >= 2R of room; and 2R zones filtered by the bias known at the start
+of the day: SEAS (15-year seasonal mean of the next 20 days on the trade's side), VAL (valuation vs the dollar index on the cheap side
+of zero for demand / rich side for supply), VALX (beyond his -0.75/+0.75), SEAS+VAL; and the full stack room + SEAS + VAL at 3R.
+Every symbol of the export, M5-D1, both directions (mirrored). Seasonal bias needs 12+ years of daily data (forex, gold: 2015+; not
+the indices, whose FTMO daily history starts 2017-19). Pass bar: PROTOCOL + #60 (p_best <= 0.10 and BCa lower bound > 0).
+COT (his 4 COT indicators, 157-week index, 20/80) can't be tested: CFTC history isn't reachable from here (cftc.gov blocked, GitHub
+has no copy) -> backlog, needs Shen.
+
+### 68. The cross-market battery on the full export (quant/run_battery.py; 94 symbols, 21 intraday + 12 daily rules + 2 cross-sectional) — 0 survivors per symbol; 1 pooled group to check   [2026-10-10 02:25 MYT]
+results/battery_cells.csv, battery_groups.csv. Selection rule fixed in quant/evaluate.py: in-sample = before 2024 (60+ trades, t >= 2.5,
+beats its baseline by 0.03R, 60% of years positive, positive at double spread); out of sample from 2024.
+  2,821 cells (1,704 intraday, 1,057 daily, 60 cross-sectional); 1,803 with enough in-sample trades -> ~11 would pass in-sample by luck;
+  7 passed (fewer than luck): TSLA ORB15 (WATCH, +0.105R, OOS +0.061 t 1.1), TSLA noise band (WATCH, OOS +0.08), INTC ORB60 (WATCH);
+  US500 ORB60, TSLA ORB60, AMD noise band, BA intraday momentum FAILED out of sample. No SURVIVOR.
+  Pooled groups: EU indices GAPfade1.0 (fade a >= 1 ATR opening gap toward yesterday's close, 5 indices, 257 trades 2022-26) SURVIVOR:
+  +0.129R, before 2024 +0.264 (t 4.4) / from 2024 +0.069 (t 1.96). Same rule: US indices +0.092 (220, t 2.3; +0.107 / +0.080),
+  HK50 +0.113 (59), stocks -0.002, forex -0.015, metals -0.101, crypto -0.228. US index ORB15/ORB30 WATCH (+0.045, OOS +0.01/+0.03);
+  stock ORB15/ORB60 FAILED out of sample.
+  Daily rules: nothing selected anywhere (trend following on every group negative after costs and swaps 2000/2015-26; RSI(2) on US
+  indices +0.047R, out of sample +0.11 t 3.6 but in-sample +0.01). Crypto daily numbers are not meaningful before 2018 (today's
+  absolute spread on 2011-17 prices).
+  Across all symbols, the median intraday cell is negative for every rule (best: GAPfade1.0 -0.014R, 43% of cells positive).
+Verdict: no single-symbol cell survives on the full export; the opening-gap fade on index CFDs (EU + US, ~240 trades a year pooled)
+is the one pooled result to put through the permutation test (best of all pooled cells, #60 protocol) before anything else.
+
+### 69. Export backlog items #46/#48/#49 on 44 stocks and indices (quant/export_items.py) — NR7 and the gap filter both FAIL their pre-registered bars   [2026-10-10 02:25 MYT]
+Same engine as the battery (cash session per symbol, FTMO costs). results/export_items_cells.csv.
+  #49 NR7 (yesterday's cash-session range the smallest of 7): OC30 NR7 days -0.055R (9,110) vs other days -0.072R (49,841): +0.016,
+  before 2024 +0.048 / from 2024 -0.017, diff >= +0.05 on 39% of symbols (bar: 60% AND from 2024). ORB30: +0.016, 36% of symbols,
+  from 2024 -0.009. -> the NR7 CANDIDATE (#49) does not carry over: DEAD as a general filter.
+  #48 NR7 size-up on the live opening candle: TSLA NR7 +0.192 vs other +0.060, US100 +0.154 vs +0.077 -> the first condition holds on
+  both, but #49's failure says this is likely noise; not adopted unless the FTMO odds and the forward test say otherwise.
+  #46 opening candle against a big gap (|gap| >= 0.5 ATR): against -0.046R (6,522) vs with -0.087 (6,527): +0.040 (bar +0.10), before
+  2024 -0.014 / from 2024 +0.086, 59% of symbols -> FAILS. US indices alone: against +0.257 vs with -0.054 (US100 +0.336 / +0.069,
+  US500 +0.258 / +0.050) -> stays a US-index-only WATCH, not an EA filter.
+
+### 66 (result). Bernd's Valuation Tool and True Seasonality as daily rules on every FTMO market — timing information yes, money no   [2026-10-10 02:29 MYT]
+bt/bernd_daily.py, results/bernd_daily_trades.csv (63,669 trades, 94 symbols). R = a 2-ATR stop; "edge" = R minus the same side and
+holding from 20 random days of the same year; t also shown with trades clustered by entry week (many symbols signal the same week).
+  rule (n)                      R after costs   edge vs random   week-clustered edge   longs / shorts R
+  SEAS10 always-in (29,082)       -0.091          +0.003           +0.004 (t 0.5)        -0.05 / -0.14
+  SEAS20 (14,558)                 -0.136          +0.002           -0.006 (t -0.3)       -0.08 / -0.20
+  SEAS30 (9,691)                  -0.164          -0.004           -0.009 (t -0.3)       -0.07 / -0.27
+  VAL vs dollar, ROC (4,503)      -0.135          +0.010           +0.044 (t 1.3)        -0.04 / -0.24
+  VAL vs dollar, level (1,957)    -0.195          +0.073 (t 2.8)   +0.123 (t 3.4)        -0.14 / -0.24
+  VAL vs gold, ROC (1,304)        -0.058          +0.165 (t 4.1)   +0.158 (t 2.4)        +0.21 / -0.35
+  VAL vs gold, level (574)        -0.156          +0.156 (t 2.8)   +0.110 (t 1.7)        -0.03 / -0.36
+  Valuation vs gold (indices, stocks, oil), ROC version: halves +0.18 / +0.16, edge > 0 on 61% of markets -> meets the pre-registered
+  edge bar. Its long side (+0.209R, 685 trades: buy indices/stocks after a 10-day slump against gold) is the only positive absolute
+  result, but 199 of the trades are 2025 (the April crash and rebound); clustered by week the longs average +0.046R (t 0.5) and a
+  week-cluster bootstrap puts the mean between -0.06 and +0.48R. Valuation vs the dollar (level version) also beats random timing
+  (clustered t 3.4) but every side loses after costs and swaps over 20-day holds.
+  The always-in seasonal rotation (his True Seasonality) has no timing information at all (edge +0.00); the 80%-hit-rate windows
+  of #64 do (calendar permutation p 0.003) — the tool only helps when the history is one-sided.
+Verdict: DEAD as stand-alone trades (no rule makes money after FTMO costs and swaps over 10-30 day holds). WATCH: valuation vs gold as
+a long-only "equities oversold against gold" filter (one episode carries it), valuation-level vs dollar and 80%-hit seasonal windows as
+bias filters for short-hold entries (tested in #67).
