@@ -697,3 +697,31 @@ Indices / AAPL DEAD. TSLA: WATCH, overlaps the opening candle.
   Stocks/indices: 45-76% of fills happen in a bar that also makes the new session extreme, so the result depends on the unknown order:
     conservative -0.30 to -0.76R, optimistic (extreme first) M30 +0.13 to +0.43R, M5 -0.07 to +0.29R. Not decidable without 1-minute history.
 Verdict: DEAD on gold. Stocks/indices [blocked]: needs 1-minute bars (TSLA/AAPL M1 since 2025-09 only = ~25 trades each).
+
+### 52-53. Pre-registered rules (written BEFORE running) — Raschke Turtle Soup (backlog #26) and 80-20s (backlog #27)   [01:00 MYT]
+Engine bt/raschke_daily.py on top of bt/classic_intraday.py (same markets, bars, costs, fill rules; day = cash session for
+stocks/indices, broker day for gold; ATR = 14-day mean session range).
+#52 Turtle Soup: L20 = lowest session low of the previous 20 sessions, set >= 4 sessions ago (its bar index <= n-4). Today trades below
+  L20 (sweep bar); from the NEXT bar on, buy stop at L20 (fill at max(L20, bar open)); stop = today's lowest low before the fill bar,
+  at least 0.1 ATR below the entry; a fill bar that makes a new session low = stopped (order unknown). No fill by the session end = no
+  trade. Mirror for shorts at H20. Exits: cell A = close of the entry day (+0); cell B = close of day +1; cell C = close of day +3
+  (stop kept, checked on every bar incl. overnight; swap ~1 bp of price per night, x3 over weekends).
+#53 80-20s: yesterday opened in the top 20% of its range and closed in the bottom 20% -> today, once price trades >= 0.1 ATR below
+  yesterday's low, buy stop at yesterday's low (from the next bar); stop = today's low before the fill (>= 0.1 ATR); same conservative
+  fill-bar rule; exit at today's close. Mirror for shorts.
+Pass bar as PROTOCOL.md; coin flip at the same moment; IS < 2024 / OOS 2024+; ambiguous-fill share reported.
+
+### 52. Raschke "Turtle Soup" (backlog #26; Connors & Raschke, Street Smarts 1995) — DEAD   [01:10 MYT]
+bt/raschke_daily.py (results/raschke_daily.log, raschke_daily*.csv). avgR for exit at the close of day +0 / +1 / +3:
+  gold (M1, broker day, 212 trades, 14 a year): -0.58 / -0.39 / -0.51 (t -5.8 / -2.0 / -1.9; 1-4 of 15 years up); 27% of fills ambiguous,
+    the clean ones alone -0.37 / -0.11 / -0.26.
+  US100 (M30 2021-26, 70): +0.38 / +0.09 / -0.41 (t 1.5; +0.03 before 2024) | US500 (72): -0.34 / -0.47 / -0.47 | AAPL (115): -0.53 / -0.68 / -0.66
+  | TSLA (57): -0.25 / -0.28 / -0.54. M5 re-run (TSLA/AAPL 2021+, indices 2025+): -0.43 to -1.22 except US100 day+0 +0.34 (20 trades).
+Verdict: DEAD — the reclaim of the 20-day low loses on 14 of 15 cells and on gold with clean 1-minute fills; 10-14 trades a year anyway.
+
+### 53. Raschke "80-20s" (backlog #27) — DEAD   [01:10 MYT]
+  gold (M1, 391 trades, 1% ambiguous): -0.019R (t -0.2, 5/15 years, coin +0.013). US100 -0.178 (143), US500 -0.119 (144), AAPL -0.051 (230),
+  TSLA +0.045 (140) on 30-min bars; M5: TSLA +0.173 (143, t 1.3), AAPL -0.028, US100 -0.564 (33), US500 +0.165 (34). Non-ambiguous fills
+  alone +0.03 to +0.27 on stocks/indices (108-191 trades, none t >= 2).
+Verdict: DEAD — zero on gold where fills are exact; nowhere t >= 2. What would change it: the export's stocks at 1-minute resolution
+showing >= +0.10R on most names (unlikely given gold).

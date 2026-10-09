@@ -1,0 +1,120 @@
+--- gold (3730 sessions, 2s)
+TurtleSoup gold exit day+0             n=  212 (14.1/yr) avgR=-0.583 t=-5.8 win=16% coin=-0.029 L -0.564 S -0.598 | IS -0.558 OOS -0.700 (n 38) | yrs+ 1/15 worst -1.06 last60 -0.58 | risk 14bp
+                                        12:-0.71 13:-1.06 14:-0.68 15:-1.05 16:-0.01 17:-0.68 18:-0.94 19:+0.12 20:-0.79 21:-0.18 22:-0.49 23:-0.61 24:-0.61 25:-0.91 26:-0.40
+                                        ambiguous fills 27%
+TurtleSoup gold exit day+1             n=  212 (14.1/yr) avgR=-0.390 t=-2.0 win=11% coin=+0.005 L -0.241 S -0.504 | IS -0.358 OOS -0.536 (n 38) | yrs+ 4/15 worst -1.19 last60 -0.20 | risk 14bp
+                                        12:-0.81 13:-1.19 14:-0.60 15:-0.97 16:+0.48 17:-0.40 18:-0.96 19:+0.43 20:-1.04 21:+0.15 22:+0.85 23:-0.91 24:-0.20 25:-0.99 26:-0.23
+                                        ambiguous fills 27%
+TurtleSoup gold exit day+3             n=  210 (14.0/yr) avgR=-0.506 t=-1.9 win=8% coin=+0.035 L -0.051 S -0.847 | IS -0.515 OOS -0.465 (n 38) | yrs+ 3/15 worst -1.34 last60 -0.06 | risk 14bp
+                                        12:-1.34 13:-1.33 14:-1.27 15:-1.03 16:-0.33 17:-0.16 18:-1.25 19:+1.11 20:-1.22 21:-0.55 22:+1.43 23:-1.13 24:-0.29 25:-1.21 26:+0.87
+                                        ambiguous fills 28%
+80-20s gold                            n=  391 (26.1/yr) avgR=-0.019 t=-0.2 win=31% coin=+0.013 L +0.008 S -0.040 | IS -0.009 OOS -0.053 (n 91) | yrs+ 5/15 worst -0.95 last60 +0.00 | risk 26bp
+                                        12:-0.95 13:+0.86 14:+0.45 15:+0.17 16:-0.13 17:-0.18 18:-0.38 19:-0.00 20:-0.02 21:-0.23 22:-0.02 23:+0.02 24:+0.41 25:-0.41 26:-0.21
+                                        ambiguous fills 1%
+--- US100 (1262 sessions, 7s)
+TurtleSoup US100 exit day+0            n=   70 (11.7/yr) avgR=+0.380 t=+1.5 win=46% coin=-0.843 L +0.349 S +0.404 | IS +0.033 OOS +0.641 (n 40) | yrs+ 4/5 worst -0.20 last60 +0.53 | risk 29bp
+                                        21:-1.02 22:-0.20 23:+0.53 24:+0.50 25:+0.19 26:+1.15
+                                        ambiguous fills 34%
+TurtleSoup US100 exit day+1            n=   70 (11.7/yr) avgR=+0.086 t=+0.3 win=26% coin=-0.781 L +0.509 S -0.231 | IS -0.352 OOS +0.415 (n 40) | yrs+ 2/5 worst -0.30 last60 +0.19 | risk 29bp
+                                        21:-1.02 22:-0.25 23:-0.30 24:-0.04 25:+0.00 26:+1.23
+                                        ambiguous fills 34%
+TurtleSoup US100 exit day+3            n=   70 (11.7/yr) avgR=-0.412 t=-1.5 win=16% coin=-0.877 L -0.239 S -0.541 | IS -0.343 OOS -0.464 (n 40) | yrs+ 2/5 worst -0.95 last60 -0.36 | risk 29bp
+                                        21:-1.02 22:+0.24 23:-0.82 24:-0.72 25:-0.95 26:+0.20
+                                        ambiguous fills 34%
+80-20s US100                           n=  143 (23.8/yr) avgR=-0.178 t=-1.7 win=30% coin=-0.413 L -0.246 S -0.127 | IS -0.148 OOS -0.211 (n 69) | yrs+ 1/6 worst -0.58 last60 -0.25 | risk 48bp
+                                        21:-0.58 22:-0.36 23:+0.19 24:-0.24 25:-0.14 26:-0.27
+                                        ambiguous fills 24%
+--- US500 (1262 sessions, 10s)
+TurtleSoup US500 exit day+0            n=   72 (12.0/yr) avgR=-0.335 t=-2.0 win=22% coin=-0.589 L -0.452 S -0.261 | IS -0.183 OOS -0.444 (n 42) | yrs+ 1/5 worst -0.73 last60 -0.29 | risk 23bp
+                                        21:-0.47 22:+0.01 23:-0.27 24:-0.41 25:-0.11 26:-0.73
+                                        ambiguous fills 39%
+TurtleSoup US500 exit day+1            n=   72 (12.0/yr) avgR=-0.469 t=-2.0 win=19% coin=-0.598 L -0.212 S -0.633 | IS -0.512 OOS -0.439 (n 42) | yrs+ 2/5 worst -1.10 last60 -0.44 | risk 23bp
+                                        21:-0.58 22:+0.20 23:-1.10 24:-0.82 25:+0.28 26:-0.65
+                                        ambiguous fills 39%
+TurtleSoup US500 exit day+3            n=   71 (11.8/yr) avgR=-0.471 t=-1.1 win=10% coin=-0.662 L -0.657 S -0.350 | IS -0.127 OOS -0.722 (n 41) | yrs+ 1/5 worst -1.47 last60 -0.47 | risk 23bp
+                                        21:-0.28 22:+1.49 23:-1.47 24:-1.03 25:-0.64 26:-0.51
+                                        ambiguous fills 38%
+80-20s US500                           n=  144 (24.0/yr) avgR=-0.119 t=-1.2 win=37% coin=-0.452 L -0.375 S +0.039 | IS -0.198 OOS -0.028 (n 67) | yrs+ 1/6 worst -0.37 last60 -0.11 | risk 37bp
+                                        21:-0.32 22:-0.28 23:-0.08 24:+0.23 25:-0.02 26:-0.37
+                                        ambiguous fills 17%
+--- AAPL (2478 sessions, 12s)
+TurtleSoup AAPL exit day+0             n=  115 (10.5/yr) avgR=-0.532 t=-6.3 win=18% coin=-0.359 L -0.515 S -0.546 | IS -0.548 OOS -0.492 (n 33) | yrs+ 0/10 worst -0.97 last60 -0.43 | risk 38bp
+                                        15:-0.65 16:-0.97 17:-0.55 18:-0.86 19:-0.56 21:+0.79 22:-0.54 23:-0.15 24:-0.42 25:-0.36 26:-0.69
+                                        ambiguous fills 31%
+TurtleSoup AAPL exit day+1             n=  114 (10.4/yr) avgR=-0.675 t=-5.7 win=17% coin=-0.206 L -0.572 S -0.764 | IS -0.692 OOS -0.631 (n 33) | yrs+ 0/10 worst -1.17 last60 -0.58 | risk 38bp
+                                        15:-0.80 16:-1.11 17:-0.97 18:-0.99 19:-0.61 21:+1.37 22:-0.82 23:-0.24 24:-0.29 25:-0.47 26:-1.17
+                                        ambiguous fills 32%
+TurtleSoup AAPL exit day+3             n=  114 (10.4/yr) avgR=-0.660 t=-4.3 win=14% coin=-0.270 L -0.427 S -0.862 | IS -0.624 OOS -0.749 (n 33) | yrs+ 0/10 worst -1.38 last60 -0.60 | risk 38bp
+                                        15:-0.75 16:-1.21 17:-0.75 18:-1.05 19:-0.76 21:+2.08 22:-0.74 23:-0.05 24:-0.03 25:-1.02 26:-1.38
+                                        ambiguous fills 32%
+80-20s AAPL                            n=  230 (20.9/yr) avgR=-0.051 t=-0.6 win=40% coin=-0.375 L -0.027 S -0.066 | IS -0.092 OOS +0.106 (n 48) | yrs+ 6/11 worst -0.44 last60 +0.03 | risk 71bp
+                                        15:+0.21 16:-0.17 17:+0.07 18:+0.13 19:-0.17 21:+0.02 22:-0.44 23:-0.17 24:+0.24 25:+0.13 26:-0.10
+                                        ambiguous fills 17%
+--- TSLA (1292 sessions, 14s)
+TurtleSoup TSLA exit day+0             n=   57 (9.5/yr) avgR=-0.248 t=-1.8 win=35% coin=-0.559 L -0.351 S -0.132 | IS -0.386 OOS -0.161 (n 35) | yrs+ 1/6 worst -0.69 last60 -0.25 | risk 105bp
+                                        21:-0.60 22:-0.48 23:-0.09 24:-0.03 25:+0.38 26:-0.69
+                                        ambiguous fills 25%
+TurtleSoup TSLA exit day+1             n=   57 (9.5/yr) avgR=-0.278 t=-1.1 win=23% coin=-0.745 L -0.209 S -0.354 | IS -0.405 OOS -0.197 (n 35) | yrs+ 1/6 worst -0.64 last60 -0.28 | risk 105bp
+                                        21:-0.32 22:-0.28 23:-0.64 24:+0.02 25:-0.07 26:-0.50
+                                        ambiguous fills 25%
+TurtleSoup TSLA exit day+3             n=   57 (9.5/yr) avgR=-0.536 t=-2.4 win=16% coin=-0.680 L -0.301 S -0.796 | IS -0.612 OOS -0.487 (n 35) | yrs+ 0/6 worst -0.74 last60 -0.54 | risk 105bp
+                                        21:-0.69 22:-0.69 23:-0.44 24:-0.30 25:-0.74 26:-0.47
+                                        ambiguous fills 25%
+80-20s TSLA                            n=  140 (23.3/yr) avgR=+0.045 t=+0.4 win=41% coin=-0.227 L +0.154 S -0.035 | IS +0.111 OOS -0.057 (n 55) | yrs+ 3/6 worst -0.31 last60 -0.06 | risk 190bp
+                                        21:-0.17 22:+0.13 23:+0.21 24:-0.21 25:+0.16 26:-0.31
+                                        ambiguous fills 13%
+done in 16s
+===== M5
+--- TSLA (1286 sessions, 0s)
+TurtleSoup TSLA exit day+0             n=   64 (10.7/yr) avgR=-0.722 t=-6.3 win=12% coin=-0.620 L -0.822 S -0.609 | IS -0.977 OOS -0.559 (n 39) | yrs+ 0/6 worst -1.04 last60 -0.70 | risk 54bp
+                                        21:-1.04 22:-0.94 23:-0.99 24:-0.37 25:-0.26 26:-0.94
+                                        ambiguous fills 45%
+TurtleSoup TSLA exit day+1             n=   64 (10.7/yr) avgR=-0.714 t=-4.2 win=9% coin=-0.886 L -0.963 S -0.432 | IS -1.043 OOS -0.503 (n 39) | yrs+ 1/6 worst -1.05 last60 -0.69 | risk 54bp
+                                        21:-1.05 22:-1.04 23:-1.05 24:-0.57 25:+0.22 26:-0.98
+                                        ambiguous fills 45%
+TurtleSoup TSLA exit day+3             n=   64 (10.7/yr) avgR=-0.698 t=-3.7 win=9% coin=-0.874 L -0.776 S -0.611 | IS -1.066 OOS -0.462 (n 39) | yrs+ 0/6 worst -1.09 last60 -0.67 | risk 54bp
+                                        21:-1.06 22:-1.05 23:-1.09 24:-0.66 25:-0.04 26:-0.60
+                                        ambiguous fills 45%
+80-20s TSLA                            n=  143 (23.8/yr) avgR=+0.173 t=+1.3 win=43% coin=-0.236 L +0.246 S +0.118 | IS +0.194 OOS +0.142 (n 58) | yrs+ 3/6 worst -0.21 last60 +0.12 | risk 145bp
+                                        21:-0.11 22:+0.05 23:+0.50 24:-0.21 25:+0.44 26:-0.02
+                                        ambiguous fills 7%
+--- AAPL (1286 sessions, 1s)
+TurtleSoup AAPL exit day+0             n=   69 (11.5/yr) avgR=-0.430 t=-2.0 win=22% coin=-0.205 L -0.542 S -0.339 | IS -0.557 OOS -0.326 (n 38) | yrs+ 1/5 worst -0.98 last60 -0.39 | risk 28bp
+                                        21:-0.74 22:-0.59 23:-0.47 24:+0.58 25:-0.98 26:-0.87
+                                        ambiguous fills 26%
+TurtleSoup AAPL exit day+1             n=   69 (11.5/yr) avgR=-0.470 t=-1.7 win=16% coin=+0.405 L -0.548 S -0.406 | IS -0.660 OOS -0.315 (n 38) | yrs+ 1/5 worst -1.35 last60 -0.44 | risk 28bp
+                                        21:-0.73 22:-0.87 23:-0.41 24:+1.10 25:-1.11 26:-1.35
+                                        ambiguous fills 26%
+TurtleSoup AAPL exit day+3             n=   69 (11.5/yr) avgR=-0.453 t=-1.5 win=14% coin=+0.441 L -0.428 S -0.473 | IS -0.629 OOS -0.309 (n 38) | yrs+ 1/5 worst -1.40 last60 -0.40 | risk 28bp
+                                        21:-0.85 22:-0.83 23:-0.34 24:+1.24 25:-1.23 26:-1.40
+                                        ambiguous fills 26%
+80-20s AAPL                            n=  131 (21.8/yr) avgR=-0.028 t=-0.2 win=35% coin=-0.075 L -0.078 S -0.001 | IS -0.144 OOS +0.147 (n 52) | yrs+ 3/6 worst -0.38 last60 +0.06 | risk 58bp
+                                        21:+0.79 22:-0.36 23:-0.14 24:+0.47 25:+0.24 26:-0.38
+                                        ambiguous fills 5%
+--- US100 (355 sessions, 3s)
+TurtleSoup US100 exit day+0            n=   20 (10.0/yr) avgR=+0.342 t=+0.6 win=30% coin=-0.690 L +0.839 S -0.155 | IS +nan OOS +0.342 (n 20) | yrs+ 1/2 worst -0.10 last60 +0.34 | risk 18bp
+                                        25:-0.10 26:+0.49
+                                        ambiguous fills 35%
+TurtleSoup US100 exit day+1            n=   20 (10.0/yr) avgR=-0.253 t=-0.4 win=15% coin=-0.516 L +0.462 S -0.968 | IS +nan OOS -0.253 (n 20) | yrs+ 0/2 worst -0.86 last60 -0.25 | risk 18bp
+                                        25:-0.86 26:-0.05
+                                        ambiguous fills 35%
+TurtleSoup US100 exit day+3            n=   20 (10.0/yr) avgR=-0.841 t=-3.3 win=10% coin=-1.006 L -0.523 S -1.159 | IS +nan OOS -0.841 (n 20) | yrs+ 0/2 worst -1.16 last60 -0.84 | risk 18bp
+                                        25:-1.16 26:-0.74
+                                        ambiguous fills 35%
+80-20s US100                           n=   33 (16.5/yr) avgR=-0.564 t=-4.3 win=21% coin=-0.305 L -0.597 S -0.546 | IS +nan OOS -0.564 (n 33) | yrs+ 0/2 worst -0.75 last60 -0.56 | risk 30bp
+                                        25:-0.27 26:-0.75
+                                        ambiguous fills 24%
+--- US500 (355 sessions, 3s)
+TurtleSoup US500 exit day+0            n=   23 (11.5/yr) avgR=-0.872 t=-7.7 win=9% coin=-0.434 L -1.021 S -0.775 | IS +nan OOS -0.872 (n 23) | yrs+ 0/2 worst -0.93 last60 -0.87 | risk 10bp
+                                        25:-0.70 26:-0.93
+                                        ambiguous fills 35%
+TurtleSoup US500 exit day+1            n=   23 (11.5/yr) avgR=-0.607 t=-1.6 win=13% coin=-0.617 L -0.842 S -0.456 | IS +nan OOS -0.607 (n 23) | yrs+ 0/2 worst -0.92 last60 -0.61 | risk 10bp
+                                        25:-0.92 26:-0.50
+                                        ambiguous fills 35%
+TurtleSoup US500 exit day+3            n=   22 (11.0/yr) avgR=-1.218 t=-15.9 win=0% coin=-0.683 L -1.213 S -1.222 | IS +nan OOS -1.218 (n 22) | yrs+ 0/2 worst -1.37 last60 -1.22 | risk 11bp
+                                        25:-1.37 26:-1.16
+                                        ambiguous fills 36%
+80-20s US500                           n=   34 (17.0/yr) avgR=+0.165 t=+0.6 win=47% coin=-0.327 L +0.328 S +0.087 | IS +nan OOS +0.165 (n 34) | yrs+ 1/2 worst -0.24 last60 +0.17 | risk 23bp
+                                        25:+0.57 26:-0.24
+                                        ambiguous fills 3%
+done in 4s

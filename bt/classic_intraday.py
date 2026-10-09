@@ -18,7 +18,7 @@ MK = {  # name: (comm per side, spread multiplier, spread floor as fraction of p
 FILE = {"US100": "US100.cash", "US500": "US500.cash", "AAPL": "AAPL", "TSLA": "TSLA"}
 
 
-M5 = len(sys.argv) > 2 and sys.argv[2] == "m5"     # resolution check: FTMO M5 pickles (TSLA/AAPL 2021-08+, US100/US500 2025-05+)
+M5 = "m5" in sys.argv[1:]     # resolution check: FTMO M5 pickles (TSLA/AAPL 2021-08+, US100/US500 2025-05+)
 
 
 def load(m):

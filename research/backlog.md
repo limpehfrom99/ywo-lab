@@ -64,10 +64,10 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     Gold (NY day), US100/US500/TSLA (cash session). k in {0.3, 0.5, 0.7}.
 25. [done -> log #51: DEAD on gold; stocks/indices blocked on 1-minute data] Williams "Oops": the cash session opens below yesterday's low -> buy stop at yesterday's low; mirror above the high; stop
     at the day's extreme so far; exit at the close. US100/US500/TSLA/AAPL; gold at the NY open.
-26. [queued] Raschke "Turtle Soup" (Connors & Raschke, "Street Smarts", 1995): today makes a new 20-day low, the previous 20-day low
+26. [done -> log #52: DEAD] Raschke "Turtle Soup" (Connors & Raschke, "Street Smarts", 1995): today makes a new 20-day low, the previous 20-day low
     was >= 4 days ago -> buy stop at that previous low; stop 1 tick below today's low; exit after 1-3 days or trail; mirror for highs.
     Daily gold 2012+, indices daily 2017+, TSLA/AAPL daily.
-27. [queued] Raschke "80-20s": yesterday opened in the top 20% of its range and closed in the bottom 20% -> today buy stop at
+27. [done -> log #53: DEAD] Raschke "80-20s": yesterday opened in the top 20% of its range and closed in the bottom 20% -> today buy stop at
     yesterday's low after price trades >= 0.1 ATR below it; stop at today's low; exit at the close. Mirror. Gold, indices, stocks.
 28. [queued] Raschke "Holy Grail": ADX(14) > 30 and rising; price pulls back to the 20-EMA -> buy stop above the pullback bar's high;
     stop at the pullback low; target the recent swing high; mirror. Daily and H4, gold + indices.
