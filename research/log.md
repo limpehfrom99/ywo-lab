@@ -631,3 +631,69 @@ Verdict: #35 passes the CANDIDATE bar on markets it was never looked at on (n >=
 -0.05R), with gold on FTMO's clock weaker (+0.06R). Expect about +0.08-0.10R per trade, 50-60 trades a year per market. #33:
 CANDIDATE on gold, mixed on forex. Next: all 28 pairs, metals and indices from the full export, then FTMO odds for the opening
 candle + #35 on a forex basket (backlog #41).
+
+### 49-51. Nightly loop 2026-10-10 00:30 MYT — pre-registered rules (written BEFORE running; results follow below)
+Housekeeping: backlog #16 (expiry days) and #17 (post-FOMC afternoon) were already run as log #25 (DEAD); marked [done].
+#18, #20, #21 wait on the laptop / lab app; #22 and every [needs export] item wait on data/x (not in the repo tonight).
+Shared engine: bt/classic_intraday.py. Markets / bars: gold M1 2012-2026 (exits on 1-minute); US100/US500 FTMO M30 2021-01+;
+AAPL M30 2015+, TSLA M30 2019+ (exits on 30-minute bars). Cash session 09:30-16:00 NY. Costs: gold spread from the data +
+0.0007%/side; indices FTMO spread x 1.2; stocks max(spread x 1.2, 1 bp of price) + 0.002%/side. Fill rules (conservative):
+stop entries fill at max(level, bar open); a bar that touches both entry sides, or the entry and the stop, counts as a stopped
+trade; stops from the next bar on, gaps fill at the open. R = result / (entry - stop). Coin flip = the opposite trade at the
+same moment with the same risk (checked from the next bar). IS < 2024, OOS >= 2024. No targets: every rule exits at the close.
+#49 (backlog #23) Crabel NR7 / NR4 + 30-min opening-range breakout. NR7 = the previous completed day's range is the smallest
+  of the last 7 (NR4: of 4); daily range = cash-session range (stocks/indices) or broker day 17:00-17:00 NY (gold). Opening
+  range = first 30 minutes; first break of either side -> enter, stop = other side, exit at session end. Sessions: cash
+  09:30-16:00; gold London 03:00-11:30 NY and gold COMEX 08:20-16:00 NY. Cells: all days (baseline), NR7, NR4, non-NR4.
+  Pre-registered pass: NR7 (or NR4) beats all-days by >= +0.05R AND meets the CANDIDATE bar.
+#50 (backlog #24) Larry Williams volatility breakout. R = previous session range; buy stop at today's open + k*R, sell stop at
+  open - k*R, first touched only; stop 0.5*R from entry; exit at the session close, variant exit at the next session's open
+  (stop off overnight; swap ~1 bp of price per night, x3 Fri->Mon). k in {0.3, 0.5, 0.7}: 6 cells per market, all reported.
+  Gold = broker day (open 18:00 NY, close 16:55 NY; next-open variant skipped for gold: the next open is 1 hour later).
+#51 (backlog #25) Williams "Oops". Session open below the previous session's low -> buy stop at that low; stop = lowest low
+  of the session before the fill (at least 0.1 ATR(14) of session ranges from entry); exit at the close. Mirror above the high.
+  Gold uses the COMEX session 08:20-16:00 NY for both "yesterday" and "today". Conservative fill: if the fill bar makes a new
+  session low (high for shorts) the order is unknown -> stopped. Optimistic variant (low came first) reported for the M30
+  markets only, verdict on the conservative one.
+  [00:45 MYT, after the first pass, BEFORE running them] Pre-registered follow-ups: (1) #49 pooled NR7 / NR4 vs other days over
+  all six sessions (Welch t of the difference); (2) #50 gold k=0.5 robustness, all reported: FTMO XAUUSD M15 2022-07+ (broker day,
+  FTMO feed), gold M1 with the day = UTC 00:00-24:00, gold M1 with the COMEX session 08:20-16:00 (previous COMEX range);
+  (3) stocks/indices re-run on FTMO M5 bars (TSLA/AAPL 2021-08+, US100/US500 2025-05+) because 30-minute fills decide #50/#51 there.
+
+### 49. Crabel NR7 / NR4 + 30-min opening-range breakout (backlog #23; T. Crabel 1990) — NR7 days: CANDIDATE as a pooled filter, pending the export   [2026-10-10 00:55 MYT]
+bt/classic_intraday.py nr; results/classic_intraday.log, classic_intraday_nr.csv, classic_intraday_check.log. Rule as pre-registered above.
+  Per session (avgR, n, t; all days -> NR7 -> NR4):
+    gold London 03:00 NY (M1 2012-26): all +0.043 (3738) | NR7 +0.299 (553, t 2.3, IS +0.31 / OOS +0.25, 12/15 yrs, 2026 -0.77 on few trades) | NR4 +0.111
+    gold COMEX 08:20 (M1):             all -0.007 (3606) | NR7 +0.048 (525, t 0.7) | NR4 -0.026
+    US100 (M30 2021-26):               all +0.089 (1242) | NR7 +0.163 (188, t 1.8, 6/6 yrs) | NR4 +0.140
+    US500 (M30 2021-26):               all +0.066 (1246) | NR7 +0.230 (213, t 2.3, IS +0.33 / OOS +0.16, worst -0.16) | NR4 +0.223 (346, t 2.8)
+    AAPL (M30 2015-26):                all -0.007 (2391) | NR7 +0.090 (389, t 1.8, OOS -0.05) | NR4 +0.003
+    TSLA (M30 2019-26):                all +0.079 (1253) | NR7 +0.173 (180, t 2.0) | NR4 +0.103
+  M5 re-run (finer fills): TSLA all +0.055 / NR7 +0.168 (177); AAPL +0.004 / +0.072; US100 2025-26 -0.004 / +0.138 (54); US500 -0.034 / +0.238 (59).
+  Pooled NR7 over the six sessions: n=2048, +0.164R, t 3.9, 41% wins, coin flip -0.149, IS +0.201 / OOS +0.084 (638), 12/15 years, worst
+  year -0.08, last 60 -0.05. NR7 minus other days +0.157R (Welch t 3.5); positive in 6 of 6 sessions (+0.06 to +0.30). Without gold London:
+  +0.114R (1,495, t 3.4). NR4: +0.068 pooled, difference +0.050 (t 1.5) — weaker; NR7 is the cell.
+Verdict: CANDIDATE as a pooled NR7 filter (passes the bar pooled; single cells: US500 NR7 passes, gold London fails only on a thin 2026).
+The narrow day before is what matters, not the breakout itself (all-days ORB is +0.00 to +0.09R). OOS is half of IS (+0.08 vs +0.20).
+What would change it: the export's 46 stocks + 14 indices 2015+ — NR7 minus other days >= +0.05R on >= 60% of symbols and in 2024-26.
+Next (queued as #48/#49 in the backlog): NR7 as a pre-set size-up filter on the live opening candle (TSLA/US100).
+
+### 50. Larry Williams volatility breakout (backlog #24) — gold 24-hour day: CANDIDATE (small, +0.07R); indices/AAPL DEAD; TSLA = known TSLA trend   [00:55 MYT]
+bt/classic_intraday.py wvb + bt/classic_intraday_check.py. Every cell (avgR, n, t):
+  gold broker day (M1 2012-26), exit 16:55 NY: k=0.3 +0.040 (3461, t 1.8) | k=0.5 +0.073 (2720, t 2.8, IS +0.072 / OOS +0.076, 14/15 yrs,
+    worst -0.01, longs +0.05 shorts +0.10, coin -0.06) | k=0.7 +0.093 (1969, t 2.9, 11/15, worst -0.10).
+  Robustness (pre-registered, k=0.5): UTC day +0.096 (t 3.8, 14/15); COMEX session 08:20-16:00 with the COMEX range +0.006 (dead);
+    FTMO XAUUSD M15 2022-07+ +0.044 (834, t 1.0) vs MT4 M1 same period +0.059 (808) — feed agrees.
+  US100/US500/AAPL/TSLA on 30-min bars: k=0.5/0.7 -0.16 to -0.49R is a fill artefact (k=0.5 puts the stop exactly at the open, inside the
+    first 30-min bar). On M5: AAPL -0.11 to -0.00 (all 6 cells <= 0); US100/US500 2025-26 -0.14 to +0.03; TSLA +0.02 to +0.18 (k=0.3 next
+    open +0.184, t 4.1) — the TSLA intraday/overnight trend the opening candle already trades.
+Verdict: gold k=0.5 on the full 24-hour day passes the CANDIDATE bar (n 2720, t 2.8, both halves +0.07, worst year -0.01), all three k
+positive, the FTMO feed agrees; but it is small (+0.07R, ~13R a year) and lives in the overnight part (the COMEX-session version is zero).
+What would change it: FTMO gold 2015+ from the export below +0.03R; or a correlation > 0.5 with the gold trend-following watch item.
+Indices / AAPL DEAD. TSLA: WATCH, overlaps the opening candle.
+
+### 51. Williams "Oops" (backlog #25) — DEAD on gold; undecidable on 5/30-minute bars for stocks/indices   [00:55 MYT]
+  gold COMEX session (M1): -0.148R (897, t -2.4, 3/15 yrs); 11% of fills ambiguous; without them -0.030 (801).
+  Stocks/indices: 45-76% of fills happen in a bar that also makes the new session extreme, so the result depends on the unknown order:
+    conservative -0.30 to -0.76R, optimistic (extreme first) M30 +0.13 to +0.43R, M5 -0.07 to +0.29R. Not decidable without 1-minute history.
+Verdict: DEAD on gold. Stocks/indices [blocked]: needs 1-minute bars (TSLA/AAPL M1 since 2025-09 only = ~25 trades each).

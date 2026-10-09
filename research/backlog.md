@@ -38,9 +38,9 @@
 15. [done] Opening-candle calm-day filter: skip the trade entirely when today's ATR% > 1.5x (and > 1.25x) its 1-year
     median (edge is +0.12-0.13R on calm days vs +0.07-0.08R on wild days). Re-run challenge() pass odds vs fixed 0.5% and vs
     the scale-down-only rule from #12. Data: TSLA/US100 M30 exports, lab.opening_candle, Fed days skipped. (bt/vol_sizing.py as base)
-16. [queued] Index expiry days: quad-witching (3rd Friday of Mar/Jun/Sep/Dec) and monthly opex (3rd Friday): return on the
+16. [done -> log #25] Index expiry days: quad-witching (3rd Friday of Mar/Jun/Sep/Dec) and monthly opex (3rd Friday): return on the
     day, the day before and the Monday after, US100/US500 daily 2018-2026 (bt/daily_ideas.py daily_from_export). Baseline: all other days.
-17. [queued] Post-FOMC afternoon (14:00 -> 16:00 NY on FOMC day): direction of the first 30 minutes after the statement
+17. [done -> log #25] Post-FOMC afternoon (14:00 -> 16:00 NY on FOMC day): direction of the first 30 minutes after the statement
     (14:00-14:30 candle) held to 16:00, US100/US500 30-min 2021-26, costs; baseline coin flip. Note the Standard-account
     news rule forbids this; Swing accounts allow it.
 18. [queued] Gold opening-candle family at other opens: the laptop lab already runs other market opens nightly; check its
@@ -56,13 +56,13 @@
 Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US100/US500 M5 2021-08+ (data/ftmo), raw M30 exports
 (US100/US500 daily-only bars before 2021-09, AAPL 2015+, TSLA 2019+, BTC 2020-08+). The full ~110-symbol export lands in data/x
 (see quant/README.md) — items marked [needs export] wait for it. Costs, baselines and IS (<2024) / OOS (>=2024) split as in PROTOCOL.md.
-23. [queued] Crabel NR7 + opening-range breakout (T. Crabel, "Day Trading with Short Term Price Patterns and ORB", 1990): on the day
+23. [done -> log #49: pooled NR7 CANDIDATE, +0.164R, NR7 minus other days +0.157R t 3.5] Crabel NR7 + opening-range breakout (T. Crabel, "Day Trading with Short Term Price Patterns and ORB", 1990): on the day
     after an NR7 day (smallest daily range of the last 7) and, separately, after NR4: first break of the first-30-min range, stop at the
     other side, exit at the cash close. US100/US500/TSLA/AAPL (M5/M30), gold (London 08:00 and NY 08:20 opens). Baseline: same ORB on all days.
-24. [queued] Larry Williams volatility breakout ("Long-Term Secrets to Short-Term Trading"): buy stop at open + 0.5 x yesterday's range,
+24. [done -> log #50: gold 24h day k=0.5 CANDIDATE +0.073R; indices/AAPL DEAD] Larry Williams volatility breakout ("Long-Term Secrets to Short-Term Trading"): buy stop at open + 0.5 x yesterday's range,
     sell stop at open - 0.5 x range (first touched only), stop = 0.5 x range from entry, exit at the close; variant exit next open.
     Gold (NY day), US100/US500/TSLA (cash session). k in {0.3, 0.5, 0.7}.
-25. [queued] Williams "Oops": the cash session opens below yesterday's low -> buy stop at yesterday's low; mirror above the high; stop
+25. [done -> log #51: DEAD on gold; stocks/indices blocked on 1-minute data] Williams "Oops": the cash session opens below yesterday's low -> buy stop at yesterday's low; mirror above the high; stop
     at the day's extreme so far; exit at the close. US100/US500/TSLA/AAPL; gold at the NY open.
 26. [queued] Raschke "Turtle Soup" (Connors & Raschke, "Street Smarts", 1995): today makes a new 20-day low, the previous 20-day low
     was >= 4 days ago -> buy stop at that previous low; stop 1 tick below today's low; exit after 1-3 days or trail; mirror for highs.
@@ -118,3 +118,9 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     and random-timing baselines), then a small pre-set neighbourhood with selection on 2015-2023 and a check on 2024-26 only;
     add every video to the index with its log entry and verdict.
 
+48. [queued] NR7 filter on the live opening candle (from #49): OC trades (TSLA, US100; lab.opening_candle, M30 2022+) split by
+    "yesterday was NR7" (cash-session range). Pre-registered: becomes a size-up rule (1.5x risk on NR7 days) only if NR7 - other days
+    >= +0.05R on both TSLA and US100 AND FTMO pass odds (lab/ftmo_sim.py) improve. Report all cells.
+49. [queued, needs export] #49 NR7 + ORB30 on all 46 stocks + 14 indices 2015+ (M5): NR7 minus other days >= +0.05R on >= 60% of
+    symbols AND in 2024-26 -> CANDIDATE stands; also gold 2015+ FTMO feed for #50 (k=0.5, 24-hour day).
+50. [blocked: needs 1-minute history] #51 Oops on stocks/indices: 45-76% of fills are ambiguous on 5/30-minute bars.

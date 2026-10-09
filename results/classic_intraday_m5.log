@@ -1,0 +1,101 @@
+--- TSLA: 99999 bars, sessions TSLA 1286  (0s)
+NR TSLA all days                       n= 1240 (206.7/yr) avgR=+0.055 t=+2.0 win=49% coin=-0.040 L +0.039 S +0.071 | IS +0.101 OOS +0.015 (n 670) | yrs+ 6/6 worst +0.00 last60 -0.15 | risk 203bp
+                                        21:+0.03 22:+0.15 23:+0.07 24:+0.00 25:+0.04 26:+0.01
+NR TSLA NR7                            n=  177 (29.5/yr) avgR=+0.168 t=+2.1 win=52% coin=-0.082 L +0.157 S +0.180 | IS +0.308 OOS +0.044 (n 94) | yrs+ 5/6 worst -0.09 last60 -0.02 | risk 186bp
+                                        21:+0.42 22:+0.22 23:+0.37 24:+0.13 25:-0.09 26:+0.10
+NR TSLA NR4                            n=  323 (53.8/yr) avgR=+0.113 t=+2.0 win=52% coin=-0.066 L +0.105 S +0.120 | IS +0.165 OOS +0.066 (n 171) | yrs+ 5/6 worst -0.02 last60 +0.05 | risk 193bp
+                                        21:+0.03 22:+0.17 23:+0.22 24:+0.15 25:-0.02 26:+0.07
+NR TSLA not NR4                        n=  917 (152.8/yr) avgR=+0.034 t=+1.1 win=48% coin=-0.031 L +0.015 S +0.054 | IS +0.078 OOS -0.002 (n 499) | yrs+ 4/6 worst -0.05 last60 -0.11 | risk 207bp
+                                        21:+0.04 22:+0.15 23:+0.02 24:-0.05 25:+0.06 26:-0.01
+WVB TSLA k=0.3 exit close              n= 1227 (204.5/yr) avgR=+0.112 t=+3.2 win=47% coin=-0.079 L +0.109 S +0.115 | IS +0.181 OOS +0.052 (n 661) | yrs+ 5/6 worst -0.04 last60 +0.13 | risk 187bp
+                                        21:+0.20 22:+0.21 23:+0.14 24:-0.04 25:+0.11 26:+0.09
+WVB TSLA k=0.3 exit next open          n= 1219 (203.2/yr) avgR=+0.184 t=+4.1 win=46% coin=-0.103 L +0.220 S +0.149 | IS +0.274 OOS +0.107 (n 657) | yrs+ 5/6 worst -0.02 last60 +0.11 | risk 187bp
+                                        21:+0.31 22:+0.22 23:+0.32 24:+0.17 25:+0.15 26:-0.02
+WVB TSLA k=0.5 exit close              n=  981 (163.5/yr) avgR=+0.020 t=+0.6 win=44% coin=-0.088 L +0.018 S +0.022 | IS +0.085 OOS -0.037 (n 522) | yrs+ 4/6 worst -0.14 last60 -0.04 | risk 179bp
+                                        21:-0.09 22:+0.08 23:+0.16 24:-0.14 25:+0.04 26:+0.01
+WVB TSLA k=0.5 exit next open          n=  975 (162.5/yr) avgR=+0.103 t=+1.9 win=44% coin=-0.141 L +0.140 S +0.067 | IS +0.187 OOS +0.030 (n 519) | yrs+ 5/6 worst -0.05 last60 +0.09 | risk 179bp
+                                        21:+0.09 22:+0.04 23:+0.37 24:-0.05 25:+0.09 26:+0.05
+WVB TSLA k=0.7 exit close              n=  717 (119.5/yr) avgR=+0.082 t=+1.9 win=47% coin=-0.089 L +0.029 S +0.137 | IS +0.194 OOS -0.017 (n 381) | yrs+ 3/6 worst -0.03 last60 +0.07 | risk 167bp
+                                        21:+0.15 22:+0.27 23:+0.13 24:-0.03 25:-0.02 26:-0.00
+WVB TSLA k=0.7 exit next open          n=  712 (118.7/yr) avgR=+0.174 t=+2.6 win=47% coin=-0.203 L +0.183 S +0.164 | IS +0.304 OOS +0.058 (n 378) | yrs+ 5/6 worst -0.03 last60 +0.02 | risk 167bp
+                                        21:+0.32 22:+0.24 23:+0.36 24:+0.04 25:+0.14 26:-0.03
+OOPS TSLA                              n=  326 (54.3/yr) avgR=-0.344 t=-5.5 win=27% coin=-0.543 L -0.297 S -0.382 | IS -0.408 OOS -0.290 (n 177) | yrs+ 0/6 worst -0.56 last60 -0.21 | risk 122bp
+                                        21:-0.56 22:-0.39 23:-0.38 24:-0.40 25:-0.34 26:-0.12
+OOPS TSLA (optimistic fill)            n=  326 (54.3/yr) avgR=+0.291 t=+2.4 win=40% coin=-0.124 L +0.395 S +0.206 | IS +0.510 OOS +0.107 (n 177) | yrs+ 5/6 worst -0.11 last60 +0.29 | risk 142bp
+                                        21:+1.52 22:+0.32 23:+0.38 24:-0.11 25:+0.23 26:+0.14
+--- AAPL: 99999 bars, sessions AAPL 1286  (4s)
+NR AAPL all days                       n= 1253 (208.8/yr) avgR=+0.004 t=+0.1 win=46% coin=-0.065 L +0.048 S -0.044 | IS +0.037 OOS -0.024 (n 676) | yrs+ 4/6 worst -0.08 last60 -0.00 | risk 92bp
+                                        21:+0.18 22:+0.02 23:+0.01 24:-0.00 25:-0.08 26:+0.02
+NR AAPL NR7                            n=  187 (31.2/yr) avgR=+0.072 t=+1.0 win=48% coin=-0.097 L +0.117 S +0.023 | IS +0.250 OOS -0.059 (n 108) | yrs+ 4/6 worst -0.13 last60 -0.03 | risk 86bp
+                                        21:+0.58 22:+0.20 23:+0.20 24:-0.07 25:-0.13 26:+0.05
+NR AAPL NR4                            n=  325 (54.2/yr) avgR=-0.011 t=-0.2 win=46% coin=-0.037 L +0.098 S -0.133 | IS +0.105 OOS -0.097 (n 186) | yrs+ 3/6 worst -0.16 last60 -0.04 | risk 86bp
+                                        21:+0.11 22:+0.02 23:+0.20 24:-0.16 25:-0.04 26:-0.09
+NR AAPL not NR4                        n=  928 (154.7/yr) avgR=+0.009 t=+0.3 win=46% coin=-0.075 L +0.030 S -0.013 | IS +0.015 OOS +0.004 (n 490) | yrs+ 4/6 worst -0.10 last60 +0.11 | risk 93bp
+                                        21:+0.20 22:+0.02 23:-0.05 24:+0.06 25:-0.10 26:+0.06
+WVB AAPL k=0.3 exit close              n= 1224 (204.0/yr) avgR=-0.019 t=-0.6 win=43% coin=-0.038 L +0.034 S -0.087 | IS +0.081 OOS -0.105 (n 656) | yrs+ 2/6 worst -0.12 last60 -0.04 | risk 86bp
+                                        21:+0.07 22:+0.17 23:-0.00 24:-0.09 25:-0.12 26:-0.10
+WVB AAPL k=0.3 exit next open          n= 1216 (202.7/yr) avgR=-0.021 t=-0.5 win=39% coin=-0.024 L -0.002 S -0.044 | IS +0.077 OOS -0.105 (n 652) | yrs+ 2/6 worst -0.20 last60 +0.10 | risk 86bp
+                                        21:-0.04 22:+0.19 23:+0.01 24:-0.05 25:-0.20 26:-0.06
+WVB AAPL k=0.5 exit close              n= 1001 (166.8/yr) avgR=-0.107 t=-3.1 win=40% coin=-0.057 L -0.093 S -0.124 | IS -0.051 OOS -0.157 (n 532) | yrs+ 1/6 worst -0.22 last60 -0.07 | risk 81bp
+                                        21:+0.14 22:-0.02 23:-0.16 24:-0.13 25:-0.22 26:-0.11
+WVB AAPL k=0.5 exit next open          n=  993 (165.5/yr) avgR=-0.099 t=-2.2 win=37% coin=-0.051 L -0.094 S -0.106 | IS -0.026 OOS -0.164 (n 528) | yrs+ 2/6 worst -0.35 last60 -0.08 | risk 82bp
+                                        21:+0.17 22:+0.02 23:-0.15 24:-0.08 25:-0.35 26:-0.05
+WVB AAPL k=0.7 exit close              n=  702 (117.0/yr) avgR=-0.060 t=-1.4 win=42% coin=-0.103 L -0.019 S -0.105 | IS +0.020 OOS -0.126 (n 383) | yrs+ 2/6 worst -0.18 last60 +0.03 | risk 76bp
+                                        21:+0.12 22:+0.16 23:-0.15 24:-0.14 25:-0.18 26:-0.04
+WVB AAPL k=0.7 exit next open          n=  698 (116.3/yr) avgR=-0.005 t=-0.1 win=41% coin=-0.173 L -0.016 S +0.008 | IS +0.060 OOS -0.058 (n 381) | yrs+ 3/6 worst -0.15 last60 +0.05 | risk 76bp
+                                        21:+0.15 22:+0.18 23:-0.09 24:-0.11 25:-0.15 26:+0.13
+OOPS AAPL                              n=  311 (51.8/yr) avgR=-0.552 t=-8.2 win=21% coin=-0.708 L -0.598 S -0.509 | IS -0.593 OOS -0.518 (n 168) | yrs+ 0/6 worst -0.82 last60 -0.48 | risk 41bp
+                                        21:-0.82 22:-0.63 23:-0.45 24:-0.70 25:-0.48 26:-0.36
+OOPS AAPL (optimistic fill)            n=  311 (51.8/yr) avgR=-0.060 t=-0.5 win=32% coin=-0.095 L -0.027 S -0.090 | IS +0.108 OOS -0.203 (n 168) | yrs+ 1/6 worst -0.52 last60 -0.22 | risk 54bp
+                                        21:-0.52 22:-0.16 23:+0.71 24:-0.31 25:-0.04 26:-0.29
+--- US100: 99999 bars, sessions US100 355  (7s)
+NR US100 all days                      n=  338 (169.0/yr) avgR=-0.004 t=-0.1 win=49% coin=-0.056 L +0.007 S -0.016 | IS +nan OOS -0.004 (n 338) | yrs+ 1/2 worst -0.04 last60 -0.14 | risk 58bp
+                                        25:+0.04 26:-0.04
+NR US100 NR7                           n=   54 (27.0/yr) avgR=+0.138 t=+0.9 win=54% coin=-0.035 L -0.015 S +0.291 | IS +nan OOS +0.138 (n 54) | yrs+ 2/2 worst +0.06 last60 +0.14 | risk 52bp
+                                        25:+0.06 26:+0.24
+NR US100 NR4                           n=   89 (44.5/yr) avgR=+0.061 t=+0.5 win=51% coin=-0.062 L +0.057 S +0.064 | IS +nan OOS +0.061 (n 89) | yrs+ 2/2 worst +0.05 last60 +0.02 | risk 53bp
+                                        25:+0.05 26:+0.08
+NR US100 not NR4                       n=  249 (124.5/yr) avgR=-0.028 t=-0.4 win=48% coin=-0.055 L -0.010 S -0.047 | IS +nan OOS -0.028 (n 249) | yrs+ 1/2 worst -0.07 last60 -0.21 | risk 59bp
+                                        25:+0.04 26:-0.07
+WVB US100 k=0.3 exit close             n=  336 (168.0/yr) avgR=+0.029 t=+0.5 win=47% coin=-0.132 L -0.017 S +0.078 | IS +nan OOS +0.029 (n 336) | yrs+ 1/2 worst -0.02 last60 -0.09 | risk 56bp
+                                        25:+0.08 26:-0.02
+WVB US100 k=0.3 exit next open         n=  334 (167.0/yr) avgR=+0.025 t=+0.3 win=40% coin=-0.158 L +0.035 S +0.015 | IS +nan OOS +0.025 (n 334) | yrs+ 1/2 worst -0.02 last60 +0.01 | risk 56bp
+                                        25:+0.08 26:-0.02
+WVB US100 k=0.5 exit close             n=  271 (135.5/yr) avgR=-0.047 t=-0.8 win=44% coin=-0.127 L +0.018 S -0.111 | IS +nan OOS -0.047 (n 271) | yrs+ 0/2 worst -0.09 last60 -0.22 | risk 52bp
+                                        25:-0.09 26:-0.01
+WVB US100 k=0.5 exit next open         n=  269 (134.5/yr) avgR=+0.029 t=+0.3 win=41% coin=-0.207 L +0.144 S -0.087 | IS +nan OOS +0.029 (n 269) | yrs+ 1/2 worst -0.04 last60 +0.06 | risk 52bp
+                                        25:-0.04 26:+0.09
+WVB US100 k=0.7 exit close             n=  193 (96.5/yr) avgR=-0.086 t=-1.2 win=39% coin=-0.134 L -0.002 S -0.157 | IS +nan OOS -0.086 (n 193) | yrs+ 0/2 worst -0.12 last60 -0.23 | risk 49bp
+                                        25:-0.05 26:-0.12
+WVB US100 k=0.7 exit next open         n=  191 (95.5/yr) avgR=-0.030 t=-0.3 win=45% coin=-0.207 L +0.203 S -0.220 | IS +nan OOS -0.030 (n 191) | yrs+ 1/2 worst -0.11 last60 -0.24 | risk 49bp
+                                        25:+0.07 26:-0.11
+OOPS US100                             n=   96 (48.0/yr) avgR=-0.295 t=-2.2 win=27% coin=-0.612 L -0.257 S -0.312 | IS +nan OOS -0.295 (n 96) | yrs+ 0/2 worst -0.31 last60 -0.26 | risk 31bp
+                                        25:-0.31 26:-0.28
+OOPS US100 (optimistic fill)           n=   96 (48.0/yr) avgR=-0.044 t=-0.3 win=34% coin=-0.248 L +0.112 S -0.112 | IS +nan OOS -0.044 (n 96) | yrs+ 1/2 worst -0.12 last60 -0.08 | risk 35bp
+                                        25:+0.06 26:-0.12
+--- US500: 99999 bars, sessions US500 355  (8s)
+NR US500 all days                      n=  340 (170.0/yr) avgR=-0.034 t=-0.5 win=42% coin=-0.066 L -0.066 S +0.005 | IS +nan OOS -0.034 (n 340) | yrs+ 0/2 worst -0.05 last60 -0.14 | risk 33bp
+                                        25:-0.01 26:-0.05
+NR US500 NR7                           n=   59 (29.5/yr) avgR=+0.238 t=+1.4 win=53% coin=-0.264 L +0.094 S +0.386 | IS +nan OOS +0.238 (n 59) | yrs+ 2/2 worst +0.11 last60 +0.24 | risk 29bp
+                                        25:+0.11 26:+0.37
+NR US500 NR4                           n=   98 (49.0/yr) avgR=+0.065 t=+0.5 win=45% coin=+0.037 L -0.062 S +0.203 | IS +nan OOS +0.065 (n 98) | yrs+ 2/2 worst +0.03 last60 +0.09 | risk 30bp
+                                        25:+0.10 26:+0.03
+NR US500 not NR4                       n=  242 (121.0/yr) avgR=-0.074 t=-0.9 win=41% coin=-0.108 L -0.067 S -0.082 | IS +nan OOS -0.074 (n 242) | yrs+ 0/2 worst -0.08 last60 -0.08 | risk 35bp
+                                        25:-0.06 26:-0.08
+WVB US500 k=0.3 exit close             n=  341 (170.5/yr) avgR=+0.014 t=+0.2 win=45% coin=-0.068 L +0.055 S -0.027 | IS +nan OOS +0.014 (n 341) | yrs+ 1/2 worst -0.01 last60 -0.15 | risk 40bp
+                                        25:+0.04 26:-0.01
+WVB US500 k=0.3 exit next open         n=  338 (169.0/yr) avgR=-0.003 t=-0.0 win=41% coin=-0.063 L +0.095 S -0.101 | IS +nan OOS -0.003 (n 338) | yrs+ 1/2 worst -0.04 last60 -0.12 | risk 40bp
+                                        25:+0.04 26:-0.04
+WVB US500 k=0.5 exit close             n=  271 (135.5/yr) avgR=-0.044 t=-0.7 win=43% coin=-0.050 L -0.042 S -0.046 | IS +nan OOS -0.044 (n 271) | yrs+ 0/2 worst -0.05 last60 -0.29 | risk 38bp
+                                        25:-0.05 26:-0.04
+WVB US500 k=0.5 exit next open         n=  269 (134.5/yr) avgR=-0.062 t=-0.7 win=40% coin=-0.126 L -0.024 S -0.099 | IS +nan OOS -0.062 (n 269) | yrs+ 0/2 worst -0.12 last60 -0.13 | risk 38bp
+                                        25:-0.12 26:-0.01
+WVB US500 k=0.7 exit close             n=  196 (98.0/yr) avgR=-0.094 t=-1.3 win=43% coin=+0.001 L +0.040 S -0.206 | IS +nan OOS -0.094 (n 196) | yrs+ 0/2 worst -0.12 last60 -0.32 | risk 34bp
+                                        25:-0.12 26:-0.07
+WVB US500 k=0.7 exit next open         n=  195 (97.5/yr) avgR=-0.141 t=-1.4 win=39% coin=-0.156 L +0.095 S -0.335 | IS +nan OOS -0.141 (n 195) | yrs+ 0/2 worst -0.15 last60 -0.23 | risk 35bp
+                                        25:-0.13 26:-0.15
+OOPS US500                             n=   94 (47.0/yr) avgR=-0.469 t=-4.9 win=24% coin=-0.534 L -0.216 S -0.600 | IS +nan OOS -0.469 (n 94) | yrs+ 0/2 worst -0.59 last60 -0.37 | risk 23bp
+                                        25:-0.59 26:-0.36
+OOPS US500 (optimistic fill)           n=   94 (47.0/yr) avgR=-0.074 t=-0.5 win=33% coin=-0.376 L -0.211 S -0.003 | IS +nan OOS -0.074 (n 94) | yrs+ 1/2 worst -0.28 last60 -0.22 | risk 25bp
+                                        25:+0.16 26:-0.28
+done in 9s
