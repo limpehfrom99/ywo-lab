@@ -94,3 +94,26 @@ Then write the rules down, confirm them with Shen (videos are usually partly dis
 - Speed: np.searchsorted on datetime64 arrays with a key of another unit copies the whole array per call (minutes on 5M bars). Search
   int64 nanoseconds (values.astype("datetime64[ns]").view("i8")).
 
+
+## Every rule on every market and timeframe (Shen's standing instruction, 10 Oct 2026)
+Shen, verbatim: "make sure to always test and optimise across asset and across timeframe and across strategies, act as hedge fund
+and quant, test out all different asset and timeframe eventhough if the strategy says 4h with 5min, test all since you have the data".
+- Write each new rule as rule(S, ctx) -> list of Fill (LONG in its frame; the harness mirrors prices for the short side) in a
+  bt/xrules_*.py module (bt/xrules.py, xrules_video.py, xrules_bernd.py are the patterns) and run it with bt/xrun.py on every asset
+  and timeframe available: `python3 bt/xrun.py <rule-name prefix> --module <module>` (data in hand: gold M5-D1, 3 FX pairs, US100,
+  US500, TSLA, AAPL, BTCUSD at M30-D1) and `--export` once data/x exists (every symbol in the FTMO export, one at a time).
+- The source's own market/timeframe is the pre-registered primary cell. Every other cell is reported too, never dropped.
+- Report the per-rule summary from xrun.py (cells, share of cells positive, pooled R and t, cells passing the CANDIDATE bar vs the
+  ~2.5% expected by luck) plus pooled R by timeframe and by asset group. A rule that passes in 1-2 cells out of 38 is luck.
+- Any H4 or D1 result: rerun with --h4-offset 1, 2, 3 (H4 candles started 1-3 hours after FTMO's) before it counts.
+- Optimising = a small grid written down BEFORE running (e.g. 1.5/2/3R, break-even at 1R or not, timeframe), chosen on data before
+  2024, checked on 2024-26 only, every cell reported. A cross-market basket (one rule, many symbols) beats a tuned single cell.
+- Baselines: coin flip (same moment, other side, same distances) and, for limit orders at levels, a plain-level baseline (bt/xrules_bernd
+  Z0: the same entry mechanics at levels with no quality test) — the coin is not fair for limit entries at levels.
+
+## Same-bar look-ahead in limit entries (added 2026-10-10 01:15 MYT, log #57)
+On the bar where a pending limit/stop order would fill, nothing from that bar (its high beyond the stop, its close beyond the level)
+may decide whether the order exists. Check the fill FIRST; the bar's close can only cancel the order for LATER bars. Only the bar's
+OPEN may cancel it on that bar (a pending order can be pulled at the open). #33's "ran through the high first: no trade" and #35's
+"closed above the block: no trade" both dropped bars that filled and then lost — look-ahead that removes losers. When an exit series
+is coarser than 1 minute, the harness counts the stop (not the target) inside the fill bar; the rule must not pre-filter those bars.

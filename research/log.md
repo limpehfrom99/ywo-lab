@@ -368,6 +368,7 @@ running (bt/panda_bull.py, bt/panda_exit_baseline.py), daily bars, signal at the
   the full export (battery DON/MA rule books + an exit grid, backlog #39), with real swaps from the spec sheet.
 
 ### 33. RedNote video "Trading Dimsum": "5:1 Reward to Risk Ratio" (FVG retest after a break of structure, target the trendline liquidity) — 5:1 claim DEAD; 1-hour version with a near target = CANDIDATE on gold, pending other markets   [2026-10-09 21:48 MYT]
+  [correction 2026-10-10 01:15 MYT] The entry loop dropped bars that filled and then hit the stop (same-bar look-ahead, #57). Fixed: gold H1 -0.066R (803 trades) -> DEAD.
 Rule as told (FX chart, short; longs mirrored): a strong drop leaves a bearish FVG and breaks structure (BOS); price pulls back up
 along a rising trendline to the gap; sell when price touches the gap; stop at the high; target the liquidity under the trendline;
 "a nice 5:1". Fixed before running (bt/fvg_retest.py): 3-bar fractals usable 3 bars later; BOS = close below the last swing low (each
@@ -404,6 +405,7 @@ Verdict: DEAD as shown. The trendline adds nothing over #33's plain break of str
 the wide stop at the leg's high with a near target on the 1-hour chart, not the tight stop at the gap.
 
 ### 35. RedNote video "K线之下": "订单块交易策略" (order blocks: MTF engulfing, inducement trap, breaker block) — 1 and 2 DEAD; breaker block on 4-hour = CANDIDATE on gold, pending other markets   [2026-10-09 22:08 MYT]
+  [correction 2026-10-10 01:15 MYT] The breaker entry dropped bars that filled and then closed beyond the block (same-bar look-ahead, #57). Fixed: gold H4 -0.056R -> DEAD.
 10.5-minute lesson, transcribed. Valid OB = the key candle before a gap (full range), untested since, and the move breaks structure;
 trade only the latest valid OB with the structure. S1: price returns to a higher-timeframe OB -> lower-timeframe engulfing -> enter,
 stop just beyond the OB, 2R (D1->H1, H4->15m, H1->5m). S2: a minor support with several bounces above the OB ("inducement") ->
@@ -476,6 +478,7 @@ Verdict: DEAD on gold. The trader's own markets (ES/NQ = US500/US100) come with 
 (backlog #43).
 
 ### 39. RedNote video "格局Vision": "ICT课004｜先统一看图标准" (fix the feed, chart clock and touch rule before judging a rule) — checks on #33 and #35: #33 holds; #35 depends on where the 4-hour candles start -> WATCH   [2026-10-09 22:54 MYT]
+  [correction 2026-10-10 01:15 MYT] Both #33 and #35 had a same-bar look-ahead in the entry (#57); with it fixed both are DEAD on every 4-hour start.
 The lesson (11 min, no trade rules): a sweep at 99.9 on one feed is 100.1 on another; Beijing vs New York chart time moves the
 candles; touch / wick / cross / close are different events; flipping timeframes until one agrees is confirmation bias; after
 changing a rule, re-test it (win rate, R:R, expectancy, drawdown, signal count). Applied to our two candidates, nothing re-tuned
@@ -615,6 +618,7 @@ beyond the spike + 0.05 ATR; target the pre-news price or half the move; flat 12
 Verdict: DEAD. Neither fading nor following the first 15-30 minutes after a release pays after costs.
 
 ### 48. Forex cross-market test of #33 and #35 (backlog #40/#41, first part: Shen's EURUSD, GBPUSD, USDCHF exports, 30-min bars 2018-26) — #35 breaker holds on forex: CANDIDATE; #33 mixed   [2026-10-10 00:05 MYT]
+  [correction 2026-10-10 01:15 MYT] Same-bar look-ahead in both entry loops (#57). Fixed: #35 forex H4 -0.002R (1,465 trades), #33 forex H1 -0.057R -> both DEAD.
 Rules untouched (bt/fx_cross_check.py, bt/fx_phase_check.py). 1-hour = two 30-min bars, 4-hour on FTMO's server clock (plus all
 four UTC grid starts); exits on 30-min bars with a conservative fill rule (in the fill bar a stop touch counts, a target touch
 doesn't; the coin flip skips the fill bar); spread x 1.2 + commission 0.0025%/side. The same pipeline on gold 2018-26 gives
@@ -765,3 +769,89 @@ holding time from 200 random days:
 Verdict: DEAD — the high win rate is the uptrend; buying a random day and holding as long does the same. The index longs (+0.35 ATR over
 baseline, t 1.5, ~7 trades a year each) are the same index mean-reversion effect already on the watch list as IBS (#24/#26c), not new.
   [note 00:45 MYT] The clock times on the #49-55 headers are estimates written ahead of time; the whole batch actually ran 00:28-00:45 MYT, 10 Oct.
+
+### 56. Second video batch: 9 RedNote videos "K线之下" + 1 "实战熊猫教练" (SB structure) — 15 rules, every asset and timeframe in hand — all DEAD   [2026-10-10 01:00 MYT]
+Videos rn021-rn030 (research/videos/index.csv; rn028 is a re-upload of rn006 = #35, not re-tested). Rules written before running
+(bt/xrules_video.py), each run LONG and mirrored SHORT on 38 cells with bt/xrun.py: gold M5/M15/M30/H1/H4/D1 2012-26 (1-min exits),
+EURUSD/GBPUSD/USDCHF 2018-26, US100/US500/TSLA/AAPL 2021-12+, BTCUSD 2020-09+ (FTMO 30-min exports, M30/H1/H4/D1, 30-min exits,
+H4/D1 on FTMO's server clock). FTMO costs on every trade; stops/targets as the videos give them (mostly stop beyond the level, 2R).
+  rule (video)                                            pooled R   cells > 0   trades
+  Heikin Ashi flip alone (rn021)                           -0.089      29%       73k
+  Heikin Ashi at a rejected level (rn021)                  -0.068      32%      132k
+  inversion FVG retest (rn022)                             -0.210       8%      422k
+  FVG nearest the 61.8% retracement (rn022)                -0.152      18%       43k
+  FVG + EMA200 trend + MACD cross (rn022)                  -0.058      39%       34k
+  pullback to SMA50 + rejection candle (rn023)             -0.101      24%       61k
+  pullback to SMA50 + RSI crosses 50 (rn023)               -0.079      32%       50k
+  broken resistance retest + RSI 50 (rn023)                -0.102      32%       51k
+  Williams VIX Fix + Stochastic (rn024)                    -0.116      11%      253k
+  equal lows above a demand zone (rn025)                   -0.122      24%        4k
+  SB second breakout, buy stop over the 2nd high (rn026)   -0.053      44%       18k
+  SMA20/50 cross, every signal (rn027)                     -0.053      45%       58k
+  SMA20/50 cross after two winning crosses (rn027)         -0.070      42%      2.5k
+  sweep of an obvious low + inversion FVG (rn029)          -0.130      13%      108k
+  trendline touch + Stochastic(5,3,3) (rn030)              -0.134      13%       34k
+All 15 pooled -0.134R over 1.34M trades; 26% of 541 cells positive; no timeframe positive (D1 -0.06 ... M30 -0.15) and no asset
+class (stocks -0.06 ... crypto -0.20). 2 cells pass the CANDIDATE bar (HA at a level and FVG+EMA200+MACD, both TSLA M30 = TSLA's
+trend), against ~13 expected by luck.
+Verdict: DEAD, all 15, on every market and timeframe. Nothing to optimise: no rule has a positive region to tune toward.
+
+### 57. #33 and #35 on every asset and timeframe — a same-bar look-ahead found in both entry loops; fixed, both DEAD everywhere   [2026-10-10 01:15 MYT]
+Harness bt/xgrid.py + bt/xrun.py; the same 9 markets / 38 cells as #56; H4 also started 1, 2 and 3 hours after FTMO's candles
+(xrun.py --h4-offset).
+First pass (the original #33/#35 entry code) looked like the best result in this log: #35 on H4 +0.109R pooled (3,458 trades, t 4.5,
+9/9 years outside gold, positive at every 4-hour start); #33 on H1+H4 +0.171R (3,708 trades, t 5.6, every asset group positive).
+The bug: both entry loops looked at the fill bar's own later prices to decide whether the order existed.
+  #33 (bt/fvg_retest.py, "ran through the high first: no trade"): "bar high >= stop -> no trade" was checked BEFORE "bar high >= entry".
+    Coming from below, price must pass the entry to reach the stop, so that bar fills first and then loses.
+  #35 (bt/ob_strategies.py strat3): "bar closes above the block -> no trade" was checked BEFORE the fill; the close comes after the fill.
+  The old order dropped 14.5% (#33) and 12.6% (#35) of the fills. On gold with 1-minute exits the dropped trades are full losses:
+  #33 H1 146 trades, avg -1.07R, 100% stopped; #35 H4 103 trades, avg -0.99R, 98% stopped.
+Fixed (fill checked first; only the bar's OPEN can cancel the order; xrules.py fill_first=True, old order kept as "#33/#35 OLD" for
+comparison), nothing else changed:
+  #33: pooled -0.099R over 17,063 trades, 39% of cells positive. By timeframe M5 -0.15, M15 -0.12, M30 -0.11, H1 -0.06, H4 +0.04,
+    D1 -0.05. H4 at the four starts +0.041 / +0.010 / +0.043 / +0.057 (t 0.2-1.1). Gold H1, the original cell: -0.066R (803 trades;
+    was +0.156). Forex H1 -0.057 (#48 said +0.150).
+  #35: pooled -0.137R over 93,555 trades, 13% of cells positive. H4 at the four starts -0.027 / -0.006 / -0.060 / +0.008. Forex H4
+    -0.002 (1,465 trades; #48 said +0.115). Gold H4 -0.056 (was +0.063).
+  Break-even at 1R (Bernd, rn040) doesn't rescue either: #35 H4 -0.030 / -0.023 / -0.067 / -0.019; #33 H4 +0.056 / -0.010 / +0.047 / +0.085.
+Checked for the same mistake: lab/lab.py opening_candle (market entry at the 2nd candle's open, stop checked first on every bar),
+bt/classic_intraday.py (#49-53: a fill bar that touches the stop = stopped), bt/holy_grail.py and bt/value_area.py (entries decided on
+closed bars) — clean. The live opening-candle rule is not affected. Rules already DEAD that shared the pattern only get worse.
+Verdict: #33 DEAD, #35 DEAD, on every market and timeframe. The CANDIDATE/WATCH verdicts in #33, #35, #39 and #48 came from the
+look-ahead (correction notes added under those headers). Backlog #40-42 dropped. PROTOCOL.md: "Same-bar look-ahead in limit entries".
+
+### 58. Bernd Skorupinski, 41 Instagram reels (supply and demand) — zone entries DEAD on every market and timeframe; COT and seasonality need data   [2026-10-10 01:15 MYT]
+Reels rn031-rn071 (17-92 s, English). The method: a demand zone = a "base" of small candles followed by an explosive leg-out (the
+leg-out matters most, rn059); fresh zones only — each touch consumes the unfilled orders (rn061); three entries on the same zone
+(rn052): blind limit at the proximal line, inside-bar breakout (rn063), strict engulfing — the second candle must close beyond the
+first one's high (rn049); the "action matrix" (rn069): higher-timeframe location x trend direction x zone; break-even at 1R (a
+student's backtest, rn040); plus COT positioning (rn033, rn046), seasonal windows (rn058: "JPY sell from 1 Sep, 15/15 years") and
+mindset (24R a year, rn054; don't take small profits, rn062; never move the stop, rn053/rn056).
+Rules fixed before running (bt/xrules_bernd.py), LONG at demand and mirrored for supply, every asset/timeframe in hand:
+  zone = 1-3 base candles each <= 0.6 x bar ATR, then a bullish leg-out >= 1.5 x bar ATR closing above the base's high; proximal =
+  highest base body, distal = lowest low; stop = distal - 0.05 daily ATR; target 2R; only if price already went >= 2R above the entry
+  before coming back ("room"); zone lives 200 bars.
+  Z1 blind limit | Z2 inside-bar buy stop | Z3 strict engulfing, next open | Z1 + discount (entry in the lower 40% of the 500-bar
+  range) | Z4 action matrix: Z1 + SMA200 rising over 50 bars, with and without discount | Z0 baseline: ANY bullish close above the
+  prior candle's high counts as a zone (no size tests), same entry.
+First pass had the same same-bar look-ahead as #57 (a close through the zone on the touch bar cancelled the order): Z1 +0.054R, but
+the no-quality baseline Z0 +0.044R at t 13 — the baseline doing as well as the rule is what exposed the bug.
+Fixed (fill first):
+  Z0 baseline  -0.145R  242,661 trades      Z1 blind              -0.201R  12,219 trades, 6% of cells > 0
+  Z1 + discount -0.193R   4,868             Z4 uptrend            -0.205R   6,969
+  Z4 uptrend + discount -0.239R   1,067     Z2 inside bar         -0.091R   1,071
+  Z3 engulfing  -0.075R   1,077 (forex +0.19 on 226 trades, every other group negative)
+  No timeframe and no asset group positive for Z0, Z1, Z4.
+Verdict: DEAD — the zone entries as he teaches them lose on every market and timeframe after FTMO costs; zone quality, location and
+trend filters make it worse, not better. Not tested: COT positioning (needs CFTC history files) and seasonal windows (needs daily
+history from ~2000; the full export's D1) -> backlog.
+
+### 59. RedNote image post "Y": "订单流剥头皮一 (关键位置 re-action)" (order-flow scalp) — not testable with FTMO data   [2026-10-10 01:00 MYT]
+Rule as posted: 5-minute footprint chart. At a resistance level, a 5-min candle closes BEARISH while its delta is POSITIVE (more
+aggressive buying than selling) on a volume surge = buyers absorbing the sellers ("阴线+正Delta+放量", a contradiction signal) ->
+buy for a 3-5 minute scalp on the expected quick break up. It needs bid/ask delta per candle. FTMO's CFD feed and its exports
+carry only tick volume (a count of price changes) with no buy/sell side, and any delta estimate built from the candle itself
+(close position x volume) is negative on a bearish candle by construction, so the contradiction can't be rebuilt. Tick volume
+was already no help on order blocks (#40), and a 3-5 minute hold leaves little room over FTMO's spread. Not tested; it would
+need exchange futures data with trade-side flags (CME GC/NQ tick data). Kept as a note, not queued.

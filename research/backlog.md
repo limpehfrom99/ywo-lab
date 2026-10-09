@@ -98,16 +98,16 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 38. [queued] freqtrade-strategies (github.com/freqtrade/freqtrade-strategies): port the 5 most-starred long-only rules, test on BTC M30
     2020+ and ETH [needs export]; FTMO crypto costs 0.0325%/side. Low priority (1:1 leverage).
 39. [queued, needs export] Trend-following exit grid across every market (#32D): entries = close above the 20/55-day high (long and short), exits = 2/3/4-ATR chandelier, 10-day low, 50-day MA, hold 20/60; random-entry baseline per cell; real swaps from symbol_specs.csv; pooled by group; walk-forward choice of exit (quant/walkforward.py).
-40. [queued, needs export; first part done in #48: 3 pairs +0.150R pooled but +0.03 before 2024] #33 FVG retest (1-hour, BOS -> first FVG -> limit at the gap edge, stop at the leg high + 0.05 ATR, target the last pullback swing low, >= 2R) unchanged on every FX pair (the poster's market), US/EU indices, silver and oil; exits on the finest bars available; pooled by group; no re-tuning.
-41. [queued, needs export; first part done in #48: EURUSD/GBPUSD/USDCHF +0.115R pooled on FTMO's clock] #35 breaker-block retest (4-hour and 1-hour, rules in bt/ob_strategies.py strat3) unchanged on every FX pair, US/EU indices, silver, oil; 4-hour candles on FTMO's server clock (bt/data_standard_check.h4_server) as the primary cell, all four hourly grid starts reported (#39: on gold it is +0.02 to +0.13R by start hour); pre-registered second cell: skip blocks whose candle tick volume >= 1.2 x the median of the 50 bars before (#40); pooled by group; overlap/correlation with #33 and the opening candle; then FTMO odds of OC + #33 (+ #35 only if it passes on the server clock).
-42. [queued] Momentum-score filter (#36 table, bt/pullback_lab.py legs()) applied unchanged to the #33 and #35 trades: score >= 5 vs <= 4 on the leg before each setup; pre-registered: keep only if the filtered set beats the unfiltered by >= 0.05R in-sample (before 2024) AND out-of-sample.
+40. [dropped 2026-10-10: #33 DEAD after the same-bar look-ahead fix, log #57] [was: queued, needs export; first part done in #48: 3 pairs +0.150R pooled but +0.03 before 2024] #33 FVG retest (1-hour, BOS -> first FVG -> limit at the gap edge, stop at the leg high + 0.05 ATR, target the last pullback swing low, >= 2R) unchanged on every FX pair (the poster's market), US/EU indices, silver and oil; exits on the finest bars available; pooled by group; no re-tuning.
+41. [dropped 2026-10-10: #35 DEAD after the same-bar look-ahead fix, log #57] [was: queued, needs export; first part done in #48: EURUSD/GBPUSD/USDCHF +0.115R pooled on FTMO's clock] #35 breaker-block retest (4-hour and 1-hour, rules in bt/ob_strategies.py strat3) unchanged on every FX pair, US/EU indices, silver, oil; 4-hour candles on FTMO's server clock (bt/data_standard_check.h4_server) as the primary cell, all four hourly grid starts reported (#39: on gold it is +0.02 to +0.13R by start hour); pre-registered second cell: skip blocks whose candle tick volume >= 1.2 x the median of the 50 bars before (#40); pooled by group; overlap/correlation with #33 and the opening candle; then FTMO odds of OC + #33 (+ #35 only if it passes on the server clock).
+42. [dropped 2026-10-10: #33/#35 DEAD, log #57] Momentum-score filter (#36 table, bt/pullback_lab.py legs()) applied unchanged to the #33 and #35 trades: score >= 5 vs <= 4 on the leg before each setup; pre-registered: keep only if the filtered set beats the unfiltered by >= 0.05R in-sample (before 2024) AND out-of-sample.
 43. [queued, needs export] #38 rule A ("two wicks, big-body break, retest the level"; bt/breakout_retest.py rule_a) unchanged on the
     trader's own markets US500 / US100 (ES / NQ), 5m / 15m / 1h, follow-through on and off, 2R and prior-high targets; gold was
     -0.01 to -0.25R in every cell. One pass, all cells reported; also rule B (trend candle 0.382) on the same markets.
 44. [queued, needs export] #43 value-area rules (bt/value_area.py V1-V3, ETH + RTH) unchanged on the export's 5-minute US100 / US500
     (and US30, GER40, UK100) from 2015, profile from 5-min tick volume, exits on 5-min; pre-registered cell to confirm: US100 RTH V3
     (+0.096R, t 2.3 on 30-min bars 2021-26). Dead unless US100 RTH V3 holds before 2021 AND US500 RTH V3 turns positive.
-45. [queued, needs "go"] OpeningCandle_EA duplicate-order guard (#44): before every send, FindPosition() by magic -> adopt + mark the
+45. [done: OpeningCandle_EA v1.10, commit f05e0e7, Shen said go] OpeningCandle_EA duplicate-order guard (#44): before every send, FindPosition() by magic -> adopt + mark the
     day as traded; after a send that returns without a visible position, block re-sends for 10 s while polling; also adopt any
     extra position with the magic so the 15:59 exit closes all of them. Ship with the vol-sizing change.
 46. [queued, needs export] #46 opening candle on big-gap days (|gap| >= 0.5 ATR): first candle against the gap vs with it, on all 46
@@ -126,3 +126,20 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 50. [blocked: needs 1-minute history] #51 Oops on stocks/indices: 45-76% of fills are ambiguous on 5/30-minute bars.
 51. [queued, needs export] #54 Holy Grail H4 (server clock, all 4 grid starts) on the 14 indices 2015+: WATCH -> CANDIDATE only if pooled
     >= +0.10R, t >= 2 before 2024 and > 0 from 2024.
+52. [queued, needs export] Whole rule library on every export symbol and timeframe: `python3 bt/xrun.py --module xrules_video
+    --module xrules_bernd --export` (+ any new xrules_* module). Report the per-rule summary (cells, share positive, pooled R, passing
+    vs luck) and by group/timeframe. Everything in it is DEAD on the data in hand (#56-58); this is the check that nothing turns up on
+    the ~100 symbols not seen yet — a rule only comes back if pooled >= +0.05R on the new symbols in BOTH halves.
+53. [queued] Same-bar look-ahead audit (#57): grep every bt/*.py entry loop for a fill-bar decision made from the bar's own
+    high/low/close (pattern: a `break` on the stop or a close beyond the level BEFORE the fill check). Re-run any CANDIDATE/WATCH it
+    touches. Already clean: lab/lab.py opening_candle, bt/classic_intraday.py, bt/holy_grail.py, bt/value_area.py.
+54. [queued, needs export D1 2000+] Bernd's seasonal FX windows (#58, rn058): for each pair and calendar window (start day, 10/20/30
+    trading days), the hit rate over the 15 years BEFORE each test year; trade only windows with >= 80% hit rate (walk-forward, no
+    peeking); baseline = random windows of the same length on the same pair. Pooled across pairs, with swaps.
+55. [blocked: needs CFTC history files] Bernd's COT positioning (#58, rn033/rn046): commercial / non-commercial net position
+    extremes (3-year percentile) on currency and gold futures as a weekly direction filter for the opening candle and for daily
+    trend rules. The shell can't reach cftc.gov; Shen can download "Futures Only" historical zip files and attach them.
+56. [queued, needs export] FTMO odds for the live opening candle with the survivors only: OC (TSLA + US100, vol sizing #12) + NR7
+    size-up (#48 above, if it passes) + Williams VB gold (#50, small) — lab/ftmo_sim.py, risk per trade 0.25/0.5/0.75/1% fixed in
+    advance; pass probability, days to pass, max-loss breach rate.
+
