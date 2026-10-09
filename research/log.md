@@ -764,3 +764,4 @@ holding time from 200 random days:
   edge +0.001. Shorts below the 200-day MA lose 0.70 ATR.
 Verdict: DEAD — the high win rate is the uptrend; buying a random day and holding as long does the same. The index longs (+0.35 ATR over
 baseline, t 1.5, ~7 trades a year each) are the same index mean-reversion effect already on the watch list as IBS (#24/#26c), not new.
+  [note 00:45 MYT] The clock times on the #49-55 headers are estimates written ahead of time; the whole batch actually ran 00:28-00:45 MYT, 10 Oct.
