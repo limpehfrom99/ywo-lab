@@ -1,0 +1,420 @@
+# rn072 | Strix Systems (YouTube, sent as mp4 + its transcript) | Your Backtest is Lying to You. Here's How to PROVE Your Trading Strategy Works | 849.2s | log #61
+[0:00] (A bad strategy that fools your backtest)
+[0:00] I just back tested a strategy on some
+[0:02] one minute Bitcoin data and the initial
+[0:04] results look really good. It's got a 53%
+[0:06] win rate, 1.6 profit factor, and a huge
+[0:09] 260% total return. The equity curve also
+[0:12] looks really promising. But there's one
+[0:14] really major problem with this strategy.
+[0:16] And the problem is that this strategy is
+[0:18] just a random number generator. If we
+[0:21] take a look at the code, you can see
+[0:22] that there's no logic to it at all. It
+[0:24] randomly decides when to enter a trade,
+[0:27] randomly decides how much risk to take,
+[0:28] and it randomly decides when to exit a
+[0:30] trade. So, why does this obviously
+[0:32] terrible strategy look so good in the
+[0:34] back test? Well, the answer is really
+[0:36] simple. It's just pure luck. This
+[0:38] strategy only takes long positions and
+[0:41] it got lucky during a bull market. This
+[0:43] is the Bitcoin chart for the period that
+[0:45] I back tested. And you can see that any
+[0:47] strategy with a long bias would have
+[0:49] done well in this market. And this is Why traditional backtests fail
+[0:51] exactly the problem with most
+[0:52] traditional back tests. They cannot
+[0:54] separate luck from skill because a
+[0:56] random number generator can easily pass
+[0:58] the same tests as a real strategy. In
+[1:01] this video, I want to show you why this
+[1:03] happens and what you can do instead.
+[1:05] Welcome to strict systems. I'm a
+[1:07] statistician by training and I've been
+[1:09] designing trading systems for over 7
+[1:11] years now. In this video, I want to
+[1:13] answer two questions. Why are
+[1:15] traditional back tests worthless? And
+[1:17] how can we prove that a strategy
+[1:18] actually works? Let's start with the
+[1:20] first question. The core issue with
+[1:22] traditional back tests is something
+[1:24] called selection bias. Selection bias is
+[1:26] a tricky statistical concept and I think
+[1:28] the easiest way to explain it is with an
+[1:31] example. And for that example, let me
+[1:33] introduce you to my favorite
+[1:34] statistician of all time, Cristiano
+[1:36] Ronaldo. Let's imagine that we have two
+[1:39] Ronaldos, a red one and a green one.
+[1:41] They're identical in every single way
+[1:43] except color. So they have the same
+[1:45] hairstyle, the same strength, and the
+[1:47] same technique. and they decide to have
+[1:49] a competition to see who can kick the
+[1:50] ball the furthest. Red Ronaldo goes
+[1:52] first and kicks the ball about this far.
+[1:55] Then green Ronaldo goes and his ball
+[1:58] travels the exact same distance because
+[2:00] they have the exact same amount of
+[2:02] strength and they use the same
+[2:03] technique. But now green Ronaldo decides
+[2:05] to take a bunch of extra attempts due to
+[2:08] random variation. Sometimes the kick
+[2:10] goes a little further than other times.
+[2:12] If we conclude the game at this point,
+[2:14] then Green Ronaldo wins because Green
+[2:16] Ronaldo has the furthest kick. But this
+[2:18] is obviously not a fair result because
+[2:20] Cristiano had way more attempts. And
+[2:23] this is exactly how selection bias
+[2:24] works. If you have more attempts, then
+[2:26] you also have more attempts at getting
+[2:28] lucky. In this case, green Ronaldo has a
+[2:30] much higher chance of getting lucky than
+[2:32] red Ronaldo. So, the results are not
+[2:34] comparable anymore. So, let's connect
+[2:36] this to trading. The first point to note
+[2:38] is that bad strategies can sometimes
+[2:40] randomly look good like the one that I
+[2:42] showed you. And you can think of this as
+[2:44] a false positive. Something that looks
+[2:45] good but actually isn't. The problem is
+[2:48] that as you test more strategies, you
+[2:50] are guaranteed to find more false
+[2:52] positives as well. And these false
+[2:53] positives are really bad for traders
+[2:55] because we don't want to be trading bad
+[2:57] strategies. And it gets even worse than
+[2:59] that because there are way more false
+[3:00] positives than true positives. Meaning
+[3:02] there are way more bad strategies that
+[3:04] look good than actually good strategies.
+[3:07] So we need a good way to deal with this
+[3:08] selection bias. To filter out these Why out-of-sample testing isn't enough
+[3:10] false positives, most experienced
+[3:12] traders use a technique known as out of
+[3:14] sample testing. The idea is simple.
+[3:17] Let's imagine that we're back testing 10
+[3:19] strategies. The first thing we do is we
+[3:21] split our back test data into training
+[3:23] and validation sets. Then we test our 10
+[3:26] strategies on the training data. And
+[3:28] after we do this, we'll probably find a
+[3:30] few strategies that look good. But at
+[3:32] this point, we won't be able to tell if
+[3:33] they look good because they are good or
+[3:35] if they look good because of selection
+[3:37] bias. Let's say there's one strategy out
+[3:40] of 10 that looks way better than all the
+[3:42] other ones. And we want to make sure
+[3:43] that it's not just a false positive.
+[3:45] What we can do is we can retest that one
+[3:48] strategy on our validation data. The
+[3:50] idea being that if we only test one
+[3:53] strategy on the validation data, then we
+[3:55] don't have any selection bias issues
+[3:56] because we're not selecting from
+[3:58] anything. We only have one strategy. And
+[4:00] this is a valid approach to back
+[4:02] testing. If your strategy works on the
+[4:04] training data and the validation data,
+[4:06] then there's a good chance that it's a
+[4:08] real strategy. And if it's profitable,
+[4:10] you could start trading it. But
+[4:11] unfortunately, this approach to back
+[4:14] testing only works once. And I'll
+[4:16] explain what I mean by that. Let's
+[4:18] imagine that we back test 10 strategies
+[4:20] every single day. After 10 days, that
+[4:22] means we tested 100 strategies on our
+[4:24] training data. And we validated our 10
+[4:26] best strategies on our validation data.
+[4:29] Do you see what the problem is here? If
+[4:31] you don't, take a second to pause the
+[4:33] video and try to figure it out. So, the
+[4:36] problem here is step three. The point of
+[4:37] the validation step is to filter out
+[4:39] false positives created by selection
+[4:41] bias. If you only test one strategy on
+[4:44] your validation data, this works. But if
+[4:46] you validate multiple strategies on the
+[4:48] same data set, then selection bias
+[4:50] becomes a problem again. Some of those
+[4:52] validated strategies will look better
+[4:54] than others purely due to random chance.
+[4:56] And if we validate enough strategies, at
+[4:58] some point a terrible strategy will slip
+[5:00] through our validation step. And the
+[5:02] worst part is that you won't find out
+[5:03] that it's terrible until you start
+[5:05] trading it and you start losing money.
+[5:07] So what can we do to fix this? Well, we
+[5:10] could add another validation step and
+[5:11] that would look something like this. But
+[5:13] just like before, that approach only
+[5:16] works once. If we repeat this process at
+[5:18] some point, then we'll need to add
+[5:19] another validation step and another
+[5:21] validation step and so on and so on. So
+[5:24] in the long run, this approach doesn't
+[5:26] work. And here's the point I'm trying to
+[5:28] make. If you only use out of sample
+[5:30] testing to filter out false positives,
+[5:32] at some point you will run into one of
+[5:34] two problems. You will either run out of
+[5:36] data, which is really bad, or you'll run
+[5:38] into selection bias, which is also
+[5:39] really bad. Out of sample testing is a
+[5:42] very useful tool, but it doesn't solve
+[5:44] selection bias. So at this point, we A better question to ask
+[5:46] have a pretty good understanding of the
+[5:47] problems with traditional back tests.
+[5:49] Now, let's try to answer the second
+[5:51] question. How can we prove that a
+[5:53] strategy actually works? Well, let's
+[5:55] first rephrase the problem with a
+[5:57] traditional back test. We can say that a
+[5:59] traditional back test asks was the
+[6:01] strategy profitable or not. But we know
+[6:03] that this is not really a good question
+[6:05] because a bad strategy can also be
+[6:07] profitable if it gets lucky and bad
+[6:09] strategies can get lucky all the time.
+[6:11] So, we need a better question. A better
+[6:13] question would be something like, was
+[6:15] this strategy more profitable than
+[6:16] random chance? To help us answer this
+[6:19] question, let's first consider the
+[6:20] following. All good strategies have one
+[6:23] thing in common. They take advantage of
+[6:25] a real and consistent pattern in the
+[6:27] market. So if we destroy those patterns,
+[6:29] all that's left is random noise and the
+[6:31] strategy should stop working. So if we
+[6:34] had a way to destroy those patterns,
+[6:35] then we could do a back test like this.
+[6:38] First, we back test our strategy on the
+[6:40] real training data. Then we destroy the
+[6:42] patterns, which leaves us with a
+[6:43] randomized version of the training data.
+[6:45] We can then test our strategy on the
+[6:47] randomized data as well. And once we've
+[6:49] done that, we can see if our strategy
+[6:51] works better on the real data or on the
+[6:53] randomized data. If our strategy
+[6:55] performs better on the real data, that
+[6:57] means it's exploiting real patterns,
+[6:58] which means our strategy is a good
+[7:00] strategy. So, at this point, you might What is permutation testing?
+[7:02] be thinking that sounds great, but how
+[7:05] do we destroy those patterns? And in
+[7:07] fact, it's even more difficult than
+[7:08] that. Not only do we need to destroy the
+[7:11] patterns, but we also need to preserve
+[7:12] the statistical properties of the data.
+[7:15] Because if we don't, then we're
+[7:16] comparing apples to oranges. At first
+[7:18] glance, this kind of sounds like a trick
+[7:20] question. How can we destroy the
+[7:22] patterns in the data while at the same
+[7:24] time preserving the data? But there's
+[7:26] actually a really beautiful solution.
+[7:28] And it's so simple that I can explain it
+[7:29] to you in less than 30 seconds. The
+[7:31] technique I'm talking about is called
+[7:33] permutation. And permutation is just a
+[7:35] fancy word that means putting things in
+[7:37] a different order. You can think of it
+[7:39] like shuffling a deck of cards. So
+[7:41] here's how it works. Let's say that this
+[7:43] is our back testing data. If we then
+[7:45] permute the data, we get something like
+[7:47] this. As you can see, all we did is we
+[7:49] put the price movements in a new random
+[7:51] order. But the actual data, the
+[7:53] candlesticks are still the exact same.
+[7:56] This is how permutation works. Easy,
+[7:58] right? But before we get too carried
+[8:00] away, let's check if this technique
+[8:02] actually reaches our objectives. It
+[8:04] should destroy the patterns in the data
+[8:05] and preserve the statistical properties.
+[8:07] By doing permutation, we are randomizing
+[8:10] the order of the price movements. And by
+[8:12] randomizing the order, we're breaking
+[8:14] the connections between related price
+[8:16] movements. So price movements that used
+[8:18] to be connected are now completely
+[8:19] disconnected. So if all the price
+[8:21] movements are completely disconnected,
+[8:23] that's another way of saying that all
+[8:24] the original patterns were destroyed. So
+[8:26] we can definitely say that permutation
+[8:28] successfully destroys the patterns. But
+[8:31] what about preserving the statistical
+[8:32] properties? Well, this one's even easier
+[8:34] to prove. All we did was change the
+[8:36] order of the data. So the actual data is
+[8:38] still the exact same. And if the data is
+[8:41] the same, that means that the
+[8:42] statistical properties are also the
+[8:43] exact same. So the only difference
+[8:45] between the real and permuted data is
+[8:47] that the real patterns were replaced by
+[8:49] fake ones. Now that we understand how
+[8:51] permutation works, let's get back to our
+[8:53] ideal back testing setup. We can destroy
+[8:56] patterns with permutation, which means
+[8:57] that we have everything we need to carry
+[8:59] out the first three steps. So now let's
+[9:01] focus on the fourth step. How should you
+[9:03] compare the performance on the real data
+[9:05] to the performance on the permuted data?
+[9:07] Let's look at some examples. Let's say
+[9:09] we back test the strategy on some real
+[9:11] data and we get an 80% win rate. Then we
+[9:14] test the same strategy on permuted data
+[9:16] and we get a 40% win rate. In this case,
+[9:18] it's pretty obvious that our strategy
+[9:20] performs better on real data. So we can
+[9:22] say that our strategy is better than
+[9:24] random. But now let's consider a
+[9:26] different example. Now our real win rate
+[9:28] is 55% and our permuted win rate is 54%.
+[9:32] Is this strategy still better than
+[9:33] random? Well, maybe it is, but I'm not
+[9:36] as confident about this strategy as the
+[9:38] previous one. This shows us that we
+[9:40] don't just want to know if our strategy
+[9:41] is better than random. We also want to
+[9:44] know how much better than random it is.
+[9:46] Now that we improved our question, we
+[9:48] also need to improve our back testing
+[9:49] setup so that we can answer the
+[9:51] question. But the fix is very simple.
+[9:53] Instead of testing our strategy on a
+[9:55] single permuted data set, we can
+[9:57] generate a thousand permuted data sets
+[9:59] where all of the data sets have a
+[10:00] different random order. This lets us
+[10:02] measure how consistently the strategy
+[10:04] beats randomness. By making this
+[10:06] adjustment, we can also turn our vague
+[10:08] question into an objective numerical
+[10:10] question. Instead of asking how much
+[10:12] better than random is our strategy, we
+[10:15] can now ask how often does the strategy
+[10:17] perform better on real data than on
+[10:19] permuted data. Let's visualize how this
+[10:22] works in practice with some graphs.
+[10:24] Let's say we test the strategy on some
+[10:26] real data and we get a 55% win rate. Now
+[10:29] we permute the data once and we get a
+[10:31] permuted win rate of 50%. If we only
+[10:34] make this one comparison, we would
+[10:35] assume that our strategy works because
+[10:37] the real performance is better than the
+[10:39] permuted performance. But now let's see
+[10:41] what happens if we test our strategy on
+[10:43] a thousand permuted data sets instead of
+[10:45] just one. Now we get a distribution of
+[10:47] permuted win rates instead of a single
+[10:49] value. And we can see that the permuted
+[10:51] performance is better than the real
+[10:53] performance about 200 times out of a
+[10:55] thousand. That's 20% which is pretty
+[10:57] high. So, if our randomness beats our
+[10:59] strategy 20% of the time, that's a
+[11:02] strong indication that our strategy is
+[11:04] not very good. A better strategy would
+[11:06] have a much lower percentage closer to
+[11:08] zero. But the main takeaway here is that
+[11:10] we can use that percentage to quantify
+[11:12] how good our strategy is. We can also
+[11:14] think of this percentage as a ratio. We
+[11:16] just divide the number of times that
+[11:18] randomness beats our real strategy by
+[11:20] the number of total permutations. And
+[11:22] this value works exactly like a p value.
+[11:24] The closer to zero our p value is, the
+[11:27] more confidence we can have that our
+[11:28] strategy is a good strategy. So, how low
+[11:31] should your p value be? In scientific
+[11:34] literature, a p value below 0.05 is
+[11:36] considered statistically significant.
+[11:39] That means there's less than a 5% chance
+[11:41] that the result is due to luck. But for
+[11:43] trading, I recommend being stricter.
+[11:45] There are millions of possible
+[11:47] strategies you could test, and most of
+[11:48] them are completely useless. If you use
+[11:51] 05 as your threshold, you'll end up with
+[11:53] a lot of false positives. Strategies
+[11:55] that look good but are actually just
+[11:57] lucky. I personally like to use a p
+[11:59] value of 0.01 or even lower. This gives
+[12:02] you more confidence that you found
+[12:04] something real, but the exact cutoff is
+[12:06] not super important. It depends on the
+[12:08] rest of your back testing setup and on
+[12:10] your personal preferences. So now let's
+[12:12] get back to our ideal back testing
+[12:14] setup. We now know everything we need to
+[12:16] carry out all four steps. Because we're
+[12:18] using permutations and a very small p
+[12:21] value, the risk of selection bias is
+[12:23] very strongly reduced. But if we test
+[12:25] enough strategies, we will eventually
+[12:27] still run into some false positives. To
+[12:29] filter out the remaining false
+[12:31] positives, we can add a final validation
+[12:33] step where we repeat steps 1 through 4
+[12:35] on a separate data set. So essentially,
+[12:38] we're combining permutation with out of
+[12:40] sample testing. And for the astute
+[12:42] listener, yes, it's technically still
+[12:44] possible that a bad strategy could pass
+[12:46] the permutation test on both the
+[12:48] training set and the validation set, but
+[12:50] this is extremely rare. In my personal
+[12:52] experience, selection bias is almost
+[12:55] never an issue when using this setup.
+[12:57] The permutation step is really good at
+[12:59] filtering out false positives, so most
+[13:01] bad strategies don't even make it to the
+[13:03] validation step. So, let's put all of Putting it all together
+[13:05] this into practice by retesting the
+[13:07] random strategy from the beginning of
+[13:08] the video, but this time we'll use
+[13:10] permutation testing. On the traditional
+[13:12] back test, we got a 53% win rate, 1.6
+[13:16] profit factor, and a 262% return. These
+[13:19] are the results on the real data. But
+[13:21] now, let's add in the permuted results.
+[13:23] We can immediately see that the real
+[13:25] results do not consistently outperform
+[13:27] random chance. The metrics look good on
+[13:29] paper, but not because of any skill in
+[13:31] the strategy. All of the p values are
+[13:33] way too high. So we know that the
+[13:35] strategy is definitely not worth
+[13:37] pursuing. That also means that we don't
+[13:39] need to waste any time validating it. So
+[13:42] this is permutation testing. In my
+[13:44] opinion, permutation testing is the most
+[13:46] objective and most reliable method to
+[13:48] prove if a trading strategy has a real
+[13:50] edge. If you want to try it for
+[13:52] yourself, there's a link in the
+[13:53] description to the code that I used for
+[13:55] this video. If you found it useful,
+[13:56] please leave a like and subscribe. This
+[13:58] is my first ever YouTube video, so if
+[14:00] you have any questions or feedback, I'd
+[14:02] love to hear from you in the comment
+[14:03] section, or you can reach out to me on
+[14:05] Twitter. Thanks for watching. Happy
+[14:06] trading and I will see you in the next

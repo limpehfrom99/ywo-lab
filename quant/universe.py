@@ -104,11 +104,45 @@ def to_utc(d, clock="server"):
     return d[~d.index.isna()]
 
 
+def fix_stock_clock(d):
+    """FTMO's second batch of US stock CFDs (AMD, AVGO, BA, CVX, DIS, INTC, JNJ, JPM, KO, MSTR, NKE, PLTR, QCOM, XOM; Oct 2026
+    export) carry history 1 hour early until late Jan 2026: their session shows as 08:35-14:55 New York instead of 9:35-15:55
+    (checked against tick volume: the open/close spikes sit one hour early). Shift every server day whose first intraday bar
+    falls at 08:25-08:45 New York by +1 hour. Daily bars are unaffected (the day boundary is 17:00 New York)."""
+    if len(d) < 2 or (d.index[1] - d.index[0]) >= pd.Timedelta(hours=1): return d
+    ny = d.index - pd.Timedelta(hours=7)
+    day = ny.normalize()
+    first = pd.Series(ny, index=d.index).groupby(day).transform("min")
+    m = (first.dt.hour * 60 + first.dt.minute).values
+    early = (m >= 8 * 60 + 25) & (m <= 8 * 60 + 45)
+    if early.any():
+        d = d.copy(); idx = d.index.values.copy(); idx[early] = idx[early] + np.timedelta64(60, "m")
+        d.index = pd.DatetimeIndex(idx); d = d[~d.index.duplicated(keep="last")].sort_index()
+    return d
+
+
+def drop_daily_artifacts(d):
+    """FTMO's intraday histories hold a whole-day bar stamped at server midnight (17:00 New York) on most days of 2015-2020 for
+    metals, 2018-21 for crypto and 2019 for forex (range ~ the day's range, tick volume ~100x normal, spread 0). Left in, every
+    pending order inside the day's range would 'fill' on it. Drop bars at server 00:00 whose range > 10x and tick volume > 20x
+    the rolling median (log #65)."""
+    if len(d) < 500 or "tickvol" not in d: return d
+    rng = (d.high - d.low).values
+    med_r = pd.Series(rng).rolling(2000, min_periods=200).median().bfill().values
+    tv = d.tickvol.values.astype(float); med_t = pd.Series(tv).rolling(2000, min_periods=200).median().bfill().values
+    mid = (d.index.hour == 0) & (d.index.minute == 0)
+    bad = mid & (rng > 10 * med_r) & (tv > 20 * np.maximum(med_t, 1))
+    return d[~bad] if bad.any() else d
+
+
 def load(sym, tf, cat=None):
     cat = cat or catalog()
     p = cat.get((sym, tf))
     if p is None: return None
-    d = to_utc(load_any(p))
+    raw = load_any(p)
+    if tf != "D1": raw = drop_daily_artifacts(raw)
+    if group_of(sym) == "stock": raw = fix_stock_clock(raw)
+    d = to_utc(raw)
     d.attrs.update(symbol=sym, tf=tf, path=p)
     return d
 

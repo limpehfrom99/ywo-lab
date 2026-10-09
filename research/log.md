@@ -901,3 +901,120 @@ pass-odds tables (57%, ~5.4 months), not the full-edge rows (78%). TSLA's leg is
 Under the new protocol rule TSLA's leg stays CANDIDATE (p_best 0.095), US100's is borderline (0.117). The US100 noise band survives
 selection at p 0.006 — the best-evidenced edge in the lab — but its last 17 months were flat: paper-test it (backlog #20).
 What would change it: the forward test. Shuffled history can't say whether the next year looks like 2022-26.
+
+### 61. The full FTMO export (Shen, 10 Oct 01:14 MYT): what is in it, and three data problems fixed before any test   [2026-10-10 01:40 MYT]
+10 zip parts, 218 MB, 193 files, 94 symbols, exported from FTMO-Demo (MT5 "max bars" 100,000,000, so no 100k-bar cap):
+  34 US stocks (M5 + D1), US100/US500 (M1 + M5 + D1), US30/US2000 (M5), GER40, EU50, FRA40, UK100, JP225, HK50, AUS200, N25,
+  SPN35, DXY (M5), 28 forex pairs (M15 2015-26 + D1 from 2000-10), gold (M1 + M5 2015-26, D1 from 2004), silver/platinum/palladium
+  (M5 2015-17+), copper (2024+), USOIL/UKOIL/NATGAS, 6 softs (2023+), 7 crypto (BTC/ETH/LTC/XRP M5 2018+), symbol_specs.csv
+  (real swaps). Unpacked with quant/ingest.py -> /home/claude/data/x; coverage in results/data_coverage.csv.
+Problems found and fixed (quant/universe.py, bt/xgrid.py):
+  1. Index and stock histories before 2021-22 are one bar a day (or hourly bars) under an M1/M5 label. Left in, they would be
+     resampled into fake 5-minute bars. Each file is now cut to where it really is intraday (first month with >= 60% of the last
+     year's bars per day) and days with < 50% of the usual bars are dropped (bt/xgrid.full_intraday_start; the battery's session
+     matrices already drop such days). Real intraday history: US100/US500 and the EU/Asia indices from Oct 2021; US30 from Feb
+     2019; US2000 from 2018; TSLA and most stocks from Aug 2021 (the second batch of stocks from Oct 2020); AAPL/MSFT 2015-19 and
+     2021+; gold, silver and forex from 2015; BTC/ETH/LTC/XRP from 2018.
+  2. 14 stocks (AMD, AVGO, BA, CVX, DIS, INTC, JNJ, JPM, KO, MSTR, NKE, PLTR, QCOM, XOM) carry timestamps one hour early until
+     late Jan 2026 (their session shows as 08:35-14:55 New York). Fixed in universe.load (+1 h on those days); after the fix every
+     year starts at 9:35.
+  3. FTMO's stock CFDs open at 9:35 New York since 2024 (9:30 before): the first 5 minutes of the cash session don't trade
+     (the M1 files confirm). The battery's session matrices fill that gap from the first bar's open.
+Clock checks that passed: gold's busiest minutes are 8:30 and 10:00 New York; EURUSD's widest spreads sit at the 17:00 New York
+rollover; AAPL 2015-17 is busiest at 9:30. FTMO's gold M1 matches the gold M1 used in this log so far (4.05M shared minutes,
+median price difference 0.00, 1-minute return correlation 0.96), so every earlier gold result stands on the same feed.
+
+### 62. Strix Systems video "Your Backtest is Lying to You" (rn072) + Timothy Masters, "Testing and Tuning Market Trading Systems" — permutation tests adopted   [2026-10-10 01:40 MYT]
+The video (a statistician, 14 min): a random-entry, random-exit, long-only bot made +262% on 1-minute BTC because BTC went up;
+an ordinary backtest can't tell luck from skill, and the more strategies you try the more lucky ones you find (selection bias).
+An out-of-sample split only works once — validate many strategies on the same holdout and selection bias is back. His fix: shuffle
+the order of the price moves (every candle kept, the patterns destroyed) 1,000 times, rerun the strategy on each shuffle, and count
+how often the shuffled data does at least as well: that share is a p-value; he wants <= 0.01, then the same test again on separate
+data. The method is Masters' Monte Carlo permutation test.
+The book (Apress 2018, C++; Shen's tip): 7 chapters — pre-optimization (stationarity, indicator information), optimization
+(regularization, global optimum), post-optimization (bias estimates, parameter sensitivity), unbiased trade simulation (walk-
+forward, cross-validation, nested walk-forward to account for selection bias), trade analysis (bootstrap confidence bounds, a
+lower bound on future mean performance, drawdown probabilities), permutation tests (training bias, selection bias). Not
+downloaded (paid book); the methods are standard and are built here from his published descriptions.
+Built (quant/permute.py): (a) intraday rules: Masters' bar permutation inside each time-of-day column across days — keeps the
+open's bigger bars at the open, destroys the link between bars of the same day; (b) daily rules: his bar permutation of one series;
+(c) best-of-N: every shuffle reruns ALL candidate cells and keeps the best; the real best must beat those bests (the test for
+"the best thing I found among N tries"). Checked: shuffles keep every column's moves, so the end price matches the real one.
+Overlap: another session installed the same toolkit at 01:17 MYT from Masters' own code (#60: bt/robust.py, CSCV, BCa, drawdown
+bounds, verified against his C++). quant/permute.py is the session-matrix version used for the export tests below; the protocol
+rule is #60's (CANDIDATE needs p_best <= 0.10 and a BCa lower bound > 0).
+
+### 63. The live opening candle (OC30) on FTMO's export, with permutation tests (Masters / Strix, #62) and fresh FTMO odds   [2026-10-10 01:48 MYT]
+quant/mcpt_oc.py (results/mcpt_oc.csv), quant/portfolio.py (results/battery_ftmo_oc_export.csv). Rule as in the battery
+(quant/intraday.opening_candle: 9:30-10:00 New York candle, trade its direction at 10:00, stop at its far end, exit at the close;
+FTMO costs). No volatility sizing and no Fed-day skip here, so it is the plain rule.
+  On the export (5-minute bars): TSLA +0.074R (1,283 trades Aug 2021 - Oct 2026, t 1.9; before 2024 +0.085 / after +0.065),
+  US100 +0.077R (1,252, t 1.6; +0.052 / +0.098), US500 +0.057 (after 2024 -0.001), AAPL -0.031, gold -0.015. Across 30 stocks
+  pooled -0.060R (t -7.9); positive only on TSLA, AVGO (+0.089), INTC (+0.071) among the stocks. US indices pooled +0.015.
+  So the edge is small and specific, not a general "first half hour" effect.
+  Permutation (1,000 shuffles of each symbol's session bars; quant/permute.permute_session): p = 0.015 TSLA, 0.057 US100,
+  0.070 US500. The live pair TSLA + US100 pooled: +0.076R vs shuffles mean -0.016, 99th percentile +0.065 -> p = 0.007.
+  Selection bias (best t of the markets the rule was first tried on: TSLA, US100, US500, AAPL, gold): real best 1.89 vs shuffled
+  bests 95th 1.65 / 99th 2.43 -> p = 0.026. Against all 34 US stocks and indices: p = 0.16 (TSLA's t is what the best of 34 random
+  markets reaches 1 time in 6).
+  FTMO odds with these trades (10-day block bootstrap, FTMO 10%/5%/10% rules): risk 0.5% -> pass within 12 months 65%, fail 25%,
+  median 5.1 months, historical max drawdown 15.5% (the earlier table, M30 2022-26 with vol sizing: 71% / 19%); half the edge:
+  46% / 40%; zero edge (luck only): 29% / 59%. Risk 0.25%: 33% / 3%, median 8.5 months. Risk 1%: 53% / 47%.
+Verdict: the opening candle on TSLA + US100 stays the one rule with evidence: it beats shuffled data (p 0.007 for the pair, 0.026
+after correcting for picking the best of 5 markets), but the edge is small (+0.07-0.08R a trade) and does not carry over to other
+stocks. Keep it live at 0.5% (or less); don't add more stocks to it. What would change it: the 2025-26 forward results falling
+below about -0.05R over 150+ trades.
+
+### 64. Pre-registered (BEFORE running) — Bernd's seasonal windows on forex and metals, walk-forward (backlog #54; rn058)   [2026-10-10 01:45 MYT]
+bt/seasonal_fx.py. Markets: 28 forex pairs (FTMO D1 2000-2026) + gold, silver. Windows: start on calendar day 1, 6, 11, ... of the year
+(73 starts), length 10, 20 or 30 trading days; entry at the close of the first trading day on/after the start, exit at the close L
+trading days later. For each test year 2015-2026, select a window if it went the same way in >= 80% of the 15 years before (>= 12
+years of data), and trade that direction; nothing from the test year is used. Result per trade in ATR(20) units after costs: one
+FTMO spread (median M15 spread that year x 1.2) + swap for every night held (today's swap sheet, Wednesday x3). Baseline: same pair,
+direction and length from 20 random start days of the same year; edge = rule - baseline. Reported for all selected windows and for
+non-overlapping ones (per pair and year, skip a window that overlaps one already taken). Pass bar: non-overlapping edge >= +0.10 ATR
+a trade, t >= 2, > 0 in 2015-20 and in 2021-26, and > 0 on >= 60% of markets. Caveat fixed in advance: today's swap rates are
+applied to 2015-26 (rates were near zero in 2015-21, so swaps are overstated for those years on carry-negative sides).
+
+### 65. FTMO export data fix #4: whole-day bars stamped at server midnight (found by the Williams breakout re-test)   [2026-10-10 02:05 MYT]
+The Williams volatility breakout on FTMO's gold 2015-26 came out at -0.49R with 2015-2020 at exactly -1.00 every year. Cause: on
+most days of 2015-2020 the export's gold M1/M5 history holds a bar stamped 00:00 server (17:00 New York) whose high/low is the
+whole previous day's range (e.g. 8 Mar 2016: 1242.75-1263.63, 130,338 ticks, spread 0), i.e. a daily bar merged into the
+intraday history. Same in silver/platinum/palladium 2015-20, BTC/ETH/LTC/XRP 2018-21, and every forex pair in 2019 (50-80 days).
+The gold M1 used in this log before (gold_m1_utc.pkl) does not have it. Fixed in quant/universe.load: drop bars at server 00:00
+whose range > 10x and tick volume > 20x the rolling median (gold M1: 1,559 bars dropped; EURUSD M15: 165). Checked: no such bars
+left on gold, silver, EURUSD, BTC. The battery, the opening-candle tests and the export items (#63, cash sessions) never used
+those bars; the rule-library run on the export was restarted after the fix.
+  #50 re-test after the fix — Williams volatility breakout, FTMO gold 2015-2026, k = 0.5: M1 exits +0.041R (2,237 trades, t 1.5,
+  8/12 years positive, worst -0.07, before 2024 +0.025 / from 2024 +0.089), M5 +0.033R. Silver -0.135, platinum -0.300,
+  palladium -0.6. Pre-registered bar (>= +0.03R on FTMO gold 2015+): met, barely; t 1.5 -> stays a small WATCH-level candidate.
+
+### 64 (result). Bernd's seasonal windows, walk-forward 2015-2026 (bt/seasonal_fx.py, bt/seasonal_mcpt.py)   [2026-10-10 02:05 MYT]
+  All selected windows: 2,825; non-overlapping 1,240-1,244 (28 pairs + gold + silver, ~100 a year).
+  Non-overlapping: rule -0.039 ATR a trade after costs (t -0.5); random windows of the same side and length -0.298; edge +0.258
+  (t 3.4); 2015-20 +0.45 / 2021-26 +0.10; edge > 0 on 60% of markets. By length: 10 days edge +0.14 (t 1.6), 20 days +0.28
+  (t 1.9), 30 days +0.41 (t 2.3). Windows with 14-15 of 15 years the same way: only 9 trades, edge -0.01. Bernd's own example
+  (JPY crosses from ~1 Sep): 6 trades, nothing.
+  What it is made of: gross +0.278 ATR a trade, swap -0.299, so net -0.037. Calendar permutation (each history year shifted by a
+  random number of window starts before selecting; 300 shuffles): edge p = 0.003, gross p = 0.003 -> the calendar does carry
+  information. Split by today's swap sign (NOT pre-registered): sides that earn carry +0.28 ATR net (459 trades; 2015-20 +0.30,
+  2021-26 +0.27), sides that pay carry -0.22 (785; 2021-26 -0.45). But in 2021-26 random windows on the carry-earning side also
+  made +0.16 (the yen carry trade), so the seasonal part there is about +0.10.
+Verdict: passes its pre-registered bar as timing information (edge +0.26, t 3.4, both halves, 60% of markets, calendar
+permutation p 0.003) but the trade itself loses after FTMO swaps (-0.04 ATR). WATCH as a filter, not a strategy. Next (pre-registered
+for the future, not tuned here): seasonal windows only on the carry-earning side, forward from Nov 2026; and seasonal bias as a filter
+for short-hold entries (no swap) in #67.
+
+### 66. Pre-registered (BEFORE running) — Bernd's Valuation Tool and True Seasonality as daily rules on every FTMO market (bt/bernd_daily.py, bt/bernd_bias.py)   [2026-10-10 02:05 MYT]
+Indicators rebuilt from his pages and screenshots (his scripts are invite-only):
+  Valuation: 10-day rate of change of the market minus that of the reference, scaled to [-1, +1] by its min/max over 480 days
+  (this reading reproduces his NASDAQ example: -1.0 against the dollar and -0.93/-1.0 against gold on 4-8 Apr 2025). Reference =
+  a synthetic dollar index from the FTMO pairs (ICE weights without SEK; daily returns correlate 0.997 with FTMO's DXY.cash), and
+  gold for indices, stocks and oil. A second reading (EMA10 of the relative price level, scaled the same way) is run alongside.
+  Treasury bonds (his ZB1!) are not on FTMO. True Seasonality: mean of the next N-day log return from the same calendar date over the
+  15 previous years (N = 10, 20, 30).
+Rules: VAL — crossing below -0.75 = long at the next open, above +0.75 = short; exit at the close 20 trading days later or at a 2 ATR(20)
+stop. SEAS — every N trading days take the side of the seasonal mean for the next N days, hold N days, same stop. FTMO spread
++ commission + swap per night. R = the 2-ATR stop. Baseline: same side and holding from 20 random days of the same year.
+Pass bar: pooled n >= 200, edge over baseline >= +0.05R with t >= 2, positive in both halves (FX/metals split at 2018, others at 2023),
+edge > 0 on >= 60% of markets. Then permutation test before CANDIDATE.

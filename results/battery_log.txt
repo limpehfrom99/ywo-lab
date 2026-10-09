@@ -1,0 +1,316 @@
+AAPL us_cash: 2469 days, 5-min bars, 2015-01-02..2026-10-08
+AAPL daily: 4884 days 2007-05-16..2026-10-08
+AAPL: 30 cells in 8s (intraday tf M5)
+ADAUSD us_cash: 1313 days, 5-min bars, 2021-09-17..2026-10-08
+ADAUSD london24: 1723 days, 5-min bars, 2021-09-17..2026-10-08
+ADAUSD daily: 1838 days 2021-09-21..2026-10-09
+ADAUSD: 33 cells in 3s (intraday tf M5)
+AMD us_cash: 1405 days, 5-min bars, 2020-10-22..2026-10-08
+AMD daily: 1484 days 2020-11-10..2026-10-08
+AMD: 29 cells in 3s (intraday tf M5)
+AMZN us_cash: 1285 days, 5-min bars, 2021-08-02..2026-10-08
+AMZN daily: 1860 days 2019-03-21..2026-10-08
+AMZN: 30 cells in 3s (intraday tf M5)
+AUDCAD london24: 3048 days, 15-min bars, 2015-01-02..2026-10-09
+AUDCAD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+AUDCAD daily: 6850 days 2000-04-18..2026-10-09
+AUDCAD: 31 cells in 9s (intraday tf M15)
+AUDCHF london24: 3046 days, 15-min bars, 2015-01-05..2026-10-09
+AUDCHF ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+AUDCHF daily: 6781 days 2000-04-18..2026-10-09
+AUDCHF: 31 cells in 9s (intraday tf M15)
+AUDJPY london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+AUDJPY ny_fx: 3041 days, 15-min bars, 2015-01-02..2026-10-08
+AUDJPY daily: 6824 days 2000-04-17..2026-10-09
+AUDJPY: 31 cells in 9s (intraday tf M15)
+AUDNZD london24: 3047 days, 15-min bars, 2015-01-05..2026-10-09
+AUDNZD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+AUDNZD daily: 6761 days 2000-04-18..2026-10-09
+AUDNZD: 31 cells in 8s (intraday tf M15)
+AUDUSD london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+AUDUSD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+AUDUSD daily: 6882 days 2000-04-17..2026-10-09
+AUDUSD: 31 cells in 8s (intraday tf M15)
+AUS200.cash au_cash: 1744 days, 5-min bars, 2019-04-08..2026-10-09
+AUS200.cash daily: 1928 days 2019-02-27..2026-10-09
+AUS200.cash: 30 cells in 3s (intraday tf M5)
+AVGO us_cash: 1202 days, 5-min bars, 2020-12-07..2026-10-08
+AVGO daily: 1453 days 2020-12-24..2026-10-08
+AVGO: 30 cells in 2s (intraday tf M5)
+BA us_cash: 1367 days, 5-min bars, 2020-10-22..2026-10-08
+BA daily: 1484 days 2020-11-10..2026-10-08
+BA: 29 cells in 2s (intraday tf M5)
+BABA us_cash: 1285 days, 5-min bars, 2021-08-02..2026-10-08
+BABA daily: 1860 days 2019-03-21..2026-10-08
+BABA: 30 cells in 3s (intraday tf M5)
+BAC us_cash: 1288 days, 5-min bars, 2021-07-28..2026-10-08
+BAC daily: 1860 days 2019-03-21..2026-10-08
+BAC: 30 cells in 3s (intraday tf M5)
+BTCUSD us_cash: 2275 days, 5-min bars, 2018-01-02..2026-10-08
+BTCUSD london24: 2713 days, 5-min bars, 2018-01-02..2026-10-08
+BTCUSD daily: 5556 days 2011-04-06..2026-10-09
+BTCUSD: 33 cells in 7s (intraday tf M5)
+CADCHF london24: 3047 days, 15-min bars, 2015-01-02..2026-10-09
+CADCHF ny_fx: 3043 days, 15-min bars, 2015-01-02..2026-10-08
+CADCHF daily: 6702 days 2000-04-18..2026-10-09
+CADCHF: 31 cells in 9s (intraday tf M15)
+CADJPY london24: 3047 days, 15-min bars, 2015-01-05..2026-10-09
+CADJPY ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+CADJPY daily: 5078 days 2007-03-01..2026-10-09
+CADJPY: 31 cells in 8s (intraday tf M15)
+CHFJPY london24: 3047 days, 15-min bars, 2015-01-05..2026-10-09
+CHFJPY ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+CHFJPY daily: 6825 days 2000-04-17..2026-10-09
+CHFJPY: 31 cells in 14s (intraday tf M15)
+COCOA.c daily: 923 days 2023-02-07..2026-10-09
+COCOA.c: 12 cells in 2s (intraday tf M5)
+COFFEE.c daily: 923 days 2023-02-07..2026-10-09
+COFFEE.c: 12 cells in 2s (intraday tf M5)
+CORN.c daily: 874 days 2023-04-19..2026-10-09
+CORN.c: 11 cells in 1s (intraday tf M5)
+COTTON.c daily: 457 days 2024-12-13..2026-10-09
+COTTON.c: 11 cells in 1s (intraday tf M5)
+CVX us_cash: 1382 days, 5-min bars, 2020-10-22..2026-10-08
+CVX daily: 1484 days 2020-11-10..2026-10-08
+CVX: 29 cells in 2s (intraday tf M5)
+DIS us_cash: 1369 days, 5-min bars, 2020-10-22..2026-10-08
+DIS daily: 1482 days 2020-11-10..2026-10-08
+DIS: 30 cells in 3s (intraday tf M5)
+DOGEUSD us_cash: 1316 days, 5-min bars, 2021-09-20..2026-10-08
+DOGEUSD london24: 1725 days, 5-min bars, 2021-09-20..2026-10-08
+DOGEUSD daily: 1838 days 2021-09-21..2026-10-09
+DOGEUSD: 33 cells in 3s (intraday tf M5)
+DXY.cash us_cash: 473 days, 5-min bars, 2024-11-26..2026-10-08
+DXY.cash daily: 471 days 2024-12-13..2026-10-09
+DXY.cash: 29 cells in 1s (intraday tf M5)
+ETHUSD us_cash: 2269 days, 5-min bars, 2018-01-10..2026-10-08
+ETHUSD london24: 2705 days, 5-min bars, 2018-01-10..2026-10-08
+ETHUSD daily: 3485 days 2016-05-15..2026-10-09
+ETHUSD: 33 cells in 5s (intraday tf M5)
+EU50.cash eu_cash: 1293 days, 5-min bars, 2021-09-14..2026-10-08
+EU50.cash daily: 2224 days 2018-01-18..2026-10-09
+EU50.cash: 30 cells in 4s (intraday tf M5)
+EURAUD london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+EURAUD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+EURAUD daily: 5773 days 2004-07-06..2026-10-09
+EURAUD: 31 cells in 7s (intraday tf M15)
+EURCAD london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+EURCAD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+EURCAD daily: 6725 days 2000-04-19..2026-10-09
+EURCAD: 31 cells in 9s (intraday tf M15)
+EURCHF london24: 3034 days, 15-min bars, 2015-01-19..2026-10-08
+EURCHF ny_fx: 3029 days, 15-min bars, 2015-01-19..2026-10-08
+EURCHF daily: 6871 days 2000-04-17..2026-10-09
+EURCHF: 31 cells in 8s (intraday tf M15)
+EURGBP london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+EURGBP ny_fx: 3043 days, 15-min bars, 2015-01-02..2026-10-08
+EURGBP daily: 6878 days 2000-04-17..2026-10-09
+EURGBP: 31 cells in 9s (intraday tf M15)
+EURJPY london24: 3045 days, 15-min bars, 2015-01-05..2026-10-08
+EURJPY ny_fx: 3043 days, 15-min bars, 2015-01-02..2026-10-08
+EURJPY daily: 6755 days 2000-04-17..2026-10-09
+EURJPY: 31 cells in 9s (intraday tf M15)
+EURNZD london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+EURNZD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+EURNZD daily: 6699 days 2000-04-18..2026-10-09
+EURNZD: 31 cells in 8s (intraday tf M15)
+EURUSD london24: 3045 days, 15-min bars, 2015-01-05..2026-10-08
+EURUSD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+EURUSD daily: 6883 days 2000-04-17..2026-10-09
+EURUSD: 31 cells in 10s (intraday tf M15)
+FRA40.cash eu_cash: 1293 days, 5-min bars, 2021-09-14..2026-10-08
+FRA40.cash daily: 2234 days 2018-01-18..2026-10-09
+FRA40.cash: 30 cells in 5s (intraday tf M5)
+GBPAUD london24: 3036 days, 15-min bars, 2015-01-05..2026-10-08
+GBPAUD ny_fx: 3033 days, 15-min bars, 2015-01-02..2026-10-08
+GBPAUD daily: 4941 days 2007-09-10..2026-10-09
+GBPAUD: 31 cells in 9s (intraday tf M15)
+GBPCAD london24: 3039 days, 15-min bars, 2015-01-05..2026-10-08
+GBPCAD ny_fx: 3035 days, 15-min bars, 2015-01-02..2026-10-08
+GBPCAD daily: 4940 days 2007-09-10..2026-10-09
+GBPCAD: 31 cells in 7s (intraday tf M15)
+GBPCHF london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+GBPCHF ny_fx: 3043 days, 15-min bars, 2015-01-02..2026-10-08
+GBPCHF daily: 6837 days 2000-04-17..2026-10-09
+GBPCHF: 31 cells in 9s (intraday tf M15)
+GBPJPY london24: 3045 days, 15-min bars, 2015-01-05..2026-10-08
+GBPJPY ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+GBPJPY daily: 6883 days 2000-04-17..2026-10-09
+GBPJPY: 31 cells in 9s (intraday tf M15)
+GBPNZD london24: 3008 days, 15-min bars, 2015-01-05..2026-10-08
+GBPNZD ny_fx: 3006 days, 15-min bars, 2015-01-02..2026-10-08
+GBPNZD daily: 4139 days 2010-05-28..2026-10-09
+GBPNZD: 31 cells in 7s (intraday tf M15)
+GBPUSD london24: 3021 days, 15-min bars, 2015-01-05..2026-10-08
+GBPUSD ny_fx: 2991 days, 15-min bars, 2015-01-02..2026-10-08
+GBPUSD daily: 6882 days 2000-04-17..2026-10-09
+GBPUSD: 31 cells in 13s (intraday tf M15)
+GER40.cash eu_cash: 1218 days, 5-min bars, 2021-12-29..2026-10-08
+GER40.cash daily: 2069 days 2018-01-16..2026-10-09
+GER40.cash: 30 cells in 4s (intraday tf M5)
+GOOG us_cash: 1288 days, 5-min bars, 2021-08-02..2026-10-08
+GOOG daily: 1860 days 2019-03-21..2026-10-08
+GOOG: 30 cells in 3s (intraday tf M5)
+HK50.cash hk_cash: 1232 days, 5-min bars, 2021-09-13..2026-10-09
+HK50.cash daily: 1914 days 2019-01-08..2026-10-09
+HK50.cash: 30 cells in 3s (intraday tf M5)
+INTC us_cash: 1357 days, 5-min bars, 2020-12-08..2026-10-08
+INTC daily: 1452 days 2020-12-24..2026-10-08
+INTC: 30 cells in 2s (intraday tf M5)
+JNJ us_cash: 1369 days, 5-min bars, 2020-10-22..2026-10-08
+JNJ daily: 1484 days 2020-11-10..2026-10-08
+JNJ: 30 cells in 2s (intraday tf M5)
+JP225.cash jp_cash: 1311 days, 5-min bars, 2021-09-14..2026-10-09
+JP225.cash us_cash: 1259 days, 5-min bars, 2021-09-14..2026-10-08
+JP225.cash daily: 2260 days 2018-01-16..2026-10-09
+JP225.cash: 48 cells in 4s (intraday tf M5)
+JPM us_cash: 1372 days, 5-min bars, 2020-10-22..2026-10-08
+JPM daily: 1484 days 2020-11-10..2026-10-08
+JPM: 30 cells in 3s (intraday tf M5)
+KO us_cash: 1373 days, 5-min bars, 2020-10-22..2026-10-08
+KO daily: 1484 days 2020-11-10..2026-10-08
+KO: 30 cells in 2s (intraday tf M5)
+LTCUSD us_cash: 2235 days, 5-min bars, 2018-02-23..2026-10-08
+LTCUSD london24: 2713 days, 5-min bars, 2018-02-23..2026-10-08
+LTCUSD daily: 5303 days 2011-11-07..2026-10-09
+LTCUSD: 33 cells in 7s (intraday tf M5)
+MCD us_cash: 640 days, 5-min bars, 2024-03-12..2026-10-08
+MCD daily: 634 days 2024-04-01..2026-10-08
+MCD: 29 cells in 1s (intraday tf M5)
+META us_cash: 1282 days, 5-min bars, 2021-08-02..2026-10-08
+META daily: 1860 days 2019-03-21..2026-10-08
+META: 30 cells in 3s (intraday tf M5)
+MSFT us_cash: 2460 days, 5-min bars, 2015-01-02..2026-10-08
+MSFT daily: 4880 days 2007-05-14..2026-10-08
+MSFT: 30 cells in 8s (intraday tf M5)
+MSTR us_cash: 1101 days, 5-min bars, 2020-12-08..2026-10-08
+MSTR daily: 1444 days 2020-12-24..2026-10-08
+MSTR: 30 cells in 2s (intraday tf M5)
+N25.cash eu_cash: 924 days, 5-min bars, 2020-12-11..2026-10-08
+N25.cash daily: 948 days 2020-12-01..2026-10-09
+N25.cash: 30 cells in 2s (intraday tf M5)
+NATGAS.cash nymex: 501 days, 5-min bars, 2024-10-23..2026-10-08
+NATGAS.cash daily: 494 days 2024-11-11..2026-10-09
+NATGAS.cash: 30 cells in 1s (intraday tf M5)
+NFLX us_cash: 1285 days, 5-min bars, 2021-08-02..2026-10-08
+NFLX daily: 1860 days 2019-03-21..2026-10-08
+NFLX: 30 cells in 3s (intraday tf M5)
+NKE us_cash: 1370 days, 5-min bars, 2020-10-22..2026-10-08
+NKE daily: 1484 days 2020-11-10..2026-10-08
+NKE: 29 cells in 2s (intraday tf M5)
+NVDA us_cash: 1284 days, 5-min bars, 2021-08-02..2026-10-08
+NVDA daily: 1470 days 2020-12-02..2026-10-08
+NVDA: 29 cells in 2s (intraday tf M5)
+NZDCAD london24: 3041 days, 15-min bars, 2015-01-02..2026-10-09
+NZDCAD ny_fx: 3035 days, 15-min bars, 2015-01-02..2026-10-08
+NZDCAD daily: 4927 days 2007-09-06..2026-10-09
+NZDCAD: 31 cells in 6s (intraday tf M15)
+NZDCHF london24: 3040 days, 15-min bars, 2015-01-05..2026-10-09
+NZDCHF ny_fx: 3035 days, 15-min bars, 2015-01-02..2026-10-08
+NZDCHF daily: 4947 days 2007-09-07..2026-10-09
+NZDCHF: 31 cells in 6s (intraday tf M15)
+NZDJPY london24: 3047 days, 15-min bars, 2015-01-05..2026-10-09
+NZDJPY ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+NZDJPY daily: 5091 days 2007-03-01..2026-10-09
+NZDJPY: 31 cells in 8s (intraday tf M15)
+NZDUSD london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+NZDUSD ny_fx: 3042 days, 15-min bars, 2015-01-02..2026-10-08
+NZDUSD daily: 6882 days 2000-04-17..2026-10-09
+NZDUSD: 31 cells in 10s (intraday tf M15)
+PFE us_cash: 1288 days, 5-min bars, 2021-07-28..2026-10-08
+PFE daily: 1860 days 2019-03-21..2026-10-08
+PFE: 30 cells in 3s (intraday tf M5)
+PLTR us_cash: 1357 days, 5-min bars, 2020-12-08..2026-10-08
+PLTR daily: 1453 days 2020-12-24..2026-10-08
+PLTR: 30 cells in 2s (intraday tf M5)
+QCOM us_cash: 1368 days, 5-min bars, 2020-10-22..2026-10-08
+QCOM daily: 1484 days 2020-11-10..2026-10-08
+QCOM: 30 cells in 2s (intraday tf M5)
+SOLUSD us_cash: 379 days, 5-min bars, 2025-04-28..2026-10-08
+SOLUSD london24: 489 days, 5-min bars, 2025-04-29..2026-10-08
+SOLUSD daily: 512 days 2025-05-11..2026-10-09
+SOLUSD: 32 cells in 1s (intraday tf M5)
+SOYBEAN.c daily: 787 days 2023-08-23..2026-10-09
+SOYBEAN.c: 12 cells in 1s (intraday tf M5)
+SPN35.cash eu_cash: 1301 days, 5-min bars, 2021-08-30..2026-10-08
+SPN35.cash daily: 1502 days 2020-11-26..2026-10-09
+SPN35.cash: 29 cells in 3s (intraday tf M5)
+SUGAR.c daily: 457 days 2024-12-13..2026-10-09
+SUGAR.c: 11 cells in 0s (intraday tf M5)
+T us_cash: 1300 days, 5-min bars, 2021-06-18..2026-10-08
+T daily: 1860 days 2019-03-21..2026-10-08
+T: 30 cells in 3s (intraday tf M5)
+TSLA us_cash: 1285 days, 5-min bars, 2021-08-02..2026-10-08
+TSLA daily: 1861 days 2019-03-21..2026-10-08
+TSLA: 30 cells in 3s (intraday tf M5)
+UK100.cash uk_cash: 1270 days, 5-min bars, 2021-09-14..2026-10-08
+UK100.cash daily: 2214 days 2018-01-16..2026-10-09
+UK100.cash: 30 cells in 3s (intraday tf M5)
+UKOIL.cash nymex: 1278 days, 5-min bars, 2021-09-13..2026-10-08
+UKOIL.cash daily: 2689 days 2016-05-11..2026-10-09
+UKOIL.cash: 30 cells in 4s (intraday tf M5)
+US100.cash us_cash: 1255 days, 5-min bars, 2021-09-14..2026-10-08
+US100.cash daily: 2257 days 2018-01-18..2026-10-09
+US100.cash: 30 cells in 4s (intraday tf M5)
+US2000.cash us_cash: 2153 days, 5-min bars, 2018-01-23..2026-10-08
+US2000.cash daily: 2237 days 2018-02-09..2026-10-09
+US2000.cash: 30 cells in 4s (intraday tf M5)
+US30.cash us_cash: 1765 days, 5-min bars, 2019-02-08..2026-10-08
+US30.cash daily: 1950 days 2019-02-27..2026-10-09
+US30.cash: 29 cells in 4s (intraday tf M5)
+US500.cash us_cash: 1255 days, 5-min bars, 2021-09-14..2026-10-08
+US500.cash daily: 2257 days 2018-01-18..2026-10-09
+US500.cash: 29 cells in 4s (intraday tf M5)
+USDCAD london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+USDCAD ny_fx: 3043 days, 15-min bars, 2015-01-02..2026-10-08
+USDCAD daily: 6883 days 2000-04-17..2026-10-09
+USDCAD: 31 cells in 8s (intraday tf M15)
+USDCHF london24: 3046 days, 15-min bars, 2015-01-02..2026-10-08
+USDCHF ny_fx: 3041 days, 15-min bars, 2015-01-02..2026-10-08
+USDCHF daily: 6881 days 2000-04-17..2026-10-09
+USDCHF: 31 cells in 8s (intraday tf M15)
+USDJPY london24: 3046 days, 15-min bars, 2015-01-05..2026-10-08
+USDJPY ny_fx: 3043 days, 15-min bars, 2015-01-02..2026-10-08
+USDJPY daily: 6882 days 2000-04-17..2026-10-09
+USDJPY: 31 cells in 8s (intraday tf M15)
+USOIL.cash nymex: 1466 days, 5-min bars, 2020-12-31..2026-10-08
+USOIL.cash daily: 1479 days 2021-01-20..2026-10-09
+USOIL.cash: 30 cells in 2s (intraday tf M5)
+V us_cash: 1243 days, 5-min bars, 2021-08-02..2026-10-08
+V daily: 1860 days 2019-03-21..2026-10-08
+V: 30 cells in 3s (intraday tf M5)
+WHEAT.c daily: 877 days 2023-04-14..2026-10-09
+WHEAT.c: 12 cells in 1s (intraday tf M5)
+WMT us_cash: 1283 days, 5-min bars, 2021-08-02..2026-10-08
+WMT daily: 1470 days 2020-12-02..2026-10-08
+WMT: 30 cells in 2s (intraday tf M5)
+XAGUSD london24: 3023 days, 5-min bars, 2015-01-05..2026-10-08
+XAGUSD us_cash: 2929 days, 5-min bars, 2015-01-02..2026-10-08
+XAGUSD daily: 4610 days 2008-11-26..2026-10-09
+XAGUSD: 33 cells in 8s (intraday tf M5)
+XAUUSD london24: 3025 days, 5-min bars, 2015-01-05..2026-10-08
+XAUUSD us_cash: 2937 days, 5-min bars, 2015-01-02..2026-10-08
+XAUUSD daily: 5729 days 2004-06-30..2026-10-09
+XAUUSD: 33 cells in 10s (intraday tf M5)
+XCUUSD london24: 476 days, 5-min bars, 2024-12-03..2026-10-08
+XCUUSD us_cash: 461 days, 5-min bars, 2024-12-03..2026-10-08
+XCUUSD daily: 466 days 2024-12-19..2026-10-09
+XCUUSD: 33 cells in 1s (intraday tf M5)
+XOM us_cash: 1380 days, 5-min bars, 2020-10-22..2026-10-08
+XOM daily: 1484 days 2020-11-10..2026-10-08
+XOM: 29 cells in 2s (intraday tf M5)
+XPDUSD london24: 2375 days, 5-min bars, 2017-03-22..2026-10-08
+XPDUSD us_cash: 2365 days, 5-min bars, 2017-03-22..2026-10-08
+XPDUSD daily: 2912 days 2015-01-26..2026-10-09
+XPDUSD: 33 cells in 5s (intraday tf M5)
+XPTUSD london24: 2444 days, 5-min bars, 2017-04-05..2026-10-08
+XPTUSD us_cash: 2365 days, 5-min bars, 2017-04-04..2026-10-08
+XPTUSD daily: 2925 days 2015-01-26..2026-10-09
+XPTUSD: 33 cells in 5s (intraday tf M5)
+XRPUSD us_cash: 2235 days, 5-min bars, 2018-02-23..2026-10-08
+XRPUSD london24: 2671 days, 5-min bars, 2018-02-23..2026-10-08
+XRPUSD daily: 3600 days 2016-06-02..2026-10-09
+XRPUSD: 33 cells in 5s (intraday tf M5)
+ZM us_cash: 1285 days, 5-min bars, 2021-08-02..2026-10-08
+ZM daily: 1470 days 2020-12-02..2026-10-08
+ZM: 30 cells in 2s (intraday tf M5)

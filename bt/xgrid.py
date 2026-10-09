@@ -14,7 +14,7 @@ Costs: spread at the fill (FTMO export spread x 1.2 for 30-minute files, the yea
 commission per side (gold 0.0007%, forex 0.0025%, stocks 0.002%, indices 0, crypto 0.0325%). Swap not included.
 Output: one row per (rule, asset, timeframe) with n, avgR, t, win%, coin, before/after 2024, years > 0, worst year; plus a summary
 per rule across cells (share of positive cells, pooled R, cells passing the CANDIDATE bar vs the number expected by luck)."""
-import sys, glob, time, numpy as np, pandas as pd
+import sys, os, glob, time, numpy as np, pandas as pd
 from dataclasses import dataclass, field
 from numba import njit
 sys.path.insert(0, "/home/claude/bt"); sys.path.insert(0, "/home/claude/lab")
@@ -168,7 +168,7 @@ def run_rule(rule, name, ds_list, tfs=None, min_trades=10, verbose=True):
             if tf not in fr or tf not in ds.tfs: continue
             S = {m: TF(fr[tf], m, atr_df) for m in (False, True)}
             for m in (False, True):
-                ctx = dict(tf=tf, S_other=S[not m], asset=ds.name, group=ds.group, bar_ns=TF_NS[tf])
+                ctx = dict(tf=tf, S_other=S[not m], asset=ds.name, group=ds.group, bar_ns=TF_NS[tf], mirrored=m)
                 Xs = Xm if m else X
                 for f in rule(S[m], ctx):
                     r = resolve(f, Xs)
@@ -221,10 +221,27 @@ COMM.update({"metal": 0.000007, "energy": 0.0, "soft": 0.0})      # FTMO: metals
 GROUP = {"forex": "fx", "metal": "metal", "us_index": "index", "index": "index", "stock": "stock", "crypto": "crypto", "energy": "energy", "soft": "soft"}
 
 
-def datasets_export(groups=None, symbols=None, min_years=3.0):
+def full_intraday_start(d):
+    """First month from which the file really is intraday: bars per active day >= 60% of the median over the last 12 months.
+    FTMO's index/stock histories before 2021-22 hold one bar a day (or hourly bars) under an M1/M5 label; left in, they would be
+    resampled into fake 5-minute bars."""
+    per_day = pd.Series(1, index=d.index.normalize()).groupby(level=0).size()
+    recent = per_day[per_day.index >= per_day.index[-1] - pd.Timedelta(days=365)].median()
+    by_month = per_day.groupby(per_day.index.to_period("M")).median()
+    ok = by_month[by_month >= 0.6 * recent]
+    if not len(ok): return d.index[0]
+    # first month after which every month stays full (a later dip, e.g. holidays, is tolerated if the next 3 months are full)
+    months = list(by_month.index); good = set(ok.index)
+    for i, m in enumerate(months):
+        if all(x in good for x in months[i:i + 4]): return m.to_timestamp()
+    return ok.index[0].to_timestamp()
+
+
+def datasets_export(groups=None, symbols=None, min_years=1.5):
     """Generator over the full FTMO export (quant/universe catalog -> /home/claude/data/x): per symbol the finest intraday file that
-    covers >= min_years (M1, else M5, else M15, else M30) is the base and the exit series; timeframes from it up to D1. One symbol is
-    loaded at a time (the whole export does not fit in memory at once). XAUUSD comes out as group 'gold'."""
+    covers >= min_years of REAL intraday bars (M1, else M5, else M15, else M30), trimmed to where it becomes intraday, is the base
+    and the exit series; timeframes from it up to D1. Stock clocks fixed in universe.load. One symbol at a time. XAUUSD comes out
+    as group 'gold'. Commission per side from universe.commission_of."""
     sys.path.insert(0, "/home/claude/ywo-lab/quant")
     import universe as U
     cat = U.catalog()
@@ -237,36 +254,68 @@ def datasets_export(groups=None, symbols=None, min_years=3.0):
             d = U.load(sym, base_tf, cat)
             if d is None or len(d) < 1000: continue
             d.index = d.index.tz_localize(None) if d.index.tz is not None else d.index
-            if (d.index[-1] - d.index[0]).days / 365.25 < min_years: continue
+            d = d[~d.index.duplicated()].sort_index()
+            if U.group_of(sym) == "stock":                       # CFD session only (pre/after-market bars in 2015-19 files)
+                ny = d.index.tz_localize("UTC").tz_convert("America/New_York"); mins = ny.hour * 60 + ny.minute
+                d = d[(mins >= 570) & (mins < 960)]
+            d = d.loc[full_intraday_start(d):]
+            per_day = pd.Series(1, index=d.index.normalize()).groupby(level=0).transform("size")
+            recent = pd.Series(1, index=d.index.normalize()).groupby(level=0).size()
+            recent = recent[recent.index >= recent.index[-1] - pd.Timedelta(days=365)].median()
+            d = d[per_day.values >= 0.5 * recent]                # drop days that are really hourly/daily bars
+            if len(d) < 1000 or (d.index[-1] - d.index[0]).days / 365.25 < min_years: continue
             d = d[["open", "high", "low", "close", "sp"]].copy(); d["sp"] = d.sp * 1.2
             tfs = tuple(tf for tf in ("M5", "M15", "M30", "H1", "H4", "D1") if TF_NS[tf] >= TF_NS[base_tf] and tf != "M1")
-            yield Dataset(sym, grp, d, base_tf, d, tfs)
+            ds = Dataset(sym, grp, d, base_tf, d, tfs); ds.comm = U.commission_of(sym)
+            yield ds
             break
 
 
-def run_many(rules, ds_iter, tfs=None, verbose=False):
-    """rules: {name: fn}. Datasets outer, rules inner (each symbol's frames are built once). Returns (cells, trades)."""
-    trades = []; t0 = time.time()
+def run_many(rules, ds_iter, tfs=None, verbose=False, out_dir=None):
+    """rules: {name: fn}. Datasets outer, rules inner (each symbol's frames are built once). Trades are kept as one compact
+    frame per symbol (categoricals + float32) so ~10M trades fit in memory; out_dir also saves each symbol's trades.
+    Returns (cells, trades)."""
+    cols = ["rule", "asset", "group", "tf", "t", "side", "R", "R_coin", "rr", "hold_h", "tag"]
+    chunks = []; t0 = time.time(); n_all = 0
     for ds in ds_iter:
-        fr = frames(ds.base, ds.base_tf); atr_df = daily_atr(ds.base)
-        X = ExitSeries(ds.exits if ds.exits is not None else ds.base); Xm = X.mirrored(); comm = COMM.get(ds.group, 0.0)
+        rows = []
+        try:
+            fr = frames(ds.base, ds.base_tf); atr_df = daily_atr(ds.base)
+        except Exception as e:
+            print(f"  {ds.name}: frame error {e!r}", flush=True); continue
+        X = ExitSeries(ds.exits if ds.exits is not None else ds.base); Xm = X.mirrored(); comm = getattr(ds, "comm", None)
+        if comm is None: comm = COMM.get(ds.group, 0.0)
         for tf in (tfs or ds.tfs):
-            if tf not in fr or tf not in ds.tfs: continue
+            if tf not in fr or tf not in ds.tfs or len(fr[tf]) < 100: continue
             S = {m: TF(fr[tf], m, atr_df) for m in (False, True)}
             for name, fn in rules.items():
                 for m in (False, True):
-                    ctx = dict(tf=tf, S_other=S[not m], asset=ds.name, group=ds.group, bar_ns=TF_NS[tf])
+                    ctx = dict(tf=tf, S_other=S[not m], asset=ds.name, group=ds.group, bar_ns=TF_NS[tf], mirrored=m)
                     Xs = Xm if m else X
-                    for f in fn(S[m], ctx):
+                    try: fills = fn(S[m], ctx)
+                    except Exception as e:
+                        print(f"  {ds.name} {tf} {name[:30]}: {e!r}", flush=True); continue
+                    for f in fills:
                         r = resolve(f, Xs)
                         if r is None: continue
                         Xp, Xf, sp, rr, hold, t_in = r; e = f.e; risk = e - f.stop
                         if risk < 2e-5 * abs(e): continue
                         cost = sp + comm * (abs(e) + abs(Xp)); cost_f = sp + comm * (abs(e) + abs(Xf))
-                        trades.append((name, ds.name, ds.group, tf, pd.Timestamp(int(t_in)), -1 if m else 1, (Xp - e - cost) / risk,
-                                       (e - Xf - cost_f) / risk, rr, hold, f.tag))
-        print(f"  {ds.name} done ({time.time() - t0:.0f}s, {len(trades)} trades so far)", flush=True)
-    T = pd.DataFrame(trades, columns=["rule", "asset", "group", "tf", "t", "side", "R", "R_coin", "rr", "hold_h", "tag"])
+                        rows.append((name, ds.name, ds.group, tf, int(t_in), -1 if m else 1, (Xp - e - cost) / risk,
+                                     (e - Xf - cost_f) / risk, rr, hold, f.tag))
+        if rows:
+            T = pd.DataFrame(rows, columns=cols); del rows
+            T["t"] = pd.to_datetime(T.t.values)
+            for c in ("rule", "asset", "group", "tf", "tag"): T[c] = T[c].astype("category")
+            for c in ("R", "R_coin", "rr", "hold_h"): T[c] = T[c].astype("float32")
+            T["side"] = T.side.astype("int8")
+            if out_dir: os.makedirs(out_dir, exist_ok=True); T.to_pickle(os.path.join(out_dir, f"{ds.name}.pkl"))
+            chunks.append(T); n_all += len(T)
+        print(f"  {ds.name} {ds.base_tf} {ds.base.index[0].date()}..{ds.base.index[-1].date()} done ({time.time() - t0:.0f}s, "
+              f"{n_all} trades so far)", flush=True)
+    if not chunks: return pd.DataFrame(), pd.DataFrame(columns=cols)
+    T = pd.concat(chunks, ignore_index=True)
+    for c in ("rule", "asset", "group", "tf", "tag"): T[c] = T[c].astype(str)
     C = pd.DataFrame([cell_stats(n, a, x.group.iloc[0], tf, x) for (n, a, tf), x in T.groupby(["rule", "asset", "tf"], sort=False)])
     if verbose and len(C): print_cells(C)
     return C, T
