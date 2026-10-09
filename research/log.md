@@ -316,3 +316,21 @@ sweep extreme + 0.05 daily ATR; target = nearest unswept opposing 4H swing (only
     (swing-target coin flips +0.09..+0.18 = gold's uptrend on flipped longs).
   US100 2021-26: -0.02 to -0.30R. US500: -0.33 to +0.12R (the +0.12 cell t 0.9, its neighbours negative).
 Verdict: DEAD on our instruments. Not tested on his market (no FX data in the repo) — would need GBPUSD/EURUSD H1 exports.
+
+### 31. RedNote (小红书) video, "SMC交易员_M": "每天如何用 SMC 制定交易计划" (daily SMC plan on gold: daily OB -> 1H sweep + MSS -> 1H OB -> 5-min FVG respected -> target the IDM high) — DEAD   [2026-10-09 21:05 MYT]
+Source: post + 2-min Mandarin video sent by Shen, transcribed with tools/video/video_notes.py. The poster shows one US-session long
+(1:3, "+230 pips"). Rule as posted: daily bullish OB reached + liquidity swept; 1H MSS; the last down candle at the low = 1H OB; the
+high left above (Asian-session high) = inducement (IDM) = target; US session: back into the 1H OB, 5-min sweep, 5-min bullish FVG,
+a candle dips into the FVG and closes back above it -> buy; stop below the FVG; target IDM. Shorts mirrored.
+Fixed before running (bt/smc_plan.py): daily OB = last down day among the 5 before a close above their highs, live until a daily
+close below it (max 90 days); 1H 3-bar fractals usable 3 bars later; sweep = 1H low below the last swing low while overlapping a live
+daily OB; MSS = 1H close above the last swing high within 24 h; 1H OB = last down 1H candle at/up to 3 bars before the low; IDM = high
+from the MSS until price returns to the OB (setup cancelled if IDM is taken first or a 5-min close is 0.1 daily ATR below the OB);
+5-min: new 12-bar low, FVG within 6 bars, respect within 12; entry at the respect close; stop min(FVG bottom, bar low) - 0.05 daily
+ATR; only if target >= 2R; entries 08:00-16:00 NY; exits on 1-min bars (stop first), 24 h limit. Gold M1 2012-01..2026-10-07 (MT4,
+UTC), FTMO spread by year + commission. Coin flip per trade.
+  A as posted: 139 trades (9/yr), avg -0.42R, t -2.4, win 14%, 4/15 years > 0, last 30 -0.54R; coin flip +0.01.
+    longs -0.10R (n 74), shorts -0.79R (n 65, 1/15 years > 0). 86% stopped, 11% reach the IDM (median 6.3R away); median stop 0.10%.
+  B no daily-OB filter -0.24R (493). C rr >= 1 -0.42R. D any session -0.28R (214). E limit at the FVG top -0.35R (longs +0.00).
+  F fixed 2R target -0.18R (208, 32% wins). G the 5-min trigger alone (no context, 2R, US session): -0.085R over 8,829, t -5.6.
+Verdict: DEAD. Same family as #27/#30: a stop a few dollars under a 5-minute gap is taken by noise long before a far target.
