@@ -45,3 +45,7 @@
     news rule forbids this; Swing accounts allow it.
 18. [queued] Gold opening-candle family at other opens: the laptop lab already runs other market opens nightly; check its
     research_report.md when Shen sends it; do not duplicate here.
+19. [done] Reddit sweep: blocked (extension refuses reddit.com). Substitutes tested as #26a-c (noise band, Supertrend/UT Bot, IBS).
+20. [queued] Paper-trade the noise-band rule (#26a) on US100 in the lab app next to the opening candle; compare live vs model monthly.
+21. [queued] Noise band with real 1-minute marks: when the laptop sends US100 M1 history, rebuild the bands and VWAP from M1
+    (paper's resolution) and recheck 2025-26.

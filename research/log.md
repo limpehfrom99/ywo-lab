@@ -201,3 +201,62 @@ Verdict: WATCH — US100 longs only, ~25 trades a year, about +1.5%/year at 0.5%
   3rd-Friday day return: US100 -0.10 ATR, US500 -0.12, AAPL -0.12, TSLA -0.05 (all days +0.03/+0.04) -> slightly negative days, no rule.
   Monday after expiry: +0.02 / -0.01 / +0.13 / +0.10 — inconsistent. Post-FOMC 14:30-candle direction held to 16:00: US100 -3.3R/US500 -1.5R
   per unit of candle body (41 events, ~50% wins): the first 30 minutes after the statement reverse as often as they continue. DEAD.
+
+### 26. Reddit sweep — blocked; tested the three most-shared rule sets from their original sources instead   [2026-10-09 11:40 MYT]
+Reddit is unreachable from every route: WebSearch/WebFetch exclude it, and the Claude in Chrome extension (connected to
+Shen's laptop) refuses reddit.com with "This site is not allowed due to safety restrictions" (a block on the site, not a
+per-site permission). Not worked around (no mirrors). Substitute: rule sets those subs pass around most that the lab had
+not tested, taken from the original sources. Shen can paste any Reddit post's rules into chat for a test.
+
+#### 26a. "Beat the Market" noise-band intraday momentum (Zarattini, Aziz & Barbon 2024; SPY 2007-24 Sharpe 1.33) — CANDIDATE on US100 only
+Rule as published: sigma(k) = mean over 14 prior sessions of |close at mark k / 9:30 open - 1|; UB = max(open, prior
+close) x (1+sigma), LB = min(open, prior close) x (1-sigma); at 10:00, 10:30 ... 15:30 NY: long if price > max(UB, VWAP),
+short if < min(LB, VWAP), else flat; flat at 16:00. VWAP from 30-min bars (typical price x tick volume). Costs: bar
+spread half per side + commission. FTMO M30 2021-10..2026-10 (1,239 sessions). bt/noise_band.py, noise_band_check.py,
+noise_band_later.py, combo_ftmo.py.
+  US100: 1,082 trades (0.9/day), 42% win. At 1x notional (position = balance): +11.5%/yr, vol 8.9%, Sharpe 1.29, t 2.9,
+    maxDD -7.4%, worst day -2.15%. Paper sizing: +17.9%/yr, Sharpe 1.31, maxDD -15.9%. Every year positive
+    (paper sizing 22 +16.6%, 23 +29.6%, 24 +31.3%, 25 +5.9%, 26 +4.5%). Coin flip at the same times: -0.35 bp/day vs
+    +4.55 real, beats 200/200 draws. Neighbours: opposite-band stop Sharpe 1.30, band x0.75 0.89, x1.25 1.17, x1.5 0.92;
+    double spread 1.18. In the paper's sample (to Apr 2024) Sharpe 1.89; after it (out of sample) 0.83.
+    M5-built vs M30-built on 339 common days (2025-05..2026-10): daily correlation 0.99, avg -0.85 vs -0.03 bp/day ->
+    the M30 approximation is fine, and the last 17 months are FLAT.
+    Overlap with the live rule: the 10:00 entries always take the opening candle's direction; daily corr 0.34. Entries
+    from 10:30 only (diagnostic): Sharpe 1.34, t 2.9, years +17.5/+16.0/+7.5/+9.4/+1.8%, corr 0.31 -> a separate bet.
+    Fed days +12.5 bp/day (n=38). Latest 60 sessions +3.3 bp/day vs +4.6 average (43% of stretches worse).
+  US500 (the paper's own market): Sharpe 0.66, t 1.5; in-sample Sharpe 1.63, out of sample -0.27 (2025 -6.8%, 2026 -18.0%
+    at paper sizing). Fails out of sample.
+  TSLA: +26.7%/yr at 1x, Sharpe 1.23, t 2.8, maxDD -19.5%, worst day -4.6%; 2024 -5%; Fed days -19.8 bp/day; latest 60
+    sessions -2.7 bp/day (20th percentile). WATCH (same stock-specific slump as the opening candle).
+  FTMO (2022-26, both phases, 10-day blocks): opening candle 0.5% (live plan) 78% / 57% pass (full / half edge) in
+    4.7 / 5.4 months. Band US100 alone 1x: 98% / 70% but 15 / 22 months; 2x: 88% / 60% in 6.8 / 8.5 months, worst day -4.3%
+    (too close to the 5% daily limit). Opening candle + band US100 1x: 80% / 56% in 3.6 / 4.0 months, worst day -2.95%.
+Verdict: CANDIDATE on US100 (passes the bar; beats coin flip; robust to settings and double spread) with two warnings:
+flat for the last 17 months, and it already failed out of sample on US500. Adds speed (about a month), not pass odds.
+Next: paper-trade it in the lab app next to the opening candle; add to the EA only if forward results track the model.
+
+#### 26b. Supertrend (10, 3) and UT Bot (1, 10) stop-and-reverse, the most-copied TradingView scripts — DEAD
+Rules: TradingView defaults; signal at the bar close, fill next open, reverse on the opposite signal; UT Bot also on
+Heikin-Ashi closes. Always-in (swap 0.01%/night) and session-only modes. R = P&L / distance to the indicator line.
+Grid: gold M5/M15/H1 2012-26, US100/US500 M30/H1 2021-26, TSLA/AAPL M5/M15/H1 2021-26 = 78 cells (bt/atr_trail.py,
+results/atr_trail_cells.csv). 26 positive; 4 above the coin-flip 97.5% band; 1 passes the bar.
+  gold: 1 of 18 positive (H1 Supertrend +0.017, t 0.5); M5/M15 all negative, UT Bot M5 -0.34R vs its coin flip -0.17R.
+  US100 best +0.031R, US500 best +0.052R, none with t > 1.0. AAPL 1 of 18 positive.
+  TSLA M5 Supertrend session-only: n=2,426, +0.055R, t 2.8, 6/6 years, halves +0.03/+0.08 — the same TSLA intraday-trend
+  effect as #20's EMA cell and the opening candle; 1 of 78 cells.
+Verdict: DEAD. What would change it: the TSLA cell holding up in 2027 with the opening candle switched off.
+
+#### 26c. IBS mean reversion on the indices ("2.11 Sharpe" rule, Quantitativo, QQQ) — WATCH (Swing accounts only)
+Rule as published: buy at the close when close < 10-day high - 2.5 x 25-day average range and IBS < 0.3; sell at the first
+close above the previous day's high; no stop. Fixed variant: IBS < 0.2, same exit. Daily bars by FTMO trading day
+Dec 2017..Oct 2026; spread US100 1.5 / US500 0.5 pts, swap 0.01%/night; R = P&L / ATR(14). Baseline: the same holding
+periods from random days (index drift). bt/ibs.py.
+  US100 published: n=85 (9/yr), +0.44R, t 3.5, 74% win, hold 3.9 days, 15% in market, excess over drift +0.32R (t 2.4),
+    halves +0.27/+0.61, 8/9 years (2020 -0.27), worst trade -7.0% of price. +8.7%/yr at 1x notional.
+  US100 IBS<0.2: n=244 (27/yr), +0.28R, t 3.8, excess over drift +0.16R (t 2.0), halves +0.29/+0.28, 2022 -0.03,
+    2018 -0.16, 2026 -0.20; +15.8%/yr at 1x, 42% in market, worst trade -8.5%.
+  US500: published n=78 +0.39R t 2.2 (excess t 1.7); IBS<0.2 n=228 +0.21R t 2.4 (excess t 1.4).
+  Daily corr with the opening candle 0.02. Opening candle + IBS<0.2 US100 at 0.5x: 82% / 60% pass in 4.1 / 4.9 months;
+  + band 1x as well: 82% / 59% in 3.2 / 3.8 months, worst day -4.4%.
+Verdict: WATCH, agreeing with #24 (IBS<0.2 above the 200-SMA with a 2-ATR stop: US100 +0.083R t 2.3). Long-only in a rising market, excess over drift only t 2.0-2.4, no stop, needs overnight and weekend holds.
+What would change it: a pre-2018 index test (needs older daily data) showing the excess over drift holds in flat markets.
