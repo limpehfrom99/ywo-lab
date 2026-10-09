@@ -27,6 +27,7 @@ class Daily:
         self.sym, self.D = sym, D
         self.O, self.H, self.L, self.C = (D[k].values.astype(float) for k in ("open", "high", "low", "close"))
         self.A, self.SP = D.atr.values, D.sp.values
+        self.V = D.volume.values.astype(float) if "volume" in D and D.volume.notna().mean() > 0.5 else None
         self.days = D.index
         self.wd = D.index.weekday.values
         self.comm = commission_of(sym)
@@ -157,6 +158,28 @@ def high52(x, hold=20, stop_atr=2.0):
     return sig
 
 
+def ma_cross(x, fast=5, slow=20, vol_mult=None, stop_atr=3.0, long_only=True):
+    """Bo Tao, 《系统交易方法》 (1998), the book's example of turning an idea into a rule (via a RedNote summary, research #41): buy when
+    the 5-day average crosses above the 20-day average [and volume >= 1.5 x the average of the previous 5 days ('量比')]; out
+    when it crosses back below. A 3-ATR catastrophic stop is the risk unit; the book's exit is the cross."""
+    C, A = x.C, x.A; N = len(C); f, s = sma(C, fast), sma(C, slow); sig = []
+    V = getattr(x, "V", None)
+    if vol_mult is not None and V is None: return sig                   # no volume for this symbol: rule not defined
+    vavg = pd.Series(V).rolling(5).mean().shift(1).values if V is not None else None
+    i = slow + 1
+    while i < N - 1:
+        up = f[i] > s[i] and f[i - 1] <= s[i - 1]; dn = f[i] < s[i] and f[i - 1] >= s[i - 1]
+        d = 1 if up else (-1 if (dn and not long_only) else 0)
+        if d != 0 and vol_mult is not None and not (vavg[i] > 0 and V[i] >= vol_mult * vavg[i]): d = 0
+        if d == 0 or not np.isfinite(A[i]): i += 1; continue
+        a = i + 1; sd = stop_atr * A[i]; st = x.O[a] - d * sd; j = a; b = N - 1
+        while j < N - 1:
+            if (d == 1 and (x.L[j] <= st or f[j] < s[j])) or (d == -1 and (x.H[j] >= st or f[j] > s[j])): b = j + 1; break
+            j += 1
+        sig.append((a, d, sd, b, "open")); i = max(b - 1, i + 1)
+    return sig
+
+
 VARIANTS = [
     ("DON20", donchian, dict(n_in=20, n_out=10)),
     ("DON55", donchian, dict(n_in=55, n_out=20)),
@@ -168,6 +191,8 @@ VARIANTS = [
     ("RSI2_long", rsi2, dict(long_only=True)),
     ("TOM", turn_of_month, dict()),
     ("HIGH52", high52, dict()),
+    ("MA5_20_long", ma_cross, dict()),
+    ("MA5_20_vol_long", ma_cross, dict(vol_mult=1.5)),
 ]
 
 

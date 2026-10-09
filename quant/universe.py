@@ -147,13 +147,21 @@ def daily_bars(sym, cat=None, intraday=None):
     intraday bars. Adds atr (14-day, known at the close) and sp (typical spread: median intraday spread that day x 1.2,
     falling back to the D1 spread x 2)."""
     cat = cat or catalog()
+
+    def vol_of(x):                                   # real volume when the symbol has it, else tick volume, else none
+        if "vol" in x and (x.vol > 0).mean() > 0.5: return x.vol.astype(float)
+        if "tickvol" in x: return x.tickvol.astype(float)
+        return pd.Series(np.nan, index=x.index)
+
     if (sym, "D1") in cat:
         d = load_any(cat[(sym, "D1")])
-        d = d[["open", "high", "low", "close", "sp"]].copy(); d["sp_src"] = "d1"
+        v = vol_of(d)
+        d = d[["open", "high", "low", "close", "sp"]].copy(); d["sp_src"] = "d1"; d["volume"] = v
     elif intraday is not None:
         x = intraday.copy(); x.index = x.index.tz_convert("America/New_York").tz_localize(None) + pd.Timedelta(hours=7)
         g = x.groupby(x.index.normalize())
         d = pd.DataFrame({"open": g.open.first(), "high": g.high.max(), "low": g.low.min(), "close": g.close.last(), "sp": g.sp.median()})
+        d["volume"] = vol_of(x).groupby(x.index.normalize()).sum(min_count=1)
         d["sp_src"] = "intraday"
     else:
         return None

@@ -317,7 +317,7 @@ sweep extreme + 0.05 daily ATR; target = nearest unswept opposing 4H swing (only
   US100 2021-26: -0.02 to -0.30R. US500: -0.33 to +0.12R (the +0.12 cell t 0.9, its neighbours negative).
 Verdict: DEAD on our instruments. Not tested on his market (no FX data in the repo) — would need GBPUSD/EURUSD H1 exports.
 
-### 31. RedNote (小红书) video, "SMC交易员_M": "每天如何用 SMC 制定交易计划" (daily SMC plan on gold: daily OB -> 1H sweep + MSS -> 1H OB -> 5-min FVG respected -> target the IDM high) — DEAD   [2026-10-09 21:05 MYT]
+### 31. RedNote (小红书) video, "SMC交易员_M": "每天如何用 SMC 制定交易计划" (daily SMC plan on gold: daily OB -> 1H sweep + MSS -> 1H OB -> 5-min FVG respected -> target the IDM high) — DEAD   [2026-10-09 20:58 MYT]
 Source: post + 2-min Mandarin video sent by Shen, transcribed with tools/video/video_notes.py. The poster shows one US-session long
 (1:3, "+230 pips"). Rule as posted: daily bullish OB reached + liquidity swept; 1H MSS; the last down candle at the low = 1H OB; the
 high left above (Asian-session high) = inducement (IDM) = target; US session: back into the 1H OB, 5-min sweep, 5-min bullish FVG,
@@ -344,7 +344,7 @@ target IDM (>= 2R) or fixed 2R, US-session entries; every #31 definition counted
 trades (in-sample +0.13, t 0.7); none/H4/M1/IDM +0.17R comes from 2024-26 longs in gold's uptrend (in-sample +0.05, t 0.2).
 With 42 tries one lucky cell is expected; none reached even that. To rerun on indices/FX when the full export lands.
 
-### 32. RedNote video "熊猫聊交易系统" (Coach Panda): "如何判断牛市来了" — a talk with no rules; its 3 claims tested   [2026-10-09 22:05 MYT]
+### 32. RedNote video "熊猫聊交易系统" (Coach Panda): "如何判断牛市来了" — a talk with no rules; its 3 claims tested   [2026-10-09 21:43 MYT]
 Claims: (1) bull markets start when nobody is watching; (2) the signal is not rising but "can't fall" — dips get bought, bad news
 can't push it down, price grinds up in a channel; (3) "会买的是徒弟，会卖才是师傅" — the exit decides what you make. Tests fixed before
 running (bt/panda_bull.py, bt/panda_exit_baseline.py), daily bars, signal at the close, entry next open, costs + assumed swap
@@ -367,7 +367,7 @@ running (bt/panda_bull.py, bt/panda_exit_baseline.py), daily bars, signal at the
   random entries — the same trend-following effect as #9 (gold, WATCH), now on 5 of 6 markets. Confirm on all ~110 markets with
   the full export (battery DON/MA rule books + an exit grid, backlog #39), with real swaps from the spec sheet.
 
-### 33. RedNote video "Trading Dimsum": "5:1 Reward to Risk Ratio" (FVG retest after a break of structure, target the trendline liquidity) — 5:1 claim DEAD; 1-hour version with a near target = CANDIDATE on gold, pending other markets   [2026-10-09 22:20 MYT]
+### 33. RedNote video "Trading Dimsum": "5:1 Reward to Risk Ratio" (FVG retest after a break of structure, target the trendline liquidity) — 5:1 claim DEAD; 1-hour version with a near target = CANDIDATE on gold, pending other markets   [2026-10-09 21:48 MYT]
 Rule as told (FX chart, short; longs mirrored): a strong drop leaves a bearish FVG and breaks structure (BOS); price pulls back up
 along a rising trendline to the gap; sell when price touches the gap; stop at the high; target the liquidity under the trendline;
 "a nice 5:1". Fixed before running (bt/fvg_retest.py): 3-bar fractals usable 3 bars later; BOS = close below the last swing low (each
@@ -388,7 +388,7 @@ on gold (n >= 200, both halves > 0, t >= 2, +0.05R or better, no year below -0.3
 tried, and 2024-26 is weak (+0.05R). The real test is markets it was never looked at on: the poster's FX pairs, indices and silver
 from the full export (backlog #40). If those hold, paper-trade it next to the opening candle.
 
-### 34. RedNote video "阿基米得": "趋势线破位后，FVG就是天然压力位" (after a trendline break, the FVG is resistance) — DEAD as shown   [2026-10-09 22:40 MYT]
+### 34. RedNote video "阿基米得": "趋势线破位后，FVG就是天然压力位" (after a trendline break, the FVG is resistance) — DEAD as shown   [2026-10-09 22:00 MYT]
 Silent video, rules read from the frames: rising trendline; a close below it leaves a bearish FVG; sell the retest of the gap; stop
 just above the gap (0.15% in the example); target ~2.5R (example 2.48R). Mirror for longs (example 4.52R).
 Fixed before running (bt/tl_fvg.py): trendline through the last two confirmed 3-bar swing lows (second higher), held since the first
@@ -403,7 +403,7 @@ lower edge for 48 bars, cancelled if the leg high is taken first. Stop S1 = gap 
 Verdict: DEAD as shown. The trendline adds nothing over #33's plain break of structure (fewer trades, weaker); what works in both is
 the wide stop at the leg's high with a near target on the 1-hour chart, not the tight stop at the gap.
 
-### 35. RedNote video "K线之下": "订单块交易策略" (order blocks: MTF engulfing, inducement trap, breaker block) — 1 and 2 DEAD; breaker block on 4-hour = CANDIDATE on gold, pending other markets   [2026-10-09 22:55 MYT]
+### 35. RedNote video "K线之下": "订单块交易策略" (order blocks: MTF engulfing, inducement trap, breaker block) — 1 and 2 DEAD; breaker block on 4-hour = CANDIDATE on gold, pending other markets   [2026-10-09 22:08 MYT]
 10.5-minute lesson, transcribed. Valid OB = the key candle before a gap (full range), untested since, and the move breaks structure;
 trade only the latest valid OB with the structure. S1: price returns to a higher-timeframe OB -> lower-timeframe engulfing -> enter,
 stop just beyond the OB, 2R (D1->H1, H4->15m, H1->5m). S2: a minor support with several bounces above the OB ("inducement") ->
@@ -425,7 +425,7 @@ robust to every setting, both sides, same sign on 3 timeframes. Warnings: best o
 55 trades. With #33 it is the second "break, then retest with a structural stop" rule to work; check their overlap. Next: the same
 rule unchanged on FX, indices, silver, oil from the full export (backlog #41), then paper-trade.
 
-### 36. Three RedNote videos on pullback entries and trend strength — pullback methods DEAD; the momentum score helps a little, no edge   [2026-10-09 23:10 MYT]
+### 36. Three RedNote videos on pullback entries and trend strength — pullback methods DEAD; the momentum score helps a little, no edge   [2026-10-09 22:18 MYT]
 Sources: 杰明GW "SMC，FVG和回撤进场，三法结合YYDS" (13.7 min: Fibonacci 0.618-0.886 / FVG / breakout-retest pullbacks, best when all
 three coincide); 熊猫教练 "合格的短线选手，一定要看得懂动能" (7.6 min: a 10-point momentum score — trend candles, counter pullbacks,
 unfilled FVGs +4, low overlap +3, inside a range -2; 8-10 = strong); 趋势周期形态 "如何判断趋势动能强劲" (4.5 min: same idea).
@@ -443,7 +443,7 @@ Verdict: the three pullback methods and their combination DEAD on gold. The mome
 (about +0.05R) but does not create an edge; the "8-10 strong trend" is rare (1% of legs). Worth one pre-registered test as a
 filter on #33 and #35 (backlog #42), nothing more.
 
-### 37. RedNote video "交易升级打怪": "FVG不是碰线就买，确认还在后面" (4-hour gap + 15-minute three-step confirmation) — DEAD   [2026-10-09 23:10 MYT]
+### 37. RedNote video "交易升级打怪": "FVG不是碰线就买，确认还在后面" (4-hour gap + 15-minute three-step confirmation) — DEAD   [2026-10-09 22:18 MYT]
 Rule (41 s): a 4-hour bullish gap is only the location; on 15-minute: (1) the prior low is pierced and the candle closes back above;
 (2) a close above the local bounce high leaves a new bullish gap; (3) price holds on the retest of that gap and strengthens -> buy;
 abandon if the swept low breaks; example target = the prior high. Fixed before running (bt/fvg_htf_confirm.py docstring).
@@ -451,3 +451,80 @@ Gold 2012-Oct 2026, longs + shorts, exits on 1-min, FTMO costs:
   target prior 4-hour high: -0.129R (578 trades, t -2.7, 4/15 years > 0); with an extra confirmation candle +0.026R (249, t 0.4).
   target 2R: -0.106R (687); with the extra candle -0.031R (367).
 Verdict: DEAD. Same family as #31 (higher-timeframe zone + lower-timeframe sweep/gap entry with a stop under the sweep).
+
+### 38. RedNote video "源木派讲技术": "结构已经成立了，为什么还是不敢做?" (breakout-retest limit orders) + equal highs as "liquidity" (#40's video) — DEAD   [2026-10-09 22:54 MYT]
+Source: 15.9-min live session (gold, NQ), transcribed + frames. Rules as told: (A) a trader's daily "farming" routine on ES/NQ,
+"very high win rate": two wicks reach the same level, a big-bodied candle closes through it, on small timeframes one more candle
+follows through; limit order back at the broken level, stop below, take profit at the prior high (elsewhere "a simple 1:2");
+(B) "aggressive": a strong trend candle that truly breaks the swing high (body closes above), the leg's first pullback, bigger
+timeframe trending the same way -> limit at 0.382 of the candle, the candle is the defence (stop below it), 1:2; move the order to
+a newer breakout candle; (C, from #40's video) equal highs/lows are "potential liquidity" -> the run-and-close-back read.
+Fixed before running (bt/breakout_retest.py docstring): big candle = range >= 1.5x the median of the previous 20 and body >= 60%
+of the range; true breakout = first close above the last confirmed 3-bar swing high; equal-high level = last two confirmed swing
+highs within 0.1 daily ATR, the older <= 40 bars back, unbroken, expires at 60 bars. A: limit at the level for 24 bars, stop =
+breakout candle low - 0.05 ATR, target 2R or the highest high since the breakout (>= 1R). B: limit at high - 0.382 x range for
+12 bars, stop = candle low - 0.05 ATR, 2R; HTF filter = higher-timeframe close > its 50-EMA (M5->H1, M15->H4, H1->D1). C: wick
+above the level and close back below -> sell at the next minute, stop = bar high + 0.05 ATR, 2R. Gold 2012-Oct 2026, 5m / 15m /
+1h, longs + shorts, exits on 1-min (stop first), FTMO costs, coin flip per trade. 21 cells, all negative:
+  A two-wick break + retest: 5-min -0.17 to -0.25R (2,700-15,100 trades, 0-1/15 years > 0); 15-min -0.09 to -0.14R; 1-hour
+    -0.11 / -0.13R, with follow-through -0.01R (325 trades, t -0.1) / -0.08R. Win rate 29-35% — not "high".
+  B trend candle 0.382: 5-min -0.14R (25,357 trades; 13,097 with the HTF filter); 15-min -0.07 / -0.05R; 1-hour -0.06 / -0.01R
+    (1,112 with the filter; before 2024 -0.05R, from 2024 +0.20R).
+  C equal-high sweep -> reverse: 5-min -0.15R (22,910), 15-min -0.14R (7,588), 1-hour -0.09R (1,314); 0-5/15 years > 0. The
+    continuation side (the coin flip) loses too (-0.04 to -0.14R): equal highs carry no direction either way after costs.
+Verdict: DEAD on gold. The trader's own markets (ES/NQ = US500/US100) come with the full export: rule A unchanged there
+(backlog #43).
+
+### 39. RedNote video "格局Vision": "ICT课004｜先统一看图标准" (fix the feed, chart clock and touch rule before judging a rule) — checks on #33 and #35: #33 holds; #35 depends on where the 4-hour candles start -> WATCH   [2026-10-09 22:54 MYT]
+The lesson (11 min, no trade rules): a sweep at 99.9 on one feed is 100.1 on another; Beijing vs New York chart time moves the
+candles; touch / wick / cross / close are different events; flipping timeframes until one agrees is confirmation bias; after
+changing a rule, re-test it (win rate, R:R, expectancy, drawdown, signal count). Applied to our two candidates, nothing re-tuned
+(bt/data_standard_check.py, bt/h4_phase_check.py, bt/h1_phase_check.py):
+  Feed: FTMO's own MT5 gold (15-min history from 2022-07) vs the MT4 feed both rules were found on; same window, every timeframe
+    built from 15-min bars the same way, same spread model, exits on 15-min bars. Prices differ by a median $0.06 per bar.
+    #33: MT4 181 trades +0.274R, FTMO 179 trades +0.254R; 82-85% the same trades, identical results on those (+0.229 / +0.227R,
+    same win/loss on 100%). #35 (server clock): MT4 +0.171R (247), FTMO +0.166R (257); 89-92% the same trades. Both survive.
+  Chart clock: #35 with the 4-hour grid started at UTC 00 / 01 / 02 / 03 (+4k): +0.127 (t 2.5) / +0.052 (t 1.1) / +0.125 (t 2.5)
+    / +0.022R (t 0.4). On FTMO's server clock (17:00 New York = 21:00/22:00 UTC: the candles an EA would trade) +0.057R (820
+    trades, t 1.1; before 2024 +0.014, from 2024 +0.237; longs -0.02, shorts +0.14). Pooled over the grids about +0.08R: the
+    +0.13R in #35 was the lucky end of an arbitrary choice.
+    #33 with the 1-hour grid at :00 / :15 / :30 / :45: +0.171 / +0.218 / +0.226 / +0.177R (t 2.3-3.1) — robust. But 2024+ is
+    about zero on every grid (+0.05 / -0.10 / -0.08 / +0.08R; ~120 trades each, standard error ~0.13R), while FTMO's feed gives
+    2024 / 2025 / 2026 +0.33 / +0.22 / +0.10R (15-min exits).
+  Exit resolution: 15-min exits flatter both rules by +0.04-0.06R vs 1-min (inside the fill bar the order of touches is unknown):
+    keep 1-minute exits for anything with a limit entry.
+Verdict: #33 stays CANDIDATE (robust to feed and clock; the cross-market test, backlog #40, decides). #35 -> WATCH (+0.06R, t 1.1
+on FTMO's own candles); its cross-market test (#41) now uses FTMO's server clock and reports all four hourly grid starts. New
+standard (PROTOCOL): a 4-hour or daily candidate must hold on every hourly grid start and on the broker's clock.
+
+### 40. RedNote video "交易修心社": "结构力场，一张图从哪里看起?" (how to read an SMC indicator) — no rules; its volume caveat holds; equal highs dead (#38 C)   [2026-10-09 22:54 MYT]
+An 8-min walk through an SMC indicator (swing vs internal structure, BOS / CHoCH, strong / weak highs, order blocks with volume
+numbers, breaker blocks, FVG mitigation by touch / wick / close / midpoint, equal highs/lows, multi-timeframe zones), with its own
+caveats: labels are reading aids, not orders; the block's volume number "does not automatically mean stronger support or a higher
+win rate"; overlapping zones from two timeframes are not two independent pieces of evidence. Checks:
+  Block volume (bt/ob_volume.py): #35's blocks split into thirds by the OB candle's tick volume / the median of the 50 bars before.
+    First return to the block (limit at its middle, stop below, 2R = #35 S2 without the inducement filter): the high-volume third
+    beats the low third by +0.08R (4-hour UTC, t 0.7), +0.10R (1-hour, t 1.4), +0.08R (15-min, t 2.4), +0.03R (4-hour FTMO
+    clock), but every third loses money (-0.01 to -0.23R). Breaker retest: the high-volume third is the worst on all four
+    (-0.14R t -1.2, -0.10R t -1.4, -0.07R t -2.1, -0.28R t -2.4 vs the low third). The number doesn't make a block tradeable;
+    a busy original block makes a worse breaker. Pre-registered for the cross-market #35 test (backlog #41): skip blocks with
+    relative volume >= 1.2 — not adopted on gold (found by splitting the same trades).
+  FVG mitigation by midpoint vs edge: already in #33 (+0.150 vs +0.171R) and #35 (+0.213 vs +0.127R) — same sign either way.
+  Equal highs/lows as liquidity: #38 C, dead at every timeframe.
+Verdict: no strategy; the video's own cautions agree with the data.
+
+### 41. RedNote video "壹笑财经": "10分钟精读《系统交易方法》" (Bo Tao, 1998) — its principles are this protocol; the book's example rule shows no edge beyond holding the market   [2026-10-09 22:54 MYT]
+An 8-min book summary: 3M (mind > money > market); a system must be complete (entry and exit) and objective ("if A then B", one
+reading only); every loss taken by the rules is right and every win against them is wrong; formalise the idea, test it on lots
+of data, "rather too strict than too lenient", don't optimise to the prettiest history; selling decides more than buying. These
+are the rules this log already runs on. One claim the data doesn't share: that 10-30% losing signals is normal — our gold
+candidates lose on 60-68% of trades and make money because winners are 2R+.
+Its example rule (the formalisation demo): buy when the 5-day average crosses above the 20-day [and volume >= 1.5x the average of
+the previous 5 days, "量比"]; out on the cross back below; 3-ATR catastrophic stop as the risk unit; long only; daily, next-open
+entries, costs + assumed swap (quant/daily.py ma_cross). Gold 2012-26, US100/US500 2017-26, AAPL 2014-26, TSLA 2019-26, BTC 2020-26:
+  plain cross: 425 trades, +0.31R each (t 4.3), but the same side and holding time from random days earns +0.21R: the cross adds
+    +0.10R (t 1.3) — rising markets, not timing. Per market vs random timing: US500 +0.16, BTC +0.17, AAPL +0.11, gold +0.09,
+    US100 +0.03, TSLA +0.03R.
+  with the volume filter: 13 trades in total — CFD tick volume rarely jumps 1.5x on the cross day. Can't be judged.
+Verdict: no edge so far. Both variants are in the cross-market battery (MA5_20_long, MA5_20_vol_long) for all 110 markets with
+the export (real stock volume where FTMO has it).

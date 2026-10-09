@@ -74,3 +74,12 @@ workspace can't reach those sites and the web tools only read page text. Run
 Speech-to-text is offline: sherpa-onnx SenseVoice (zh/en/yue/ja/ko) + Silero VAD; setup() re-downloads the models from
 GitHub releases into /home/claude/models after a container reset (pip install --break-system-packages sherpa-onnx).
 Then write the rules down, confirm them with Shen (videos are usually partly discretionary), and test as usual.
+
+## Candle clock and exit resolution (added 2026-10-09 22:54 MYT, research #39)
+- FTMO's candles are cut on the server clock (00:00 server = 17:00 New York = 21:00/22:00 UTC). H1 and below are the same as
+  UTC; H4 and D1 are not. Build H4 for anything an EA will trade with data_standard_check.h4_server(), and before calling a
+  4-hour (or daily) rule a candidate, run it on all four hourly grid starts (bt/h4_phase_check.py pattern). #35 went from
+  +0.13R to +0.02-0.13R depending only on the start hour (+0.06R on FTMO's clock).
+- FTMO's MT5 gold feed and the MT4 feed differ by ~$0.06 per bar and give 82-92% the same SMC trades — feed choice is minor.
+- Limit entries: exit on 1-minute bars. 15-minute exits flatter results by ~+0.05R because the fill bar's order is unknown.
+
