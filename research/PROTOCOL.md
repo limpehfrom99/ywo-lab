@@ -117,3 +117,21 @@ may decide whether the order exists. Check the fill FIRST; the bar's close can o
 OPEN may cancel it on that bar (a pending order can be pulled at the open). #33's "ran through the high first: no trade" and #35's
 "closed above the block: no trade" both dropped bars that filled and then lost — look-ahead that removes losers. When an exit series
 is coarser than 1 minute, the harness counts the stop (not the target) inside the fill bar; the rule must not pre-filter those bars.
+
+## Robustness checks (added 2026-10-10 01:40 MYT, log #60; bt/robust.py, pattern in bt/robust_check.py)
+Every rule that clears rule 4's CANDIDATE bar, and every live rule after each new data export, also gets:
+1. Selection-aware permutation test (robust.permute_bars + robust.mcpt_select): shuffle the rule's bars across days WITHIN their
+   time-of-day slot (keeps the intraday volatility pattern, removes all order information) and re-run EVERY cell tried for the idea
+   (all symbols x settings, the xrun.py grid included), >= 1,000 shuffles. Report p_alone, p_best (the honest p-value for a cell picked
+   because it looked best) and skill = real - average best shuffled cell. Daily/swing rules: random entry days with the same holding
+   periods. Direction-only tests: shuffle direction labels across days; the opposite trade keeps the SAME stop distance (never the
+   candle's near end - tiny stops make the null meaningless).
+2. CSCV probability of backtest overfitting (robust.cscv_pbo, 10 blocks) whenever an idea has >= 4 cells: report PBO and the in-sample
+   winner's average out-of-sample result. A PBO near 100% with every cell positive means the settings are indistinguishable, not dead.
+3. BCa 95% lower bound of mean R (robust.bca_bounds, 20,000 resamples).
+4. Before risking money: drawdown bound at the planned risk (robust.drawdown_bound, 95th pct and 90% confidence; mode="start" for
+   FTMO's static max loss) over 3 and 12 months.
+CANDIDATE now also needs p_best <= 0.10 and a BCa lower bound > 0; p_alone <= 0.05 with p_best > 0.10 = WATCH. Size and quote pass
+odds on skill (so far about half the backtest edge), not on the backtest average.
+The C++ originals: bash tools/get_masters.sh (builds into /home/claude/vendor/bin); python3 tools/verify_masters.py re-checks
+robust.py against them (CSCV must match exactly, BCa within bootstrap noise).

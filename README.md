@@ -17,6 +17,10 @@ the FTMO trial. Everything else tested so far is in `research/log.md` and the st
   `period_levels.py`, `smc.py`, `ict.py`, `regimes.py`, `strategies_gold.py`, `period_open.py`.
 - `data/` — gold 1-minute 2012-2026 (UTC, one parquet per year), FTMO 5-minute 2021-2026 for
   gold/TSLA/AAPL/US100/US500, raw broker exports (gzip), US news calendar.
+- `bt/robust.py` — robustness tests after Masters (2018): selection-aware permutation test, probability of backtest
+  overfitting (CSCV), BCa bootstrap bounds, drawdown bounds. `bt/robust_check.py` runs them on the live and candidate rules.
+- `tools/get_masters.sh` — downloads and builds Timothy Masters' book code (personal-use licence, so not stored here);
+  `tools/verify_masters.py` checks bt/robust.py against it.
 - `results/` — result tables from finished runs.
 
 ## Fresh session (cloud or laptop)

@@ -855,3 +855,49 @@ carry only tick volume (a count of price changes) with no buy/sell side, and any
 (close position x volume) is negative on a bearish candle by construction, so the contradiction can't be rebuilt. Tick volume
 was already no help on order blocks (#40), and a 3-5 minute hold leaves little room over FTMO's spread. Not tested; it would
 need exchange futures data with trade-side flags (CME GC/NQ tick data). Kept as a note, not queued.
+
+### 60. Robustness toolkit installed (Masters 2018 + strix-systems permutation tutorial) — the live opening candle is "about 1 in 10 luck" after selection, plan on half its edge; the US100 noise band is the best-evidenced edge   [2026-10-10 01:40 MYT]
+Sources: github.com/Apress/testing-and-tuning-market-trading-systems (Timothy Masters, "Testing and Tuning Market Trading Systems",
+Apress 2018; C++; freeware licence: personal use only, no commercial use) and github.com/strix-systems/permutation-testing-tutorial
+(3 Python files, no licence: a bar-permutation demo showing a random BTC 1-minute strategy's good backtest is luck).
+Install: the book's 19 Windows demo programs build on Linux with tools/get_masters.sh (shims in tools/compat; the book's source is
+downloaded by the script, not stored here). Each program is hard-wired to a moving-average demo system, so the methods were
+re-implemented for our trade lists in bt/robust.py: permute_bars (OHLC shuffle within the time-of-day slot; gaps and bar shapes
+separately), mcpt_select (p-value for the best of every cell tried; skill = real - average best shuffled cell = Masters' unbiased
+estimate), cscv_pbo (probability of backtest overfitting), bca_bounds (BCa bootstrap), drawdown_bound (Masters' bootstrap of
+bootstraps). Checked against the C++ originals (tools/verify_masters.py): CSCV identical on 4 test matrices; BCa within 0.014 standard
+errors at 200,000 resamples. The strix tutorial adds nothing beyond Masters' MCPT_BARS; its idea lives in permute_bars, plus the
+time-slot stratification intraday rules need. All checks: python3 bt/robust_check.py (~4 min); tables in results/robust_*.csv.
+A. Opening candle, 32 cells (TSLA/AAPL/US100/US500 x 30/60-min candle x hold/3R x Fed days skipped or not), M30 2022-26, FTMO costs.
+  Bar shuffle (30-min bars swapped between days within the same time slot: no trend days, no direction; 2,000 shuffles):
+    TSLA 30m hold skipFed +0.105R: alone p 0.009 | vs the best of the 32 shuffled cells p 0.095 | skill +0.047R.
+    US100 30m hold skipFed +0.099R: alone p 0.032 | best-of-32 p 0.117 | skill +0.041R. Best cell (TSLA 30m 3R) best-of-32 p 0.076.
+    Shuffled: average cell -0.026R, average best of 32 +0.058R (95th pct +0.123R). Counting the later 11-symbol scan as part of the
+    search (7 extra symbols drawn from these 4): p 0.23 (TSLA) / 0.28 (US100), skill +0.018 / +0.012R.
+  Direction only (direction labels shuffled across days; the opposite trade keeps the same stop distance; 5,000 shuffles):
+    TSLA rule +0.105R vs opposite -0.045R, p 0.021 | US100 +0.099 vs +0.027, p 0.19 | US500 +0.078 vs +0.062, p 0.40.
+    On the indices a 10:00 entry with a tight stop held to 16:00 earns in BOTH directions (US100 always-long +0.054R, always-short
+    +0.072R; a few 5-12R trend days carry the sum): the index profit is mostly trade shape on trend days, not the candle's direction.
+    TSLA's is direction. (A first version put the opposite trade's stop at the candle's near end -> tiny risks, null average -0.11R,
+    wildly noisy; discarded before reading any verdict from it.)
+  CSCV (10 blocks = 252 splits): 32 cells PBO 35%; in-sample winner +0.131R -> out of sample +0.056R (median cell +0.052R); it loses
+    out of sample in 5% of splits. TSLA's 8 cells PBO 0% (winner +0.109 -> +0.103R). US100's 8 cells PBO 96% = the settings are
+    indistinguishable (winner +0.120 -> +0.062R, loses in 1% of splits), not "no edge".
+  BCa 95% lower bounds: TSLA +0.036R, US100 +0.022R, both +0.050R (backtest +0.102R); profit factor 1.19 -> 1.09.
+  Drawdowns of the live plan at 0.5% risk (i.i.d. bootstrap; 10- and 21-day blocks give the same within 0.6 points): loss below the
+    starting balance, 95th pct / 90%-confidence bound: 3 months 11.3% / 12.8%, 6 months 14.0% / 17.7%, 12 months 16.1% / 22.2%.
+    At 1% risk: 21.6% / 24.4% within 3 months. The real 2022-26 path (worst drawdown 12.7%) was smoother than 90-94% of random
+    orderings of the same days (median 18-19%): the backtest's gentle drawdown is partly luck of ordering.
+B. Noise band (#26a), 15 cells (US100/US500/TSLA x 5 variants), bar shuffle (1,000), statistic = annualised Sharpe:
+    US100 published 1.30: alone p 0.001, best-of-15 p 0.006, skill +0.85 | TSLA published 1.23: 0.003 / 0.011 | US500 0.66: 0.027 / 0.24.
+    Shuffled: average cell -0.19, average best of 15 +0.45. CSCV: 15 cells PBO 44% (winner Sharpe 1.6 -> 0.92 out of sample, loses in
+    3%); US100's 5 variants PBO 75% (indistinguishable). BCa: US100 mean daily return +0.046% -> lower bound +0.021% (~+5%/yr at 1x).
+C. IBS (#24/#26c), random entry days with the same holding periods (5,000 draws; random entries earn +0.10R = the index's drift):
+    US100 published +0.44R: alone p 0.012, best-of-4 p 0.025, skill +0.21R | US100 IBS<0.2 +0.28R: 0.027 / 0.27 | US500 published
+    0.026 / 0.057 | US500 IBS<0.2 0.083 / 0.58. BCa: US100 IBS<0.2 +0.283 -> +0.155R; published +0.44 -> +0.21R (85 trades).
+Verdict: the opening candle stays live, but after allowing for having picked it from 32 settings the evidence is about 1-in-10 luck
+(1-in-4 if the 11-symbol scan counts), and the edge to plan on is about half the backtest (+0.04-0.05R): read the HALF-edge rows of the
+pass-odds tables (57%, ~5.4 months), not the full-edge rows (78%). TSLA's leg is direction (tested); US100's is mostly trend-day shape.
+Under the new protocol rule TSLA's leg stays CANDIDATE (p_best 0.095), US100's is borderline (0.117). The US100 noise band survives
+selection at p 0.006 — the best-evidenced edge in the lab — but its last 17 months were flat: paper-test it (backlog #20).
+What would change it: the forward test. Shuffled history can't say whether the next year looks like 2022-26.

@@ -143,3 +143,9 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     size-up (#48 above, if it passes) + Williams VB gold (#50, small) — lab/ftmo_sim.py, risk per trade 0.25/0.5/0.75/1% fixed in
     advance; pass probability, days to pass, max-loss breach rate.
 
+57. [queued] Robustness tests (#60, PROTOCOL "Robustness checks") on every current CANDIDATE: #49 NR7 + ORB30 (pooled filter) and #50
+    Williams volatility breakout on gold; the cells = everything xrun.py ran for that rule. Downgrade to WATCH if p_best > 0.10.
+58. [queued, needs exports] Exact selection test for the opening candle: once M30 exports for NVDA, META, AMZN, MSFT, AMD and USOIL
+    are in data/, rerun bt/robust_check.py section A2 with all symbols (replaces the approximate 11-symbol figure in #60).
+59. [queued] bt/xrun.py: add mcpt_select's p_best across all cells of a rule (bar shuffle) and bca_bounds to the per-rule summary, in
+    place of "cells passing vs the ~2.5% expected by luck".
