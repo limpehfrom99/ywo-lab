@@ -1105,6 +1105,10 @@ effect is specific to big gaps.
 FTMO odds (quant/portfolio.py, 10-day blocks, from Oct 2021): opening candle TSLA + US100 + the 9-index gap fade at 0.5% risk: pass within
 12 months 71%, fail 21%, median 4.8 months (opening candle alone 65% / 25%, 5.1 months); half edge 49% / 39%; at 0.25%: 44% / 2%.
 Opening candle + US100 noise band at 0.5%: 70% / 28%, median 3.8 months (half edge 49% / 48%; worst day -3.1%).
+Independent check (a separate agent wrote the rule from scratch on the raw export): EU 247 trades +0.125R (t 3.9; before 2024
++0.273 / from 2024 +0.067), US 219 +0.088R; the 10 extra EU trades here come from N25's real 5-minute bars in Jan-Sep 2021 and an
+ATR detail. Its caveats: the EU edge is mostly 2022-23 (2024 about zero, from 2024 t 1.9); 81% of trades exit at the close; with a
+0.5 ATR minimum gap the rule loses.
 Verdict: index gap fade (>= 1 ATR) = CANDIDATE (p_best 0.005 for the EU group, BCa lower bound > 0 per trade; per day the EU bound
 touches 0 because the 5 EU indices gap together - treat them as ~2 independent bets). US-index ORB30 = WATCH (p_best 0.010 but +0.05R,
 2026 -0.06). Next: H4/D1 are not involved (cash-session rule); paper-trade the gap fade on GER40/US500 in the lab app, then an EA leg.
