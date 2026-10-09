@@ -343,3 +343,26 @@ target IDM (>= 2R) or fixed 2R, US-session entries; every #31 definition counted
 (t -2 to -5). The positive cells are H4-structure cells with 4-14 trades a year (t 0.2-1.3); the best, D1/H4/M5/2R, +0.22R on 79
 trades (in-sample +0.13, t 0.7); none/H4/M1/IDM +0.17R comes from 2024-26 longs in gold's uptrend (in-sample +0.05, t 0.2).
 With 42 tries one lucky cell is expected; none reached even that. To rerun on indices/FX when the full export lands.
+
+### 32. RedNote video "熊猫聊交易系统" (Coach Panda): "如何判断牛市来了" — a talk with no rules; its 3 claims tested   [2026-10-09 22:05 MYT]
+Claims: (1) bull markets start when nobody is watching; (2) the signal is not rising but "can't fall" — dips get bought, bad news
+can't push it down, price grinds up in a channel; (3) "会买的是徒弟，会卖才是师傅" — the exit decides what you make. Tests fixed before
+running (bt/panda_bull.py, bt/panda_exit_baseline.py), daily bars, signal at the close, entry next open, costs + assumed swap
+(5%/yr long CFDs, 1%/yr gold). Baselines: same direction + holding time from a random day; coin flip. Gold 2012-26, US100/US500
+2018-26, TSLA 2019-26, AAPL 2015-26, BTC 2020-26.
+  A "dip bought" day (>= 0.5 ATR below the open, closes in the top third) -> 5-day long: gold +0.05R vs random-day +0.06, US100
+    +0.04 vs +0.06, US500 +0.03 vs +0.04, TSLA +0.16 vs +0.12 (2024+ negative), AAPL +0.10 vs +0.06, BTC +0.07 vs +0.10.
+    Above-200-day only: same picture. DEAD as a timing signal (being long in a rising market is the whole effect).
+  B shallow pullbacks in an uptrend (<= 1.5 ATR from the 20-day high, above the 200-day) -> 20-day long: beats random days on
+    US100 (+0.23 vs +0.14, t 1.9, n 67) and AAPL (+0.20 vs +0.16); worse on gold, US500, TSLA, BTC. DEAD.
+  C "bad news can't push it down" (Fed/CPI/jobs day, 9:30 candle -0.25 ATR, closes up): 6 events on US100, 4 on US500 (30-min data
+    only from 2021-09) — untestable here. (All Fed/CPI/jobs days -> 5-day long: US100 +0.14 vs random +0.07, but -0.00 before 2024.)
+  D exits on the same entries (close above the 20-day high, long, 2-ATR initial stop; R per 2 ATR):
+    gold: 2-ATR trail +0.59, 3-ATR +0.71, 4-ATR +0.76, 10-day low +0.46, close < 50-day MA +0.90, hold 20d +0.34, hold 60d +0.80
+    US100: +0.29 / +0.49 / +0.86 / +0.64 / +1.00 / +0.33 / +0.72;  US500: +0.06 / +0.19 / +0.09 / +0.16 / +0.24 / +0.21 / +0.30
+    Entries vs random entry days with the same exit: better in 39 of 42 market x exit cells (edge mostly +0.1 to +0.7R; TSLA the
+    exception). Slow exits (50-day MA, 4-ATR) best overall, the tight 2-ATR trail worst; but the best exit changes by period
+    (gold before 2024: 3-ATR trail best; from 2024: 50-day MA, in gold's rally). 26-81 trades per market -> t about 2.
+  Verdict: claims 1-2 DEAD as signals (A, B); claim 3 supported: exit choice moves results 2-10x and 20-day breakouts beat
+  random entries — the same trend-following effect as #9 (gold, WATCH), now on 5 of 6 markets. Confirm on all ~110 markets with
+  the full export (battery DON/MA rule books + an exit grid, backlog #39), with real swaps from the spec sheet.

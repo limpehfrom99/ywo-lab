@@ -1,3 +1,4 @@
+"""#32D baseline: the same exit rules applied from random entry days (400 draws per market)."""
 import sys, numpy as np, pandas as pd
 sys.path.insert(0, "/home/claude/bt"); sys.path.insert(0, "/home/claude/ywo-lab/quant"); sys.path.insert(0, "/home/claude/lab")
 import panda_bull as P
