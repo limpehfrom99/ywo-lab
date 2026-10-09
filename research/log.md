@@ -260,3 +260,20 @@ periods from random days (index drift). bt/ibs.py.
   + band 1x as well: 82% / 59% in 3.2 / 3.8 months, worst day -4.4%.
 Verdict: WATCH, agreeing with #24 (IBS<0.2 above the 200-SMA with a 2-ATR stop: US100 +0.083R t 2.3). Long-only in a rising market, excess over drift only t 2.0-2.4, no stop, needs overnight and weekend holds.
 What would change it: a pre-2018 index test (needs older daily data) showing the excess over drift holds in flat markets.
+
+### 27. Reddit post (r/Daytrading, pasted by Shen): ICT 1-minute model "MSS + FVG/iFVG/OB + OTE 0.705, SL 1.0, TP 0.0" — DEAD; the poster's numbers are backtest bugs   [2026-10-09 15:10 MYT]
+Poster: NQ 1m Dec 2022-Dec 2025, AI-written script: 4,202 trades, 65.6% wins at 2.39R, +1.22R per trade, max DD 8R.
+Rule as written (bt/ict_ote.py): MSS = body close through the last swing (n-bar fractal, known n bars later); fib on the MSS leg
+(wicks); limit entry at 0.705 inside an FVG / iFVG / order block; SL 1.0, TP 0.0 (2.39R); invalid if 0.0 breaks before the fill.
+Bid/ask fills; same-bar rule: fill + stop on one bar = loss, no TP on the fill bar, SL+TP on one bar = loss. Breakeven win rate 29.5%.
+Honest, NO costs (n=3, with confluence, Asia+London+NY AM):
+  US100 M1 (Jun-Oct 2026) n=303 -0.16R, 25% wins | US500 M1 n=283 -0.11R, 26% | US100 M5 (May 2025-Oct 2026) n=316 -0.19R, 24%
+  gold M1 2024-26 n=3,055 -0.11R, 26% | gold M1 2012-23 n=13,721 -0.13R, 26% (t -10). n=5 pivots and "after a lower low" variants: -0.02 to -0.16R.
+  By session: NY AM least bad (~0 before costs: US100 -0.14, US500 +0.04, gold -0.00/-0.04), Asia worst.
+With real spreads: US100 -0.37R, US500 -0.69R, gold -0.51 / -0.79R. Median stop: US100 6 pts Asia, 16 pts NY AM; gold $0.2-1.4.
+Bugs reproduced on the same data (no costs):
+  optimistic same-bar ordering (TP first, TP allowed on the fill bar): +0.16 to +0.27R, 34-37% wins
+  swing points marked without the n-bar delay (look-ahead): +0.11 to +0.55R, 33-46% wins
+  both together: US100 M1 +1.86R 84% wins; gold 2012-23 +1.23R, 65.7% wins (poster: +1.22R, 65.6%)
+Verdict: DEAD. The 65% win rate is look-ahead + same-candle optimism, not an edge. Same conclusion as the earlier SMC/ICT tests.
+Note: every M1 export in data/raw is exactly 100,000 bars (MT5 "Max bars in chart" cap) -> 1-minute index tests cover only 3.5 months.
