@@ -25,12 +25,23 @@
    closes, exit at first up close or 5 days; mirror for shorts. Costs.
 9. [done] Multi-day trend following gold: 20-day Donchian breakout, exit on 10-day opposite
    channel, ATR(20)x2 stop. Daily bars from M1. Swap approx 0.01%/night. Per-year.
-10. [queued] Crypto weekend effect: BTC M30 2020-2026. Weekend (Fri 21:00 - Mon 00:00 UTC) return
+10. [done] Crypto weekend effect: BTC M30 2020-2026. Weekend (Fri 21:00 - Mon 00:00 UTC) return
     vs weekday; weekend range breakout on Monday open. FTMO crypto costs 0.0325%/side.
-11. [queued] Gold hour-of-day drift: average return by NY hour 2012-2026, by year; any hour with
+11. [done] Gold hour-of-day drift: average return by NY hour 2012-2026, by year; any hour with
     the same sign in >= 10 of 14 years. If one exists: always-on rule for that hour, costs.
-12. [queued] Volatility sizing for the live opening-candle strategy: risk 0.5% x clamp(median ATR /
+12. [done] Volatility sizing for the live opening-candle strategy: risk 0.5% x clamp(median ATR /
     today's ATR, 0.5, 1.5). Re-run challenge() Monte Carlo. Not an edge; an improvement check.
-13. [queued] Online scan: WebSearch "gold intraday strategy backtest edge", "nasdaq intraday
+13. [done] Online scan: WebSearch "gold intraday strategy backtest edge", "nasdaq intraday
     seasonality anomaly", "weekly open strategy backtest", "index futures intraday anomalies study".
     Add any concrete mechanical rule found to this backlog with its source link. Max 15 minutes.
+14. [done] Intraday momentum, first 30 min -> last 30 min (Gao-Han-Li-Zhou 2018; alphaarchitect.com, quantconnect.com). DEAD on US100/US500/TSLA/AAPL.
+15. [done] Opening-candle calm-day filter: skip the trade entirely when today's ATR% > 1.5x (and > 1.25x) its 1-year
+    median (edge is +0.12-0.13R on calm days vs +0.07-0.08R on wild days). Re-run challenge() pass odds vs fixed 0.5% and vs
+    the scale-down-only rule from #12. Data: TSLA/US100 M30 exports, lab.opening_candle, Fed days skipped. (bt/vol_sizing.py as base)
+16. [queued] Index expiry days: quad-witching (3rd Friday of Mar/Jun/Sep/Dec) and monthly opex (3rd Friday): return on the
+    day, the day before and the Monday after, US100/US500 daily 2018-2026 (bt/daily_ideas.py daily_from_export). Baseline: all other days.
+17. [queued] Post-FOMC afternoon (14:00 -> 16:00 NY on FOMC day): direction of the first 30 minutes after the statement
+    (14:00-14:30 candle) held to 16:00, US100/US500 30-min 2021-26, costs; baseline coin flip. Note the Standard-account
+    news rule forbids this; Swing accounts allow it.
+18. [queued] Gold opening-candle family at other opens: the laptop lab already runs other market opens nightly; check its
+    research_report.md when Shen sends it; do not duplicate here.
