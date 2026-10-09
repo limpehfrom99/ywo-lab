@@ -8,6 +8,7 @@ Every intraday and daily rule, on every symbol of the full FTMO export, with the
 | 2. Run all cells | `python3 quant/run_battery.py` (`--dry` = old 100k-bar data) | `results/battery_cells.csv`, `battery_groups.csv`, trades pickle |
 | 3. Regime filters (selected cells only) | `python3 quant/conditions.py` | `results/battery_conditions.csv` |
 | 4. Rule books (one rule across all symbols) | `python3 quant/rule_portfolios.py` | `results/battery_rule_books.csv` |
+| 4b. Walk-forward (pick by the past 3 years, trade the next) | `python3 quant/walkforward.py` | `results/battery_walkforward*.csv` |
 | 5. FTMO odds for the survivors | `python3 quant/portfolio.py --extra "intraday\|TSLA\|us_cash\|OC30;intraday\|US100.cash\|us_cash\|OC30"` | `results/battery_ftmo.csv` |
 | 6. Report | `python3 quant/report.py` | `results/battery_report.md` |
 

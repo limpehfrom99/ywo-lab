@@ -49,6 +49,14 @@ def main():
         c = pd.read_csv(p); c = c[c.adopted]
         out.append("\n## Regime filters adopted in-sample (confirmed = also better out of sample)\n")
         out.append(md(c, ["cell", "filter", "n_is", "avg_is", "base_is", "n_oos", "avg_oos", "base_oos", "confirmed"]))
+    p = os.path.join(RES, "battery_walkforward.csv")
+    if os.path.exists(p):
+        w = pd.read_csv(p)
+        a = w.groupby(["kind", "family"]).agg(cells=("symbol", "size"), fwd_pos=("fwd_avgR", lambda s: np.mean(s > 0)),
+                                              fwd_med=("fwd_avgR", "median"), mix_med=("mix_avgR", "median")).reset_index()
+        out.append("\n## Walk-forward: each year pick the variant that did best in the previous 3 years, trade it the next year\n")
+        out.append("fwd = forward result of that yearly pick; mix = trading every variant (no picking). Picking only helps where fwd beats mix.\n")
+        out.append(md(a, ["kind", "family", "cells", "fwd_pos", "fwd_med", "mix_med"], {"fwd_pos": "{:.0%}"}))
     p = os.path.join(RES, "battery_ftmo.csv")
     if os.path.exists(p):
         f = pd.read_csv(p)
