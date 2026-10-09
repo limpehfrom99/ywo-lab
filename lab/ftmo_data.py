@@ -42,6 +42,33 @@ def load_export(path):
     return d
 
 
+def load_npz(path):
+    """Read a compact file written by tools/export/export_history.py (format ywo-bars-v1). Same output as load_export."""
+    import json
+    with np.load(path) as z:
+        meta = json.loads(bytes(z["meta"]).decode())
+        t = meta["t0"] + np.cumsum(z["dt"].astype(np.int64))
+        o_pc, c_o = z["o_pc"].astype(np.int64), z["c_o"].astype(np.int64)
+        o = np.cumsum(o_pc) + np.cumsum(c_o) - c_o
+        c = o + c_o
+        h = np.maximum(o, c) + z["h_x"].astype(np.int64)
+        lo = np.minimum(o, c) - z["x_l"].astype(np.int64)
+        point = 10.0 ** -meta["digits"]
+        d = pd.DataFrame({"open": o * point, "high": h * point, "low": lo * point, "close": c * point,
+                          "tickvol": z["tv"].astype(np.int64), "vol": z["rv"].astype(np.int64), "spread": z["sp"].astype(np.int64)},
+                         index=pd.to_datetime(t, unit="s"))
+    d[["open", "high", "low", "close"]] = d[["open", "high", "low", "close"]].round(meta["digits"])
+    d = d[~d.index.duplicated()].sort_index()
+    d["sp"] = d["spread"] * point
+    d.attrs.update(point=point, symbol=meta["symbol"], tf=meta["tf"], server=meta.get("server", "?"))
+    return d
+
+
+def load_any(path):
+    """load_npz for .npz files, load_export for MT5 'Export Bars' text files (.csv or .csv.gz)."""
+    return load_npz(path) if str(path).endswith(".npz") else load_export(path)
+
+
 def health(d):
     """Per year: bars per day, most common first bar (server time), busiest half-hour, median spread, real-volume share."""
     days = pd.Series(d.index.normalize(), index=d.index)
@@ -70,7 +97,7 @@ if __name__ == "__main__":
         sys.exit(1)
     pd.set_option("display.width", 200)
     for f in sys.argv[1:]:
-        d = load_export(f)
+        d = load_any(f)
         print(f"\n== {d.attrs['symbol']} {d.attrs['tf']}: {len(d):,} bars, {d.index[0]} -> {d.index[-1]}, point {d.attrs['point']}")
         print("   (FTMO stock/index files: the 9:30 New York open should show as 16:30 server time)")
         print(health(d).to_string())
