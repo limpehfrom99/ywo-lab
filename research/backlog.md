@@ -98,8 +98,8 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 38. [queued] freqtrade-strategies (github.com/freqtrade/freqtrade-strategies): port the 5 most-starred long-only rules, test on BTC M30
     2020+ and ETH [needs export]; FTMO crypto costs 0.0325%/side. Low priority (1:1 leverage).
 39. [queued, needs export] Trend-following exit grid across every market (#32D): entries = close above the 20/55-day high (long and short), exits = 2/3/4-ATR chandelier, 10-day low, 50-day MA, hold 20/60; random-entry baseline per cell; real swaps from symbol_specs.csv; pooled by group; walk-forward choice of exit (quant/walkforward.py).
-40. [queued, needs export] #33 FVG retest (1-hour, BOS -> first FVG -> limit at the gap edge, stop at the leg high + 0.05 ATR, target the last pullback swing low, >= 2R) unchanged on every FX pair (the poster's market), US/EU indices, silver and oil; exits on the finest bars available; pooled by group; no re-tuning.
-41. [queued, needs export] #35 breaker-block retest (4-hour and 1-hour, rules in bt/ob_strategies.py strat3) unchanged on every FX pair, US/EU indices, silver, oil; 4-hour candles on FTMO's server clock (bt/data_standard_check.h4_server) as the primary cell, all four hourly grid starts reported (#39: on gold it is +0.02 to +0.13R by start hour); pre-registered second cell: skip blocks whose candle tick volume >= 1.2 x the median of the 50 bars before (#40); pooled by group; overlap/correlation with #33 and the opening candle; then FTMO odds of OC + #33 (+ #35 only if it passes on the server clock).
+40. [queued, needs export; first part done in #48: 3 pairs +0.150R pooled but +0.03 before 2024] #33 FVG retest (1-hour, BOS -> first FVG -> limit at the gap edge, stop at the leg high + 0.05 ATR, target the last pullback swing low, >= 2R) unchanged on every FX pair (the poster's market), US/EU indices, silver and oil; exits on the finest bars available; pooled by group; no re-tuning.
+41. [queued, needs export; first part done in #48: EURUSD/GBPUSD/USDCHF +0.115R pooled on FTMO's clock] #35 breaker-block retest (4-hour and 1-hour, rules in bt/ob_strategies.py strat3) unchanged on every FX pair, US/EU indices, silver, oil; 4-hour candles on FTMO's server clock (bt/data_standard_check.h4_server) as the primary cell, all four hourly grid starts reported (#39: on gold it is +0.02 to +0.13R by start hour); pre-registered second cell: skip blocks whose candle tick volume >= 1.2 x the median of the 50 bars before (#40); pooled by group; overlap/correlation with #33 and the opening candle; then FTMO odds of OC + #33 (+ #35 only if it passes on the server clock).
 42. [queued] Momentum-score filter (#36 table, bt/pullback_lab.py legs()) applied unchanged to the #33 and #35 trades: score >= 5 vs <= 4 on the leg before each setup; pre-registered: keep only if the filtered set beats the unfiltered by >= 0.05R in-sample (before 2024) AND out-of-sample.
 43. [queued, needs export] #38 rule A ("two wicks, big-body break, retest the level"; bt/breakout_retest.py rule_a) unchanged on the
     trader's own markets US500 / US100 (ES / NQ), 5m / 15m / 1h, follow-through on and off, 2R and prior-high targets; gold was
@@ -110,4 +110,11 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 45. [queued, needs "go"] OpeningCandle_EA duplicate-order guard (#44): before every send, FindPosition() by magic -> adopt + mark the
     day as traded; after a send that returns without a visible position, block re-sends for 10 s while polling; also adopt any
     extra position with the magic so the 15:59 exit closes all of them. Ship with the vol-sizing change.
+46. [queued, needs export] #46 opening candle on big-gap days (|gap| >= 0.5 ATR): first candle against the gap vs with it, on all 46
+    stocks + 14 indices from the export (bt/gap_squeeze.py logic). Pre-registered: becomes an EA filter (skip with-the-gap trades on
+    big-gap days) only if against - with >= +0.10R pooled AND in both halves (2015-2023 / 2024-26) AND on >= 60% of symbols.
+47. [waiting for Shen's upload] The 61-video RedNote profile batch: python3 -I tools/video/batch.py <zip or folder> <out>; skip exact
+    and near duplicates of research/videos/index.csv; test every new mechanical rule as told (gold + forex + indices, coin flip
+    and random-timing baselines), then a small pre-set neighbourhood with selection on 2015-2023 and a check on 2024-26 only;
+    add every video to the index with its log entry and verdict.
 

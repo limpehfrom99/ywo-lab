@@ -1,0 +1,21 @@
+id,sha1,duration_s,author,title,log_entry,verdict,ahash,transcript_file
+rn001,4eeaeb325ad7e5884537b1e4a3082cb8aed4871c,65.3,小美实用课堂,TradingView 入门: 切换周期先固定对照顺序,-,no rules (chart tutorial),00ffffffffffff0000ffffffffffff0000ff7fffffffff00,transcripts/rn001.txt
+rn002,ef83987e6a514a120d67778cc8315e24dff819a5,124.9,SMC交易员_M,每天如何用SMC制定交易计划,"#31, #31b",DEAD,0002ffffffffffe70002ffffffffffc30000ffffffff7fc1,transcripts/rn002.txt
+rn003,5d5fb44d9340d0e4e96baa36dbbb97d1fd5ffdc1,175.8,熊猫聊交易系统,如何判断牛市来了,#32,DEAD as signals; trend exits WATCH,7f9f9df99999ba247ddfffffbf6f0000ffe38181818181ff,transcripts/rn003.txt
+rn004,f7e20eb8b940c9126bffe97fbc0bc5aea62fb371,45.6,Trading Dimsum,5:1 Reward to Risk Ratio (FVG retest after BOS),"#33, #39, #48","5:1 DEAD; 1-hour near-target version CANDIDATE on gold, mixed on forex",0000ffffffff00000000ffffffff00000000ffffffff0000,transcripts/rn004.txt
+rn005,94cf8fc34e8f749dcfdd07cc9c66495e60e90135,28.1,阿基米得,趋势线破位后，FVG就是天然压力位,#34,DEAD,ff00fff14fdf00ffff00fff8a4ff00ffff00ffcf013f00ff,transcripts/rn005.txt
+rn006,190d1d0bdfde56350e6b8f1d331a3a34d541134d,629.7,K线之下,"订单块交易策略 (MTF engulfing, inducement, breaker)","#35, #39, #40, #48","breaker block CANDIDATE (forex +0.115R on FTMO's clock), WATCH on gold; MTF engulfing and inducement DEAD",00002060785cd0f000ffff101000a0600000001010183c60,transcripts/rn006.txt
+rn007,ec66ee1982fbbb346849421e60c3a8e02e5c4066,824.0,杰明GW,SMC，FVG和回撤进场，三法结合,#36,DEAD,40c4e020e0e0e0f820c0e08cc0e0e0f828c0e08080e0e0f8,transcripts/rn007.txt
+rn008,00f9f6cebe755558f2062fea63748a3b2cb83e78,454.6,熊猫教练说技术,合格的短线选手，一定要看得懂动能,#36,no edge (filter test queued),80bf819f9f9fbf0080bf819f9f9fbf00009fffffffffff00,transcripts/rn008.txt
+rn009,8efe80c1b27f5196b171ccd80f5f95fe6aa038cd,41.6,交易升级打怪,FVG不是碰线就买，确认还在后面,#37,DEAD,6070000e16407c0060700000160078007078000206007800,transcripts/rn009.txt
+rn010,a2735ba771debbdd1d15709075b7f7f3b68c89a2,269.5,趋势周期形态,如何判断趋势动能强劲,#36,no edge,ff1711153131073cfbf804243c240018ffc3d7131301033c,transcripts/rn010.txt
+rn011,ade14b864923f2eec56f898f37f44e48c54433be,667.5,格局Vision,ICT课004｜先统一看图标准,#39,no rules; feed/clock checks on #33/#35,70f86c7c7c7ce040e0e064fc7cfce4c070f85656ded65240,transcripts/rn011.txt
+rn012,94657544302e6d2290698a0f7f587343946e9c03,502.3,壹笑财经,10分钟精读《系统交易方法》,#41,principles; MA5/20 example no edge so far,006061430261ffff276764f3f7870300fcfcf4fcf8c0a093,transcripts/rn012.txt
+rn013,9cc8100ebc66f752a0384cdee5120a6611ba7c35,951.5,源木派讲技术,结构已经成立了，为什么还是不敢做?,#38,DEAD,0effffbff3f3ffe70efffffbfb7b67e40eff7b7b7f3fffe3,transcripts/rn013.txt
+rn014,d29c27759dec27102f3f1945c86b3eac40fd3003,500.9,交易修心社,结构力场，一张图从哪里看起?,#40,no rules; OB volume no help; equal highs DEAD,efc707030300007fefc707030300017eefc307470f08013e,transcripts/rn014.txt
+rn015,6fc6a4ec0de5fcde66121c95aff0ba1b187921e6,42.5,杰明GW,下方刚被扫，为何盯上前高？看首个FVG。,#42,DEAD,00000060f0fc3c20007e0060dcfe3c0800380060dcfe3c00,transcripts/rn015.txt
+rn016,644054212bf6c7658345e9ef09b559a17e18ec4f,576.0,RossCameron777 (Jesse Rogers),"NQ Asia-session trade, volume profile / value area",#43,"DEAD on gold, ~0 indices; US100 RTH POC WATCH",09000000000cfeff800000000000d9ff090000080008bfff,transcripts/rn016.txt
+rn017,58b176367f3eca0a07ed51a04a35792c54f3aca7,161.4,国金量化小雪,量化软件QMT自动化下单全流程来啦,#44,not a strategy; EA duplicate-order fix (v1.10),fffc0f0f0f0f0fbfffecf0f8f8f8f8fffffd3f3f000080ff,transcripts/rn017.txt
+rn018,f91b0a9e17d60f43136c27393d3f598c6966fa40,30.7,大道无形我有型,"突破前高点买入策略详解 (PDH sweep, target PDL)",#45,DEAD,0000304000000000000030408000000000183e4604000000,transcripts/rn018.txt
+rn019,09bd06efe3753346605cd880b517357f11af374a,1363.6,油管中文配音檔案館 (Jesse Rogers),"NQ gap-down squeeze, order flow",#46,WATCH: opening candle against a big gap +0.31R (US100/US500 strong); pre-registered on the export,090000010004ffff0900000100009eff01000600000c1fff,transcripts/rn019.txt
+rn020,5cfad6d630be6a362753621fc35d9072ac63e1e4,1752.3,油管中文配音檔案館 (JJ Simon),$2M in prop payouts roadmap (news-spike fade),#47,news-spike fade DEAD; prop-firm process notes,00fcffffffff810000f4fdffffffc70000fc7dffffffff00,transcripts/rn020.txt

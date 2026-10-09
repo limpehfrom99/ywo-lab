@@ -83,3 +83,14 @@ Then write the rules down, confirm them with Shen (videos are usually partly dis
 - FTMO's MT5 gold feed and the MT4 feed differ by ~$0.06 per bar and give 82-92% the same SMC trades — feed choice is minor.
 - Limit entries: exit on 1-minute bars. 15-minute exits flatter results by ~+0.05R because the fill bar's order is unknown.
 
+## Video batches and coarse exits (added 2026-10-10 00:05 MYT)
+- Every processed video is in research/videos/index.csv (sha1, length, author, title, log entry, verdict, frame hash) with its
+  transcript in research/videos/transcripts/. For a batch: python3 -I tools/video/batch.py <zip or folder> <out dir> -> transcripts,
+  contact sheets, exact/near duplicates (5-character-shingle overlap >= 60% of the shorter transcript; frame hashes for silent
+  clips), topic tags, batch_report.md. Add the new videos to the index after testing them.
+- When exits can only run on 15/30-minute bars (FTMO exports for forex/indices before the M1/M5 window), use the conservative fill
+  rule in bt/fx_cross_check.exit_conservative: in the bar where a limit fills, the stop counts and the target doesn't; the coin flip
+  (other side) skips the fill bar. On gold it reproduces the 1-minute results.
+- Speed: np.searchsorted on datetime64 arrays with a key of another unit copies the whole array per call (minutes on 5M bars). Search
+  int64 nanoseconds (values.astype("datetime64[ns]").view("i8")).
+

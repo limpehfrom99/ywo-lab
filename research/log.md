@@ -578,3 +578,54 @@ watched (filled / partial / rejected; cancel and re-send stale limits); (5) posi
   (5) risk: 5% daily and 10% total limits on equity with close-on-breach, real-account guard, Prague-midnight day — good.
   Simulation first: running on the FTMO trial — good.
 Verdict: no strategy to test; one EA fix queued (backlog #45), to ship together with the vol-sizing change when Shen says go.
+
+### 45. RedNote video "大道无形我有型": "突破前高点买入策略详解" (silent 30 s: previous-day high swept, close back below -> sell to the previous-day low) — DEAD   [2026-10-10 00:05 MYT]
+Rules from the frames: mark yesterday's high and low; price runs above yesterday's high ("流动性诱多"), the candle closes back below
+-> sell; stop above the sweep high (0.17-0.19%); target yesterday's low (4.73R in the example); mirror at yesterday's low.
+Fixed before running (bt/pdh_sweep.py): broker day 17:00-17:00 NY; the first bar above PDH starts the sweep, the first close back
+below triggers; sell at the next open; stop = sweep high + 0.05 daily ATR; target PDL or 2R; flat at the day's end; one per side.
+  Gold 2012-26: 5-min -0.016R (3,172 trades, 30% wins at 5.7R) / 2R -0.034R; 15-min +0.003R / -0.018R.
+  EURUSD, GBPUSD, USDCHF 2018-26 (30-min): -0.098R (5,412) / -0.128R (0/9 years > 0).  US100 + US500 2022-26: -0.077 / -0.066R.
+  The other direction (coin flip = the breakout continues) loses too.
+Verdict: DEAD — a failed break of yesterday's high carries no direction.
+
+### 46. RedNote repost (油管中文配音檔案館) of a Jesse Rogers NQ session: "gap down, everyone bearish -> wait for the open to prove it; it didn't -> squeeze long" — the testable core (trade against a big gap when the first candle goes against it) is the opening-candle rule's best days: WATCH   [2026-10-10 00:05 MYT]
+22.7-min live session; order flow and heatmaps can't be tested on bars. Fixed before running (bt/gap_squeeze.py): session bars
+09:30-16:00 NY, FTMO 30-min, Jan 2022 - Oct 2026; big gap = |09:30 open - previous close| >= 0.5 x ATR(14) of session ranges;
+first candle against the gap -> trade its direction at 10:00, stop at its far end, target the previous close (gap fill) or none
+(flat 16:00 = the opening-candle rule); for reference big-gap days where the first candle went with the gap.
+  Against the gap, no target: +0.308R (522 trades, t 2.9, 43% wins): US100 +0.45, US500 +0.66, TSLA +0.05, AAPL -0.08R; by year
+    22 +.17 23 +.66 24 +.36 25 +.39 26 -.08.  With the gap-fill target: +0.197R (510, t 2.5; the gap filled 34% of the time).
+  With the gap: +0.010R (552): US100 -0.08, US500 +0.14, TSLA +0.01, AAPL -0.05.
+Verdict: the same split #23 saw ("against the gap is better", report only) — now on 4 markets: on big-gap days the opening-candle
+trades that go against the gap carry the edge, the ones with the gap are about zero. Post-hoc, so WATCH: pre-registered on the
+export's 46 stocks and 14 indices (backlog #46) before it becomes a filter in the EA.
+
+### 47. RedNote repost (油管中文配音檔案館) of JJ Simon: "$2M in prop payouts — the full roadmap" — his trade (fade the 8:30 news spike) DEAD; his prop-firm process = ours   [2026-10-10 00:05 MYT]
+29-min talk. Process points: beat the prop firm, not the market (optimise risk:reward per firm's rule set; evals maximise pass
+rate, funded accounts maximise expected value); track spend vs payouts (~3.5x when done right), risk of ruin < 0.5%, total
+exposure across accounts, no martingale, backtest "out of 10 evals how many pass" not equity curves — what lab/ftmo_sim.py does.
+His strategy ("fair pricing theory"): a big move on 8:30 red-folder news is priced in -> trade the reversion.
+Fixed before running (bt/news_fade.py): NFP, CPI, PPI, Retail Sales, Durable Goods, GDP, Core PCE days at 08:30 NY (1,108 in the
+calendar); move from the 08:30 open measured at 08:45 (gold, 1-min) or 09:00 (30-min bars); if >= 0.25 daily ATR, fade it; stop
+beyond the spike + 0.05 ATR; target the pre-news price or half the move; flat 12:00; spread x 2 at entry.
+  Gold 2012-26: -0.049R (227 trades) / half-move target -0.130R; following the move instead -0.22 / -0.17R.
+  EURUSD, GBPUSD, USDCHF 2018-26: -0.240R (491, t -2.8) / -0.339R.
+  US100 + US500 2022-26: +0.183R (153, t 1.0) but fading up-moves -0.28R and down-moves +0.73R: buying dips in a rising market.
+Verdict: DEAD. Neither fading nor following the first 15-30 minutes after a release pays after costs.
+
+### 48. Forex cross-market test of #33 and #35 (backlog #40/#41, first part: Shen's EURUSD, GBPUSD, USDCHF exports, 30-min bars 2018-26) — #35 breaker holds on forex: CANDIDATE; #33 mixed   [2026-10-10 00:05 MYT]
+Rules untouched (bt/fx_cross_check.py, bt/fx_phase_check.py). 1-hour = two 30-min bars, 4-hour on FTMO's server clock (plus all
+four UTC grid starts); exits on 30-min bars with a conservative fill rule (in the fill bar a stop touch counts, a target touch
+doesn't; the coin flip skips the fill bar); spread x 1.2 + commission 0.0025%/side. The same pipeline on gold 2018-26 gives
+#33 +0.108R / #35 +0.039R (FTMO clock) / +0.119R (UTC), in line with the 1-minute results, so the coarse exits don't flatter.
+  #35 breaker, FTMO clock: EURUSD +0.098R (445 trades), GBPUSD +0.102R (474), USDCHF +0.148R (397); pooled +0.115R (1,316, t 2.9),
+    before 2024 +0.115 / from 2024 +0.113, by year 18 +.06 19 +.12 20 +.12 21 +.18 22 +.20 23 -.05 24 +.16 25 +.10 26 +.07; longs
+    +0.08, shorts +0.15; coin flip -0.30. Every 4-hour grid start positive on every pair: UTC +0h +0.178, +1h +0.058, +2h +0.073,
+    +3h +0.082, FTMO clock +0.115 (pooled over grids about +0.10R).
+  #33 gap retest: EURUSD +0.056R (329), GBPUSD +0.186R (354), USDCHF +0.209R (317); pooled +0.150R (1,000, t 2.4) but before 2024
+    +0.034 / from 2024 +0.373, 2021 -0.32, 2026 +0.92 (101 trades).
+Verdict: #35 passes the CANDIDATE bar on markets it was never looked at on (n >= 200, both halves +0.11, t 2.9, worst year
+-0.05R), with gold on FTMO's clock weaker (+0.06R). Expect about +0.08-0.10R per trade, 50-60 trades a year per market. #33:
+CANDIDATE on gold, mixed on forex. Next: all 28 pairs, metals and indices from the full export, then FTMO odds for the opening
+candle + #35 on a forex basket (backlog #41).
