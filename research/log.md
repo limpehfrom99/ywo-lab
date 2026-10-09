@@ -988,6 +988,7 @@ those bars; the rule-library run on the export was restarted after the fix.
   #50 re-test after the fix — Williams volatility breakout, FTMO gold 2015-2026, k = 0.5: M1 exits +0.041R (2,237 trades, t 1.5,
   8/12 years positive, worst -0.07, before 2024 +0.025 / from 2024 +0.089), M5 +0.033R. Silver -0.135, platinum -0.300,
   palladium -0.6. Pre-registered bar (>= +0.03R on FTMO gold 2015+): met, barely; t 1.5 -> stays a small WATCH-level candidate.
+  Files: bt/wvb_ftmo.py -> results/wvb_ftmo.csv, trades results/wvb_ftmo_trades.csv.gz.
 
 ### 64 (result). Bernd's seasonal windows, walk-forward 2015-2026 (bt/seasonal_fx.py, bt/seasonal_mcpt.py)   [2026-10-10 02:05 MYT]
   All selected windows: 2,825; non-overlapping 1,240-1,244 (28 pairs + gold + silver, ~100 a year).
@@ -1054,7 +1055,7 @@ Verdict: no single-symbol cell survives on the full export; the opening-gap fade
 is the one pooled result to put through the permutation test (best of all pooled cells, #60 protocol) before anything else.
 
 ### 69. Export backlog items #46/#48/#49 on 44 stocks and indices (quant/export_items.py) — NR7 and the gap filter both FAIL their pre-registered bars   [2026-10-10 02:25 MYT]
-Same engine as the battery (cash session per symbol, FTMO costs). results/export_items_cells.csv.
+Same engine as the battery (cash session per symbol, FTMO costs). results/export_items_cells.csv, trades results/export_items_trades.csv.gz.
   #49 NR7 (yesterday's cash-session range the smallest of 7): OC30 NR7 days -0.055R (9,110) vs other days -0.072R (49,841): +0.016,
   before 2024 +0.048 / from 2024 -0.017, diff >= +0.05 on 39% of symbols (bar: 60% AND from 2024). ORB30: +0.016, 36% of symbols,
   from 2024 -0.009. -> the NR7 CANDIDATE (#49) does not carry over: DEAD as a general filter.
