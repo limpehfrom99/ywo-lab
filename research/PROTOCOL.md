@@ -66,3 +66,11 @@ Fill traps found while building it (all handled in quant/intraday.py):
   holding time from a random entry day.
 - The repo copy of research/*.md is the source of truth (other chats push directly). Before copying /home/claude/research
   into the repo, pull first and copy the repo files back, or the loop overwrites newer results.
+
+## Strategy videos (added 2026-10-09 20:50 MYT)
+Shen can attach a downloaded video or a screen recording (RedNote, YouTube, Instagram). Links can't be opened: the
+workspace can't reach those sites and the web tools only read page text. Run
+  python3 tools/video/video_notes.py VIDEO OUT    (timestamped transcript + frame contact sheets; --frame SECONDS for one full frame)
+Speech-to-text is offline: sherpa-onnx SenseVoice (zh/en/yue/ja/ko) + Silero VAD; setup() re-downloads the models from
+GitHub releases into /home/claude/models after a container reset (pip install --break-system-packages sherpa-onnx).
+Then write the rules down, confirm them with Shen (videos are usually partly discretionary), and test as usual.
