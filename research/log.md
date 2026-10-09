@@ -1147,3 +1147,30 @@ Williams volatility breakout, FTMO gold 2015-26 (quant/mcpt_wvb.py, session-matr
 (2,186 trades); 1,000 shuffles: p_alone 0.001 for every k, best-of-3 p 0.001, skill +0.08R over the shuffles (which lose -0.05 to
 -0.11R to costs). But the bootstrap 95% interval of the real mean is -0.022 to +0.081R -> #60 protocol: p fine, lower bound <= 0
 -> WATCH (the rule reads real intraday momentum; the edge left after FTMO costs is too small to rely on).
+
+### 72. Pre-registered (BEFORE running) — robustness of the index gap fade (#70; #60 protocol; backlog #60)   [2026-10-10 03:45 MYT]
+quant/gapfade_grid.py. Same engine and costs as the battery. Grid fixed now: minimum gap 0.75 / 1.0 / 1.5 daily ATR x target =
+yesterday's cash close (full fill) / half the gap x stop = the gap's size beyond the open / 1 daily ATR beyond the open = 12 cells,
+pooled over the 9 EU + US indices. Reported: every cell (n, mean R, t, before/after 2024); the cell picked on data before 2024 and
+its result from 2024; CSCV probability of backtest overfitting over the 12 cells (10 time blocks, daily sums); BCa lower bound and
+drawdown bounds (FTMO static loss from the start, 3 and 12 months) for the base cell (1.0 ATR, full fill, gap stop) at 0.5% risk
+per trade. Also the same base rule on the 4 indices never used for selection (UK100, JP225, HK50, AUS200).
+
+### 72 (result). Index gap fade robustness — holds on its own indices, does not carry to UK/Asia/Australia   [2026-10-10 03:55 MYT]
+results/gapfade_grid.csv. EU + US indices pooled, 2018-26 (US30/US2000 from 2018-19, the rest from Oct 2021):
+  min gap   target       stop        n     avg R    t     before 2024 / from 2024
+  0.75      prior close  gap size   1,052  +0.038  1.9   +0.022 / +0.049
+  0.75      prior close  1 ATR      1,052  +0.060  2.9   +0.032 / +0.080
+  0.75      half gap     gap / ATR  1,052  +0.013 / +0.029
+  1.0       prior close  gap size     477  +0.112  4.5   +0.176 / +0.073   <- picked on pre-2024 data (= the #70 rule)
+  1.0       prior close  1 ATR        477  +0.144  4.4   +0.164 / +0.133
+  1.0       half gap     gap / ATR    477  +0.074 / +0.094 (t 3.6 / 3.4)
+  1.5       any            -          134  +0.06 to +0.11 (t <= 2.1)
+All 12 cells positive. CSCV over the 12: probability of backtest overfitting 8%; the in-sample winner keeps +0.129R a day out of sample
+(median cell +0.074) and loses out of sample in 2% of splits. BCa 95% lower bound of the picked cell: +0.063R per trade, +0.053 per day.
+Gap fade alone at 0.5% a trade (55 trades a year): 95th-percentile loss below the starting balance 2.2% over 3 months, 3.5% over 12
+months (90%-confidence bounds 2.4% / 4.5%).
+The four indices never used for selection: UK100 -0.055 (45 trades), JP225 -0.010 (150), HK50 +0.113 (59), AUS200 -0.031 (194);
+pooled -0.008 (t -0.3).
+Verdict: CANDIDATE on EU-continental and US index CFDs (passes p_best, BCa > 0, PBO 8%, every grid cell positive), with one red flag:
+it does not carry over to the UK, Japanese and Australian indices. Trade it only where it was found, at 0.25-0.5%, after a paper test.
