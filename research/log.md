@@ -402,3 +402,25 @@ lower edge for 48 bars, cancelled if the leg high is taken first. Stop S1 = gap 
     (15/yr), t 1.8, from 2024 -0.27R.
 Verdict: DEAD as shown. The trendline adds nothing over #33's plain break of structure (fewer trades, weaker); what works in both is
 the wide stop at the leg's high with a near target on the 1-hour chart, not the tight stop at the gap.
+
+### 35. RedNote video "K线之下": "订单块交易策略" (order blocks: MTF engulfing, inducement trap, breaker block) — 1 and 2 DEAD; breaker block on 4-hour = CANDIDATE on gold, pending other markets   [2026-10-09 22:55 MYT]
+10.5-minute lesson, transcribed. Valid OB = the key candle before a gap (full range), untested since, and the move breaks structure;
+trade only the latest valid OB with the structure. S1: price returns to a higher-timeframe OB -> lower-timeframe engulfing -> enter,
+stop just beyond the OB, 2R (D1->H1, H4->15m, H1->5m). S2: a minor support with several bounces above the OB ("inducement") ->
+buy limit at the OB's middle, stop below, 2-3R. S3: breaker block — a valid OB broken with a change of character -> sell the
+first retest, stop just above, 2R, one use. Fixed definitions in bt/ob_strategies.py docstring (3-bar fractals usable 3 bars
+later; BOS within 20 bars with no touch before it; OB life 100 bars or until a newer valid OB; 0.05 daily ATR buffers).
+Gold 2012-Oct 2026, exits on 1-min (stop first), 5-day max, FTMO costs, coin flip.
+  S1 MTF engulfing: D1->H1 +0.052R (117, t 0.5); H4->15m -0.065R (693); H1->5m -0.103R (2,188, t -3.3). DEAD.
+  S2 inducement, limit at OB middle: H4 35 trades (+0.12 / +0.06, too few); H1 -0.385 / -0.503R (144, t -3.6 / -4.2); 15m
+    -0.127 / -0.141R (496). Without the inducement filter: H4 -0.067, H1 -0.074, 15m -0.159R (10,611, t -11.6). DEAD.
+  S3 breaker retest, 2R: H4 +0.127R (813 trades, 55/yr, t 2.5, 40% wins, coin -0.247; longs +0.149, shorts +0.107; before 2024
+    +0.103, from 2024 +0.222); H1 +0.047R (2,567, t 1.7); 15m +0.022R (10,535, t 1.6); all three 10/15 years > 0.
+  Checks on H4 (bt/ob_breaker_check.py): random-timing same side -0.018R (not drift). By year 12 +.21 13 -.04 14 +.16 15 -.03
+    16 +.26 17 +.27 18 -.15 19 +.05 20 -.08 21 +.01 22 +.55 23 -.11 24 +.25 25 +.31 26 .00. Every neighbour positive:
+    fractal n=2 +0.130 / n=5 +0.128; buffer 0 +0.103 / 0.1 +0.121; life 50 +0.209 / 200 +0.117; target 1.5R +0.147 / 3R +0.073;
+    entry at the block's middle +0.213 (t 3.7); no CHoCH requirement +0.127 (1,094).
+Verdict: S1, S2 DEAD. S3 meets the CANDIDATE bar on gold (n >= 200, both halves > 0, t >= 2, >= +0.05R, worst year -0.15R),
+robust to every setting, both sides, same sign on 3 timeframes. Warnings: best of 15 cells tried in this video; ~7R a year at
+55 trades. With #33 it is the second "break, then retest with a structural stop" rule to work; check their overlap. Next: the same
+rule unchanged on FX, indices, silver, oil from the full export (backlog #41), then paper-trade.
