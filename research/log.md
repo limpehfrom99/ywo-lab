@@ -366,3 +366,24 @@ running (bt/panda_bull.py, bt/panda_exit_baseline.py), daily bars, signal at the
   Verdict: claims 1-2 DEAD as signals (A, B); claim 3 supported: exit choice moves results 2-10x and 20-day breakouts beat
   random entries — the same trend-following effect as #9 (gold, WATCH), now on 5 of 6 markets. Confirm on all ~110 markets with
   the full export (battery DON/MA rule books + an exit grid, backlog #39), with real swaps from the spec sheet.
+
+### 33. RedNote video "Trading Dimsum": "5:1 Reward to Risk Ratio" (FVG retest after a break of structure, target the trendline liquidity) — 5:1 claim DEAD; 1-hour version with a near target = CANDIDATE on gold, pending other markets   [2026-10-09 22:20 MYT]
+Rule as told (FX chart, short; longs mirrored): a strong drop leaves a bearish FVG and breaks structure (BOS); price pulls back up
+along a rising trendline to the gap; sell when price touches the gap; stop at the high; target the liquidity under the trendline;
+"a nice 5:1". Fixed before running (bt/fvg_retest.py): 3-bar fractals usable 3 bars later; BOS = close below the last swing low (each
+used once); leg = highest high since the last swing high -> BOS bar; its first bearish FVG (up to 3 bars after the BOS) is the gap;
+stop = leg high + 0.05 daily ATR; sell limit at the gap's lower edge for 48 bars, cancelled if price takes the leg high first.
+Targets: T1 last confirmed pullback swing low (trendline's last touch), T2 fixed 5R, T3 low after the BOS; T1/T3 only if >= 2R.
+Exits on 1-min bars, stop first, 5-day max; gold 2012-Oct 2026; FTMO spread + commission; coin flip per trade.
+  15-min: T1 +0.050R (2,063 trades, t 1.2), T2 5R +0.031R (15,144, 19% wins), T3 +0.035R.
+  1-hour: T1 +0.171R (657 trades, 44/yr, t 2.3, 32% wins, coin flip -0.235, 12/15 years > 0; longs +0.28, shorts +0.08;
+    before 2024 +0.197 (n 540), from 2024 +0.049 (n 117)); T2 5R +0.016R (3,574); T3 +0.109R (792, t 1.6).
+  Checks on 1-hour T1 (bt/fvg_retest_check.py): same side + same bracket from random minutes -0.048R (gold's drift doesn't explain
+    it). Every neighbour positive: fractal n=2 +0.120 / n=5 +0.157; stop buffer 0 +0.204 (t 3.0) / 0.1 ATR +0.161; window 24 bars
+    +0.112 / 96 bars +0.133; rr >= 1.5 +0.121 / >= 3 +0.415; entry at the gap middle +0.150. By year: 12 +.36 13 +.22 14 +.03
+    15 +.50 16 +.36 17 +.14 18 +.18 19 -.16 20 +.16 21 -.23 22 +.25 23 +.56 24 -.08 25 +.03 26 +.26.
+    Median hold 10 h (21% past 24 h): swap at ~5%/yr would cost ~0.03R -> ~+0.14R net.
+Verdict: the 5:1 claim is DEAD (fixed 5R ~ 0). The 1-hour gap retest with the near pullback-low target meets the CANDIDATE bar
+on gold (n >= 200, both halves > 0, t >= 2, +0.05R or better, no year below -0.3R), with two warnings: it was the best of 6 cells
+tried, and 2024-26 is weak (+0.05R). The real test is markets it was never looked at on: the poster's FX pairs, indices and silver
+from the full export (backlog #40). If those hold, paper-trade it next to the opening candle.
