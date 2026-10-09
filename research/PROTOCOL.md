@@ -54,3 +54,15 @@ The lab lives at https://github.com/limpehfrom99/ywo-lab (private). After loggin
   && cp /home/claude/bt/*.csv results/ 2>/dev/null; git add -A && git commit -qm "research: <idea> <verdict>" && git push -q
 If /home/claude/ywo-lab does not exist: git clone --depth 1 https://github.com/limpehfrom99/ywo-lab /home/claude/ywo-lab
 (then python3 bt/bootstrap.py rebuilds /home/claude/data if it is missing — faster than the uploads route).
+
+## Full export + cross-market battery (added 2026-10-09 16:20 MYT)
+Shen exports every market with tools/export (Export-History.bat): ~110 symbols, M5 (FX M15) + D1 from 2015, compact
+.npz files (lab/ftmo_data.py load_any reads them), plus symbol_specs.csv (real swaps) — uploaded as exports_partN.zip.
+Then: python3 -I quant/ingest.py <zips> -> /home/claude/data/x, and the steps in quant/README.md.
+Fill traps found while building it (all handled in quant/intraday.py):
+- Opening-range breakout: skipping days where one bar breaks BOTH sides of the range inflated ORB30 by ~+0.08R/trade on
+  30-min bars (dry run: 4 fake "survivors"). Count such bars as a stopped trade.
+- Long-only daily rules vs a coin flip look great on assets that went up; the daily baseline is the same direction and
+  holding time from a random entry day.
+- The repo copy of research/*.md is the source of truth (other chats push directly). Before copying /home/claude/research
+  into the repo, pull first and copy the repo files back, or the loop overwrites newer results.
