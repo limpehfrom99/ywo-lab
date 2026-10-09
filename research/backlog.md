@@ -104,3 +104,10 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 43. [queued, needs export] #38 rule A ("two wicks, big-body break, retest the level"; bt/breakout_retest.py rule_a) unchanged on the
     trader's own markets US500 / US100 (ES / NQ), 5m / 15m / 1h, follow-through on and off, 2R and prior-high targets; gold was
     -0.01 to -0.25R in every cell. One pass, all cells reported; also rule B (trend candle 0.382) on the same markets.
+44. [queued, needs export] #43 value-area rules (bt/value_area.py V1-V3, ETH + RTH) unchanged on the export's 5-minute US100 / US500
+    (and US30, GER40, UK100) from 2015, profile from 5-min tick volume, exits on 5-min; pre-registered cell to confirm: US100 RTH V3
+    (+0.096R, t 2.3 on 30-min bars 2021-26). Dead unless US100 RTH V3 holds before 2021 AND US500 RTH V3 turns positive.
+45. [queued, needs "go"] OpeningCandle_EA duplicate-order guard (#44): before every send, FindPosition() by magic -> adopt + mark the
+    day as traded; after a send that returns without a visible position, block re-sends for 10 s while polling; also adopt any
+    extra position with the magic so the 15:59 exit closes all of them. Ship with the vol-sizing change.
+

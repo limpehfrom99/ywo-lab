@@ -528,3 +528,53 @@ entries, costs + assumed swap (quant/daily.py ma_cross). Gold 2012-26, US100/US5
   with the volume filter: 13 trades in total — CFD tick volume rarely jumps 1.5x on the cross day. Can't be judged.
 Verdict: no edge so far. Both variants are in the cross-market battery (MA5_20_long, MA5_20_vol_long) for all 110 markets with
 the export (real stock volume where FTMO has it).
+
+### 42. RedNote video "杰明GW": "下方刚被扫，为何盯上前高？看首个FVG。" (30-min POI sweep -> change of character -> first gap, target the range high) — DEAD   [2026-10-09 23:08 MYT]
+Rule (42 s, gold, 30-minute chart): a break of structure; its order block is the point of interest; the pullback sweeps a swing low
+above the block (sell-side liquidity) into it; a lower-timeframe change of character and a strong reaction -> buy from the first
+gap; stop under the sweep; target the buy-side liquidity (the range high). Fixed before running (bt/poi_sweep_fvg.py docstring):
+BOS = first close above the last confirmed 30-min swing high; OB = last down candle at/before the leg low; POI = OB + 0.25 daily
+ATR above; sweep = low below the latest post-BOS swing low above the POI, inside the POI, within 2 days; CHoCH = close above the last
+internal swing high confirmed before the sweep (30-min, 2-bar fractals; or 5-min, 3-bar) within 6 hours; first bullish gap after the
+sweep; limit at its top for 24 bars; stop = sweep low - 0.05 ATR; target the highest high since the leg low (>= 1R) or 2R.
+Gold 2012-Oct 2026, longs + shorts, exits on 1-min, FTMO costs:
+  30-min CHoCH + gap: range-high target -0.09R (47 trades, 3 a year), 2R -0.10R (127).
+  5-min CHoCH + gap: range-high target -0.37R (212, t -3.4, 19% wins; coin flip +0.15R), 2R -0.33R (205, t -3.6).
+Verdict: DEAD — the #31 family again (zone + sweep + lower-timeframe shift + gap entry with a stop under the sweep). The 5-minute
+version points the wrong way more often than not.
+
+### 43. RedNote repost (RossCameron777) of Jesse Rogers: NQ Asia-session trade with volume profiles (auction market theory; = Dalton's "80% rule") — DEAD on gold, about zero on US100/US500; one cell WATCH   [2026-10-09 23:08 MYT]
+Rule (9.6 min, order-flow software): value areas (70% of each session's volume) moving higher = value-up market; a dip below the
+prior value area is a discount and a likely fake-out; once price is accepted back inside, buy; stop under the last pivot; target
+the value-area high; he moved the target up, then the stop to breakeven, and closed by hand at the POC when buying dried up (+$5.9k,
+8 NQ contracts). The heatmap / order-flow confirmation can't be tested on bar data. Fixed before running (bt/value_area.py
+docstring): profile from tick volume spread over each bar's range, bins 0.02 daily ATR, VA grown from the POC to 70%; value-up =
+prior VAH and VAL both above the session before; V1 = value-up, a trade below the prior VAL, two consecutive 30-min closes back
+inside -> buy next open, stop = excursion extreme - 0.05 ATR, target prior VAH, flat at the session end; V2 = Dalton's rule (opens
+outside, two closes inside, no trend filter); V3 = V1 with the prior POC as target. ETH (broker day) and RTH (09:30-16:00 NY).
+Gold 2012-Oct 2026 (1-min profile and exits); US100/US500 2021-Oct 2026 (30-min bars only).
+  Gold ETH: V1 -0.088R (1,291 trades, t -2.7, 2/15 years > 0), V2 -0.051R (1,005), V3 -0.071R (1,068).
+  US100 ETH: -0.004 / -0.031 / -0.026R (370-455).  US100 RTH: +0.009 / -0.011 / +0.096R (V3: 191 trades, t 2.3, 76% wins at
+    0.26R reward, 6/6 years > 0, before 2024 +0.11, from 2024 +0.08, coin flip -0.12).
+  US500 ETH: -0.000 / +0.015 / -0.011R.  US500 RTH: +0.016 / +0.039 / -0.024R.
+  The "80%": price reached the far side of value 34% (gold), 36-48% (US100), 40-53% (US500) of the time.
+Verdict: DEAD on gold; about zero on the indices; the 80% figure doesn't hold. One cell of 15 (US100 cash session, target the POC)
+is +0.10R at t 2.3 — expected by luck about once in 15 cells, and the same rule on US500 is -0.02R. WATCH only: re-test unchanged on
+the export's 5-minute index data from 2015 (backlog #44).
+
+### 44. RedNote video "国金量化小雪": "量化软件QMT自动化下单全流程来啦" (2.7 min) — not a strategy; its order-flow checklist applied to OpeningCandle_EA: one real gap   [2026-10-09 23:08 MYT]
+QMT is a Chinese A-share broker platform, but the five steps are the same for any EA: (1) live quotes subscribed; (2) the signal
+de-duplicated so one moment can't send two orders; (3) the order sent with correct symbol, side, price, size; (4) order reports
+watched (filled / partial / rejected; cancel and re-send stale limits); (5) positions updated and risk checked before every order
+(funds, size, daily max loss); and run it on a simulated account first. OpeningCandle_EA.mq5 (read only, not changed):
+  (1) quotes: checks for zero quotes and the server clock; no connection/stale-quote check — a dead feed just makes orders fail
+      until the 5-minute window closes. Acceptable.
+  (2) de-duplication: GAP. After a successful send it waits 0.5 s for the position; if the position isn't visible yet (or the
+      request timed out but filled on the server), the next 1-second timer sends a second order the same day. The EA tracks only
+      one ticket, so the second position gets no 15:59 exit and stays open on its stop alone, overnight. Fix: look for an open
+      position with the EA's magic before every send, and don't re-send for ~10 s after a send while polling.
+  (3) order: chart symbol, lot step/min/max, margin check, filling mode, SL normalised — good.
+  (4) reports: polled every second; partial fills use the real position size; no pending orders — fine for this rule.
+  (5) risk: 5% daily and 10% total limits on equity with close-on-breach, real-account guard, Prague-midnight day — good.
+  Simulation first: running on the FTMO trial — good.
+Verdict: no strategy to test; one EA fix queued (backlog #45), to ship together with the vol-sizing change when Shen says go.
