@@ -387,3 +387,18 @@ Verdict: the 5:1 claim is DEAD (fixed 5R ~ 0). The 1-hour gap retest with the ne
 on gold (n >= 200, both halves > 0, t >= 2, +0.05R or better, no year below -0.3R), with two warnings: it was the best of 6 cells
 tried, and 2024-26 is weak (+0.05R). The real test is markets it was never looked at on: the poster's FX pairs, indices and silver
 from the full export (backlog #40). If those hold, paper-trade it next to the opening candle.
+
+### 34. RedNote video "阿基米得": "趋势线破位后，FVG就是天然压力位" (after a trendline break, the FVG is resistance) — DEAD as shown   [2026-10-09 22:40 MYT]
+Silent video, rules read from the frames: rising trendline; a close below it leaves a bearish FVG; sell the retest of the gap; stop
+just above the gap (0.15% in the example); target ~2.5R (example 2.48R). Mirror for longs (example 4.52R).
+Fixed before running (bt/tl_fvg.py): trendline through the last two confirmed 3-bar swing lows (second higher), held since the first
+point; break = first close below it; gap = first bearish FVG from the leg high to 3 bars after the break; sell limit at the gap's
+lower edge for 48 bars, cancelled if the leg high is taken first. Stop S1 = gap top + 0.05 ATR (the video's), S2 = leg high +
+0.05 ATR. Targets 2R / 3R, or (S2) the last pullback low if >= 2R. Gold 2012-Oct 2026, exits on 1-min, FTMO costs, coin flip.
+  As shown (stop above the gap): 15-min 2R -0.113R (9,420 trades, t -7.7, 2/15 years > 0), 3R -0.101R; 1-hour 2R -0.048R
+    (2,081), 3R -0.077R. Median stop 0.10-0.14% — taken by noise.
+  Stop above the leg high: 15-min -0.029 / -0.011R; 1-hour +0.036 / +0.050R (t 1.1-1.3, 11/15 years) — about zero.
+  Stop above the leg high + last pullback low target (the #33 target): 15-min -0.007R (617); 1-hour +0.232R but 228 trades
+    (15/yr), t 1.8, from 2024 -0.27R.
+Verdict: DEAD as shown. The trendline adds nothing over #33's plain break of structure (fewer trades, weaker); what works in both is
+the wide stop at the leg's high with a near target on the 1-hour chart, not the tight stop at the gap.
