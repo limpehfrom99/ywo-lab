@@ -69,7 +69,7 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     Daily gold 2012+, indices daily 2017+, TSLA/AAPL daily.
 27. [done -> log #53: DEAD] Raschke "80-20s": yesterday opened in the top 20% of its range and closed in the bottom 20% -> today buy stop at
     yesterday's low after price trades >= 0.1 ATR below it; stop at today's low; exit at the close. Mirror. Gold, indices, stocks.
-28. [queued] Raschke "Holy Grail": ADX(14) > 30 and rising; price pulls back to the 20-EMA -> buy stop above the pullback bar's high;
+28. [done -> log #54: DEAD on gold; US index H4 WATCH, 122 trades] Raschke "Holy Grail": ADX(14) > 30 and rising; price pulls back to the 20-EMA -> buy stop above the pullback bar's high;
     stop at the pullback low; target the recent swing high; mirror. Daily and H4, gold + indices.
 29. [queued] Connors "Double 7s" ("Short Term Trading Strategies That Work", 2008): close above the 200-day MA and at a 7-day low ->
     buy at the close; sell at the first close at a 7-day high. Indices daily, gold, TSLA/AAPL; also short mirror below the MA.
@@ -124,3 +124,5 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 49. [queued, needs export] #49 NR7 + ORB30 on all 46 stocks + 14 indices 2015+ (M5): NR7 minus other days >= +0.05R on >= 60% of
     symbols AND in 2024-26 -> CANDIDATE stands; also gold 2015+ FTMO feed for #50 (k=0.5, 24-hour day).
 50. [blocked: needs 1-minute history] #51 Oops on stocks/indices: 45-76% of fills are ambiguous on 5/30-minute bars.
+51. [queued, needs export] #54 Holy Grail H4 (server clock, all 4 grid starts) on the 14 indices 2015+: WATCH -> CANDIDATE only if pooled
+    >= +0.10R, t >= 2 before 2024 and > 0 from 2024.

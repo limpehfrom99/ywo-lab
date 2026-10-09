@@ -725,3 +725,23 @@ Verdict: DEAD — the reclaim of the 20-day low loses on 14 of 15 cells and on g
   alone +0.03 to +0.27 on stocks/indices (108-191 trades, none t >= 2).
 Verdict: DEAD — zero on gold where fills are exact; nowhere t >= 2. What would change it: the export's stocks at 1-minute resolution
 showing >= +0.10R on most names (unlikely given gold).
+
+### 54. Pre-registered rule (BEFORE running) — Raschke "Holy Grail" (backlog #28)   [01:15 MYT]
+bt/holy_grail.py. Bars: D1 and H4 on FTMO's server clock (00:00 server = 17:00 NY); gold from M1 2012-26 (exits on M1), US100/US500 from
+the FTMO M30 export 2021-01+ (exits on M30). ADX(14) and +DI/-DI Wilder, EMA(20) of closes.
+Long setup at bar t: +DI > -DI at t-1, ADX(t-1) > 30 and ADX(t-1) > ADX(t-2); low(t) <= EMA20(t) and low(t-1) > EMA20(t-1) (first touch).
+Entry: buy stop at the high of the last completed bar since t (starting with bar t, lowered as new bars complete), active for bars
+t+1..t+3; stop = the lowest low from t to the fill; target = the highest high of the 20 bars before t (skip if not above the entry);
+time exit at the close of bar fill+20. Mirror for shorts. Conservative fills: the fill base bar touching the stop = stopped; target only
+from the next base bar; stop first. Costs as #49; swap ~1 bp of price per night held (x3 over weekends). Coin flip = reverse trade at
+the same moment, same risk and target distance. Cells: 3 markets x {D1, H4} = 6, all reported.
+
+### 54. Raschke "Holy Grail" (backlog #28) — DEAD on gold; US index H4 WATCH (too few trades)   [01:25 MYT]
+bt/holy_grail.py (results/holy_grail.log, holy_grail.csv). The setup is rare: ADX > 30 and rising plus a FIRST touch of the 20-EMA.
+  gold D1 (M1 exits 2012-26): 18 trades, -0.022R | gold H4: 143 trades (9.5 a year), -0.258R, t -2.4, 3/13 years up, coin +0.04.
+  US100 D1: 11 trades +0.055 | US100 H4: 59, +0.490R, t 1.6, 5/5 years (2024 -0.55) | US500 D1: 13, +0.048 | US500 H4: 63, +0.231, t 0.9.
+  US100+US500 H4 pooled: 122 trades, +0.356R, t 1.8, IS +0.39 / OOS +0.31, worst year -0.15, coin -0.11 (shorts +0.46, longs +0.10).
+  Median target ~2R, 51-65% of trades stopped.
+Verdict: DEAD on gold (the market with 15 years of clean fills). US index H4: WATCH — positive but 122 trades on two correlated
+indices since 2021 is far too thin. What would change it: the export's 14 indices 2015+ (H4, server clock, all 4 grid starts) — pooled
+>= +0.10R with t >= 2 before 2024 and positive after.

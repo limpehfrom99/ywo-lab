@@ -1,0 +1,22 @@
+HolyGrail gold D1                      n=   18 (1.6/yr) avgR=-0.022 t=-0.1 win=39% coin=-0.319 L +0.195 S -0.293 | IS -0.034 OOS +0.020 (n 4) | yrs+ 0/0 worst +nan last60 -0.02 | risk 133bp
+                                        12:+2.85 13:-1.15 14:-1.05 16:-1.09 17:-0.22 18:+1.49 20:+0.76 22:-1.07 23:+1.94 24:-1.03 26:+0.37
+                                        median target 2.0R, stopped 56%  (3s)
+HolyGrail gold H4                      n=  143 (9.5/yr) avgR=-0.258 t=-2.4 win=32% coin=+0.036 L -0.424 S -0.134 | IS -0.196 OOS -0.617 (n 21) | yrs+ 3/13 worst -1.02 last60 -0.38 | risk 49bp
+                                        12:+1.12 13:+0.08 14:-0.54 15:-0.33 16:-0.56 17:+0.32 18:-0.41 19:-0.85 20:-0.17 21:-0.54 22:-0.10 23:-0.24 24:-0.59 25:-0.39 26:-1.02
+                                        median target 2.0R, stopped 65%  (4s)
+HolyGrail US100 D1                     n=   11 (2.2/yr) avgR=+0.055 t=+0.1 win=36% coin=+1.636 L -0.106 S +0.091 | IS -0.290 OOS +0.252 (n 7) | yrs+ 0/0 worst +nan last60 +0.05 | risk 195bp
+                                        21:-1.03 22:-0.04 24:-1.04 25:+2.42 26:+0.03
+                                        median target 2.0R, stopped 64%  (5s)
+HolyGrail US100 H4                     n=   59 (9.8/yr) avgR=+0.490 t=+1.6 win=49% coin=-0.141 L +0.274 S +0.563 | IS +0.665 OOS +0.172 (n 21) | yrs+ 5/5 worst +0.04 last60 +0.49 | risk 74bp
+                                        21:+0.90 22:+0.46 23:+0.65 24:-0.55 25:+0.54 26:+0.04
+                                        median target 1.8R, stopped 51%  (5s)
+HolyGrail US500 D1                     n=   13 (2.6/yr) avgR=+0.048 t=+0.1 win=38% coin=+0.257 L -0.216 S +0.165 | IS +0.026 OOS +0.082 (n 5) | yrs+ 0/0 worst +nan last60 +0.05 | risk 143bp
+                                        21:-0.52 22:+0.69 23:-1.01 24:-0.40 25:+0.40
+                                        median target 2.0R, stopped 62%  (6s)
+HolyGrail US500 H4                     n=   63 (10.5/yr) avgR=+0.231 t=+0.9 win=43% coin=-0.087 L -0.028 S +0.352 | IS +0.108 OOS +0.420 (n 25) | yrs+ 4/6 worst -0.68 last60 +0.25 | risk 51bp
+                                        21:+0.80 22:-0.68 23:+0.24 24:+0.56 25:+0.75 26:-0.27
+                                        median target 1.9R, stopped 57%  (6s)
+done in 6s
+HolyGrail US100+US500 H4 pooled        n=  122 (20.3/yr) avgR=+0.356 t=+1.8 win=46% coin=-0.113 L +0.101 S +0.459 | IS +0.387 OOS +0.307 (n 46) | yrs+ 4/6 worst -0.15 last60 +0.40 | risk 62bp
+                                        21:+0.85 22:-0.15 23:+0.49 24:+0.19 25:+0.66 26:-0.10
+same-day overlap 0.16393442622950818
