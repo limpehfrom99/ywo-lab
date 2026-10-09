@@ -745,3 +745,22 @@ bt/holy_grail.py (results/holy_grail.log, holy_grail.csv). The setup is rare: AD
 Verdict: DEAD on gold (the market with 15 years of clean fills). US index H4: WATCH — positive but 122 trades on two correlated
 indices since 2021 is far too thin. What would change it: the export's 14 indices 2015+ (H4, server clock, all 4 grid starts) — pooled
 >= +0.10R with t >= 2 before 2024 and positive after.
+
+### 55. Pre-registered rule (BEFORE running) — Connors "Double 7s" (backlog #29)   [01:28 MYT]
+bt/double7.py. Daily bars on the broker day (server clock): gold from M1 2012-26, US100/US500 from the FTMO M30 export 2018-26 (daily rows
+before 2021), AAPL 2015+, TSLA 2019+ (M30 export). Long: close > SMA(200) and close = lowest close of the last 7 -> buy at that close;
+exit at the first close that is the highest close of the last 7. Short mirror: close < SMA(200) and at a 7-day high -> short; cover at the
+first 7-day-low close. No stop (as published). Costs: spread at entry (x1.2 for FTMO exports, stocks >= 1 bp) + commission + swap ~1 bp
+of price per night (x3 Fri->Mon). Measured in ATR(14) units per trade and in bp. Baseline (README daily rule): the same direction and
+holding time from 200 random entry days of the same market; the rule must beat it. Pass bar: n >= 200 pooled, t >= 2 vs baseline.
+
+### 55. Connors "Double 7s" (backlog #29) — DEAD (wins often, earns the market's drift)   [01:35 MYT]
+bt/double7.py (results/double7.log, double7_trades.csv). Per trade, in ATR(14) units after costs; edge = rule minus the same direction and
+holding time from 200 random days:
+  gold 172 trades (hold 7-10 days): -0.167 ATR, edge -0.063 (t -0.4); longs +0.174 / edge +0.094; shorts -0.758.
+  US100 70: +0.395, edge +0.351 (t 1.5) | US500 66: +0.337, edge +0.363 (t 1.5) — 2019-26 only, mostly longs.
+  AAPL 122: -0.217, edge -0.218 | TSLA 70: -0.493, edge -0.532.
+  Pooled 500 trades: -0.080 ATR, 63% wins, edge -0.052 (t -0.5); longs +0.226 ATR (t 2.1, 68% wins) but the random-day baseline is +0.225 ->
+  edge +0.001. Shorts below the 200-day MA lose 0.70 ATR.
+Verdict: DEAD — the high win rate is the uptrend; buying a random day and holding as long does the same. The index longs (+0.35 ATR over
+baseline, t 1.5, ~7 trades a year each) are the same index mean-reversion effect already on the watch list as IBS (#24/#26c), not new.

@@ -71,7 +71,7 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     yesterday's low after price trades >= 0.1 ATR below it; stop at today's low; exit at the close. Mirror. Gold, indices, stocks.
 28. [done -> log #54: DEAD on gold; US index H4 WATCH, 122 trades] Raschke "Holy Grail": ADX(14) > 30 and rising; price pulls back to the 20-EMA -> buy stop above the pullback bar's high;
     stop at the pullback low; target the recent swing high; mirror. Daily and H4, gold + indices.
-29. [queued] Connors "Double 7s" ("Short Term Trading Strategies That Work", 2008): close above the 200-day MA and at a 7-day low ->
+29. [done -> log #55: DEAD; index longs = the IBS watch effect] Connors "Double 7s" ("Short Term Trading Strategies That Work", 2008): close above the 200-day MA and at a 7-day low ->
     buy at the close; sell at the first close at a 7-day high. Indices daily, gold, TSLA/AAPL; also short mirror below the MA.
 30. [queued] Dual Thrust (M. Chalek; the classic Chinese CTA rule): Range = max(HH-LC, HC-LL) over the last N days (N=4);
     buy stop at today's open + k1 x Range, sell stop at open - k2 x Range (k1=k2=0.5, also 0.3/0.7), stop-and-reverse,
