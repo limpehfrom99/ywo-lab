@@ -1,0 +1,166 @@
+EURUSD	Forex\EURUSD	5	Euro vs United States Dollar
+GBPUSD	Forex\GBPUSD	5	Great Britain Pound vs US Dollar
+USDCHF	Forex\USDCHF	5	US Dollar vs Swiss Franc
+USDJPY	Forex\USDJPY	3	US Dollar vs Japanese Yen
+USDCAD	Forex\USDCAD	5	US Dollar vs Canadian Dollar
+AUDUSD	Forex\AUDUSD	5	Australian Dollar vs US Dollar
+AUDNZD	Forex\AUDNZD	5	Australian Dollar vs New Zealand Dollar
+AUDCAD	Forex\AUDCAD	5	Australian Dollar vs Canadian Dollar
+AUDCHF	Forex\AUDCHF	5	Australian Dollar vs Swiss Franc
+AUDJPY	Forex\AUDJPY	3	Australian Dollar vs Japanese Yen
+CHFJPY	Forex\CHFJPY	3	Swiss Franc vs Japanese Yen
+EURGBP	Forex\EURGBP	5	Euro vs Great Britain Pound
+EURAUD	Forex\EURAUD	5	Euro vs Australian Dollar
+EURCHF	Forex\EURCHF	5	Euro vs Swiss Franc
+EURJPY	Forex\EURJPY	3	Euro vs Japanese Yen
+EURNZD	Forex\EURNZD	5	Euro vs New Zealand Dollar
+EURCAD	Forex\EURCAD	5	Euro vs Canadian Dollar
+GBPCHF	Forex\GBPCHF	5	Great Britain Pound vs Swiss Franc
+GBPJPY	Forex\GBPJPY	3	Great Britain Pound vs Japanese Yen
+CADCHF	Forex\CADCHF	5	Canadian Dollar vs Swiss Franc
+CADJPY	Forex\CADJPY	3	Canadian Dollar vs Japanese Yen
+GBPAUD	Forex\GBPAUD	5	Great Britain Pound vs Australian Dollar
+GBPCAD	Forex\GBPCAD	5	Great Britain Pound vs Canadian Dollar
+GBPNZD	Forex\GBPNZD	5	Great Britain Pound vs New Zealand Dollar
+NZDCAD	Forex\NZDCAD	5	New Zealand Dollar vs Canadian Dollar
+NZDCHF	Forex\NZDCHF	5	New Zealand Dollar vs Swiss Franc
+NZDJPY	Forex\NZDJPY	3	New Zealand Dollar vs Japanese Yen
+NZDUSD	Forex\NZDUSD	5	New Zealand Dollar vs US Dollar
+EURCZK	Exotics\EURCZK	4	Euro vs Czech Republic Koruna
+EURHUF	Exotics\EURHUF	3	Euro vs Hungarian Forint
+EURNOK	Exotics\EURNOK	5	Euro vs Norwegian Krone
+EURPLN	Exotics\EURPLN	5	Euro vs Polish Zloty
+USDCZK	Exotics\USDCZK	4	US Dollar vs Czech Republic Koruna
+USDHKD	Exotics\USDHKD	5	US Dollar vs Hong Kong Dollar
+USDHUF	Exotics\USDHUF	3	US Dollar vs Hungarian Forint
+USDILS	Exotics\USDILS	5	US Dollar vs Israeli New Sheqel
+USDMXN	Exotics\USDMXN	5	US Dollar vs Mexican Peso
+USDNOK	Exotics\USDNOK	5	US Dollar vs Norwegian Krone
+USDPLN	Exotics\USDPLN	5	US Dollar vs Polish Zloty
+USDSEK	Exotics\USDSEK	5	US Dollar vs Swedish Krona
+USDZAR	Exotics\USDZAR	5	US Dollar vs South African Rand
+USDSGD	Exotics\USDSGD	5	US Dollar vs Singapore Dollar
+USDCNH	Exotics\USDCNH	5	US Dollar vs Chinese Yuan
+GER40.cash	Cash CFD\GER40.cash	2	German 40 Index, Spot CFD
+UK100.cash	Cash CFD\UK100.cash	2	FTSE 100 Index, Spot CFD
+US100.cash	Cash CFD\US100.cash	2	NASDAQ 100 Index, Spot CFD
+US30.cash	Cash CFD\US30.cash	2	Dow Jones Industrial Average Index, Spot CFD
+US500.cash	Cash CFD\US500.cash	2	S&P 500 Index, Spot CFD
+AUS200.cash	Cash II CFD\AUS200.cash	2	Australia 200 Index, Spot CFD
+EU50.cash	Cash II CFD\EU50.cash	2	Euro Stoxx 50 Index, Spot CFD
+FRA40.cash	Cash II CFD\FRA40.cash	2	France 40 Index, Spot CFD
+HK50.cash	Cash II CFD\HK50.cash	2	Hong Kong Index, Spot CFD
+JP225.cash	Cash II CFD\JP225.cash	2	Japan 225 Index, Spot CFD
+N25.cash	Cash II CFD\N25.cash	2	Netherlands 25 Index, Spot CFD
+SPN35.cash	Cash II CFD\SPN35.cash	2	Spain 35 Index, Spot CFD
+US2000.cash	Cash II CFD\US2000.cash	2	Russell 2000 Index, Spot CFD
+UKOIL.cash	Cash II CFD\UKOIL.cash	3	Crude Oil Brent, Spot CFD
+USOIL.cash	Cash II CFD\USOIL.cash	3	West Texas Intermediate Crude Oil, Spot CFD
+XAUUSD	Metals CFD\XAUUSD	2	Gold vs US Dollar, Spot CFD
+XAUAUD	Metals CFD\XAUAUD	2	Gold vs Australian Dollar, Spot CFD
+XAUEUR	Metals CFD\XAUEUR	2	Gold vs Euro, Spot CFD
+XAGAUD	Metals CFD\XAGAUD	3	Silver vs Australian Dollar, Spot CFD
+XAGEUR	Metals CFD\XAGEUR	3	Silver vs Euro, Spot CFD
+XAGUSD	Metals CFD\XAGUSD	3	Silver vs US Dollar, Spot CFD
+XPDUSD	Metals CFD\XPDUSD	2	Palladium vs United States Dollar, Spot CFD
+XPTUSD	Metals CFD\XPTUSD	2	Platinum vs United States Dollar, Spot CFD
+XCUUSD	Metals CFD\XCUUSD	2	Copper vs US Dollar, Spot CFD
+AAPL	Equities I CFD\AAPL	2	Apple, Spot CFD
+AMZN	Equities I CFD\AMZN	2	Amazon Com, Spot CFD
+BABA	Equities I CFD\BABA	2	Alibaba Group, Spot CFD
+BAC	Equities I CFD\BAC	2	Bank of America, Spot CFD
+GOOG	Equities I CFD\GOOG	2	Alphabet Class C, Spot CFD
+MSFT	Equities I CFD\MSFT	2	Microsoft, Spot CFD
+NFLX	Equities I CFD\NFLX	2	Netflix, Spot CFD
+NVDA	Equities I CFD\NVDA	2	NVIDIA, Spot CFD
+PFE	Equities I CFD\PFE	2	Pfizer, Spot CFD
+RACE	Equities I CFD\RACE	2	Ferrari, Spot CFD
+T	Equities I CFD\T	2	AT&T, Spot CFD
+TSLA	Equities I CFD\TSLA	2	Tesla, Spot CFD
+V	Equities I CFD\V	2	Visa, Spot CFD
+WMT	Equities I CFD\WMT	2	Walmart, Spot CFD
+ZM	Equities I CFD\ZM	2	Zoom Video Communications, Spot CFD
+META	Equities I CFD\META	2	Meta Platforms, Spot CFD
+GE	Equities I CFD\GE	2	General Aerospace, Spot CFD
+BA	Equities I CFD\BA	2	Boeing Co, Spot CFD
+RTX	Equities I CFD\RTX	2	Raytheon Technologies, Spot CFD
+LMT	Equities I CFD\LMT	2	Lockheed Martin, Spot CFD
+PLTR	Equities I CFD\PLTR	2	Palantir Technologies, Spot CFD
+AMD	Equities I CFD\AMD	2	Advanced Micro Devices, Spot CFD
+INTC	Equities I CFD\INTC	2	Intel Corp, Spot CFD
+QCOM	Equities I CFD\QCOM	2	Qualcomm, Spot CFD
+AVGO	Equities I CFD\AVGO	2	Broadcom, Spot CFD
+CSCO	Equities I CFD\CSCO	2	Cisco Systems, Spot CFD
+JNJ	Equities I CFD\JNJ	2	Johnson and Johnson, Spot CFD
+MCD	Equities I CFD\MCD	2	McDonald's, Spot CFD
+SBUX	Equities I CFD\SBUX	2	Starbucks, Spot CFD
+KO	Equities I CFD\KO	2	Coca-Cola, Spot CFD
+MSTR	Equities I CFD\MSTR	2	MicroStrategy, Spot CFD
+GME	Equities I CFD\GME	2	GameStop, Spot CFD
+NKE	Equities I CFD\NKE	2	Nike, Spot CFD
+CVX	Equities I CFD\CVX	2	Chevron, Spot CFD
+FDX	Equities I CFD\FDX	2	FedEx, Spot CFD
+JPM	Equities I CFD\JPM	2	JPMorgan Chase, Spot CFD
+DIS	Equities I CFD\DIS	2	Walt Disney, Spot CFD
+GM	Equities I CFD\GM	2	General Motors, Spot CFD
+IBM	Equities I CFD\IBM	2	IBM Corp, Spot CFD
+ARM	Equities I CFD\ARM	2	Arm Holdings Inc, Spot CFD
+SNOW	Equities I CFD\SNOW	2	Snowflake Inc, Spot CFD
+ASML	Equities I CFD\ASML	2	ASML Holding, Spot CFD
+AZN	Equities I CFD\AZN	2	AstraZeneca PLC, Spot CFD
+BRK.B	Equities I CFD\BRK.B	2	Berkshire Hathaway Inc Class B, Spot CFD
+XOM	Equities I CFD\XOM	2	Exxon Mobil, Spot CFD
+SPCX	Equities I CFD\SPCX	2	SpaceX, Spot CFD
+AIRF	Equities II CFD\AIRF	2	Air France KLM, Spot CFD
+ALVG	Equities II CFD\ALVG	2	Allianz, Spot CFD
+BAYGn	Equities II CFD\BAYGn	2	Bayer, Spot CFD
+DBKGn	Equities II CFD\DBKGn	2	Deutsche Bank, Spot CFD
+IBE	Equities II CFD\IBE	2	Iberdrola, Spot CFD
+LVMH	Equities II CFD\LVMH	2	LVMH, Spot CFD
+VOWG_p	Equities II CFD\VOWG_p	2	Volkswagen, Spot CFD
+TTE	Equities II CFD\TTE	2	TotalEnergies, Spot CFD
+SAN	Equities II CFD\SAN	4	Banco Santander, Spot CFD
+ADSGn	Equities II CFD\ADSGn	2	Adidas AG, Spot CFD
+BMW	Equities II CFD\BMW	2	BMW AG, Spot CFD
+MBG	Equities II CFD\MBG	2	Mercedes-Benz Group AG, Spot CFD
+SIEGn	Equities II CFD\SIEGn	2	Siemens AG, Spot CFD
+COCOA.c	Agriculture\COCOA.c	1	Cocoa vs US Dollar, Spot CFD
+COFFEE.c	Agriculture\COFFEE.c	2	Coffee vs US Dollar, Spot CFD
+CORN.c	Agriculture\CORN.c	2	Corn vs US Dollar, Spot CFD
+SOYBEAN.c	Agriculture\SOYBEAN.c	2	Soybean vs US Dollar, Spot CFD 
+WHEAT.c	Agriculture\WHEAT.c	2	Wheat, Spot CFD
+COTTON.c	Agriculture\COTTON.c	2	Cotton vs US Dollar, Spot CFD
+SUGAR.c	Agriculture\SUGAR.c	2	Sugar vs US Dollar, Spot CFD
+NATGAS.cash	Commodities\NATGAS.cash	3	Natural Gas Instrument, Spot CFD
+HEATOIL.c	Commodities\HEATOIL.c	3	Heating Oil, Spot CFD
+DXY.cash	Cash III CFD\DXY.cash	3	Dollar Index, Spot CFD
+ADAUSD	Crypto I CFD\ADAUSD	4	Cardano vs US Dollar, Spot CFD
+BTCUSD	Crypto I CFD\BTCUSD	2	Bitcoin vs US Dollar, Spot CFD
+DASHUSD	Crypto I CFD\DASHUSD	2	Dash vs US Dollar, Spot CFD
+DOTUSD	Crypto I CFD\DOTUSD	4	Polkadot vs US Dollar, Spot CFD
+ETHUSD	Crypto I CFD\ETHUSD	2	Ethereum vs US Dollar, Spot CFD
+LTCUSD	Crypto I CFD\LTCUSD	2	Litecoin vs US Dollar, Spot CFD
+XRPUSD	Crypto I CFD\XRPUSD	5	Ripple vs US Dollar, Spot CFD
+BCHUSD	Crypto I CFD\BCHUSD	2	BitCoin Cash vs US Dollar, Spot CFD
+SOLUSD	Crypto I CFD\SOLUSD	2	Solana vs US Dollar, Spot CFD
+AVAUSD	Crypto I CFD\AVAUSD	2	Avalanche vs US Dollar, Spot CFD
+ETCUSD	Crypto I CFD\ETCUSD	3	Ethereum Classic vs US Dollar, Spot CFD
+DOGEUSD	Crypto II CFD\DOGEUSD	5	Dogecoin vs US Dollar, Spot CFD
+NEOUSD	Crypto II CFD\NEOUSD	3	Neo vs US Dollar, Spot CFD
+XMRUSD	Crypto II CFD\XMRUSD	2	Monero vs US Dollar, Spot CFD
+BNBUSD	Crypto II CFD\BNBUSD	2	Binance Coin vs US Dollar, Spot CFD
+SANUSD	Crypto II CFD\SANUSD	4	The Sandbox vs US Dollar, Spot CFD
+LNKUSD	Crypto II CFD\LNKUSD	3	Chainlink vs US Dollar, Spot CFD
+NERUSD	Crypto II CFD\NERUSD	3	NEAR protocol vs US Dollar, Spot CFD
+ALGUSD	Crypto II CFD\ALGUSD	4	Algorand vs US Dollar, Spot CFD
+ICPUSD	Crypto II CFD\ICPUSD	3	Internet Computer vs US Dollar, Spot CFD
+AAVUSD	Crypto II CFD\AAVUSD	2	AAVE vs US Dollar, Spot CFD
+BARUSD	Crypto II CFD\BARUSD	5	Hedera vs US Dollar, Spot CFD
+GALUSD	Crypto II CFD\GALUSD	5	GALA vs US Dollar, Spot CFD
+GRTUSD	Crypto II CFD\GRTUSD	5	The Graph vs US Dollar, Spot CFD
+IMXUSD	Crypto II CFD\IMXUSD	4	Immutable X vs US Dollar, Spot CFD
+MANUSD	Crypto II CFD\MANUSD	5	Decentraland vs US Dollar, Spot CFD
+VECUSD	Crypto II CFD\VECUSD	5	VeChain vs US Dollar, Spot CFD
+XLMUSD	Crypto II CFD\XLMUSD	4	Stellar Lumens vs US Dollar, Spot CFD
+UNIUSD	Crypto II CFD\UNIUSD	4	Uniswap vs US Dollar, Spot CFD
+XTZUSD	Crypto II CFD\XTZUSD	4	Tezos vs US Dollar, Spot CFD

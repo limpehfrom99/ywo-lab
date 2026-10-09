@@ -1,0 +1,7 @@
+company	FTMO Global Markets Ltd
+server	FTMO-Demo
+currency	USD
+leverage	100
+trade_mode	0
+margin_so_mode	0
+maxbars	100000000
