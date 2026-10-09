@@ -25,5 +25,5 @@ for sym, tf in (("XAUUSD", "M5"), ("XAUUSD", "M1"), ("XAGUSD", "M5"), ("XPTUSD",
         allt.append(df.assign(symbol=sym, tf=tf, k=k))
     print(f"--- {sym} {tf}: {len(S)} days ({time.time() - t0:.0f}s)", flush=True)
 pd.DataFrame(rows).to_csv(os.path.join(ROOT, "results", "wvb_ftmo.csv"), index=False)
-pd.concat(allt).to_pickle(os.path.join(ROOT, "results", "wvb_ftmo_trades.pkl"))
+pd.concat(allt).to_csv(os.path.join(ROOT, "results", "wvb_ftmo_trades.csv.gz"), index=False, float_format="%.7g")
 print(f"done in {time.time() - t0:.0f}s")

@@ -6,7 +6,7 @@
        NR7 - other >= +0.05R on >= 60% of symbols AND from 2024 -> the NR7 candidate stands; for the live OC a size-up rule only
        if NR7 - other >= +0.05R on both TSLA and US100 (and FTMO odds improve).
 Same engine and fills as the battery (quant/intraday.py on quant/sessions.py matrices), FTMO costs, stock clocks fixed.
-python3 quant/export_items.py -> results/export_items_cells.csv, results/export_items_trades.pkl"""
+python3 quant/export_items.py -> results/export_items_cells.csv, results/export_items_trades.csv.gz"""
 import os, sys, time, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import universe as U, intraday as ID
@@ -58,7 +58,7 @@ def main():
     C = pd.DataFrame(rows); T = pd.concat(allt, ignore_index=True)
     os.makedirs(os.path.join(HERE, "..", "results"), exist_ok=True)
     C.to_csv(os.path.join(HERE, "..", "results", "export_items_cells.csv"), index=False, float_format="%.4f")
-    T.to_pickle(os.path.join(HERE, "..", "results", "export_items_trades.pkl"))
+    T.to_csv(os.path.join(HERE, "..", "results", "export_items_trades.csv.gz"), index=False, float_format="%.7g")
     pd.set_option("display.width", 250); pd.set_option("display.max_rows", 300)
     for rule in ("OC30", "ORB30"):
         x = C[C.rule == rule]; t = T[T.rule == rule]
