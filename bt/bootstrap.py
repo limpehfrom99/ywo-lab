@@ -22,6 +22,10 @@ for s in ("gold", "TSLA", "AAPL", "US100", "US500"):
         b.attrs["comm"] = {"gold": 0.000007, "TSLA": 0.00002, "AAPL": 0.00002, "US100": 0.0, "US500": 0.0}[s]
         b.to_pickle(p); print(s, "M5", b.shape)
 
+# full FTMO export (tools/export -> quant/ingest.py), committed under data/x once it has arrived
+X = os.path.join(D, "x")
+if os.path.isdir(X) and not os.path.exists("/home/claude/data/x"):
+    os.symlink(X, "/home/claude/data/x"); print("full export linked:", len(os.listdir(X)), "files")
 shutil.copy(os.path.join(D, "news", "news_usd.csv"), "/home/claude/news/news_usd.csv")
 for f in glob.glob(os.path.join(ROOT, "lab", "*.py")): shutil.copy(f, "/home/claude/lab/")
 for f in glob.glob(os.path.join(ROOT, "bt", "*.py")): shutil.copy(f, "/home/claude/bt/")
