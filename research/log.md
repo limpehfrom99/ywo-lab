@@ -277,3 +277,13 @@ Bugs reproduced on the same data (no costs):
   both together: US100 M1 +1.86R 84% wins; gold 2012-23 +1.23R, 65.7% wins (poster: +1.22R, 65.6%)
 Verdict: DEAD. The 65% win rate is look-ahead + same-candle optimism, not an edge. Same conclusion as the earlier SMC/ICT tests.
 Note: every M1 export in data/raw is exactly 100,000 bars (MT5 "Max bars in chart" cap) -> 1-minute index tests cover only 3.5 months.
+#### 27b. Thread follow-up: the poster forced SL-first when one candle hits both SL and TP; "it happened only once in 3 years, stats unchanged"
+Consistent with our data: SL and TP on the same candle after entry = 0 of 401 trades (US100), 2 of 391 (US500), 59 of 18,471 (gold) —
+the stop and target are a whole leg apart. The leak is the ENTRY candle (bt/ict_ote_leaks.py, no costs):
+  the candle where the limit fills also runs through the stop in 16-19% of trades (US100 77/401, US500 61/391, gold 3,464/18,471);
+  the entry candle also breaks 0.0 (should be no trade) in 47 / 23 / 1,767 cases.
+  gold 2012-23: honest -0.118R 26.0% | stop ignored on entry candle -0.059 | TP counted on entry candle -0.033 | fill through a
+  0.0 break -0.097 | TP-first on shared candles -0.108 | all four +0.241R 36.6% | look-ahead swings alone +0.083 | look-ahead + all
+  four +1.118R 62.5%. US100: honest -0.197 -> look-ahead + all four +1.799R 82.6%.
+Fix for the poster: check the stop on the entry candle itself, never count the target on the entry candle, drop setups whose
+entry candle also breaks 0.0, confirm swings n candles late, and build the setup only from candles before the entry candle.
