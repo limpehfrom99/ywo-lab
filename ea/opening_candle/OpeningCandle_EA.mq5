@@ -7,20 +7,37 @@
 //| decision days are skipped. Every trade is appended to a CSV in   |
 //| the common Files folder, in the journal's column order.          |
 //| Put one copy on each symbol's chart (any timeframe).             |
+//|                                                                  |
+//| v1.10 (9 Oct 2026)                                               |
+//|  - Duplicate-order guard: before every order the EA looks for an |
+//|    open position or a filled entry today with its magic number;  |
+//|    one successful order per day, 3 seconds between attempts;     |
+//|    any extra position it finds is adopted and closed at 15:59.   |
+//|  - Volatility sizing (scale down only): risk = RiskPct x         |
+//|    min(1, 1-year median ATR% / today's ATR%), never below        |
+//|    VolFloor. ATR(14) from regular-session (09:30-16:00 New York) |
+//|    daily ranges, as in research #12. Set VolSizing = false to    |
+//|    go back to fixed risk.                                        |
 //+------------------------------------------------------------------+
 #property copyright "cs"
-#property version   "1.00"
+#property version   "1.10"
 #include <Trade\Trade.mqh>
 
 enum ENUM_DST_RULE { DST_US = 0, DST_EU = 1, DST_NONE = 2 };
 
 input group "Risk and prop-firm rules"
-input double RiskPct          = 0.5;    // Risk per trade, % of balance
+input double RiskPct          = 0.5;    // Risk per trade, % of balance (before volatility sizing)
 input double MaxDailyLossPct  = 5.0;    // Max daily loss, % of start balance
 input double MaxLossPct       = 10.0;   // Max total loss, % of start balance
 input double StartBalance     = 0;      // Challenge start balance (0 = balance at first run)
 input bool   StopOnBreach     = true;   // Close and stop when a limit is hit
 input bool   AllowReal        = false;  // Allow trading on a real-money account
+
+input group "Volatility sizing (scale down only)"
+input bool   VolSizing        = true;   // Cut risk on high-volatility days
+input double VolFloor         = 0.5;    // Smallest scale (0.5 = never below half of RiskPct)
+input int    VolAtrDays       = 14;     // ATR length, days
+input int    VolMedianDays    = 250;    // Days in the median ATR% (about 1 year)
 
 input group "Strategy"
 input int    OpeningBars      = 1;      // Opening candle length in 30-min bars (1 = 30 min)
@@ -56,11 +73,21 @@ datetime g_fedDay = 0;            // New York date the Fed check was made for
 bool     g_isFedDay = false;
 datetime g_delayUntil = 0;        // news delay (UTC)
 string   g_note = "starting";
+// duplicate-order guard
+uint     g_lastSendMs = 0;        // GetTickCount() of the last order attempt
+bool     g_sentOnce = false;      // an order attempt has been made since the EA started
+// volatility sizing
+double   g_scale = 1.0;           // today's risk scale
+datetime g_scaleDay = 0;          // New York date g_scale was computed for
+uint     g_scaleTryMs = 0;
+bool     g_scaleTried = false;
+string   g_scaleNote = "vol sizing: not computed yet";
+double   g_pendingScale = 1.0;    // scale of an order sent but not yet seen as a position
 // open / last trade
 ulong    g_posTicket = 0;
 long     g_posId = 0;
 int      g_dir = 0;
-double   g_entry = 0, g_sl = 0, g_tp = 0, g_lots = 0, g_riskMoney = 0, g_riskPct = 0;
+double   g_entry = 0, g_sl = 0, g_tp = 0, g_lots = 0, g_riskMoney = 0, g_riskPct = 0, g_posScale = 1.0;
 datetime g_entryNy = 0;
 
 //+------------------------------------------------------------------+
@@ -140,6 +167,80 @@ double NormalizeLots(double lots)
   }
 
 //+------------------------------------------------------------------+
+//| volatility sizing                                                |
+//| Regular-session daily bars (09:30-16:00 New York) from M30 bars. |
+//| ATR% at today's open = mean true range of the last VolAtrDays    |
+//| completed days / yesterday's close. Scale = median of the last   |
+//| VolMedianDays ATR% values (today's included) / today's ATR%,     |
+//| capped at 1 and floored at VolFloor. Same as research #12.       |
+//+------------------------------------------------------------------+
+bool ComputeVolScale(datetime nyDate, double &scale, double &atrpToday, double &median)
+  {
+   int atrN = (VolAtrDays < 2) ? 2 : VolAtrDays;
+   int medN = (VolMedianDays < 20) ? 20 : VolMedianDays;
+   datetime toSrv = UtcToServer(NyToUtc(nyDate));                    // New York midnight today, server time
+   datetime fromSrv = toSrv - (datetime)((long)(medN + atrN + 40) * 86400 * 7 / 5);
+   MqlRates r[];
+   ResetLastError();
+   int got = CopyRates(_Symbol, PERIOD_M30, fromSrv, toSrv, r);
+   if(got <= 0) return false;
+   double dh[], dl[], dc[]; int nd = 0;
+   datetime curDay = 0; double h = 0, l = 0, c = 0;
+   for(int i = 0; i < got; i++)
+     {
+      datetime ny = UtcToNy(ServerToUtc(r[i].time));
+      datetime d = DateOf(ny);
+      if(d >= nyDate) break;                                          // completed days only
+      int mins = (int)((long)(ny - d) / 60);
+      if(mins < 9 * 60 + 30 || mins >= 16 * 60) continue;             // regular session only
+      if(d != curDay)
+        {
+         if(curDay != 0) { nd++; ArrayResize(dh, nd); ArrayResize(dl, nd); ArrayResize(dc, nd); dh[nd - 1] = h; dl[nd - 1] = l; dc[nd - 1] = c; }
+         curDay = d; h = r[i].high; l = r[i].low; c = r[i].close;
+        }
+      else { h = MathMax(h, r[i].high); l = MathMin(l, r[i].low); c = r[i].close; }
+     }
+   if(curDay != 0) { nd++; ArrayResize(dh, nd); ArrayResize(dl, nd); ArrayResize(dc, nd); dh[nd - 1] = h; dl[nd - 1] = l; dc[nd - 1] = c; }
+   if(nd < atrN + 61) return false;                                   // research: at least 60 values in the median
+   double tr[]; ArrayResize(tr, nd);
+   tr[0] = dh[0] - dl[0];
+   for(int k = 1; k < nd; k++)
+      tr[k] = MathMax(dh[k] - dl[k], MathMax(MathAbs(dh[k] - dc[k - 1]), MathAbs(dl[k] - dc[k - 1])));
+   // ATR% known at the open of "day k" (k = atrN+1 .. nd, where k = nd is today): TR of days k-atrN .. k-1, / close of day k-1
+   int first = (nd - medN + 1 > atrN + 1) ? (nd - medN + 1) : (atrN + 1);
+   int cnt = nd - first + 1;
+   if(cnt < 60) return false;
+   double vals[]; ArrayResize(vals, cnt);
+   for(int k = first; k <= nd; k++)
+     {
+      double s = 0;
+      for(int j = k - atrN; j <= k - 1; j++) s += tr[j];
+      double prevClose = dc[k - 1];
+      if(prevClose <= 0) return false;
+      vals[k - first] = (s / atrN) / prevClose;
+     }
+   atrpToday = vals[cnt - 1];
+   if(atrpToday <= 0) return false;
+   ArraySort(vals);
+   median = (cnt % 2 == 1) ? vals[cnt / 2] : 0.5 * (vals[cnt / 2 - 1] + vals[cnt / 2]);
+   scale = MathMin(1.0, MathMax(VolFloor, median / atrpToday));
+   return true;
+  }
+
+void UpdateVolScale(datetime nyDate)
+  {
+   if(!VolSizing) { g_scale = 1.0; g_scaleDay = nyDate; g_scaleNote = "vol sizing: off (fixed risk)"; return; }
+   double sc = 1.0, atrp = 0, med = 0;
+   if(ComputeVolScale(nyDate, sc, atrp, med))
+     {
+      g_scale = sc; g_scaleDay = nyDate;
+      g_scaleNote = StringFormat("vol sizing: x%.2f (ATR %.2f%% vs 1-year median %.2f%%)", sc, atrp * 100, med * 100);
+     }
+   else
+      g_scaleNote = "vol sizing: not enough 30-min history yet (full risk if still missing at entry)";
+  }
+
+//+------------------------------------------------------------------+
 //| positions and log                                                |
 //+------------------------------------------------------------------+
 bool FindPosition(ulong &ticket, long &id)
@@ -161,7 +262,7 @@ void SaveTradeState()
    GVSet("posId", (double)g_posId); GVSet("posTicket", (double)g_posTicket);
    GVSet("dir", g_dir); GVSet("entry", g_entry); GVSet("sl", g_sl); GVSet("tp", g_tp);
    GVSet("lots", g_lots); GVSet("riskMoney", g_riskMoney); GVSet("riskPct", g_riskPct);
-   GVSet("entryNy", (double)(long)g_entryNy);
+   GVSet("entryNy", (double)(long)g_entryNy); GVSet("posScale", g_posScale);
   }
 void LoadTradeState()
   {
@@ -169,11 +270,56 @@ void LoadTradeState()
    g_dir = (int)GVGet("dir"); g_entry = GVGet("entry"); g_sl = GVGet("sl"); g_tp = GVGet("tp");
    g_lots = GVGet("lots"); g_riskMoney = GVGet("riskMoney"); g_riskPct = GVGet("riskPct");
    g_entryNy = (datetime)(long)GVGet("entryNy");
+   g_posScale = GlobalVariableCheck(GV("posScale")) ? GVGet("posScale") : 1.0;
   }
 void ClearTradeState()
   {
-   g_posId = 0; g_posTicket = 0; g_dir = 0; g_entry = 0; g_sl = 0; g_tp = 0; g_lots = 0; g_riskMoney = 0; g_riskPct = 0; g_entryNy = 0;
+   g_posId = 0; g_posTicket = 0; g_dir = 0; g_entry = 0; g_sl = 0; g_tp = 0; g_lots = 0; g_riskMoney = 0; g_riskPct = 0; g_entryNy = 0; g_posScale = 1.0;
    SaveTradeState();
+  }
+
+// take over a position with this EA's magic number (after a restart, a delayed fill, or an extra position)
+void AdoptPosition(ulong t, long id)
+  {
+   if(!PositionSelectByTicket(t)) return;
+   g_posTicket = t; g_posId = id;
+   g_dir = (PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_BUY) ? 1 : -1;
+   g_entry = PositionGetDouble(POSITION_PRICE_OPEN); g_sl = PositionGetDouble(POSITION_SL); g_tp = PositionGetDouble(POSITION_TP);
+   g_lots = PositionGetDouble(POSITION_VOLUME);
+   g_riskMoney = g_lots * MathAbs(g_entry - g_sl) * ValuePerUnitPerLot();
+   g_riskPct = (AccountInfoDouble(ACCOUNT_BALANCE) > 0) ? g_riskMoney / AccountInfoDouble(ACCOUNT_BALANCE) * 100 : 0;
+   g_entryNy = UtcToNy(ServerToUtc((datetime)PositionGetInteger(POSITION_TIME)));
+   g_posScale = (DateOf(g_entryNy) == g_lastTradeDay) ? g_pendingScale : 1.0;
+   datetime d = DateOf(g_entryNy);
+   if(d > g_lastTradeDay) { g_lastTradeDay = d; GVSet("lastTradeDay", (double)(long)d); }   // never a second entry that day
+   SaveTradeState();
+   g_note = "adopted the open position";
+   Print("OpeningCandle ", _Symbol, ": adopted position ", (long)t);
+  }
+bool AdoptIfOpen()
+  {
+   ulong t; long id;
+   if(!FindPosition(t, id)) return false;
+   AdoptPosition(t, id);
+   return true;
+  }
+
+// did this EA already open a trade on this New York date? (an open position, or an entry deal in today's history)
+bool EnteredToday(datetime nyDate)
+  {
+   if(AdoptIfOpen()) return true;
+   datetime fromSrv = UtcToServer(NyToUtc(nyDate));
+   if(!HistorySelect(fromSrv, TimeTradeServer() + 60)) return false;
+   int n = HistoryDealsTotal();
+   for(int i = 0; i < n; i++)
+     {
+      ulong d = HistoryDealGetTicket(i);
+      if(d == 0) continue;
+      if(HistoryDealGetString(d, DEAL_SYMBOL) != _Symbol) continue;
+      if(HistoryDealGetInteger(d, DEAL_MAGIC) != g_magic) continue;
+      if(HistoryDealGetInteger(d, DEAL_ENTRY) == DEAL_ENTRY_IN) return true;
+     }
+   return false;
   }
 
 void LogTrade(double exitPx, string why, double netProfit)
@@ -188,7 +334,7 @@ void LogTrade(double exitPx, string why, double netProfit)
    FileWrite(h, TimeToString(g_entryNy, TIME_DATE), "OpeningCandle " + _Symbol, (g_dir > 0 ? "Buy" : "Sell"),
              DoubleToString(g_lots, 2), DoubleToString(g_entry, dg), DoubleToString(g_sl, dg),
              (g_tp > 0 ? DoubleToString(g_tp, dg) : ""), DoubleToString(exitPx, dg), why, "Yes",
-             StringFormat("R=%+.3f net=%.2f risk%%=%.2f", r, netProfit, g_riskPct));
+             StringFormat("R=%+.3f net=%.2f risk%%=%.2f scale=%.2f", r, netProfit, g_riskPct, g_posScale));
    FileClose(h);
    Print("OpeningCandle ", _Symbol, ": logged ", why, " R=", DoubleToString(r, 3));
   }
@@ -311,6 +457,11 @@ void CheckLimits()
 //+------------------------------------------------------------------+
 //| entry                                                            |
 //+------------------------------------------------------------------+
+void MarkDayDone(datetime nyDate, string why)
+  {
+   g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = why;
+  }
+
 void TryEntry(datetime nyNow)
   {
    datetime nyDate = DateOf(nyNow);
@@ -320,13 +471,16 @@ void TryEntry(datetime nyNow)
    datetime entryAt = nyDate + (datetime)(EntryHourNY * 3600 + EntryMinuteNY * 60);
    if(nyNow < entryAt) { g_note = "waiting for the 10:00 New York entry"; return; }
    int window = EntryWindowMin + (NewsAvoid ? 5 : 0);
-   if(nyNow >= entryAt + (datetime)(window * 60)) { g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = "entry window missed today"; return; }
+   if(nyNow >= entryAt + (datetime)(window * 60)) { MarkDayDone(nyDate, "entry window missed today"); return; }
    if(g_stopped || g_dayBlocked) return;
    if(!ClockOk()) { g_note = "clock mismatch, not trading"; return; }
+   // duplicate-order guard: 3 seconds between attempts, and never a second entry on the same day
+   if(g_sentOnce && (uint)(GetTickCount() - g_lastSendMs) < 3000) return;
+   if(EnteredToday(nyDate)) { MarkDayDone(nyDate, "already entered today"); return; }
    if(SkipFedDays)
      {
       if(g_fedDay != nyDate) { g_isFedDay = IsFedDay(nyDate); g_fedDay = nyDate; }
-      if(g_isFedDay) { g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = "Fed decision day, skipped"; return; }
+      if(g_isFedDay) { MarkDayDone(nyDate, "Fed decision day, skipped"); return; }
      }
    if(NewsAvoid)
      {
@@ -343,19 +497,22 @@ void TryEntry(datetime nyNow)
    double o = iOpen(_Symbol, PERIOD_M30, shift), c = iClose(_Symbol, PERIOD_M30, last);
    double hi = iHigh(_Symbol, PERIOD_M30, iHighest(_Symbol, PERIOD_M30, MODE_HIGH, OpeningBars, last));
    double lo = iLow(_Symbol, PERIOD_M30, iLowest(_Symbol, PERIOD_M30, MODE_LOW, OpeningBars, last));
-   if(c == o) { g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = "flat opening candle, no trade"; return; }
+   if(c == o) { MarkDayDone(nyDate, "flat opening candle, no trade"); return; }
    int dir = (c > o) ? 1 : -1;
    double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK), bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
    if(ask <= 0 || bid <= 0) { g_note = "no quotes yet"; return; }
    double entry = (dir > 0) ? ask : bid;
    double sl = (dir > 0) ? lo : hi;
    double risk = (entry - sl) * dir;
-   if(risk <= 0) { g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = "price already beyond the stop, no trade"; return; }
+   if(risk <= 0) { MarkDayDone(nyDate, "price already beyond the stop, no trade"); return; }
+   // volatility sizing (scale down only); falls back to full risk if the history isn't there
+   if(g_scaleDay != nyDate) UpdateVolScale(nyDate);
+   double scale = (VolSizing && g_scaleDay == nyDate) ? g_scale : 1.0;
    double balance = AccountInfoDouble(ACCOUNT_BALANCE);
-   double riskMoney = balance * RiskPct / 100.0;
+   double riskMoney = balance * RiskPct / 100.0 * scale;
    double vpu = ValuePerUnitPerLot();
    double lots = NormalizeLots(riskMoney / (risk * vpu));
-   if(lots <= 0) { g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = "risk too small for the minimum lot, no trade"; return; }
+   if(lots <= 0) { MarkDayDone(nyDate, "risk too small for the minimum lot, no trade"); return; }
    // margin cap: the broker's own margin rule decides the leverage
    double margin = 0;
    if(OrderCalcMargin(dir > 0 ? ORDER_TYPE_BUY : ORDER_TYPE_SELL, _Symbol, lots, entry, margin) && margin > 0)
@@ -364,7 +521,7 @@ void TryEntry(datetime nyNow)
       if(margin > freeMargin)
         {
          lots = NormalizeLots(lots * freeMargin / margin);
-         if(lots <= 0) { g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate); g_note = "not enough margin, no trade"; return; }
+         if(lots <= 0) { MarkDayDone(nyDate, "not enough margin, no trade"); return; }
         }
      }
    double tp = (TargetR > 0) ? entry + dir * TargetR * risk : 0;
@@ -373,25 +530,28 @@ void TryEntry(datetime nyNow)
    trade.SetExpertMagicNumber(g_magic);
    trade.SetDeviationInPoints(SlippagePoints);
    trade.SetTypeFillingBySymbol(_Symbol);
+   g_sentOnce = true; g_lastSendMs = GetTickCount(); g_pendingScale = scale;
    bool sent = (dir > 0) ? trade.Buy(lots, _Symbol, 0, sl, tp, "OC") : trade.Sell(lots, _Symbol, 0, sl, tp, "OC");
+   g_lastSendMs = GetTickCount();
    uint rc = trade.ResultRetcode();
    if(!sent || (rc != TRADE_RETCODE_DONE && rc != TRADE_RETCODE_DONE_PARTIAL && rc != TRADE_RETCODE_PLACED))
      {
-      g_note = StringFormat("order failed (%u %s), retrying", rc, trade.ResultRetcodeDescription());
+      g_note = StringFormat("order failed (%u %s), checking and retrying", rc, trade.ResultRetcodeDescription());
       Print("OpeningCandle ", _Symbol, ": ", g_note);
-      return;                                                   // try again next second while the window is open
+      return;                         // next attempt in 3 s, after checking whether this one filled after all
      }
+   MarkDayDone(nyDate, "order sent, waiting for the position");   // one successful order per day, whatever happens next
    ulong t; long id;
    Sleep(500);
-   if(!FindPosition(t, id)) { g_note = "order sent, waiting for the position"; return; }
+   if(!FindPosition(t, id)) return;                               // adopted on a later tick (AdoptIfOpen)
    g_posTicket = t; g_posId = id; g_dir = dir;
+   if(!PositionSelectByTicket(t)) return;
    g_entry = PositionGetDouble(POSITION_PRICE_OPEN); g_sl = sl; g_tp = tp; g_lots = PositionGetDouble(POSITION_VOLUME);
    g_riskMoney = g_lots * (g_entry - g_sl) * dir * vpu; g_riskPct = (balance > 0) ? g_riskMoney / balance * 100.0 : 0;
-   g_entryNy = nyNow;
-   g_lastTradeDay = nyDate; GVSet("lastTradeDay", (double)(long)nyDate);
+   g_entryNy = nyNow; g_posScale = scale;
    SaveTradeState();
-   g_note = StringFormat("%s %.2f lots at %s, stop %s, risk %.2f%%", (dir > 0 ? "bought" : "sold"), g_lots,
-                         DoubleToString(g_entry, dg), DoubleToString(g_sl, dg), g_riskPct);
+   g_note = StringFormat("%s %.2f lots at %s, stop %s, risk %.2f%% (scale x%.2f)", (dir > 0 ? "bought" : "sold"), g_lots,
+                         DoubleToString(g_entry, dg), DoubleToString(g_sl, dg), g_riskPct, scale);
    Print("OpeningCandle ", _Symbol, ": ", g_note);
   }
 
@@ -402,7 +562,6 @@ void TryExit(datetime nyNow)
   {
    if(g_posTicket == 0) return;
    if(!PositionSelectByTicket(g_posTicket)) { HandleClosedPosition(); return; }
-   datetime nyDate = DateOf(nyNow);
    datetime exitAt = DateOf(g_entryNy) + (datetime)(ExitHourNY * 3600 + ExitMinuteNY * 60);
    bool overdue = (nyNow >= exitAt);                          // includes a position carried into the next day
    if(!overdue) return;
@@ -427,16 +586,7 @@ void OnInit_State()
    if(FindPosition(t, id))
      {
       if(g_posId != id || g_posTicket != t)
-        {   // position we didn't record (restart or manual): adopt it
-         g_posTicket = t; g_posId = id;
-         g_dir = (PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_BUY) ? 1 : -1;
-         g_entry = PositionGetDouble(POSITION_PRICE_OPEN); g_sl = PositionGetDouble(POSITION_SL); g_tp = PositionGetDouble(POSITION_TP);
-         g_lots = PositionGetDouble(POSITION_VOLUME);
-         g_riskMoney = g_lots * MathAbs(g_entry - g_sl) * ValuePerUnitPerLot();
-         g_riskPct = (AccountInfoDouble(ACCOUNT_BALANCE) > 0) ? g_riskMoney / AccountInfoDouble(ACCOUNT_BALANCE) * 100 : 0;
-         g_entryNy = UtcToNy(ServerToUtc((datetime)PositionGetInteger(POSITION_TIME)));
-         SaveTradeState();
-        }
+         AdoptPosition(t, id);                                  // position we didn't record (restart, delayed fill or manual)
       g_note = "adopted the open position";
      }
    else if(g_posId != 0)
@@ -460,7 +610,7 @@ int OnInit()
      }
    OnInit_State();
    EventSetTimer(1);
-   Print("OpeningCandle ", _Symbol, " started, magic ", (int)g_magic, ", ", ClockStatus());
+   Print("OpeningCandle ", _Symbol, " v1.10 started, magic ", (int)g_magic, ", ", ClockStatus());
    return(INIT_SUCCEEDED);
   }
 void OnDeinit(const int reason) { EventKillTimer(); Comment(""); }
@@ -470,7 +620,13 @@ void OnTimer()
    UpdateRiskDay();
    CheckLimits();
    datetime nyNow = NowNy();
+   datetime nyDate = DateOf(nyNow);
+   // today's volatility scale: computed once a day, retried every minute until the history is there
+   if(VolSizing && g_scaleDay != nyDate && (!g_scaleTried || (uint)(GetTickCount() - g_scaleTryMs) > 60000))
+     { g_scaleTried = true; g_scaleTryMs = GetTickCount(); UpdateVolScale(nyDate); }
+   if(!VolSizing) g_scaleNote = "vol sizing: off (fixed risk)";
    if(g_posTicket != 0 && !PositionSelectByTicket(g_posTicket)) HandleClosedPosition();
+   if(g_posTicket == 0) AdoptIfOpen();                         // a delayed fill or an extra position: take it over
    if(g_posTicket != 0) TryExit(nyNow);
    else if(!g_stopped) TryEntry(nyNow);
    // chart comment
@@ -479,9 +635,9 @@ void OnTimer()
    double totPnl = (g_startBalance > 0) ? (eq - g_startBalance) / g_startBalance * 100 : 0;
    string pos = (g_posTicket != 0) ? StringFormat("%s %.2f lots, entry %s, stop %s", (g_dir > 0 ? "long" : "short"), g_lots,
                  DoubleToString(g_entry, (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS)), DoubleToString(g_sl, (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS))) : "none";
-   Comment(StringFormat("OpeningCandle EA  %s   magic %d\n%s\nNew York time %s\nstatus: %s\nposition: %s\n"
+   Comment(StringFormat("OpeningCandle EA v1.10  %s   magic %d\n%s\nNew York time %s\n%s\nstatus: %s\nposition: %s\n"
                         "today %+.2f%% (limit -%.0f%%)   since start %+.2f%% (limit -%.0f%%)%s%s",
-                        _Symbol, (int)g_magic, ClockStatus(), TimeToString(nyNow, TIME_DATE | TIME_MINUTES), g_note, pos,
+                        _Symbol, (int)g_magic, ClockStatus(), TimeToString(nyNow, TIME_DATE | TIME_MINUTES), g_scaleNote, g_note, pos,
                         dayPnl, MaxDailyLossPct, totPnl, MaxLossPct,
                         (g_dayBlocked ? "\nDAILY LIMIT HIT: no more trades today" : ""),
                         (g_stopped ? "\nSTOPPED: " + g_stopReason : "")));

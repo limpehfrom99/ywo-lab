@@ -1,6 +1,6 @@
 <#
     Install-OpeningCandle.ps1
-    Copies OpeningCandle_EA.mq5 into every MetaTrader 5 on this PC and compiles it.
+    Copies OpeningCandle_EA.mq5 (v1.10) into every MetaTrader 5 on this PC and compiles it.
     Also updates the lab app (lab_app.py and the EA log setting) if the ywo-lab folder is found.
     Portable MetaTrader? Run:  .\Install-OpeningCandle.ps1 -DataFolder "C:\path\to\MT5"
 #>
@@ -64,31 +64,37 @@ foreach ($dir in $folders) {
     } catch { Write-Host "   failed: $($_.Exception.Message)" -ForegroundColor Red }
 }
 
-# 2) update the lab app so its report reads this EA's trade log
-Write-Host ""; Write-Host "== lab app" -ForegroundColor Cyan
-$labDirs = @()
-foreach ($r in @('C:\ywo-lab', 'C:\Shen\28Aug2022\Trading', (Join-Path $env:USERPROFILE 'Downloads'))) {
-    if (Test-Path -LiteralPath $r) {
-        $labDirs += Get-ChildItem -LiteralPath $r -Recurse -Depth 3 -Filter 'lab_app.py' -ErrorAction SilentlyContinue | ForEach-Object { $_.DirectoryName }
+# 2) update the lab app so its report reads this EA's trade log (only when lab_app.py ships with this zip)
+$labSrc = Join-Path $here 'lab_app.py'
+if (-not (Test-Path -LiteralPath $labSrc)) {
+    Write-Host ""; Write-Host "== lab app: not part of this update, left as it is" -ForegroundColor Cyan
+} else {
+    Write-Host ""; Write-Host "== lab app" -ForegroundColor Cyan
+    $labDirs = @()
+    foreach ($r in @('C:\ywo-lab', 'C:\Shen\28Aug2022\Trading', (Join-Path $env:USERPROFILE 'Downloads'))) {
+        if (Test-Path -LiteralPath $r) {
+            $labDirs += Get-ChildItem -LiteralPath $r -Recurse -Depth 3 -Filter 'lab_app.py' -ErrorAction SilentlyContinue | ForEach-Object { $_.DirectoryName }
+        }
     }
-}
-$labDirs = $labDirs | Select-Object -Unique
-if ($labDirs.Count -eq 0) { Write-Host "   lab app not found; its report will not show live trades until lab_app.py is updated." -ForegroundColor Yellow }
-foreach ($ld in $labDirs) {
-    Copy-Item -LiteralPath (Join-Path $here 'lab_app.py') -Destination (Join-Path $ld 'lab_app.py') -Force
-    $cfgPath = Join-Path $ld 'config.json'
-    if (Test-Path -LiteralPath $cfgPath) {
-        $cfg = Get-Content -LiteralPath $cfgPath -Raw | ConvertFrom-Json
-        $cfg.ea_log = 'common:OpeningCandle_trades.csv'
-        $cfg | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $cfgPath -Encoding UTF8
+    $labDirs = $labDirs | Select-Object -Unique
+    if ($labDirs.Count -eq 0) { Write-Host "   lab app not found; its report will not show live trades until lab_app.py is updated." -ForegroundColor Yellow }
+    foreach ($ld in $labDirs) {
+        Copy-Item -LiteralPath (Join-Path $here 'lab_app.py') -Destination (Join-Path $ld 'lab_app.py') -Force
+        $cfgPath = Join-Path $ld 'config.json'
+        if (Test-Path -LiteralPath $cfgPath) {
+            $cfg = Get-Content -LiteralPath $cfgPath -Raw | ConvertFrom-Json
+            $cfg.ea_log = 'common:OpeningCandle_trades.csv'
+            $cfg | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $cfgPath -Encoding UTF8
+        }
+        Write-Host "   updated $ld" -ForegroundColor Green
     }
-    Write-Host "   updated $ld" -ForegroundColor Green
 }
 
 Write-Host ""
 if ($ok -gt 0) {
     Write-Host "Done: EA compiled in $ok terminal(s)." -ForegroundColor Green
-    Write-Host "In MT5: Navigator > Expert Advisors > right-click > Refresh. Then drag OpeningCandle_EA onto a TSLA chart and onto a US100.cash chart."
+    Write-Host "If OpeningCandle_EA is already on your TSLA and US100.cash charts, MT5 reloads it by itself: the chart's top line should now say v1.10."
+    Write-Host "If not: Navigator > Expert Advisors > right-click > Refresh, then drag OpeningCandle_EA onto a TSLA chart and onto a US100.cash chart."
 } else {
     Write-Host "Nothing compiled. Copy the messages above and paste them to Claude." -ForegroundColor Yellow
 }
