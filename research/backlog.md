@@ -51,3 +51,49 @@
     (paper's resolution) and recheck 2025-26.
 
 22. [queued] SMC timeframe grid (bt/smc_grid.py, #31b) on US100/US500/US30 (M5 from 2021-09) and the 28 FX pairs (M15 entries, H1/H4 structure) once the full export is unpacked.
+
+## Added 2026-10-09 21:30 MYT — classic book / paper / code-base rules (exact rules fixed here; test as written, report every cell)
+Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US100/US500 M5 2021-08+ (data/ftmo), raw M30 exports
+(US100/US500 daily-only bars before 2021-09, AAPL 2015+, TSLA 2019+, BTC 2020-08+). The full ~110-symbol export lands in data/x
+(see quant/README.md) — items marked [needs export] wait for it. Costs, baselines and IS (<2024) / OOS (>=2024) split as in PROTOCOL.md.
+23. [queued] Crabel NR7 + opening-range breakout (T. Crabel, "Day Trading with Short Term Price Patterns and ORB", 1990): on the day
+    after an NR7 day (smallest daily range of the last 7) and, separately, after NR4: first break of the first-30-min range, stop at the
+    other side, exit at the cash close. US100/US500/TSLA/AAPL (M5/M30), gold (London 08:00 and NY 08:20 opens). Baseline: same ORB on all days.
+24. [queued] Larry Williams volatility breakout ("Long-Term Secrets to Short-Term Trading"): buy stop at open + 0.5 x yesterday's range,
+    sell stop at open - 0.5 x range (first touched only), stop = 0.5 x range from entry, exit at the close; variant exit next open.
+    Gold (NY day), US100/US500/TSLA (cash session). k in {0.3, 0.5, 0.7}.
+25. [queued] Williams "Oops": the cash session opens below yesterday's low -> buy stop at yesterday's low; mirror above the high; stop
+    at the day's extreme so far; exit at the close. US100/US500/TSLA/AAPL; gold at the NY open.
+26. [queued] Raschke "Turtle Soup" (Connors & Raschke, "Street Smarts", 1995): today makes a new 20-day low, the previous 20-day low
+    was >= 4 days ago -> buy stop at that previous low; stop 1 tick below today's low; exit after 1-3 days or trail; mirror for highs.
+    Daily gold 2012+, indices daily 2017+, TSLA/AAPL daily.
+27. [queued] Raschke "80-20s": yesterday opened in the top 20% of its range and closed in the bottom 20% -> today buy stop at
+    yesterday's low after price trades >= 0.1 ATR below it; stop at today's low; exit at the close. Mirror. Gold, indices, stocks.
+28. [queued] Raschke "Holy Grail": ADX(14) > 30 and rising; price pulls back to the 20-EMA -> buy stop above the pullback bar's high;
+    stop at the pullback low; target the recent swing high; mirror. Daily and H4, gold + indices.
+29. [queued] Connors "Double 7s" ("Short Term Trading Strategies That Work", 2008): close above the 200-day MA and at a 7-day low ->
+    buy at the close; sell at the first close at a 7-day high. Indices daily, gold, TSLA/AAPL; also short mirror below the MA.
+30. [queued] Dual Thrust (M. Chalek; the classic Chinese CTA rule): Range = max(HH-LC, HC-LL) over the last N days (N=4);
+    buy stop at today's open + k1 x Range, sell stop at open - k2 x Range (k1=k2=0.5, also 0.3/0.7), stop-and-reverse,
+    flat at the session close. Gold (NY day), US100/US500 (cash session), BTC (UTC day).
+31. [queued] R-Breaker (R. Saidenberg; top-ranked in Chinese futures quant): six levels from yesterday's H/L/C (pivot, breakout
+    buy/sell, reversal setup/enter levels, standard formulas); trend-follow on breakout, reverse on the setup->enter sequence; flat
+    at the close. Gold, US100/US500.
+32. [queued] Pre-holiday effect (Quantpedia; Ariel 1990): long the day before US market holidays, close-to-close. US500/US100 daily
+    2017+ (holidays from the exchange calendar), costs + swap. Baseline: all other days.
+33. [queued] Bollinger squeeze breakout (J. Bollinger): BB(20,2) width at its 125-bar low -> trade the first close outside the
+    bands; stop at the middle band; exit when price closes back inside / at the opposite band. Gold daily + H4, indices daily.
+34. [queued] MQL5 CodeBase EAs with published claims — read each page's source (WebFetch mql5.com/en/code/...), extract the exact
+    rules, test on our longer history: "Stochastic Daily Breakout for Gold (+245% 2021-2026)", "Gold Breakout EA XAUUSD H4 (+90%
+    2020-2026)", "ZoneUS30: reversion + positive swap", "The Nikkei EA that only buys when volume is quiet", "ORB Risk Managed".
+    Gold/indices first; JP225/US30 [needs export].
+35. [queued, needs export] Zarattini & Aziz (2023, SSRN "A Profitable Day Trading Strategy for the U.S. Equity Market"): 5-min ORB on
+    "stocks in play" — each day take the stocks whose first-5-min tick volume / its 14-day average is highest (top 20% of the 46),
+    trade the direction of the first 5-min candle with a stop at 10% of the 14-day ATR, exit at the close. FTMO stocks open 9:35, so the
+    first bar is 9:35-9:40. Compare with the opening candle (#live) on the same stocks.
+36. [queued, needs export] Gold/silver ratio mean reversion (E. Chan style): z-score of log(XAU/XAG) over 60 days; |z| > 2 -> long the
+    cheap leg, short the rich leg (equal $ risk), exit at z = 0 or 20 days. Daily 2015+.
+37. [queued, needs export] Clenow "Following the Trend" across every FTMO CFD: long when 50-EMA > 100-EMA and a 50-day high, 3-ATR
+    trailing stop, mirror for shorts, ATR position sizing; portfolio of all markets vs each group. (Overlaps quant/ rule books.)
+38. [queued] freqtrade-strategies (github.com/freqtrade/freqtrade-strategies): port the 5 most-starred long-only rules, test on BTC M30
+    2020+ and ETH [needs export]; FTMO crypto costs 0.0325%/side. Low priority (1:1 leverage).
