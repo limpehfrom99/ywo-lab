@@ -623,6 +623,8 @@ doesn't; the coin flip skips the fill bar); spread x 1.2 + commission 0.0025%/si
     before 2024 +0.115 / from 2024 +0.113, by year 18 +.06 19 +.12 20 +.12 21 +.18 22 +.20 23 -.05 24 +.16 25 +.10 26 +.07; longs
     +0.08, shorts +0.15; coin flip -0.30. Every 4-hour grid start positive on every pair: UTC +0h +0.178, +1h +0.058, +2h +0.073,
     +3h +0.082, FTMO clock +0.115 (pooled over grids about +0.10R).
+    Holds: median 14 h, mean 23 h, 29% past 24 h; median stop 25 bp (~28 pips EURUSD) -> swap about 0.02-0.04R a trade, not in the
+    numbers above.
   #33 gap retest: EURUSD +0.056R (329), GBPUSD +0.186R (354), USDCHF +0.209R (317); pooled +0.150R (1,000, t 2.4) but before 2024
     +0.034 / from 2024 +0.373, 2021 -0.32, 2026 +0.92 (101 trades).
 Verdict: #35 passes the CANDIDATE bar on markets it was never looked at on (n >= 200, both halves +0.11, t 2.9, worst year
