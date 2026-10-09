@@ -1085,3 +1085,61 @@ holding from 20 random days of the same year; t also shown with trades clustered
 Verdict: DEAD as stand-alone trades (no rule makes money after FTMO costs and swaps over 10-30 day holds). WATCH: valuation vs gold as
 a long-only "equities oversold against gold" filter (one episode carries it), valuation-level vs dollar and 80%-hit seasonal windows as
 bias filters for short-hold entries (tested in #67).
+
+### 70. Selection-aware permutation test of the whole battery (quant/mcpt_battery.py, #60 protocol) — the index opening-gap fade survives; it is the second real edge   [2026-10-10 03:05 MYT]
+213 pooled cells (21 intraday rules x every group/session of the export, noise band excluded), statistic = pooled t of R; 200 shuffles
+(every session matrix shuffled within its time-of-day columns, the overnight gap shuffled separately; all 213 cells rerun each time).
+Shuffled best pooled t: median 1.67, 95th 2.54, 99th 2.82.
+  cell                                 n     avg R    t     p_best   p_alone   BCa 95% low (per trade / per day)
+  GAPfade1.0, EU indices (5)          257    +0.129   4.16   0.005    0.005      +0.067 / -0.001
+  ORB30, US indices (4)              6,295   +0.046   2.93   0.010    0.005      +0.014 / -0.001
+  GAPfade1.0, US indices (4)          220    +0.092   2.34   0.085    0.005      +0.016 / +0.029
+  ORB15, US indices (4)              6,404   +0.045   2.35   0.085    0.010      +0.009 / -0.005
+  OC30, US indices (4)               6,408   +0.015   0.72   0.995    0.065          -
+Gap fade (quant/intraday.gap, mode "fade", min gap 1.0 ATR): at the cash open, if the open is >= 1 daily ATR away from yesterday's
+cash close, trade toward yesterday's close (the target), stop = the open + the gap's size beyond it, out at the close. EU indices: every
+year positive (2021-26: +0.10, +0.39, +0.17, +0.02, +0.09, +0.09), every index positive (EU50 +0.16, FRA40 +0.12, GER40 +0.12, N25 +0.20,
+SPN35 +0.04). US indices: every year positive 2019-26, every index positive (US100 +0.08, US500 +0.11, US30 +0.03, US2000 +0.15).
+Together ~95 trades a year over 9 index CFDs. The smaller gap (0.5 ATR) version is ~0 and the gap-follow versions lose: the
+effect is specific to big gaps.
+FTMO odds (quant/portfolio.py, 10-day blocks, from Oct 2021): opening candle TSLA + US100 + the 9-index gap fade at 0.5% risk: pass within
+12 months 71%, fail 21%, median 4.8 months (opening candle alone 65% / 25%, 5.1 months); half edge 49% / 39%; at 0.25%: 44% / 2%.
+Opening candle + US100 noise band at 0.5%: 70% / 28%, median 3.8 months (half edge 49% / 48%; worst day -3.1%).
+Verdict: index gap fade (>= 1 ATR) = CANDIDATE (p_best 0.005 for the EU group, BCa lower bound > 0 per trade; per day the EU bound
+touches 0 because the 5 EU indices gap together - treat them as ~2 independent bets). US-index ORB30 = WATCH (p_best 0.010 but +0.05R,
+2026 -0.06). Next: H4/D1 are not involved (cash-session rule); paper-trade the gap fade on GER40/US500 in the lab app, then an EA leg.
+
+### 67 (result). Bernd's UnFilled Order zones, alone and with his bias tools, on every export symbol and timeframe — DEAD   [2026-10-10 03:20 MYT]
+bt/xrules_bernd2.py via bt/xrun.py --export (bt/xgrid_results/*_ufo_*): 8 rules, 3,983 cells, 9.1M trades, M5-D1, all 94 symbols.
+  rule                                  pooled R   cells > 0   by timeframe (D1 / H4 / H1 / M30 / M15 / M5)
+  UFO zone, 2R                           -0.606      13%       -0.10 / -0.21 / -0.33 / -0.41 / -0.48 / -0.85
+  UFO zone, 3R                           -0.597      19%       -0.06 / -0.21 / -0.33 / -0.40 / -0.47 / -0.83
+  UFO + room >= 2R                       -0.536      12%       -0.10 / -0.22 / -0.34 / -0.40 / -0.48 / -0.80
+  UFO + seasonal bias                    -0.597      16%       -0.08 / -0.20 / -0.32 / -0.39 / -0.47 / -0.85
+  UFO + valuation bias (cheap side)      -0.601      15%       -0.10 / -0.21 / -0.32 / -0.40 / -0.47 / -0.87
+  UFO + valuation beyond +-0.75          -1.812      17%       -0.31 / -0.59 / -1.05 / -1.15 / -1.37 / -2.39
+  UFO + seasonal + valuation             -0.620      19%       -0.05 / -0.21 / -0.32 / -0.40 / -0.48 / -0.90
+  UFO + room + seasonal + valuation, 3R  -0.508      22%       -0.02 / -0.25 / -0.34 / -0.37 / -0.44 / -0.79
+  (pooled numbers include crypto and metals, where 5-minute costs are large; forex alone -0.20 to -0.27, stocks -0.09 to -0.15.)
+  18 cells pass the CANDIDATE bar vs ~100 expected by luck, and all 18 are in the second batch of stock CFDs (AVGO 7, PLTR 4, AMD 3,
+  JNJ 2, INTC, MSTR). That batch behaves differently in every zone rule (46% of its cells positive vs 21% for the other stocks): its
+  pre-2026 history has tick volume on only 13-31% of bars and up to 7% flat bars (AVGO) — a thinner price feed, on which resting
+  limit orders look better than they would be. Treat that batch's intraday history as suspect for limit-order rules.
+Verdict: DEAD. His zone entry loses on every market and timeframe, and none of his bias filters (seasonality, valuation, both)
+turns it positive; the filters cut losses by 0-0.1R at most. Together with #58 (Z0-Z4) and #66, nothing from his method makes money on
+FTMO's data except as a timing hint. COT is the one part not tested (no data).
+
+### 71. The whole rule library on every export symbol and timeframe (backlog #52), Holy Grail on the export (#51), and the Williams gold breakout's permutation test (#57)   [2026-10-10 03:35 MYT]
+bt/xrun.py --export (26 rules: #33/#35 fixed + BE, 15 K线之下/SB rules, Bernd Z0-Z4) -> 12,560 cells, 29.8M trades, 94 symbols, M5-D1
+(results/xgrid_export_all_cells.csv / _summary.csv; aggregated per symbol by bt/xagg.py after the one-shot aggregation ran out of
+memory). 66 cells pass the CANDIDATE bar vs ~314 expected by luck. Every rule is negative pooled (-0.28 to -0.92R) and on every
+timeframe except a few D1/H4 cells: #33 shows +0.12 (H4) / +0.15 (D1) pooled, but that is crypto (tiny stops on 2018-21 coins,
++1.8 to +3.0R averages); without crypto #33 is -0.044R on both (index H4 +0.084 on 1,390 trades). Passing cells cluster in the
+second stock batch (MSTR 8, PLTR 8, AVGO 6, BA 6), the batch flagged in #67. -> everything from #31-#58 stays DEAD on the new markets.
+Holy Grail (Raschke, rules of #54) via bt/xrules_classic.py: 461 cells, 224k trades; H1/H4 look positive pooled (+0.19/+0.21) only
+because of crypto outliers (single trades up to +162R); without crypto every group is <= 0 except index H4 +0.027 (682 trades; US30
+-0.19, US2000 -0.06, US500 +0.04, US100 +0.27) -> the US-index H4 WATCH of #54 does not hold on the 14 indices: DEAD.
+Williams volatility breakout, FTMO gold 2015-26 (quant/mcpt_wvb.py, session-matrix version, k 0.3/0.5/0.7): +0.029R at k = 0.5
+(2,186 trades); 1,000 shuffles: p_alone 0.001 for every k, best-of-3 p 0.001, skill +0.08R over the shuffles (which lose -0.05 to
+-0.11R to costs). But the bootstrap 95% interval of the real mean is -0.022 to +0.081R -> #60 protocol: p fine, lower bound <= 0
+-> WATCH (the rule reads real intraday momentum; the edge left after FTMO costs is too small to rely on).

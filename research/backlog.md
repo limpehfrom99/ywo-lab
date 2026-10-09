@@ -110,7 +110,7 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 45. [done: OpeningCandle_EA v1.10, commit f05e0e7, Shen said go] OpeningCandle_EA duplicate-order guard (#44): before every send, FindPosition() by magic -> adopt + mark the
     day as traded; after a send that returns without a visible position, block re-sends for 10 s while polling; also adopt any
     extra position with the magic so the 15:59 exit closes all of them. Ship with the vol-sizing change.
-46. [queued, needs export] #46 opening candle on big-gap days (|gap| >= 0.5 ATR): first candle against the gap vs with it, on all 46
+46. [done #69: FAILS (+0.04R vs bar +0.10); US-index-only WATCH (against +0.26 vs with -0.05)] #46 opening candle on big-gap days (|gap| >= 0.5 ATR): first candle against the gap vs with it, on all 46
     stocks + 14 indices from the export (bt/gap_squeeze.py logic). Pre-registered: becomes an EA filter (skip with-the-gap trades on
     big-gap days) only if against - with >= +0.10R pooled AND in both halves (2015-2023 / 2024-26) AND on >= 60% of symbols.
 47. [waiting for Shen's upload] The 61-video RedNote profile batch: python3 -I tools/video/batch.py <zip or folder> <out>; skip exact
@@ -118,34 +118,51 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     and random-timing baselines), then a small pre-set neighbourhood with selection on 2015-2023 and a check on 2024-26 only;
     add every video to the index with its log entry and verdict.
 
-48. [queued] NR7 filter on the live opening candle (from #49): OC trades (TSLA, US100; lab.opening_candle, M30 2022+) split by
+48. [done #69: NR7 diff holds on TSLA/US100 but #49 fails on 44 symbols -> not adopted] NR7 filter on the live opening candle (from #49): OC trades (TSLA, US100; lab.opening_candle, M30 2022+) split by
     "yesterday was NR7" (cash-session range). Pre-registered: becomes a size-up rule (1.5x risk on NR7 days) only if NR7 - other days
     >= +0.05R on both TSLA and US100 AND FTMO pass odds (lab/ftmo_sim.py) improve. Report all cells.
-49. [queued, needs export] #49 NR7 + ORB30 on all 46 stocks + 14 indices 2015+ (M5): NR7 minus other days >= +0.05R on >= 60% of
+49. [done #69: DEAD as a general filter (39% of symbols, from 2024 -0.02)] #49 NR7 + ORB30 on all 46 stocks + 14 indices 2015+ (M5): NR7 minus other days >= +0.05R on >= 60% of
     symbols AND in 2024-26 -> CANDIDATE stands; also gold 2015+ FTMO feed for #50 (k=0.5, 24-hour day).
 50. [blocked: needs 1-minute history] #51 Oops on stocks/indices: 45-76% of fills are ambiguous on 5/30-minute bars.
-51. [queued, needs export] #54 Holy Grail H4 (server clock, all 4 grid starts) on the 14 indices 2015+: WATCH -> CANDIDATE only if pooled
+51. [done #71: DEAD on 14 indices (index H4 +0.03; US30 -0.19)] #54 Holy Grail H4 (server clock, all 4 grid starts) on the 14 indices 2015+: WATCH -> CANDIDATE only if pooled
     >= +0.10R, t >= 2 before 2024 and > 0 from 2024.
-52. [queued, needs export] Whole rule library on every export symbol and timeframe: `python3 bt/xrun.py --module xrules_video
+52. [done #71: 12,560 cells, 66 pass vs 314 by luck, every rule negative] Whole rule library on every export symbol and timeframe: `python3 bt/xrun.py --module xrules_video
     --module xrules_bernd --export` (+ any new xrules_* module). Report the per-rule summary (cells, share positive, pooled R, passing
     vs luck) and by group/timeframe. Everything in it is DEAD on the data in hand (#56-58); this is the check that nothing turns up on
     the ~100 symbols not seen yet — a rule only comes back if pooled >= +0.05R on the new symbols in BOTH halves.
-53. [queued] Same-bar look-ahead audit (#57): grep every bt/*.py entry loop for a fill-bar decision made from the bar's own
+53. [partly done #57: opening candle, classic_intraday, holy_grail, value_area, battery engine clean] Same-bar look-ahead audit (#57): grep every bt/*.py entry loop for a fill-bar decision made from the bar's own
     high/low/close (pattern: a `break` on the stop or a close beyond the level BEFORE the fill check). Re-run any CANDIDATE/WATCH it
     touches. Already clean: lab/lab.py opening_candle, bt/classic_intraday.py, bt/holy_grail.py, bt/value_area.py.
-54. [queued, needs export D1 2000+] Bernd's seasonal FX windows (#58, rn058): for each pair and calendar window (start day, 10/20/30
+54. [done #64: calendar permutation p 0.003, but -0.04 ATR net of swaps -> WATCH as a filter] Bernd's seasonal FX windows (#58, rn058): for each pair and calendar window (start day, 10/20/30
     trading days), the hit rate over the 15 years BEFORE each test year; trade only windows with >= 80% hit rate (walk-forward, no
     peeking); baseline = random windows of the same length on the same pair. Pooled across pairs, with swaps.
 55. [blocked: needs CFTC history files] Bernd's COT positioning (#58, rn033/rn046): commercial / non-commercial net position
     extremes (3-year percentile) on currency and gold futures as a weekly direction filter for the opening candle and for daily
     trend rules. The shell can't reach cftc.gov; Shen can download "Futures Only" historical zip files and attach them.
-56. [queued, needs export] FTMO odds for the live opening candle with the survivors only: OC (TSLA + US100, vol sizing #12) + NR7
+56. [done #63/#70: OC 0.5% 65/25; + gap fade 71/21; + noise band 70/28] FTMO odds for the live opening candle with the survivors only: OC (TSLA + US100, vol sizing #12) + NR7
     size-up (#48 above, if it passes) + Williams VB gold (#50, small) — lab/ftmo_sim.py, risk per trade 0.25/0.5/0.75/1% fixed in
     advance; pass probability, days to pass, max-loss breach rate.
 
-57. [queued] Robustness tests (#60, PROTOCOL "Robustness checks") on every current CANDIDATE: #49 NR7 + ORB30 (pooled filter) and #50
+57. [done: NR7 dead (#69); Williams gold p_best 0.001 but bootstrap low < 0 -> WATCH (#71)] Robustness tests (#60, PROTOCOL "Robustness checks") on every current CANDIDATE: #49 NR7 + ORB30 (pooled filter) and #50
     Williams volatility breakout on gold; the cells = everything xrun.py ran for that rule. Downgrade to WATCH if p_best > 0.10.
-58. [queued, needs exports] Exact selection test for the opening candle: once M30 exports for NVDA, META, AMZN, MSFT, AMD and USOIL
+58. [done #63: best of 34 US stocks/indices p 0.16 (export M5)] Exact selection test for the opening candle: once M30 exports for NVDA, META, AMZN, MSFT, AMD and USOIL
     are in data/, rerun bt/robust_check.py section A2 with all symbols (replaces the approximate 11-symbol figure in #60).
 59. [queued] bt/xrun.py: add mcpt_select's p_best across all cells of a rule (bar shuffle) and bca_bounds to the per-rule summary, in
     place of "cells passing vs the ~2.5% expected by luck".
+60. [queued, needs "go"] Index opening-gap fade (#70 CANDIDATE: |gap| >= 1 ATR at the cash open, toward yesterday's close, stop = gap
+    size beyond the open, out at the close; EU + US indices ~95 trades/yr, +0.09-0.13R): paper-trade on GER40/EU50/US500/US100 in the
+    lab app for 4-6 weeks, then an EA leg next to the opening candle. Before that (not tuned on the result): robustness per #60 — CSCV on
+    gap 0.75/1.0/1.5 ATR x target prior close / half gap, drawdown bound at 0.25% and 0.5%.
+61. [blocked: needs Shen] Bernd COT (#67): CFTC "Futures Only" legacy history (cftc.gov -> Commitments of Traders -> Historical
+    Compressed, one zip per year 2006-2026, or approve publicreporting.cftc.gov in WebFetch when asked). Test: 157-week COT index of
+    commercials < 20 / non-commercials > 80 as a weekly bias for gold, EUR, JPY, GBP, AUD, CAD, CHF, NQ/ES -> FTMO CFDs.
+62. [blocked: needs Shen] Valuation vs Treasury bonds (Bernd's ZB1! leg): daily US 10-year yield or ZB futures history (FRED DGS10 CSV,
+    or a TradingView export) to complete #66's valuation tool for indices.
+63. [queued, forward from Nov 2026] Seasonal windows on the carry-earning side only (#64 split, NOT selected on before): log every
+    window the #64 rule selects from Nov 2026 with today's swaps; verdict after 100 windows.
+64. [queued] Second stock batch data quality (#67): AMD, AVGO, BA, CVX, DIS, INTC, JNJ, JPM, KO, MSTR, NKE, PLTR, QCOM, XOM before 2026
+    have tick volume on 13-31% of bars and up to 7% flat bars; compare their M5 bars with M1 where FTMO has it, or exclude them from
+    intraday limit-order tests.
+65. [queued] US-index ORB30 (#70 WATCH, p_best 0.010, +0.046R, 2026 -0.06): forward-log; and the noise band (#60/#68: US100 +0.15R/day
+    unit, every year 2021-26 positive) -> backlog #20 paper test.
+

@@ -135,3 +135,16 @@ CANDIDATE now also needs p_best <= 0.10 and a BCa lower bound > 0; p_alone <= 0.
 odds on skill (so far about half the backtest edge), not on the backtest average.
 The C++ originals: bash tools/get_masters.sh (builds into /home/claude/vendor/bin); python3 tools/verify_masters.py re-checks
 robust.py against them (CSCV must match exactly, BCa within bootstrap noise).
+
+## FTMO export data checks (added 2026-10-10 03:35 MYT, log #61, #65, #67)
+quant/universe.load fixes these on every load; re-check them on any new export before testing:
+- Index and stock files before 2021-22 are one bar a day (or hourly bars) under an M1/M5 label: cut each file to where it is really
+  intraday (bt/xgrid.full_intraday_start) and drop days with < 50% of the usual bars; the battery's session matrices drop them anyway.
+- The second batch of stock CFDs (AMD, AVGO, BA, CVX, DIS, INTC, JNJ, JPM, KO, MSTR, NKE, PLTR, QCOM, XOM) is stamped 1 hour early until
+  late Jan 2026 (universe.fix_stock_clock) and its pre-2026 bars are thin (little tick volume, flat bars): do not trust limit-order
+  results that appear only on these symbols.
+- Whole-day bars stamped 00:00 server sit inside the intraday history of metals 2015-20, crypto 2018-21 and forex 2019
+  (universe.drop_daily_artifacts): any pending order "fills" on them.
+- Stock CFDs open at 9:35 New York since 2024.
+- Pooled harness statistics across groups: report them without crypto too (2018-21 coins give single trades of +100R with tiny stops).
+
