@@ -49,3 +49,5 @@
 20. [queued] Paper-trade the noise-band rule (#26a) on US100 in the lab app next to the opening candle; compare live vs model monthly.
 21. [queued] Noise band with real 1-minute marks: when the laptop sends US100 M1 history, rebuild the bands and VWAP from M1
     (paper's resolution) and recheck 2025-26.
+
+22. [queued] SMC timeframe grid (bt/smc_grid.py, #31b) on US100/US500/US30 (M5 from 2021-09) and the 28 FX pairs (M15 entries, H1/H4 structure) once the full export is unpacked.

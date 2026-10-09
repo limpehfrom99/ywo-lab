@@ -334,3 +334,12 @@ UTC), FTMO spread by year + commission. Coin flip per trade.
   B no daily-OB filter -0.24R (493). C rr >= 1 -0.42R. D any session -0.28R (214). E limit at the FVG top -0.35R (longs +0.00).
   F fixed 2R target -0.18R (208, 32% wins). G the 5-min trigger alone (no context, 2R, US session): -0.085R over 8,829, t -5.6.
 Verdict: DEAD. Same family as #27/#30: a stop a few dollars under a 5-minute gap is taken by noise long before a far target.
+
+#### 31b. Same rule at every timeframe nesting (Shen: "try 4H, 15-min swings, mix 1H and 5-min") — DEAD at every scale   [2026-10-09 21:20 MYT]
+bt/smc_grid.py: zone TF (D1 / H4 / none) x structure TF (H4 / H1 / M15) x entry TF (M15 / M5 / M1), zone > structure > entry,
+target IDM (>= 2R) or fixed 2R, US-session entries; every #31 definition counted in bars of its own timeframe; exits on 1-min,
+3-day max; gold 2012-26, FTMO costs. 42 cells (results/smc_grid.csv): 9 positive, 33 negative, NONE passes the in-sample bar
+(best in-sample t 1.07; bar is t >= 2.5). The cells with enough trades (M15/H1 structure, 30-190 trades a year) are -0.05 to -0.16R
+(t -2 to -5). The positive cells are H4-structure cells with 4-14 trades a year (t 0.2-1.3); the best, D1/H4/M5/2R, +0.22R on 79
+trades (in-sample +0.13, t 0.7); none/H4/M1/IDM +0.17R comes from 2024-26 longs in gold's uptrend (in-sample +0.05, t 0.2).
+With 42 tries one lucky cell is expected; none reached even that. To rerun on indices/FX when the full export lands.
