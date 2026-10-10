@@ -1499,3 +1499,17 @@ Every market (fade, mean R): forex -0.18 to -0.20 (no real gap there: the 17-18 
   energy ~-1.0, crypto -0.8 to -1.2 (tiny |G| stops vs the spread). 360 cells, 0 pass (~9 by luck); none with t >= 2 and avgR > 0.
 Report-only: following the 18:00-19:00 move to 20:00 vs fading it (M5): indices -0.22 / -0.20, gold -0.07 / -0.06 — no direction either way.
 Verdict: DEAD. The FTMO case-study traders' 01:00-platform profits were not this rule. Would change it: nothing in this data.
+
+### 100 (result). R3 Tokyo fix / gotobi — the flow is real, the trade is not: DEAD after costs (bt/xrules_tokyo.py, bt/q100_tokyo_report.py, results/q100_tokyo_cells.csv)   [2026-10-11 01:40 MYT]
+bt/xrun.py --export --tfs M15,M30: 6 rules, 461 cells, 1.17M trades, 0 pass (~12 by luck). M15 reported (M30 duplicates the 1-hour windows).
+Primary 3A (USDJPY long 09:00-09:45 JST on gotobi days, stop 0.25 ATR): 831 trades, -0.030R (t -1.6), 49% wins, 3/12 years up,
+  before 2024 -0.028 / from 2024 -0.036, worst year 2021 -0.177. Fails rule 4 (mean < 0).
+  Baselines: selling instead (coin) -0.121R -> buying beats selling by +0.091R, i.e. about +0.045R gross USD bid into the fix on gotobi
+  days; non-gotobi days -0.067R (gotobi +0.037R better, short of the +0.05 bar); fake window 11:00-11:45 -0.116R (+0.086R better).
+  The same pattern on the yen crosses (gotobi -0.03 to -0.05R vs non-gotobi -0.08R) and USD bid on EURUSD/GBPUSD (-0.04 to -0.08R).
+  Costs (spread x 1.2 + 0.0025%/side) are ~0.075R a trade on a 0.25-ATR stop (~25 pips), so the ~+0.045R flow is not enough.
+3B every business day: -0.056R (t -5.6). 3C after-fix reversal (short 10:00-11:00): all days -0.053R, gotobi -0.038R (5/12 years up).
+Every market, gotobi 09:00-09:45: forex -0.09 / -0.12R (long / short), gold -0.09 / -0.03, indices -0.15, metals/energy/softs/crypto worse.
+Verdict: DEAD (rule 4 fails; the gotobi-vs-normal-day gap +0.037R is below the +0.05R bar). The Ito-Yamada flow shows up clearly in the
+coin comparison but is about half the FTMO round-trip cost. Would change it: a wider window/stop that keeps the flow but cuts cost per R
+— that is a new rule, to be pre-registered with a small grid if ever tried (e.g. 08:00-09:55 JST, stop 0.5 ATR).

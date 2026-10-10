@@ -176,10 +176,10 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 
 ## Added 2026-10-11 00:40 MYT (nightly loop) — the 29 frozen rules of log #84 (research/drafts/top_traders_prop.md R1-R15,
 ## top_traders_quant.md T1-T14), in the drafts' rank order; run unchanged on every symbol/timeframe each rule applies to
-70. [running -> log #97] R1 London 4 pm WMR fix (fade into-fix move; into-fix USD bid; session flip; gold PM auction).
-71. [running -> log #98] T1 TD Sequential / Combo, every symbol x M30-D1.
-72. [queued] R14 18:00 NY reopen gap fade (US500/US100/US30/XAUUSD primary; every symbol).
+70. [done #97: DEAD, fix fade -0.078R; real reversal ~+0.02R gross < costs] R1 London 4 pm WMR fix (fade into-fix move; into-fix USD bid; session flip; gold PM auction).
+71. [done #98: DEAD, primary C13 -0.11R / S9P -0.18R after swaps; 10 of 5,416 cells pass vs 135 luck] T1 TD Sequential / Combo, every symbol x M30-D1.
+72. [done #99: DEAD, US indices -0.149R, gold -0.13 to -0.24R] R14 18:00 NY reopen gap fade (US500/US100/US30/XAUUSD primary; every symbol).
 73. [queued] R2 month-end fix hedge rebalancing (EURUSD/GBPUSD/USDJPY/AUDUSD vs their index legs).
-74. [queued] R3 Tokyo 9:55 fix / gotobi USDJPY (+ yen crosses).
+74. [done #100: DEAD, USDJPY gotobi -0.030R; flow +0.045R gross < ~0.075R costs] R3 Tokyo 9:55 fix / gotobi USDJPY (+ yen crosses).
 75. [queued] T2 Korean volatility breakout (noise-adaptive k, MA score, vol targeting).
 76. [queued] T3 Williams smash day; T4 BNF deviation; T5 200-day filter on the live edges; T6-T14 and R4-R13, R15 as in the drafts.
