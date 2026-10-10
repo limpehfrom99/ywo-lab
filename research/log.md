@@ -1334,3 +1334,25 @@ Every symbol on its battery sessions, M5 and M15 (results/lance_cells.csv, lance
 Verdict: DEAD as a strategy. The in-play volume effect is real but small; it belongs to backlog #35 ("stocks in play", pre-registered in
 #75), which should report it.
 Same batch: "From $0 To $2M Trading Prop Firms In 20 Months" (JJ Simon) is byte-identical to rn020 (#47) - not re-tested.
+
+### 82. Pre-registered (BEFORE running) — Bernd's COT tool and the Treasury-bond leg of his Valuation tool, on every market the data covers (bt/q82_cot*.py; this session reserves #82-#89 for today's Bernd / COT / top-trader work)   [2026-10-10 10:25 MYT]
+Data from Shen (10 Oct 08:54 MYT): CFTC Disaggregated Futures-Only history 2006-2026 (commodities only: metals, energy, grains,
+softs) and FRED DGS10 (10-year Treasury yield, daily 2010-10 to 2026-10). Forex, indices and bonds need the Legacy report (asked
+for). MT5's calendar adds CFTC non-commercial net positions for S&P 500 (2015+), Nasdaq 100 (2019+), gold and crude (2012+).
+Mapping: gold 088691 XAUUSD, silver 084691 XAGUSD, platinum 076651 XPTUSD, palladium 075651 XPDUSD, copper 085692 XCUUSD, WTI
+067651 USOIL, Brent last day 06765T UKOIL, natural gas 023651 NATGAS, wheat 001602, corn 002602, soybeans 005602, sugar 080732,
+coffee 083731, cocoa 073732, cotton 033661 (the .c softs).
+COT index (Larry Williams / Bernd): 100 x (net - min over N weeks) / (max - min). Commercials = producer/merchant + swap dealers
+(net long - short); large speculators = managed money + other reportables (contrarian, index inverted); small speculators =
+non-reportables (contrarian). Primary cell = Bernd's setting from his screenshots: commercials, N = 157 weeks, bullish >= 80,
+bearish <= 20. Grid: group {commercials, large, small} x N {26, 52, 157} x thresholds {80/20, 90/10}.
+Availability: a report dated Tuesday is used from the first FTMO session after 15:30 New York on Friday; weeks inside the
+2013, 2018-19 and 2025 US government shutdowns (delayed releases) are skipped.
+Trades: in the bias direction at that session's open; out after 1, 4 or 8 weeks; result in ATR(20) units after spread,
+commission and swaps; baselines = the same direction and holding from random weeks of the same market and year, and always-long.
+Bernd's confluence: COT (primary cell) + Valuation (his settings, now with the bond leg) + True Seasonality (15 years, 30 days)
+all pointing the same way -> trade, hold 4 weeks; also COT as a filter on #66's daily VAL/SEAS rules.
+Bond leg: synthetic 10-year bond price from DGS10 (price = 100 / (1 + y/200)^20, forward-filled) as the ZB1! reference, so the
+Valuation tool has all three of his references (DXY, bonds, gold); #66's VAL rules rerun with it on every market of the export.
+Pass bar: PROTOCOL rule 4 on the primary cell AND beats both baselines; then the selection-aware test over all cells (random-week
+shuffles, >= 200) and BCa lower bound > 0.
