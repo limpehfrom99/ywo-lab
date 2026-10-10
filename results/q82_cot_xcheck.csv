@@ -1,0 +1,3 @@
+series,releases,first,last,matched_by_value,max_abs_diff_matched,naive_exact_share,naive_corr_levels,naive_corr_changes
+Gold,766,2012-01-06,2026-10-02,764,0.05,0.9674,0.9986,0.967
+Crude Oil,766,2012-01-06,2026-10-02,766,0.05,0.97,0.9995,0.979

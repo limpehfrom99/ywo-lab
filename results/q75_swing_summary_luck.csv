@@ -1,0 +1,12 @@
+idea,label,cells,share_pos,median,passing,by_luck
+holiday,pre-holiday cells (symbols),44,0.2955,-0.07321,0,1.1
+squeeze,all cells,536,0.1866,-0.1454,0,13.4
+squeeze,cells ex crypto,494,0.1903,-0.1321,0,12.35
+ratio,all pair cells,78,0.08974,-0.3753,0,1.95
+clenow,all symbol cells,282,0.2589,-0.09265,1,7.05
+clenow,cells ex crypto,261,0.2414,-0.09654,1,6.525
+clenow,D1 group cells (primary),8,0.625,0.02042,0,0.2
+exitgrid,all symbol cells,2632,0.2245,-0.1423,1,65.8
+exitgrid,cells ex crypto,2436,0.1942,-0.1546,1,60.9
+exitgrid,D1 group-pooled cells (primary),112,0.1875,-0.1184,2,2.8
+exitgrid,H4 group-pooled cells,112,0.02679,-0.1466,0,2.8
