@@ -1,6 +1,6 @@
 """Log #99: R14 18:00 New York reopen gap fade (research/drafts/top_traders_prop.md R14, frozen in #84) for the cross-asset harness.
 LONG fills in the frame (the harness mirrors for shorts). Intraday frames only (M5-H1).
-  C0 = close of the last bar that starts before 17:00 NY (Friday's for the Sunday reopen); O18 = open of the bar starting 18:00 NY;
+  C0 = close of the last bar that starts before 17:00 NY (Friday's for the Sunday reopen); O18 = open of the first bar at/after 18:00 NY (reopen; 18:05 on FTMO's index M1);
   G = O18 - C0. |G| >= 0.10 daily ATR -> at the NEXT bar's open, trade toward C0 (long frame: G < 0); target C0; stop |G| beyond O18
   (O18 - |G|); out at 20:00 NY. Skipped when the next open is already at/through C0 or the stop. tag 'wkd' = Sunday reopen.
   On markets with no 17:00-18:00 break (forex trades through it, crypto 24/7) G is the 17-18 move, not a gap (reported as such).
@@ -20,10 +20,17 @@ def _ny_date(S):
     return pd.DatetimeIndex(S.t).tz_localize("UTC").tz_convert("America/New_York").normalize().tz_localize(None).values
 
 
+def _reopen_bars(S):
+    """First bar starting in 18:00-18:29 NY whose previous bar started before 18:00 (FTMO's index CFDs reopen at 18:05 NY on M1,
+    found on the first run: the M5 frame has no 18:00 bar). On markets without a break this is the 18:00 bar itself."""
+    nym = S.nym; w = np.flatnonzero((nym >= 1080) & (nym < 1110))
+    return w[(w > 0) & ((nym[w - 1] < 1080) | (nym[w - 1] >= 1110))]
+
+
 def reopen_fade(S, ctx, thr=0.10):
     if not _intraday(ctx): return []
     t = S.t.view("i8"); nym = S.nym; N = len(t); out = []
-    js = np.flatnonzero(nym == 1080)
+    js = _reopen_bars(S)
     before = np.flatnonzero(nym < 1020)                      # bars that start before 17:00 NY
     dates = _ny_date(S)
     for j in js:
@@ -48,9 +55,12 @@ def reopen_fade(S, ctx, thr=0.10):
 def follow_18_19(S, ctx):
     if not _intraday(ctx): return []
     t = S.t.view("i8"); nym = S.nym; out = []
+    ro = _reopen_bars(S)
     for i in np.flatnonzero(nym == 1140):
-        j = np.searchsorted(t, t[i] - 60 * MIN)
-        if j >= i or t[j] != t[i] - 60 * MIN or nym[j] != 1080: continue
+        k = np.searchsorted(ro, i) - 1
+        if k < 0: continue
+        j = ro[k]
+        if t[i] - t[j] > 60 * MIN: continue
         atr = S.atr[i]
         if not np.isfinite(atr) or atr <= 0 or S.o[i] <= S.o[j]: continue
         e = S.o[i]

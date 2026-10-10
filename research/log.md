@@ -1478,3 +1478,24 @@ Cells: 20.8% positive; 14 pass the bar before swaps, 10 with swaps, vs ~135 expe
 Verdict: DEAD. The paper's "predictive power over a narrow holding window" may exist gross on commodity futures; on FTMO CFDs after
 spread and swaps it is negative in the paper's own cell. What would change it: the paper's market/period (2004-14 futures) is not in
 the data; nothing in 2015-26 points that way.
+
+### 100. Pre-registered (BEFORE running) — R3 Tokyo 9:55 fix (nakane) and gotobi days (#84 / top_traders_prop.md R3), every market (bt/xrules_tokyo.py)   [2026-10-11 01:25 MYT]
+JST clock; business days Mon-Fri minus Japanese holidays (python holidays.JP) and 31 Dec-3 Jan; gotobi = 5/10/15/20/25/last of the month,
+rolled back to the previous business day. 3A (primary): gotobi days, buy USDJPY at the 09:00 JST bar open, out at the 09:45 open, stop
+0.25 daily ATR, no target. Cells: 3A on non-gotobi days (baseline), 3B every business day, 3C 10:00 -> 11:00 JST on gotobi and on all days
+(reversal = the short side), fake window 11:00 -> 11:45 on gotobi days; coin flip = the other side. Reported: USDJPY long (primary);
+EURJPY/GBPJPY/AUDJPY long and EURUSD/GBPUSD short (USD bid) as the draft asks; and every export symbol both sides on M15 (M5/M30 give the
+same :00/:45 opens; M30 has no 09:45 bar so only the 1-hour windows run there). Pass: rule 4 on 3A USDJPY AND 3A beats non-gotobi days
+and the fake window by >= +0.05R; then p_best / BCa. Per-year table (the draft warns the effect may have shrunk since the 2010s).
+
+### 99 (result). R14 18:00 NY reopen gap fade — DEAD (bt/xrules_reopen.py, bt/q99_reopen_report.py, results/q99_reopen_cells.csv)   [2026-10-11 01:30 MYT]
+Clock fix found on the first run (not a rule change): FTMO's US index CFDs reopen at 18:05 NY on M1, so the M5 frame had no 18:00 bar
+and the first run's M5 cell was nearly empty; O18 is now the first bar at/after 18:00 (within 30 minutes). Only the second run is reported.
+Sunday reopens are absent: the export loader drops UTC days with < 50% of the usual bars, which removes the Sunday-evening stub.
+Primary (US500 + US100 + US30, M5, |G| >= 0.10 ATR, 2019-26): 297 trades, -0.149R (t -3.1), 43% wins, 1 of 8 years up (2021 +0.29),
+  before 2024 -0.085 / from 2024 -0.205; coin flip (follow the gap) +0.033R. US500 -0.226, US100 -0.155, US30 -0.087.
+  M15 / M30 / H1 entries: -0.132 / -0.103 / -0.134R. XAUUSD: -0.13 to -0.24R on every frame (M5 128 trades, 3/12 years up).
+Every market (fade, mean R): forex -0.18 to -0.20 (no real gap there: the 17-18 move), indices -0.52 to -0.70, metals -1.2 to -1.8,
+  energy ~-1.0, crypto -0.8 to -1.2 (tiny |G| stops vs the spread). 360 cells, 0 pass (~9 by luck); none with t >= 2 and avgR > 0.
+Report-only: following the 18:00-19:00 move to 20:00 vs fading it (M5): indices -0.22 / -0.20, gold -0.07 / -0.06 — no direction either way.
+Verdict: DEAD. The FTMO case-study traders' 01:00-platform profits were not this rule. Would change it: nothing in this data.
