@@ -1175,3 +1175,79 @@ The four indices never used for selection: UK100 -0.055 (45 trades), JP225 -0.01
 pooled -0.008 (t -0.3).
 Verdict: CANDIDATE on EU-continental and US index CFDs (passes p_best, BCa > 0, PBO 8%, every grid cell positive), with one red flag:
 it does not carry over to the UK, Japanese and Australian indices. Trade it only where it was found, at 0.25-0.5%, after a paper test.
+
+### 73. Pre-registered (BEFORE running) — optimising the index gap fade with walk-forward selection and a permutation test of the whole procedure (quant/gapfade_opt.py)   [2026-10-10 08:55 MYT]
+Shen (10 Oct 08:29 MYT): "run all test and optimise". Optimising = picking settings on past years only and scoring them on the next.
+Markets: the 9 selection indices of #70/#72 (GER40, EU50, FRA40, SPN35, N25 on eu_cash; US100, US500, US30, US2000 on us_cash); same
+session matrices, costs (spread x 1.2 at entry, no commission) and fill rules as #72.
+Grid, 4 x 4 x 2 x 2 x 2 = 128 cells: minimum gap 0.75 / 1.0 / 1.25 / 1.5 daily ATR(14) x stop beyond the open = the gap's size / 0.5 /
+1.0 / 1.5 ATR x target = yesterday's cash close / none x exit = session close / 3 hours after the open x entry = the first bar's open /
+the open of the bar 15 minutes after the open, only if neither stop nor target was touched in the first 15 minutes (levels unchanged).
+Choice statistic: pooled t of per-trade R, >= 100 trades in the training window.
+Walk-forward: expanding window; test years 2023, 2024, 2025, 2026 (to 9 Oct); each year trades the cell that was best on all data
+before 1 January of that year. Reported: walk-forward out-of-sample n, mean R, t vs the fixed #70 cell (1.0 ATR, gap stop, prior
+close, session close, open entry) on the same years, and which cell each year picked.
+Permutation test of the whole procedure: 200 shuffles (quant/permute.permute_session per index); each reruns all 128 cells, the
+walk-forward and the full-sample best cell. p_WF = share of shuffles whose walk-forward out-of-sample mean >= the real one;
+p_best = the same for the full-sample best t. CSCV probability of backtest overfitting over the 128 cells (daily sums, 10 blocks).
+Slippage: extra cost 0.01 / 0.02 / 0.05 / 0.10 ATR per round trip on the #70 cell and the most-picked walk-forward cell; break-even
+slippage in index points. Timeframes: the same two cells on M1 / M5 / M15 / M30 / H1 bars, common period from 2022-01-01.
+Descriptive splits (not used for choosing): fading down gaps (long) vs up gaps (short), year, index, Monday vs other days.
+Adopt a tuned cell instead of the #70 cell only if: walk-forward out-of-sample mean >= the #70 cell's on the same years AND
+p_WF <= 0.05 AND every neighbouring cell (one step on any dimension) is positive. Otherwise the #70 cell stays.
+
+### 74. Pre-registered (BEFORE running) — the noise band on every market, selection-aware (quant/mcpt_nb.py)   [2026-10-10 08:55 MYT]
+The battery's noise band (quant/intraday.noise_band; R per day = the day's return / band width at the first entry) on every
+symbol-session of the export (as in #68), 18 variants: lookback 10 / 14 / 20 days x decision every 15 / 30 / 60 minutes x VWAP stop
+on / off (15-minute decisions only where the bars are <= 15 minutes). Statistic: per-cell t of daily R (>= 150 days).
+100 shuffles (permute_session); each reruns every cell; p_alone and p_best for US100's published variant (14 days, 30 minutes, VWAP
+on) and for the best cell; also the US-index group pooled. Walk-forward over the 18 variants on US100 (expanding, test years
+2023-2026). CANDIDATE as in PROTOCOL (p_best <= 0.10 and BCa lower bound > 0); otherwise the paper-test plan (backlog #20/#65) is dropped.
+
+### 75. Pre-registered (BEFORE running) — every never-tested backlog idea, on every asset and timeframe (backlog #22, #30-#39, #43, #44)   [2026-10-10 08:55 MYT]
+Rules exactly as written in research/backlog.md on 9 Oct 21:30 MYT, run unchanged; the source's market/timeframe is the primary cell,
+every other symbol and timeframe of the export is reported too. Details fixed now where the backlog left them open:
+- #30 Dual Thrust: N = 4 days, k1 = k2 in {0.3, 0.5, 0.7}; stop-and-reverse inside the day at the opposite trigger, flat at the
+  session close; R per trade = P/L / distance to the opposite trigger. Sessions: every symbol's sessions (gold also on the server
+  day, BTC on the UTC day); bars M5 primary, M15 / M30 / H1 as timeframe checks.
+- #31 R-Breaker: P = (H+L+C)/3 of yesterday's session; break buy = H + 2(P - L), sell setup = P + (H - L), sell enter = 2P - L, buy
+  enter = 2P - H, buy setup = P - (H - L), break sell = L - 2(H - P). Trend entries on a break of the break levels (stop at P);
+  reversal entries after the day's high > sell setup and price < sell enter (short, stop at the day's high so far), mirror for longs;
+  at most one trade per direction per day; flat at the close. Same sessions and bars as #30.
+- #32 Pre-holiday: long at the US cash close before each NYSE holiday, out at the next cash close; every US index and US stock CFD
+  (and every other index on its own exchange's holidays where the data shows them); baseline = all other days, same holding; swaps.
+- #33 Bollinger squeeze: BB(20, 2) width at its 125-bar low = squeeze; within the next 20 bars, the first close outside the bands ->
+  enter at the next bar's open in that direction, stop = the middle band at entry, exit at the next open after a close back inside
+  the bands; every symbol on M5-D1; swaps for overnight holds; coin-flip baseline.
+- #35 Stocks in play (Zarattini & Aziz 2023): each day, relative volume = first 5-minute tick volume / its 14-day average; trade the
+  top 20% of the US stock CFDs in the direction of their first 5-minute candle at the next bar's open, stop 10% of the 14-day ATR,
+  out at the close; baselines = all stocks and a random 20%; with and without the second stock batch (#67 data flag).
+- #36 Gold/silver ratio: z of log(XAU/XAG) over 60 daily closes; |z| > 2 -> long the cheap leg, short the rich leg (equal dollar
+  risk), out at z = 0 or after 20 days; also the same rule on every pair within metals, within US indices and within EU indices;
+  D1 primary, H4 / H1 with the same bar counts.
+- #37 Clenow: long when EMA50 > EMA100 and the close is a 50-bar high, short mirrored; 3-ATR trailing stop from the best close;
+  R = P/L / 3 ATR at entry, swaps included; every symbol, D1 primary, H4 / H1 too; equal-risk portfolio by group.
+- #39 Trend exit grid: entries = close beyond the 20- or 55-bar high/low; exits = 2 / 3 / 4-ATR chandelier, opposite 10-bar channel,
+  close beyond the 50-bar MA, 20 / 60 bars; random-entry baseline per cell (same exit); walk-forward choice of exit (3 trailing years).
+- #43 breakout-retest rules A and B (bt/breakout_retest.py) unchanged; #44 value-area V1-V3 (bt/value_area.py) unchanged, US100
+  RTH V3 the pre-registered confirm cell; #22 SMC grid (bt/smc_grid.py) unchanged on the export. All on every index, plus FX/metals
+  where the rule's timeframes exist.
+- #34 MQL5 CodeBase EAs: rules read from each EA's published source, tested unchanged; #38 freqtrade: the 5 most-starred
+  strategies of github.com/freqtrade/freqtrade-strategies, long-only as written, on every crypto CFD, FTMO crypto costs.
+Pass bar: PROTOCOL rule 4 on the primary cell AND beats its baseline; any survivor then gets the selection-aware permutation test
+over all cells of its idea (p_best <= 0.10) and a BCa lower bound > 0.
+
+### 76. Pre-registered (BEFORE running) — the live opening candle on the newest data (through 9 Oct 2026)   [2026-10-10 08:55 MYT]
+lab.opening_candle with the live EA's settings (first 30-minute candle, stop at its other end, out 15:59 New York, Fed days skipped,
+FTMO costs) on TSLA and US100: last 60 trades, 2026 to date, rolling 60-trade mean vs the 2022-26 mean. Decision rule already in
+force (skill "Current state"): no challenge purchase until the last-60 average is back above 0 on both live symbols.
+
+### 77. Pre-registered (BEFORE running) — FTMO risk per strategy (quant/ftmo_opt.py)   [2026-10-10 08:55 MYT]
+Strategies: opening candle TSLA and US100 (live settings); index gap fade on the 9 indices (the #70 cell, or #73's if it passes its
+bar); the noise band and US-index ORB30 only if #74 / #70 rate them CANDIDATE. Gap-fade risk is a budget per region per day, split
+equally across that day's signals in the region (the 5 EU indices gap together). Grid: opening candle 0.25 / 0.5 / 0.75 / 1.0% per
+trade x gap fade 0 / 0.25 / 0.5 / 0.75% per region-day. 10-day block bootstrap from Oct 2021; Phase 1 +10% then Phase 2 +5%, 5% daily
+and 10% static loss, >= 4 trading days, 12-month horizon; funded: 12 months, 80% monthly payout. Scenarios: full, half and zero edge
+(zero = each strategy's mean R subtracted). Firms: FTMO Swing (stock risk capped by 1:1 leverage), FTMO Standard (1:3.3),
+FundedNext Stellar 2-step (+8% then +5%, 5 trading days). Choice: the highest probability of passing both phases within 6 months at
+HALF edge, with P(fail) <= 25% at half edge; full- and zero-edge rows shown next to it.
