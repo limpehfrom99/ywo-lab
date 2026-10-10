@@ -1406,3 +1406,47 @@ fade, noise band), T6 Thermostat, T7 Aberration / King Keltner / Bollinger Bandi
 cell), T9 Unger Daily Factor, T10 Fiali four-price, T11 O'Neil / Minervini filters, T12 Camarilla, T13 ATR channel, T14 Darvas box.
 Also Williams "Oops" (#51, blocked for 1-minute data) on the real M1 history: US100/US500 from 2021-09-14, TSLA/NVDA from 2021-08-02,
 gold from 2015. Pass bar as #83 (rule 4 on the primary cell, beat its baseline, then p_best <= 0.10 over all cells and BCa > 0).
+
+### 97. Pre-registered (BEFORE running) — R1 London 4 pm WMR fix (from #84 / research/drafts/top_traders_prop.md R1), on every market (bt/xrules_fix.py)   [2026-10-11 00:40 MYT, nightly loop]
+Numbering: the nightly loop takes #97-#99 (#82-#89 are reserved by the 10 Oct day session, #90-#96 are in the Project doc).
+Rule as frozen in #84 (R1), London clock (Europe/London, DST-aware), Mon-Fri, 24 Dec-2 Jan skipped; P1/P2/P3 = opens of the bars
+starting 15:00 / 16:00 / 17:00 London. Generic form used on every symbol: FADE the price move into the fix.
+- 1A (primary): |P2 - P1| >= thr x ATR -> enter at P2 against the move; target P2 - 0.5 (P2 - P1); stop P2 + sign(P2 - P1) x
+  max(|P2 - P1|, 0.15 ATR); out at P3. Cells: thr 0.05 / 0.10 (primary) / 0.20; thr 0.10 with the exit at 16:30.
+- Fake fixes (baseline b): the identical 1A (thr 0.10) with P2 at 14:00 and at 18:00 London. 1D gold PM auction: the same with P2 at
+  15:00 London (P1 14:00, P3 16:00) — run on every symbol too.
+- 1B into the fix: enter at P1, out at P2, stop 0.15 ATR, no target, both sides; "buy USD" = longs on USDxxx, shorts on xxxUSD/XAUUSD.
+- 1C session flip: leg 1 enter at the 08:00 London open, out at P2; leg 2 the opposite side from P2 to 21:00 London; stops 0.5 ATR;
+  both orientations run, the USD-bid-in-London orientation read off the side column.
+Primary cell: 1A thr 0.10 on the 7 USD majors (EURUSD GBPUSD AUDUSD NZDUSD USDJPY USDCHF USDCAD), M15, pooled; t day-clustered (sum of
+R per day). Pass: PROTOCOL rule 4 AND beats the coin flip (harness R_coin) and both fake fixes by >= +0.05R; then p_best over all
+cells and BCa > 0. Data: FTMO export, every symbol; entries on M15 (M5/M30/H1 give the same bar opens at :00, so only M15 is run;
+said here so it is not read as a dropped timeframe). Exits on each symbol's finest bars (M1 gold/US100/US500/TSLA/NVDA, M5, FX M15).
+Costs: export spread x 1.2 + FTMO commission; no swaps needed (exits before 17:00 NY except 1C leg 2 = 16:00 NY). Deviation from the
+draft: the harness ATR is ATR(14) of server-day bars known before the day (draft said ATR(20)).
+
+### 98. Pre-registered (BEFORE running) — T1 TD Sequential / TD Combo (from #84 / research/drafts/top_traders_quant.md T1), every symbol x M30 / H1 / H4 / D1 (bt/xrules_td.py)   [2026-10-11 00:40 MYT]
+Definitions exactly as T1 in the draft (flip, setup 9 with cancel on C >= C[i-4], perfection, TDST, Sequential countdown with the
+bar-13 rule and cancels a/b/c, Combo countdown from setup bar 1). Signals S9, S9P, C13, K13; long at the next bar's open (shorts by
+the harness mirror); stop = TD risk level L[b*] - TrueRange[b*], b* = lowest low of the setup bars (S9/S9P) or of s9..cd13
+(C13/K13); signal skipped when the stop is > 4 x daily ATR away; no target; out at the close of the H-th bar after entry, H = 1 / 3 /
+5 / 10. Cells: 4 signals x 4 H x every export symbol x M30 / H1 / H4 / D1 (H4 / D1 on FTMO's clock; any positive H4/D1 result rerun
+with --h4-offset 1/2/3). Primary cell: D1, metals (XAU XAG XPT XPD) + energy (USOIL UKOIL NATGAS) + softs, signals C13 and S9P, H = 5.
+Swaps: the harness has none; added afterwards for D1/H4 holds from symbol_specs.csv (today's swap values as constants). Baselines:
+coin flip (same moment, other side, same stop distance), S9 vs S9P (perfection control). Pass bar as #97.
+
+### 97 (result). R1 London 4 pm fix — DEAD on every market (bt/xrules_fix.py, bt/q97_fix_report.py, results/q97_fix_cells.csv)   [2026-10-11 00:55 MYT]
+bt/xrun.py --export --tfs M15: 10 rules x 93 symbols = 896 cells, 1.82M trades, 0 pass the CANDIDATE bar (~22 expected by luck).
+Primary (1A fade, thr 0.10 ATR, 7 USD majors pooled): 12,005 trades, -0.078R, day-clustered t -10.5, 56% wins, every pair negative
+(-0.05 to -0.11R), 0 of 12 years positive (best 2016 -0.03R), before 2024 -0.083 / from 2024 -0.063.
+  Baselines: coin flip (follow the move instead) -0.125R; fake fix 14:00 -0.108R; fake fix 18:00 -0.128R. Fading the real fix beats
+  following it by +0.047R and the fake fixes by +0.03 / +0.05R: a small reversal at 16:00 London is there (as Krohn-Mueller-Whelan
+  say), but it is about +0.02R gross and FTMO spread + commission are ~0.10R a trade on these stop sizes. Bar: needs >= +0.05R over
+  every baseline and > 0 itself -> fails both.
+  thr 0.05 / 0.20: -0.093 / -0.051R; exit 16:30 -0.079R. 1D gold PM auction (15:00): majors -0.141R, XAUUSD -0.096R; 1A on XAUUSD -0.074R.
+  1B buy USD into the 16:00 fix: -0.121R (1 of 12 years up); into 15:00 -0.153R; XAUUSD short into 15:00 -0.048R.
+  1C session flip (USD bid 08-16 London, offered 16-21): 7 majors -0.032R (41,638 legs, 4/12 years up); the draft's EURUSD/GBPUSD/USDCHF
+  cell -0.028R (the draft expected about +0.03R; the sign is wrong after costs).
+Every market (fade 16:00, thr 0.10, mean R by group): forex -0.08, gold -0.07, indices -0.11, stocks -0.08, metals -0.47, energy -0.34,
+crypto -0.65, softs -0.66. Cells with t >= 2: AMD (57 trades) and CVX (+0.049R, second stock batch) only.
+Verdict: DEAD. What would change it: a venue with ~0.2-pip all-in costs on EURUSD (then the +0.02R gross is still too small to pass).

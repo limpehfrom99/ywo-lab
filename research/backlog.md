@@ -50,7 +50,7 @@
 21. [queued] Noise band with real 1-minute marks: when the laptop sends US100 M1 history, rebuild the bands and VWAP from M1
     (paper's resolution) and recheck 2025-26.
 
-22. [queued] SMC timeframe grid (bt/smc_grid.py, #31b) on US100/US500/US30 (M5 from 2021-09) and the 28 FX pairs (M15 entries, H1/H4 structure) once the full export is unpacked.
+22. [done #75 drafts (research/drafts/q75_ports.md): DEAD; one US30 cell WATCH at most, US500 contradicts] SMC timeframe grid (bt/smc_grid.py, #31b) on US100/US500/US30 (M5 from 2021-09) and the 28 FX pairs (M15 entries, H1/H4 structure) once the full export is unpacked.
 
 ## Added 2026-10-09 21:30 MYT — classic book / paper / code-base rules (exact rules fixed here; test as written, report every cell)
 Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US100/US500 M5 2021-08+ (data/ftmo), raw M30 exports
@@ -73,38 +73,38 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     stop at the pullback low; target the recent swing high; mirror. Daily and H4, gold + indices.
 29. [done -> log #55: DEAD; index longs = the IBS watch effect] Connors "Double 7s" ("Short Term Trading Strategies That Work", 2008): close above the 200-day MA and at a 7-day low ->
     buy at the close; sell at the first close at a 7-day high. Indices daily, gold, TSLA/AAPL; also short mirror below the MA.
-30. [queued] Dual Thrust (M. Chalek; the classic Chinese CTA rule): Range = max(HH-LC, HC-LL) over the last N days (N=4);
+30. [done #75 drafts (q75_intraday.md): US100 cash k=0.5 CANDIDATE by the letter but marginal (+0.060R, p_best 0.08, skill +0.02R, from 2024 +0.019); DEAD elsewhere] Dual Thrust (M. Chalek; the classic Chinese CTA rule): Range = max(HH-LC, HC-LL) over the last N days (N=4);
     buy stop at today's open + k1 x Range, sell stop at open - k2 x Range (k1=k2=0.5, also 0.3/0.7), stop-and-reverse,
     flat at the session close. Gold (NY day), US100/US500 (cash session), BTC (UTC day).
-31. [queued] R-Breaker (R. Saidenberg; top-ranked in Chinese futures quant): six levels from yesterday's H/L/C (pivot, breakout
+31. [done #75 drafts: DEAD] R-Breaker (R. Saidenberg; top-ranked in Chinese futures quant): six levels from yesterday's H/L/C (pivot, breakout
     buy/sell, reversal setup/enter levels, standard formulas); trend-follow on breakout, reverse on the setup->enter sequence; flat
     at the close. Gold, US100/US500.
-32. [queued] Pre-holiday effect (Quantpedia; Ariel 1990): long the day before US market holidays, close-to-close. US500/US100 daily
+32. [done #75 drafts (q75_swing.md): DEAD, US500+US100 -0.14R] Pre-holiday effect (Quantpedia; Ariel 1990): long the day before US market holidays, close-to-close. US500/US100 daily
     2017+ (holidays from the exchange calendar), costs + swap. Baseline: all other days.
-33. [queued] Bollinger squeeze breakout (J. Bollinger): BB(20,2) width at its 125-bar low -> trade the first close outside the
+33. [done #75 drafts: DEAD] Bollinger squeeze breakout (J. Bollinger): BB(20,2) width at its 125-bar low -> trade the first close outside the
     bands; stop at the middle band; exit when price closes back inside / at the opposite band. Gold daily + H4, indices daily.
-34. [queued] MQL5 CodeBase EAs with published claims — read each page's source (WebFetch mql5.com/en/code/...), extract the exact
+34. [done #75 drafts (q75_web.md): Gold Breakout EA H4 WATCH (+0.18R, before 2024 +0.03R); 4 EAs untestable (source not readable)] MQL5 CodeBase EAs with published claims — read each page's source (WebFetch mql5.com/en/code/...), extract the exact
     rules, test on our longer history: "Stochastic Daily Breakout for Gold (+245% 2021-2026)", "Gold Breakout EA XAUUSD H4 (+90%
     2020-2026)", "ZoneUS30: reversion + positive swap", "The Nikkei EA that only buys when volume is quiet", "ORB Risk Managed".
     Gold/indices first; JP225/US30 [needs export].
-35. [queued, needs export] Zarattini & Aziz (2023, SSRN "A Profitable Day Trading Strategy for the U.S. Equity Market"): 5-min ORB on
+35. [done #75 drafts: DEAD, -0.25R, no better than a random 20%] Zarattini & Aziz (2023, SSRN "A Profitable Day Trading Strategy for the U.S. Equity Market"): 5-min ORB on
     "stocks in play" — each day take the stocks whose first-5-min tick volume / its 14-day average is highest (top 20% of the 46),
     trade the direction of the first 5-min candle with a stop at 10% of the 14-day ATR, exit at the close. FTMO stocks open 9:35, so the
     first bar is 9:35-9:40. Compare with the opening candle (#live) on the same stocks.
-36. [queued, needs export] Gold/silver ratio mean reversion (E. Chan style): z-score of log(XAU/XAG) over 60 days; |z| > 2 -> long the
+36. [done #75 drafts: DEAD] Gold/silver ratio mean reversion (E. Chan style): z-score of log(XAU/XAG) over 60 days; |z| > 2 -> long the
     cheap leg, short the rich leg (equal $ risk), exit at z = 0 or 20 days. Daily 2015+.
-37. [queued, needs export] Clenow "Following the Trend" across every FTMO CFD: long when 50-EMA > 100-EMA and a 50-day high, 3-ATR
+37. [done #75 drafts: DEAD] Clenow "Following the Trend" across every FTMO CFD: long when 50-EMA > 100-EMA and a 50-day high, 3-ATR
     trailing stop, mirror for shorts, ATR position sizing; portfolio of all markets vs each group. (Overlaps quant/ rule books.)
-38. [queued] freqtrade-strategies (github.com/freqtrade/freqtrade-strategies): port the 5 most-starred long-only rules, test on BTC M30
+38. [done #75 drafts: DEAD, all 5] freqtrade-strategies (github.com/freqtrade/freqtrade-strategies): port the 5 most-starred long-only rules, test on BTC M30
     2020+ and ETH [needs export]; FTMO crypto costs 0.0325%/side. Low priority (1:1 leverage).
-39. [queued, needs export] Trend-following exit grid across every market (#32D): entries = close above the 20/55-day high (long and short), exits = 2/3/4-ATR chandelier, 10-day low, 50-day MA, hold 20/60; random-entry baseline per cell; real swaps from symbol_specs.csv; pooled by group; walk-forward choice of exit (quant/walkforward.py).
+39. [done #75 drafts: DEAD except one crypto D1 cell rated WATCH (edge from 2011-17)] Trend-following exit grid across every market (#32D): entries = close above the 20/55-day high (long and short), exits = 2/3/4-ATR chandelier, 10-day low, 50-day MA, hold 20/60; random-entry baseline per cell; real swaps from symbol_specs.csv; pooled by group; walk-forward choice of exit (quant/walkforward.py).
 40. [dropped 2026-10-10: #33 DEAD after the same-bar look-ahead fix, log #57] [was: queued, needs export; first part done in #48: 3 pairs +0.150R pooled but +0.03 before 2024] #33 FVG retest (1-hour, BOS -> first FVG -> limit at the gap edge, stop at the leg high + 0.05 ATR, target the last pullback swing low, >= 2R) unchanged on every FX pair (the poster's market), US/EU indices, silver and oil; exits on the finest bars available; pooled by group; no re-tuning.
 41. [dropped 2026-10-10: #35 DEAD after the same-bar look-ahead fix, log #57] [was: queued, needs export; first part done in #48: EURUSD/GBPUSD/USDCHF +0.115R pooled on FTMO's clock] #35 breaker-block retest (4-hour and 1-hour, rules in bt/ob_strategies.py strat3) unchanged on every FX pair, US/EU indices, silver, oil; 4-hour candles on FTMO's server clock (bt/data_standard_check.h4_server) as the primary cell, all four hourly grid starts reported (#39: on gold it is +0.02 to +0.13R by start hour); pre-registered second cell: skip blocks whose candle tick volume >= 1.2 x the median of the 50 bars before (#40); pooled by group; overlap/correlation with #33 and the opening candle; then FTMO odds of OC + #33 (+ #35 only if it passes on the server clock).
 42. [dropped 2026-10-10: #33/#35 DEAD, log #57] Momentum-score filter (#36 table, bt/pullback_lab.py legs()) applied unchanged to the #33 and #35 trades: score >= 5 vs <= 4 on the leg before each setup; pre-registered: keep only if the filtered set beats the unfiltered by >= 0.05R in-sample (before 2024) AND out-of-sample.
-43. [queued, needs export] #38 rule A ("two wicks, big-body break, retest the level"; bt/breakout_retest.py rule_a) unchanged on the
+43. [done #75 drafts: DEAD, 0 of 36 primary cells positive] #38 rule A ("two wicks, big-body break, retest the level"; bt/breakout_retest.py rule_a) unchanged on the
     trader's own markets US500 / US100 (ES / NQ), 5m / 15m / 1h, follow-through on and off, 2R and prior-high targets; gold was
     -0.01 to -0.25R in every cell. One pass, all cells reported; also rule B (trend candle 0.382) on the same markets.
-44. [queued, needs export] #43 value-area rules (bt/value_area.py V1-V3, ETH + RTH) unchanged on the export's 5-minute US100 / US500
+44. [done #75 drafts: DEAD, US100 RTH V3 +0.001R] #43 value-area rules (bt/value_area.py V1-V3, ETH + RTH) unchanged on the export's 5-minute US100 / US500
     (and US30, GER40, UK100) from 2015, profile from 5-min tick volume, exits on 5-min; pre-registered cell to confirm: US100 RTH V3
     (+0.096R, t 2.3 on 30-min bars 2021-26). Dead unless US100 RTH V3 holds before 2021 AND US500 RTH V3 turns positive.
 45. [done: OpeningCandle_EA v1.10, commit f05e0e7, Shen said go] OpeningCandle_EA duplicate-order guard (#44): before every send, FindPosition() by magic -> adopt + mark the
@@ -173,3 +173,13 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
     7 pairs, M15/H1/H4 (quant/laggard.py).
 69. [done #81: DEAD] Lance Breitstein's five S/R criteria on prior-day high/low breakouts (RedNote rn075), every symbol M5/M15
     (quant/lance_levels.py). For #35/#75: the first-30-minute relative tick volume filter lifted US-stock breakouts by +0.06R (t ~4).
+
+## Added 2026-10-11 00:40 MYT (nightly loop) — the 29 frozen rules of log #84 (research/drafts/top_traders_prop.md R1-R15,
+## top_traders_quant.md T1-T14), in the drafts' rank order; run unchanged on every symbol/timeframe each rule applies to
+70. [running -> log #97] R1 London 4 pm WMR fix (fade into-fix move; into-fix USD bid; session flip; gold PM auction).
+71. [running -> log #98] T1 TD Sequential / Combo, every symbol x M30-D1.
+72. [queued] R14 18:00 NY reopen gap fade (US500/US100/US30/XAUUSD primary; every symbol).
+73. [queued] R2 month-end fix hedge rebalancing (EURUSD/GBPUSD/USDJPY/AUDUSD vs their index legs).
+74. [queued] R3 Tokyo 9:55 fix / gotobi USDJPY (+ yen crosses).
+75. [queued] T2 Korean volatility breakout (noise-adaptive k, MA score, vol targeting).
+76. [queued] T3 Williams smash day; T4 BNF deviation; T5 200-day filter on the live edges; T6-T14 and R4-R13, R15 as in the drafts.
