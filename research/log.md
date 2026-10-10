@@ -1450,3 +1450,31 @@ Primary (1A fade, thr 0.10 ATR, 7 USD majors pooled): 12,005 trades, -0.078R, da
 Every market (fade 16:00, thr 0.10, mean R by group): forex -0.08, gold -0.07, indices -0.11, stocks -0.08, metals -0.47, energy -0.34,
 crypto -0.65, softs -0.66. Cells with t >= 2: AMD (57 trades) and CVX (+0.049R, second stock batch) only.
 Verdict: DEAD. What would change it: a venue with ~0.2-pip all-in costs on EURUSD (then the +0.02R gross is still too small to pass).
+
+### 99. Pre-registered (BEFORE running) — R14 18:00 New York reopen gap fade (#84 / top_traders_prop.md R14), every market (bt/xrules_reopen.py)   [2026-10-11 01:05 MYT]
+C0 = close of the last bar starting before 17:00 NY (Friday's for the Sunday reopen, tagged), O18 = open of the 18:00 NY bar, G = O18 - C0;
+|G| >= 0.10 daily ATR -> at the next bar's open trade toward C0; target C0; stop |G| beyond O18; out 20:00 NY; skipped if the next open
+is already at/through C0 or the stop. Primary: US500, US100, US30 M5 (pooled) and XAUUSD M5 entries with M1 exits. Every export symbol
+x M5 / M15 / M30 / H1 (the entry is the next bar of that frame: 18:05 / 18:15 / 18:30 / 19:00). Where a market trades through 17-18
+(forex, crypto) G is that hour's move, not a gap — reported, not hidden. Report-only cell: follow the 18:00-19:00 move from 19:00 to
+20:00 (stop 0.25 ATR); its coin flip is the fade. Baseline: coin flip. Pass bar as #97. Costs: export spread x 1.2 + commission (no swap:
+the trade opens after the 17:00 rollover and closes at 20:00).
+
+### 98 (result). T1 TD Sequential / TD Combo — DEAD on every market and timeframe (bt/xrules_td.py, bt/q98_td_report.py, results/q98_td_cells*.csv)   [2026-10-11 01:15 MYT]
+bt/xrun.py --export --tfs M30,H1,H4,D1: 16 rules x 94 symbols = 5,416 cells, 2.18M trades. Swaps added afterwards (today's spec-sheet
+swap as a fraction of price per rollover, x3 on the triple day). D1/H4 bars are built from the intraday base, so D1 covers 2015-26 (not
+the paper's 2004-14 and not the D1 export from 2007 — harness limitation).
+Primary (D1, metals + energy + softs, H5): C13 105 trades -0.109R (t -1.2, 3/12 years up; before swaps -0.067; coin -0.079);
+  S9P 428 trades -0.180R (t -4.1, 2/12 years; before swaps -0.123; coin -0.062). Every H for the primary group: -0.06 to -0.28R.
+  The perfection control goes the wrong way: S9P is worse than S9 (-0.131R at H5) on the primary group and on every timeframe pooled.
+Pooled ex-crypto, swap-adjusted, mean R: M30 -0.11 to -0.19, H1 -0.08 to -0.14, H4 -0.06 to -0.10, D1 -0.11 to +0.007 (C13/K13 H10
+  +0.006/+0.007, t ~0). The signal side beats its coin flip by +0.01 to +0.05R on M30/H1 (exhaustion -> slight reversal) and by about
+  zero on H4/D1 — never enough to pay the spread. H4 at the other three start hours (--h4-offset 1/2/3, no swaps): -0.03 to -0.08R
+  for every rule, same as FTMO's clock (-0.05 to -0.07).
+By group (H4+D1, H5, swaps): indices +0.015 (C13), stocks +0.012 (C13), gold +0.020 (S9); forex -0.05 to -0.07; metals ex-gold, energy,
+  softs, crypto -0.16 to -0.38.
+Cells: 20.8% positive; 14 pass the bar before swaps, 10 with swaps, vs ~135 expected by luck; all 10 are M30/H1 stocks (BABA 6, DIS 2,
+  NKE, AMD — DIS/NKE/AMD are the thin second batch, #67).
+Verdict: DEAD. The paper's "predictive power over a narrow holding window" may exist gross on commodity futures; on FTMO CFDs after
+spread and swaps it is negative in the paper's own cell. What would change it: the paper's market/period (2004-14 futures) is not in
+the data; nothing in 2015-26 points that way.
