@@ -1356,3 +1356,53 @@ Bond leg: synthetic 10-year bond price from DGS10 (price = 100 / (1 + y/200)^20,
 Valuation tool has all three of his references (DXY, bonds, gold); #66's VAL rules rerun with it on every market of the export.
 Pass bar: PROTOCOL rule 4 on the primary cell AND beats both baselines; then the selection-aware test over all cells (random-week
 shuffles, >= 200) and BCa lower bound > 0.
+
+### 83. Pre-registered (BEFORE running) — Bernd Skorupinski's methods as he states them in his own videos (150 transcripts read: research/drafts/bernd_tx_notes_00..04.md; web research: research/drafts/bernd_web.md)   [2026-10-10 11:05 MYT]
+Settings now pinned by his own words: COT = Legacy report, commercials followed and small speculators (non-reportables) faded,
+windows 6 months / 1 / 2 / 3 years / full record with 20/80 lines; Valuation = 10-bar change vs DXY, 30-year bonds and gold over 480
+bars, +-0.75 (= #66's ROC version); Seasonality = 5/10/15-year averages aligned by trading day. Rules fixed now (longs; shorts mirrored):
+A. Zones v2 (his candle and zone definitions). Body ratio = |C-O|/(H-L): indecisive <= 0.5, decisive > 0.5, explosive > 0.7 and range
+   >= 1.5 x the mean range of the previous 10 bars. Pattern: leg-in (1+ decisive candles), base (1-6 consecutive indecisive candles),
+   leg-out (an explosive candle, or a decisive candle with range >= 1.5 x mean followed by another decisive candle the same way) whose
+   close exceeds the base's highest high. Proximal (preferred) = highest candle body in the base; distal = lowest low of base + leg-out
+   (rally-base-rally) or of leg-in + base + leg-out (drop-base-rally); h = proximal - distal. Profit margin: price must reach proximal +
+   3h before the first return, else the zone is skipped. Only the first return is traded (freshness). Limit at the proximal, live up to
+   200 bars; stop = distal - 0.33h; target 3R; break-even after +1R (from the next bar). Cells: Z5a as above; Z5b = Z5a + coverage (the
+   zone overlaps a fresh same-side zone of the higher timeframe: M5/M15->H1, M30/H1->H4, H4->D1, D1->W1); Z5c = Z5b + location (proximal
+   in the lower third between the nearest fresh higher-timeframe demand and supply distals) + trend (3% ZigZag on the higher timeframe;
+   counter-trend only with no fresh opposing zone within 2R, target 2R); Z5d = Z5a with the wide proximal (highest wick of the base).
+   Baselines: the plain-level zone of #58 (Z0) with the same mechanics, and coin flip. Primary cells: D1 and H4 on the forex majors,
+   gold, silver and US indices; every symbol x timeframe M5-D1 reported.
+B. Globex trap (US100, US500, US30, US2000; overnight 18:00-09:30 New York): zones (Z5a definitions) on 15-minute bars of the previous 5
+   sessions; at 09:30 the nearest fresh demand zone entirely below the overnight low (supply above the high); limit at its proximal,
+   live 09:30-11:30, cancelled if touched before the open; stop distal - 0.33h; targets 1R and 2R (cells); break-even at 1R; flat 16:00;
+   FOMC / CPI / jobs-report days skipped. Also GER40 / EU50 / FRA40 with a 22:00-09:00 CET overnight.
+C. Gold seasonal: long XAUUSD from the close of the last trading day of November to the close of the last trading day of January, every
+   year with data; the same window on every other symbol; his claim: 9 of 10 years up (2014/15-2024/25); baseline = every other 2-month
+   window of the same symbol.
+D. Futures "mini gap": on 60/120/180/240-minute bars (also M30, D1), Open[t] < Low[t-1] -> buy at Open[t], target Low[t-1], stop
+   Open[t] - (Low[t-1] - Open[t]), out after 6 bars; up-gaps mirrored. Fill rate within 1/3/6 bars vs bars without a gap. Every symbol.
+E. COT his way (commodities now, forex/indices when the Legacy file arrives): strength = number of the 5 windows (26, 52, 104, 156 weeks,
+   full record) in which small speculators <= 20 AND commercials >= 80 (long; mirror short); cells strength >= 1, >= 3, = 5; hold 13 and
+   4 weeks; his 2026 gate as a cell: only if the same signal had >= 6 earlier cases with >= 60% wins and a positive average 13-week
+   result before the date. Costs, timing and baselines as #82.
+F. Seasonality his way (bug-fixed seasonal, #82): 5-, 10- and 15-year average forward paths by trading-day index; signal when all three
+   point the same way over the next 30 trading days; hold 30 trading days; every symbol with 15+ years of D1. His 2026 window scanner:
+   windows (start trading day, 5-30 trading days) up (down) in >= 12 of the previous 15 years, traded the next year (walk-forward as #64).
+   Silver vs gold: valuation of XAGUSD vs gold (ROC version) > +0.75 -> short silver for 4 weeks (his "every single time" claim).
+G. Cycles (descriptive only; FTMO D1 covers ~5 cycles): pre-election years Oct 19 -> Dec 31 long, election years election day -> Dec 31
+   long, years ending in 5 long, on every US index vs all other same-length windows.
+Pass bar: PROTOCOL rule 4 on the primary cell and beat its baselines; survivors get the selection-aware permutation test and BCa.
+
+### 84. Pre-registered (BEFORE running) — rules of top prop-firm / competition traders, quants and Asian methods (research/drafts/top_traders_prop.md R1-R15, research/drafts/top_traders_quant.md T1-T14)   [2026-10-10 11:05 MYT]
+Shen (10 Oct 08:59 MYT): "find more ftmo top traders ... all top prop firm top traders and global trading competition top traders ...
+China and their quants and even investing genius". Two research passes wrote 29 rules with exact definitions, primary cells and small
+fixed grids; they are frozen as written at commit 352756c and run unchanged on every symbol and timeframe each rule can apply to:
+R1 London 4 pm fix, R2 month-end fix, R3 Tokyo 9:55 fix / gotobi, R4 Unger DAX bias, R5 momentum-leader breakout, R6 undercut-and-reclaim,
+R7 night FX-cross mean reversion, R8 Davey range expansion, R9 episodic pivot, R10 Unger crude false breakout, R11 Minervini template +
+VCP, R12 parabolic short/long, R13 Unger gold flat-day breakout, R14 18:00 NY reopen gap fade, R15 Korean closing bet; T1 TD Sequential /
+Combo, T2 Korean volatility breakout, T3 Williams smash day, T4 BNF deviation, T5 200-day filter on the live edges (opening candle, gap
+fade, noise band), T6 Thermostat, T7 Aberration / King Keltner / Bollinger Bandit / Dynamic Breakout II, T8 Sky Garden (+ the mirror
+cell), T9 Unger Daily Factor, T10 Fiali four-price, T11 O'Neil / Minervini filters, T12 Camarilla, T13 ATR channel, T14 Darvas box.
+Also Williams "Oops" (#51, blocked for 1-minute data) on the real M1 history: US100/US500 from 2021-09-14, TSLA/NVDA from 2021-08-02,
+gold from 2015. Pass bar as #83 (rule 4 on the primary cell, beat its baseline, then p_best <= 0.10 over all cells and BCa > 0).
