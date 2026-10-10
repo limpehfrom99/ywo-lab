@@ -1251,3 +1251,86 @@ and 10% static loss, >= 4 trading days, 12-month horizon; funded: 12 months, 80%
 (zero = each strategy's mean R subtracted). Firms: FTMO Swing (stock risk capped by 1:1 leverage), FTMO Standard (1:3.3),
 FundedNext Stellar 2-step (+8% then +5%, 5 trading days). Choice: the highest probability of passing both phases within 6 months at
 HALF edge, with P(fail) <= 25% at half edge; full- and zero-edge rows shown next to it.
+
+### 78. RedNote reposts (油管中文配音檔案館) of Scarface Trades — "My Simple '9:30AM Candle' Scalping Strategy (Backtested 1000 Times)" + "Trading Isn't Hard, It's Misunderstood": the 5-minute opening-range break & retest is DEAD on every market and timeframe   [2026-10-10 10:00 MYT]
+Videos rn076, rn077 (transcripts = OCR of the burned-in English/Chinese subtitles, tools/video/sub_ocr.py). Rules fixed in the
+docstring of quant/orb_retest.py before its first run (this entry was written after the run).
+As told: mark the high/low of the first 5-minute candle of the New York session; on 1-minute wait for a CLOSE beyond one side; wait for
+the retest of that level with "weak/strong price action"; enter; stop = a break of the candle you enter on (some examples: the candle
+that broke out); target the day's low/high or at least 2R; first 90 minutes only; "works on any market at the 9:30 Eastern candle".
+Claimed: 1,308 trades, 59% winners, profit factor 4.15. The second video adds the daily trend from swing structure ("external /
+internal liquidity") and the previous day's high/low as the target.
+Mechanical: side = the most recent close outside the range (a close beyond the other side flips it); trigger = the first later bar that
+trades back to the broken edge and closes on the breakout side; entry at the next bar's open; stop E = the trigger bar's far end (the rule
+as stated) | B = the breakout bar's far end; target 2R (1.5R / 3R grid); out at the session close (E2_90: 90 minutes after the open);
+TREND = E stop, only with the daily structure trend (3-bar session pivots, last close beyond a confirmed swing), target the previous
+session's high/low when >= 2R away. Baselines: coin flip x 10; BRK2 = the same breakout without the retest. Every export symbol on us_cash
+plus its own exchange session; M1 for XAUUSD (2015-26), US100, US500, TSLA, NVDA (2021-26), M5 (FX M15) for all; OR 5 / 15 / 30 minutes.
+3,033 cells (results/orb_retest_cells.csv, orb_retest_pooled.csv).
+  Primary cell US500 M1, OR 5, E stop, 2R: 1,121 trades, -0.514R (t -12.2), 27.6% wins, profit factor 0.48; before costs -0.17R;
+    coin flip -0.40R; every year -0.46 to -0.67R. Median stop 4.5 bp (~3.5 points); spread + commission = 0.23R a trade.
+  The five M1 markets pooled, OR 5: E2 -0.480R (7,177 trades), B2 -0.277R, BRK2 (no retest) -0.245R, TREND -0.328R (3,586).
+    E2 per market: US100 -0.17R, TSLA -0.24R, NVDA -0.34R, US500 -0.51R, XAUUSD -0.76R.
+  Every symbol, M5, ex-crypto: E2 -0.73 / -0.60 / -0.65R (OR 5 / 15 / 30), B2 -0.36 to -0.46R, TREND -0.56 to -0.66R.
+    2.9% of the 3,033 cells positive.
+  Selection rule (quant/evaluate.py): 1 cell passes in-sample (QCOM M5 OR5 B3) where ~18 would by luck; out of sample +0.01R.
+  Best TREND cell: TSLA M1 +0.12R (554 trades, t 0.8; before 2024 -0.03, from 2024 +0.26) = the TSLA intraday trend the opening candle
+    already trades.
+Verdict: DEAD. The retest makes the plain breakout worse (-0.48 vs -0.25R on M1), and a 1-minute candle stop pays 0.18-0.34R a trade
+in spread before any edge. 28-31% winners and profit factor 0.42-0.52, not 59% and 4.15.
+
+### 79. RedNote reposts (油管中文配音檔案館) of Inter Equity Trading (Marco) — "Liquidity Mastery | Volume 1" (EURUSD) + the short "How many pips do you target when you scalp?": "induce, trap, then sell" is DEAD   [2026-10-10 10:00 MYT]
+Videos rn074, rn078. Rules fixed in bt/xrules_rn79.py before its first run.
+His reading (shorts; longs mirrored): lows left intact = liquidity and future targets; a sell-off through lows "induces sellers"; price then
+runs above the high those sellers sit under ("trapped") -> "anything above this high is a valid sell", stop covering the liquidity
+block, target the intact lows; repeated reactions at a level inside a trap = "engineered liquidity". He says the video is about reading
+liquidity, not entries, and that his two example entries came off news spikes. The short: no fixed pips or RR, the target is "whatever
+the chart tells me" (e.g. the highs), "5 to 600 ticks" on NQ.
+Mechanical: 3-bar fractal swings usable 3 bars later; BOS = a close below the last swing low; H* = the last swing high, LB = the latest
+swing high above it; sell limit at H* for 48 bars (fill checked first, an open >= the stop cancels, a close above the stop cancels from
+the next bar on); stop = LB + 0.05 daily ATR; target 2R, or the low since the BOS if >= 1R away. bt/xrun.py --export: every symbol, M5-D1,
+exits on the finest bars, FTMO costs, coin flip (results/rn79_marco_cells.csv).
+  530 cells per target: 0 pass the CANDIDATE bar (~13 expected by luck); 10% (2R) / 17% (low target) of cells positive.
+  Ex-crypto pooled, 2R / low target: M5 -0.48 / -0.52R, M15 -0.29 / -0.32, M30 -0.25 / -0.27, H1 -0.21 / -0.23, H4 -0.16 / -0.19,
+    D1 -0.13 / -0.17R; at or below the coin flip; the "liquidity" target is worse than a fixed 2R on every timeframe.
+  EURUSD (his market): M15 -0.26R (10,525 trades, 0 of 12 years up), H1 -0.20R, H4 -0.13 / -0.08R, D1 -0.25 / -0.40R.
+  The only cells with t > 2 are LTCUSD (+2.7 to +4.1R: the 2018-21 tiny-stop coin artifact; -0.6 to -0.9R from 2024).
+Verdict: DEAD. Same family as #30, #38 and #42 (sweeps and "liquidity" levels), now on every market and timeframe.
+
+### 80. RedNote repost (油管中文配音檔案館) of JeaFx — "How I Day Trade GBPUSD (with price action)": the correlation read (sell the laggard) is DEAD   [2026-10-10 10:00 MYT]
+Video rn073. Rules fixed in quant/laggard.py before its first run.
+His trade: the dollar index bullish (Fed), EURUSD had already taken its range low but GBPUSD's matching low was intact -> "the low is
+probably rather likely to go" -> sell GBPUSD; entry a 15-minute supply-zone limit, stop over the zone and its wick (refined on 5-minute),
+target the range low (6R). The rest of his read is already dead here: supply/demand zone entries (#58, #67), "demand failure" = the
+breaker (#35/#57), equal lows as a magnet (#38); "efficient range" has no rule to test.
+Mechanical: pairs EURUSD/GBPUSD (primary: GBPUSD lagging), AUDUSD/NZDUSD, EURJPY/GBPJPY, US500/US100, US30/US500, GER40/EU50, XAUUSD/XAGUSD;
+either side leads; lows and highs. Bar t: the leader closes below its N-bar low for the first time while the laggard's low stays above
+its own; sell the laggard at the next open, target its N-bar low, stop at the same distance (1:1) or half of it (target = 2R); out at the
+target, the stop or after N bars. N = 120 (primary) / 24; M15 / H1 (primary) / H4 on the server clock; spread x 1.2 + commission.
+Baseline: the same trade when both markets are still inside their ranges (results/laggard_cells.csv, 336 cells).
+  Primary (GBPUSD lagging EURUSD, H1, N 120, 1:1): 228 trades, -0.065R, target first 46%, baseline +0.008R.
+  All 7 pairs, both legs and sides: every pooled cell negative; H1 N120 1:1 -0.10R (4,020 trades). Among trades that reach the target
+    or the stop, the laggard takes its low first 46-49% of the time at 1:1 (a coin: 50%) and 29-33% at 2:1 (a coin: 33%).
+  8% of cells positive, 13% beat their baseline, 1 beats it at t >= 2 (~8 by luck).
+Verdict: DEAD. The twin's break says nothing about whether the laggard takes its own low.
+
+### 81. RedNote repost (油管中文配音檔案館) of Lance Breitstein — "Why Your Support & Resistance Lines Don't Work ($100M Trader Explains)": his five filters on prior-day high/low breakouts — DEAD; "in play by volume" is the one filter with information   [2026-10-10 10:00 MYT]
+Video rn075. Rules fixed in quant/lance_levels.py before its first run.
+His claim: blind S/R is noise ("academics have shown support and resistance do not work", "better off flipping a coin" - as #0/#1
+found); a break is worth trading when (1) the product is in play (unusual volume, volatility, catalyst), (2) the level is clean and
+obvious, (3) price consolidated properly into it, (4) it drew an emotional reaction before, (5) timeframes agree (his example: gold's
+intraday break of the prior day's high). "The more criteria you stack, the better."
+Mechanical: buy-stop at the prior session's high / sell-stop at its low, from 30 minutes after the open to 2 hours before the close;
+first touch decides; stop = the far end of the 30 minutes before the break (>= 0.1 daily ATR); out at the close (primary) or 2R.
+Filters: IP = first-30-minute tick volume >= 1.5 x its 14-day average; IPV = first-30-minute range >= 1.5 x; CONS = 30-minute range
+before the break <= 0.3 ATR; MTF = the level is also the 5-day extreme; REACT = yesterday closed >= 0.25 ATR off the level; ALL4; ANY3.
+Every symbol on its battery sessions, M5 and M15 (results/lance_cells.csv, lance_pooled.csv; 3,158 cells).
+  Plain breakouts, all days: ex-crypto -0.14R (M5, close; 39,577 trades); US stocks -0.03R, indices -0.06R, forex -0.17R, metals -0.38R.
+  IP: +0.06-0.11R better than all breakouts ex-crypto (t 5-8); US stocks +0.05-0.06R better (t 3.4-4.1) -> +0.02-0.03R (t ~2),
+    better than non-IP days in every year 2021-26 but negative itself in 2025-26; 15 of 30 stocks positive.
+  CONS makes it worse everywhere (-0.03 to -0.08R: the tighter stop pays more spread); MTF, REACT and IPV change nothing.
+  ALL4 on US stocks M5: +0.11R (436 trades, t 1.8; 2021-24 +0.14 to +0.21, 2025 -0.02, 2026 -0.20; M15 +0.03R) - the best of ~190
+    pooled cells, inside luck.
+Verdict: DEAD as a strategy. The in-play volume effect is real but small; it belongs to backlog #35 ("stocks in play", pre-registered in
+#75), which should report it.
+Same batch: "From $0 To $2M Trading Prop Firms In 20 Months" (JJ Simon) is byte-identical to rn020 (#47) - not re-tested.

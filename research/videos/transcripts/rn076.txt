@@ -1,0 +1,365 @@
+# rn076 | 油管中文配音檔案館 (Scarface Trades) | My Simple 9:30AM Candle Scalping Strategy (Backtested 1000 Times) | 1107s | log #78
+# OCR of the burned-in bilingual subtitles (tools/video/sub_ocr.py): English line || Chinese line; the English line is cut at the frame edges when it is long.
+[00:00] er 7 years of trading,my simple 9.30am onelcandlelscalping strategy was  ||  交易/年后,靠简单的930单K线剥头皮策略，
+[00:05] simplest way I became a profitable trader.  ||  我成为盈利交易者
+[00:08] wasted 3 years trying to learn over complicated strategies until I found thi  ||  IWasted我浪费3年学复杂策略LearnOver..
+[00:13] one candle system.  ||  直到发现这套单线系统
+[00:15] And this is the exact strategy I will trade every day in 2026 even if I starte  ||  2026年我每天都会用这套策略，。，
+[00:20] as a complete beginner because it's so simple to learn.  ||  即使新手也能学会，。
+[00:24] his video,l'll show you why you don't need an over complicated strategy a  ||  ，本视频讲为何无需复杂策略，
+[00:28] ad how I focus on one candle every morning that helped increase my win  ||  以及我如何专注早盘单K线提高胜率
+[00:33] ps me trade for about9o minutes a day, andmost importantly gets rid of  ||  （（它让我每天只交易约90分钟，
+[00:37] guesswork in mytrading..  ||  （并消除交易中的猜测
+[00:38] After showing you the full strategy,I'll show how I implement it in the real  ||  展示完整策略后,我会演示实盘应用，
+[00:42] narkets and finally I'll reveal the backtested results of what would happen  ||  Revea井公布只交易此策略IodResults.
+[00:46] only this one strategy was traded 1ooo times.  ||  00次的回测结果
+[00:50]   ||  YOUARE SOL FILY RESPONSIRL E FORYOURTRADING DECISIONS
+[00:51] n this video, I'm goingrto.explalinmy.g3oam.candle.scalping strategy and  ||  。。。。。本视频蒋讲解我的930单K线剥实皮策略。。，。
+[00:56] allowed me to haveresults.likerthisthisandthisandthese are all month  ||  。。。。它让我取得这些今年月度。。。。。
+[01:01] ENTEISIAMER POMNSTSANANSreSuUtS fORAtheyearANNELISFORERUATINPOANRTAL  ||  
+[01:02] Now it's importantto.rememberthat ittookmelyears to get here.  ||  。。。。。记我花了年乎走到这一步。。。
+[01:05] Tradingisnotargetrichiguiakbusinessa  ||  交易不是快速暴逼的生意。。
+[01:07] mary reasons thatl vebeen.able.to.achieve.theseresults month over mor  ||  9但今天讲的策略是我今年月取得这些成绩的主因乏一
+[01:15] f I'm able to have results like this, why do most traders lose money in trad  ||  。。。。既然我能有这样的成绩,为何多数交易者仍污损？。。。
+[01:20] Does this mean profitable traders are different than you?  ||  。难道盈利交易者和你不同吗。。
+[01:23] Or is this something that that traders that keep losing don't know?  ||  。。。。。。述是持续亏损者不知道某些东西？。。。。。。
+[01:28] Well, the reality is for myself, when I first started trading, I was going  ||  实话说
+[01:32] through the boom and bust cycle.  ||  。我刚开始交易时经历起天落周期。
+[01:33] t this means is I would make money trading sometimes and I would have  ||  。。。。。。。即有时赚钱偶尔有盈利单。。。。。。。
+[01:38] trades once in a while, but these good trades would be very small winners  ||  。。。。。但盈利都很小。。。
+[01:42] So even if I won, I would win anywhere from 5o to $loO.  ||  即使赢,也只赢50到血00美元。。。。
+[01:46] However, every time I would lose, I would lose big.  ||  但每次亏损都很。
+[01:50] I this made me blow up my account because I consist中文配己音 and wh  ||  这让我爆仓。
+[01:54] won，lonlywonsmall.中文配音  ||  因为总大小赚
+[01:56] 中文配音  ||  
+[01:57] erefore, I knew I had to get out of this boom and bust cycle to see any sort  ||  因此
+[02:01] success in trading。  ||  我知道必须跳出天起天落能成功
+[02:02] cause if I didn't, I would continue to feel stuck and hopeless testing and us  ||  否则我会继续困在测试复策略的
+[02:07] complicatedstrategies.  ||  绝望中
+[02:08] I've probably tested hundreds of strategies in my trading career,  ||  我交易生涯中可能测试过数百种策略
+[02:12] but all of them just kept confusing me.  ||  但它们只证我更困惑
+[02:13] nd it kept me stuck in this hamster wheel where I kept losing money tradin  ||  ‘证我困在直亏损的仓鼠轮里：
+[02:18] that's why it took me years of losing as a trader to finally understand one  ||  。。。。所以我了多年，。。。
+[02:22] the most important concepts that is a backbone of all my strategies,  ||  。。，。于终于明自支撑我所有策略的核心概念。。。。
+[02:26] all my systems, and my success in trading.  ||  我的系统和绞易成功都靠。
+[02:29] And it can be simplified into two words.  ||  。。可概括为两个词。
+[02:32] And that is simplicity equals profitability。  ||  。。简单即盈利
+[02:35] When you are trying to be a trader, especially in the beginning, if you're a  ||  ，。。新手越简化策略，。。。。。。
+[02:39] trader, the more simple you can make your strategy, the higher chances  ||  。。越可能盈利。。。。
+[02:44] ecoming a profitable trader, because you're not over complicating anythin  ||  。。。。。因为不会把事搞覆杂。。。。
+[02:49] As we know, as a trader, there is thousands of trading strategies,  ||  （ARMRNSDIVERGE众所周知交易策略有数干种）。
+[02:52]   ||  HARMANSDIVERGENCECSUERMAANDSTMAEKERESTRERECHASTER
+[02:53] you have IcT, smart money concept strategies,price action, supply and]  ||  ARMRNSDIVERGENCESU如IC聪明钱RHA）
+[02:57] and, and all of these can create noise and confusion, especially if you're a  ||  。。（ARMRNSDIVERGENCE价格行为供需等，REH）
+[03:02] trader.  ||  ARMRNSDIVERGENCESU会让新手混乱REHA
+[03:02] So rather than focusing on every single one, I decided, let me block out  ||  。ARMRNSDIVERGENCE我不再关注所有，RH。。
+[03:07] everything that doesn't work for me, along with getting rid of all the  ||  。ARMRNSDIVERGENCE而是屏蔽无效方GH
+[03:11] indicatorsion my-chart or-anything that is lagging price action.  ||  
+[03:14] .if-your chart looks-like this, this is too confusing.  ||  品92如果你的图表这样太混乱了。
+[03:18] opinion, I wanted to make trading.as simple as possible and make it wher  ||  。。品%72我想让绞易极简。。。。。
+[03:22] iner could master my trading system, because the problem is 9o% of trad  ||  。。连新手也能掌握，。。。。。。
+[03:28] simply don't have a proven and simple strategy.  ||  。。。因为90%易者没有经证实的简单策略。
+[03:31] If they had the proven and simple strategy, especially going into 2o26,  ||  。。。。若他们有经证实的简单策略,尤其进入2026年。。。，。。
+[03:38] 7 would see a lot more success just by adding this one factor into their trao  ||  。。。。只需加人这一点,成功会多得多。。。。。。。
+[03:43] And this is why I created my 93Oam candle scalping strategy.  ||  。。。。。。。所以我创建了930单K线剥实皮策略。。。，
+[03:49] This strategy is extremely simple.  ||  。该策略极简单。。。
+[03:52] And it's what I'm going to explain to you in this video.  ||  。本视频将为你讲解。。。。
+[03:54] This 93oam candle will tell you the overall market direction, which is  ||  。930K线可指示市场向。。。。。。。。
+[03:58] important because it will get ridl of the noise in your trading.  ||  。。消除绞易噪音。
+[04:00] It helps me find winning trades with accurate entries.  ||  。。。助我精准场我到盈利单。。
+[04:03] And this is important because whenever I enter I like to have low risk,  ||  。。。。。。。。。这很重要,因为我人场偏好低风险。。。。
+[04:07] buta high reward。  ||  高回报
+[04:08] And this candle gives me exactly that.  ||  。这根K线正好给我这些。
+[04:11] iost importantly, this candle helps me avoid unnecessary losses because i  ||  。。。。最重要的是,它简单易用。。。
+[04:16] simpletouse。  ||  帮我避免不必要损
+[04:17] I avoid getting faked out by low quality trades.  ||  。。。。我避免被低质量易假哭破骗。。
+[04:19] nd once I get into the back testing session, this will make much more sens  ||  。。。。。。进入回测部份后会更清楚。。
+[04:23] d remember at the end of this video, I'll show you what woula happen if y  ||  
+[04:26] traded this one strategy over 1ooo times.  ||  。。视频尾会展示此策略绞易O0次的结果，
+[04:30] That's over a one year back test.  ||  那是一年多的回测，。
+[04:33] So make sure to stay tuned for that as well.  ||  请务必看到最后。
+[04:35] So how does this strategy work?  ||  。那这策略如何运作？。
+[04:37] Well, the goal of this strategy is to help identify winning trades in about 9o  ||  。。。。。，目标是在每天约90汾钟内找出盈利单，。，。。。。。
+[04:41] minutes a day, because I personally only trade 9o minutes a day.  ||  。。。因为我只交易90钟。。。。
+[04:45] nd because of this, what I want is a repeatable strategy that is mechanica  ||  。。。。。。。因此我要可重腹机械化的策略。。，。。。
+[04:49] which means every single time I enter, it is the same entry criteria.  ||  。。。。。每次入场标准都相同。。。。。
+[04:53] Nothing is complicated。  ||  
+[04:55] And most importantly, this strategy doesn't reguire daily bias, any sort of  ||  。。。。。。关键是它不需线偏好或花哨指标，。。。
+[05:00] fancy indicators, and it sets up every day.  ||  
+[05:02] erefore, whenever I'm looking to trade this strategy, this strategy will set  ||  
+[05:06] and it is our job as a trader to find a good entry, which I will explain in this  ||  。。。。。。交易者只需找好入场点，。。。。。。。。。
+[05:11]   ||  本视频会讲
+[05:11] And because of these factors, this strategy takes the guesswork out of my  ||  。。。这些因素消除了猜测。。。。
+[05:15] trading and makes my trading extremely simple to follow.  ||  。。让易极简易衍行。。。
+[05:18] d this is the reason I was able to have the results that I showed you earlier  ||  。．。。。。。这就是我能取得先前展示成绩的。。。。。
+[05:23] thevide  ||  原因
+[05:23] o when we're looking at a trading chart, there's so many candles on a char  ||  。。。。，“着交易图表时,上面有很多线。
+[05:27] nd this is what confuses a lot of traders with all these which one should I b  ||  。。。。。。。这让许多易者困惑。。。。。。。。。
+[05:32] focusing n?  ||  该关注哪根
+[05:33] Which one is the highest probability entry?  ||  。。。哪根胜率最高？。
+[05:35] Which candle has the most emphasis on the chart?  ||  。。哪根K线最重要？，。。。
+[05:37] ese are all questions that we need to ask, but it is very confusing when yol  ||  这些都该问，。。。
+[05:41] looking at this full chart。  ||  。。但看垒图时很混乱。
+[05:43] nd that's why instead of focusing on the full range and all of these differer  ||  。。所以我不着全图所有线，
+[05:47] candles, what I do is focus on the 93o am candle.  ||  只关注93线
+[05:52] That is it。  ||  就这样
+[05:53] The reason I do this is because the most volume occurs in the first candle.  ||  。。。。。因为首根K线成交量最犬。。
+[05:58] As we can see here, this is the five minute time frame.  ||  。如图这是5分钟周期
+[06:01] And in the first candle, this is where the highest volume was.  ||  。。首根K线成交量最高。
+[06:05] ter that, you can see the volume slowly coming down for the rest of the da  ||  。。乏后成交量天逐渐下降。。
+[06:09] And this means this candle holds the most emphasis on the chart.  ||  。。。。说明这根K线在图上最重要。。。。
+[06:12] And if we can utilize this within our trading strategy, it will give us the  ||  
+[06:16] highest probability entry model.  ||  。。。可给出最高胜率场模型。
+[06:18] ow it's important to remember there's a lot of different sessions traders ca  ||  。。。。。。。记住交易时段很多盘前小。。
+[06:21] trade, pre-market, New York, after hours.li  ||  。纽约盘后，。。
+[06:23] For myself personally, I focus in on the New York session.  ||  我个人专注纽约时段。。
+[06:27] That's when the strategy works for me.  ||  。那时策略对我有效
+[06:29] And it's very important to remember, no matter what you're trading,  ||  。。重要无论你易什么。。
+[06:32] whether it be stocks, futures, crypto options, or Forex, this strategy  ||  。。。。。。股票期货加密期权或汇，。。。。
+[06:36] work in any market as long as you're focusing in on the 93o am Eastern ca  ||  。。。。只要关注美东30k线，。
+[06:42] thatdevelops.  ||  何市场都适用
+[06:43] Now, how do we use this strategy?  ||  。那如何便用这策略！
+[06:45] , we wait for the market to open at 93o am Eastern, and we wait for the f  ||  。等美东30班盘，。
+[06:51] five minute candle to develop.  ||  。等首根5分钟K线形成。
+[06:53] e we mark out the high and low of the first five minute candle, we want to  ||  。标出根5分钟K线高点。
+[07:02] for a clear direction in the market.  ||  。。等市场明确向。。
+[07:04] is means we either want the stock to break above the five minute high or  ||  。。。。即股价哭破5粉钟高点，。。。。。
+[07:09] break below the five minute low。  ||  。。。。或跌破5粉钟低点。。
+[07:11] is will give us a clear direction for the day and make it very simple on whi  ||  
+[07:15] way we want the market to trend.  ||  明确趋势
+[07:17] confirm that breakout, what we want to do is come over to the one minu  ||  。。。。确认哭破切到钟（。。
+[07:21] the one minute, we simply need the candle to close below or above the fi  ||  。。。。需K线收于5分钟高点/低点。。。。。
+[07:27] minute high。  ||  
+[07:28] In this example, we can see this one minute candle close below.  ||  。。。。本例中,钟K线收于下方。。。
+[07:31] his is going to mean we want to focus on that short side retest move to foc  ||  。。。这意味着关买回（。，。
+[07:37] the retest。  ||  
+[07:38] Nll we're looking for is the stock to now come back into the five minute low  ||  。。。。。。。只需等股价回踩5扮钟低点。。。。。。
+[07:42] This is where we're going to wait for weak price action.  ||  。。。。此处等弱势价格行为。。。
+[07:45] his is where we would look to enter the trade for a move back down into l  ||  
+[07:50]   ||  目标跌回同内低点Target
+[07:50] And as we can see with this example, we marked out the five minute high,  ||  。。。。。如图,我们标出钟高点。。arget。。。。。
+[07:53]   ||  Target
+[07:54] marked out the five minute low, we came over to the one minute time fral  ||  。。。。。标出5分钟低点,切到分钟周期Target。。。
+[07:57]   ||  Target
+[07:57] we waited for the candle to close below....  ||  等K线收于下方。Target
+[07:59] lis showed us that we were now looking for the retest of the five minute lo  ||  。。。。说明我们等回踩5扮钟低点。。Target。，。
+[08:03] id once we got that five minute low retest, which we can see here with we  ||  。。。。出现分钟低点回踩且价格行为弱：Target。。
+[08:08] rice action, once again, if you don't understand price action, when I get int  ||  。。o。不懂价格行为。。。Target。。
+[08:11] the backtested examples in this video, will make'much more sense.  ||  。。。。。。可着回测例子。。Target
+[08:14] s is where we enter our stop loss is simply a break back above the candle t  ||  。。。此处入场,正损为重新哭破入场K线，。。Target。
+[08:18] we're entering in on and our profit target is low of day or atleast a two or  ||  。。。。正盈为间内低点或至少2。Target
+[08:23] multiple。+  ||  Rarget
+[08:24] This simply means for every s1o0 of risk, I want to'make $2oo of profit.  ||  。。。。即每风险100美元,目标盈利200美元。arget-。。
+[08:28]   ||  arget
+[08:28] And that is how simple the strategy is to execute.  ||  。。。。。策略执行就这么简单。arget
+[08:32]   ||  Target
+[08:32] N, with this being said, now that I've shown you the full strategy, why it wo  ||  。。。。。。。。包展示完整策略原理和用法，。Target。。。
+[08:35] and how it works, now I'm going to show you a full'backtesting session.  ||  。接下来做完整回测。Target。
+[08:38] nat way, by the end of the video, you'll understand exactly how I implemel  ||  。。。。。。这样视频未你会懂我如何实时执行，。。Taget。。。。
+[08:41] strategy in real time because I will show you so many different examples  ||  。。。我会展示大量案例oTarget。。
+[08:45] will show you the final results of what would happen if you traded this one  ||  
+[08:49] strategy over iooo times.+.  ||  次结果Target
+[08:52] All right, here we are on our first example.  ||  。好,来看第一个例子
+[08:54] w on this example, we're on SPY or ES is the same thing if you trade futur  ||  。。本例用SPY;若做期货,ES等同
+[08:58] Now I personally primarily trade options.  ||  我个人主要交易期权
+[09:00] I may trade futures sometimes.  ||  有时也做期货
+[09:01] However, like I said, this strategy works for all instruments for this one.  ||  。。。但如前说,此策略适用于所有品种
+[09:04] Ve're just going to use SPY and ES because this is what most traders trade  ||  。。这里只用SPY和ES,因多数交易者交易它们
+[09:07] which is just ES orSPY..  ||  即ES或SPY
+[09:09] And play out the first five minutes of the day.  ||  播放当日首5分钟
+[09:13] This is going to be very simple.  ||  这非常简单
+[09:14] Now, of course, we're on the one minute time frame..  ||  当然,我们看工分钟周期
+[09:17] Therefore, this is the first five minutes..  ||  这是首5分钟
+[09:19] nd now all we have to do is mark out the high of the first five minute canol  ||  。只需标出首根5分钟K线高点
+[09:25] ow, remember this is the first 930 AM candle on the five minute time fram  ||  。。记住,这是5分钟周期首根930K线.5
+[09:30] All we have to do now is simply wait for the stock to either break below,  ||  。+现在只需等股价跌破
+[09:34] st and look for a move to the downside or break above, retest and look for  ||  跌破回踩看跌；
+[09:40] Now, remember, I'm going to be back testing this over a full week.  ||  。记住,我将回测一整周
+[09:43] And then at the end of the video, I'm going to be showing you the full s  ||  。视频未展示只交易此策
+[09:45] results if you only traded this one strategy over a thousand times.  ||  略1ooo次的完整结果
+[09:50] th that being said, let's see exactly what happens when we actually play-0  ||  。。。那么看看这单实际走
+[09:52] this trade..  ||  
+[09:53] We can see a little bit of buyer stepping in here.  ||  可见少量买方进场
+[09:55] once again, anything in between the five minute range, we do not care ab  ||  。。再次强调,5分钟区间内波动不关注
+[09:59] Our only focus is to wait for a candle to close above or below our key leve!  ||  。。只等K线收于关键位上方或下方
+[10:04] As we can see two candles here closing below our key level.a  ||  可见两根K线收于关键位下方
+[10:10] And this helps us identify that the trend is to the downside.  ||  说明超势向下
+[10:13] nd at the same time, we're actually getting a weak price action candle rig  ||  同时出现弱势K线，
+[10:16] here where buyers try to bring it back above the 93o candle.  ||  买方试图拉回930K线上方
+[10:19] However, sellers brought it right back below.  ||  但卖方文压回下方
+[10:21] Here is where we can enter into a short position.  ||  此处可入场做空
+[10:24] Now, in terms of a short position, our stop loss can simply be a break of the  ||  做空止损为重新哭破跌破9
+[10:28] candle that broke below the 93o.  ||  30的那根线
+[10:31] his candle right here, this 946 candle, this is the candle that actually brok  ||  就是这根946K线，
+[10:34] below this low.  ||  它实际跌破该低点
+[10:35] So our stop loss is going to be a high of that candle.  ||  所以我们的止损将是那根K线的高点。
+[10:37] And our profit target simply needs to be at least a 2R multiple.  ||  而我们的正盈自标至少需要是2R倍数。
+[10:41] In-this-example,that-2Rmultiple.comes-near.the-682.45whole-key--level  ||  。。。本例中，这个2R倍数接近682.45这一关键位。
+[10:45] We're risking about $510 for about $l,04o in potential gain..  ||  我们风险约510美元,潜在收益约1040美元
+[10:49] And let's see exactly what happens on this trade..  ||  我们看看这笔交易具体会怎样
+[10:52] re we can see after this five minute low, this is a little bit more consolidati  ||  —可以看到在这个5分钟低点后,有—点更多盘整—
+[10:56] However, we have not broken our stop loss..  ||  不过,我们没有跌破止损——
+[10:58]   ||  我们也没有触及止盈目标—
+[11:00] Therefore, there is nothing that we need to do..  ||  因此,我们什么都不需要做——
+[11:02]   ||  我们只需让这笔交易自然发展—
+[11:04] ame back into that five minute low and you can see once we came into tha  ||  。。。。我们回到那个5分钟低点,可以看到第二次回到低点后，‘
+[11:07] second time, this is where we got that very aggressive selling to the down  ||  就出现了非常激进的抛售下跌
+[11:12] This day, we were done at 1o25..  ||  当天我们10 2 5就结束了
+[11:14] The market opens at 93o..  ||  市场930开盘
+[11:15]   ||  因此天约65分钟就结束
+[11:18] hat's the beauty of the strategy that we only want 'to trade the first 9o mir  ||  。这就是该策略的美妙之处
+[11:21] of the market open..  ||  我们只交易开盘后的前90分钟
+[11:22] And then if you have other commitments, such as a full-time job, school,  ||  。。。如果你有其他事务,比如全职工作学业
+[11:26] other commitments with family and friends that you can't sit in front of th  ||  。。或家大朋友等其他事务,无法坐在屏幕前，
+[11:29] This strategy is the best for that..  ||  这个策略最适合
+[11:31] This was the first example..  ||  这是第一个例子
+[11:32] Let's go over to day number two..  ||  我们看第二天
+[11:34] Here we are on day numbertwo.  ||  这是第二天
+[11:36] We're going to let the first 93o candle play out here.  ||  我们让首根930K线走完
+[11:39] This time we're actually on the five minute time frame just to give you a  ||  。这次我们在5分钟周期上，
+[11:42] littlebit more context..  ||  给你更多背景
+[11:43] All we have to do is mark out the low and the high of the first 930 a.m.m  ||  。我们只需标出上午930首根K线的低点和高点
+[11:48] As we can see here, this is more of a bullish candle.  ||  。可以看到,这更像一根看涨K线
+[11:50] the one minute time frame, we're simply waiting for a break above or a br  ||  现在转到工分钟周期
+[11:56] And remember, I'm back testing this over a one week period.  ||  。。记住,我在用一周时间回测
+[11:58] So you can see the dates down here.  ||  你可以看到下方日期
+[12:00] ou would like to back test with me as you're watching this video, this willa  ||  如果你想边看视频边和我起回测
+[12:03] e beneficial for you as you'll be able to see how I look at these trades in re  ||  这也会有益，
+[12:07] time as well.  ||  因为你能实时看到我如何看待这些交易
+[12:08] nce again, if you look at these dates on the bottom of the screen, you can.  ||  再次果看屏幕部期
+[12:12] test this system with me at the same time.  ||  你可以同时和我回测这个系统
+[12:14] In this example, we are actually moving to the upside.  ||  本例中，我们实际在向上运行
+[12:16] Let's see if we get that retest.  ||  看看是否会回踩
+[12:18] And right here, we just got that retest..  ||  就在这里,我们刚得到回踩
+[12:21] +see the break above the retest and strong price action on Now for our en  ||  +++。我们看到突破回踩和强势价格行为现在看入场rs
+[12:26] +wewouldenter inhere..  ||  ++我们就在这里入场rs
+[12:27] uristop loss can simply be the candle that broke above the 930 candle or't  ||  ++止损可以就是哭破930K线的那根K线，ars
+[12:32] +impulsive candle here that broke above..  ||  ++或这里哭破的推动K线rs
+[12:33] +And we need at least a two or multiple..  ||  ++并且我们至少需要2R倍数rs
+[12:36] +-So we're risking about $330 for about $840 of potential profit.  ||  ++我们风险约330美元，潜在盈利约840美元.s
+[12:41] Let's see what happens with this trade..  ||  ++看看这笔交易会怎样rs
+[12:43] Andjust like that, right after we entered, it took about five minutes to hit.  ||  +就这样，
+[12:46] +our profit target there..  ||  +刚入场约5分钟就触及止盈自标
+[12:48] d werwere done the day in about 32 minutes on the second day by usingrt  ||  。+第二天用这个简单策略，
+[12:53] +simple strategy..  ||  +我们约32分钟就完成当天交易
+[12:53] +So this is day number two..  ||  +这就是第二天
+[12:55] +Let's go over to day number three..  ||  +我们看第三天
+[12:57] All right, here we are on day three..  ||  好,这是第三天
+[12:59] Let's play out the first 93o AM candle..  ||  让首根上午930线走完
+[13:02] Dnce we get the 930-AM-candle, we-can-mark-out-the-low-and-we can-mar  ||  930线出来后，
+[13:06] out the high of that candle..  ||  标出它的低点和高点
+[13:07] ow remember, we're marking the candle out on the five minute time fram  ||  。记住,我们在5分钟周期上标出这根K线
+[13:10] but we are executing the system on the one minute time frame..  ||  。但在工分钟周期上执行系统
+[13:13] So let's see which way this stock wants to break..  ||  看这只股票想往哪边破
+[13:16] d hopefully by this point of the video, you can see how simple this strategy  ||  。。。。。希望视频到这里,你能着出这个策略多简单
+[13:20] d all it really requires is a little bit of patience and understanding how to tr  ||  。它只需要一点耐心和理解如何交易该
+[13:25] the system..  ||  系统
+[13:25] Now here's our entry for day number three..  ||  这是第三天的入场
+[13:28] You can see we had the five minute low..  ||  可以着到我们有了5分钟低点
+[13:29] e're coming back with the retest and we're getting very weak price action:  ||  我们回踩，
+[13:33] thiskey level..  ||  并在这个关键位着到非常弱势的价格行为
+[13:34] We can enter into a short position here..  ||  我们可以在这里做空
+[13:36] Dur stop loss can simply be a break of the candle that we're entering in on  ||  。正损可以就是我们入场那根K线的哭破。
+[13:39] And we need at least a two hour multiple or low of day..  ||  。我们需要至少2R倍数或日内低点
+[13:42] In this example, low of day gives us about a 2.07 risk to reward trade. .  ||  。。本例中,日内低点给出约2.0 /的风险回报比
+[13:45] This means we're risking about $290 to make about $550 on this trade..  ||  。这意味看这笔交易风险约290美元，盈利约550美元
+[13:51] Let's see exactly what happens..  ||  看看具体会发生什么
+[13:53] for this trade, we were actually done the day within two minutes after ente  ||  这笔交易中，
+[13:58] that candle.  ||  场那根K线后两分钟内我们就完成了当天交易
+[13:59] We're done the day at 95o..  ||  我们950完成当天交易
+[14:01] This is about a 2o minute day by simply understanding the system.  ||  。。。理解系统后,这大约是20分钟的一天
+[14:04] nce again, you can see how mechanical and repeatable this system's entri  ||  。再次可见,这个系统的入场多么机械且可重复
+[14:08] nd this is why even if you're a beginner trader going into 2026, this is simp  ||  。。。。。所以即使你是进入2026年的新手交易者，
+[14:12] strategyto learn..  ||  这也是个简单易学的策略
+[14:14] Let's go over to day number four..  ||  我们看第四天
+[14:15] All right, here we are on day number four, we have one day left.  ||  。。。好,这是第四天,还剩一天
+[14:19] And remember, after the final day, I'm going to show you exactly what the  ||  记住，最后一天后，
+[14:22] strategy would do over 1ooo consecutive trades..  ||  我会展示该策略在000笔连续交易中的表现
+[14:25] ut now that we have our first five minutes, we can simply mark out the fiv  ||  现在有了前5分钟，
+[14:28] minute low, and we can mark out the five minute high..  ||  。。我们只需标出5分钟低点和高点
+[14:31] And let's see which way this stock wants to break..  ||  。看这只股票想往哪边破
+[14:34] And here's where we get an interesting scenario because we broke above,  ||  。。。。这里出现有趣情形,因为我们向上哭破了
+[14:37] but then the very next candle here, we had a very aggressive drop. .  ||  。。。但紧接看下一根K线,出现非常激进的下跌
+[14:41] So what does this mean?.  ||  这意味看什么？
+[14:43] Well, for myself, I need to have a lot of confluence with this entry.  ||  对我而言,这个入场需要很多共振确认
+[14:46] neans that I need to see at least two candles closing back above the five'n  ||  。。这意味着我需要至少两根K线收在5分钟高点
+[14:51] high for me to be interested..  ||  上方会感兴趣
+[14:52] that doesn't happen, then this is a name that I would skip because it brok  ||  。。。如果没发生,我会跳过这个标的，
+[14:56] belowfortheretest..  ||  因为它下破后回踩
+[14:57] o right now we're getting this first candle and it actually closed back aboy  ||  。。现在出现第一根线，
+[15:01] this level.  ||  并且它实际收回到该水平上方
+[15:01] Let's see if we can get one more candle to close above..  ||  看能否再有一根K线收在上方
+[15:04] And in this example, we do get that candle..  ||  本例中,我们确实等到那根K线
+[15:07] How would I look to enter this trade?.  ||  我会如何考虑场？
+[15:09] , this is a trade where you have to be careful because once again, we didb  ||  。。。。。这笔交易必须谨慎,因为虽然我们下破了，
+[15:12] below, but we're seeing the stronger price action in here..  ||  。。但这里着到更强的价格行为
+[15:15] if I was looking to take this trade, I would put my stop loss below the can  ||  。如果我做这笔交易，
+[15:18] that broke above the five minute high..  ||  会把正损放在哭破5分钟高点的那根K线下方
+[15:20] Once again, like every example we've done..  ||  再次像之前每个例子一样
+[15:22] And then I would be looking for at least a 2R trade..  ||  然后寻找至少2R的交易
+[15:25] We're risking about $440 for about $750 in potential gain. .  ||  。。。我们风险约440美元，潜在盈利约/50美元
+[15:30] Let's enter into this trade here and let's see exactly what happens. .  ||  。。我们在这里入场,着着具体会发生什么
+[15:33] Okay, we can see sellers came down just a little bit.  ||  。可以看到卖方只小幅下压
+[15:35] However, buyers brought it right back up..  ||  但买方立刻把它推回去
+[15:38] And just like that, we were able to capitalize on this trade by simply tradin  ||  。。就这样，我们仅用930
+[15:42] the 93o AM candle strategy..  ||  K线策略就从这笔交易中获利
+[15:45] However, we need it to be a little bit more cautious on this one..  ||  但这笔需要更谨慎一些
+[15:47] And this is exactly why I'm back testing this over a full week period. .  ||  。。。。这正是我用整整一周回测的原因
+[15:50] ou can see different examples on how to execute it using different scenar  ||  这样你能看到不同情形下如何执行的不同例子
+[15:54] w let's go over to the final day and then I'm going to show you the 1ooo tr  ||  。现在看最后一天，
+[15:59] backtestresults..  ||  然后展示1OOO笔交易的回测结果
+[16:00]   ||  好,这是最后一天
+[16:02] Let's play out the first 93o candle.  ||  让首根930线走完
+[16:04] n now mark out the low of the 930 AM candle and the high of the 930 AM.  ||  。。。现在标出上午930K线的低点和高点
+[16:08] And once again, we're simply looking for that break and retest..  ||  。。再次,我们只是寻找破并回踩
+[16:11] In this example, we can see that we actually broke to the downside very.  ||  本例中，
+[16:15] aggressively.e  ||  可以看到我们非常激进地向下突破.
+[16:17] ver, when we came back for the retest, buyers stepped up aggressively as  ||  。。。但回踩时,买方也激进进场
+[16:21] Now this shows that this may be a little bit more of a choppy day..  ||  。这说明今天可能更震荡
+[16:24] Because we broke below aggressively, we came back above aggressively,  ||  。。。。因为我们激进下破,激进收回上方
+[16:28] but we saw no weak price action..  ||  。但没着到弱势价格行为
+[16:30] And therefore right now there's still no entry on the 930 AM candle low.ia  ||  。。。。。因此自前930K线低点仍无入场
+[16:34] Let's see if anything does set up on this specific day.a  ||  。着着今天是否会有任何形态形成
+[16:38] Sonow we're breaking back above..  ||  现在我们重新哭破上方
+[16:40] As we can see, this is the retest that we would be looking for.  ||  可以着到,这就是我们要找的回踩%
+[16:43] Now this is a choppier day because we see that it did break below.  ||  。。。今天更震荡,因为會下破
+[16:46] However, buyers brought it right back up.e  ||  但买方立刻推回
+[16:47] This is a good entry based off of the setup that we're trading..  ||  。。基于我们交易的形态,这是不错的入场
+[16:51] Therefore, we would enter on this candle..  ||  因此,我们会在这根K线入场
+[16:52] Our stoptloss would be a break below this candle..  ||  止损设在这根K线下方破
+[16:54] And we need at least a two hour multiple..  ||  我们需要至少2R倍数
+[16:56] In this example, we would target out that 683.60 level..  ||  本例中，自标设在683.60水平
+[17:00] We're risking about $360 for about $740 in potential gain..  ||  。。我们风险约360美元，潜在盈利约/40美元
+[17:04]   ||  看看具体会发生什么
+[17:06] nd unfortunately, within two candles here, we actually got stopped out of't  ||  不幸的是，
+[17:11] trade.  ||  两根K线内我们就止损出局
+[17:11] Now for this weekly backtest, we traded for a full week..  ||  这次周回测中,我们交易了整整一周
+[17:13] We won four trades and lost one..  ||  我们赢4笔，亏1笔
+[17:15] And you can see how simple the strategy was..  ||  。可以着到策略多么简单
+[17:17] And it was profitable over the one week period..  ||  这一周是盈利的
+[17:19] wever, now let me show you what would happen over a 1,ooo trade backt  ||  。但现在让我展示这个形态连续1000笔交
+[17:23] consecutively of this setup..  ||  易回测的结果
+[17:25] Alrightssorhereristhe.full:l,oootradebacktestresults.  ||  。。。，。好,这是完整的000笔绞易回测结果。。。
+[17:28] Nowremember.theserarebacktested.resultsmat  ||  。记候,这些是回测结果。
+[17:30] m not saying thatifyougoouttomorrow,you're'goingitorachieve the sam  ||  ，。。。我不是说如果你明天开始交易。。。。。。
+[17:33] ENTERSAIAER PSESANANNIASADVISOROTHE IDSIDERDAINANTENONEISYDINBEHANNERISFOREDUIATITNOANTIAL  ||  
+[17:33] Remember,itatookimerthree yearsto:becomea,profitable trader.  ||  。。。。记催,我花了三年成为盈利交易者。。。。。。
+[17:36] However, as we.canrseewith:these:resultsxwe'tooka.totalof.1,308 trades  ||  。但从结果可见,我们总共做了1308笔交易Biggest Winner。。。。
+[17:39] ENTERSAIAER PSESANANNIASADVISOROTBE IDSIDERDAINANTENAONEISYDINUBEHANNERISFOREDUIATITNOANTIAL  ||  -s23,674 Biggest Winner
+[17:40] 773 were winnersm533.wereloserswgivingusalittlebitibelow a 60% win  ||  。其中//3笔盈利,533笔亏损,胜率略低于60%gestWinner.。。
+[17:45] ENTERSAIAMER PUMNSESANANNIateataboUt59%TUBESHANNERISFOREDUIATITNPOANTIAL  ||  约59%o-s23,674Biggest Winner
+[17:47] 4.15 profit factorswhichishigh,whichbasically.means.forevery s1o that  ||  —。4.15 的盈利因子很高,基本意味着看每承担@0sest Winner 。。
+[17:51] were risking, wewerermakingabouts4i5whichis:a.reallygood profit fac  ||  。。。美完风险,我们约赚 415 美元,这是非常好的盈利因孕Winner 。。。
+[17:55] ENTERAIAMEThis.was.ourdailynet:P&LoverallUIATINPOANTIAL  ||  。这是我们整体的每间净盈号$23,674 Biggest Winner
+[17:57] There's some spikesbutthenthere'salso'somerdownside.here as well.  ||  。。这里有一些尖峰,但也有一些下行,674 Biggest Winner
+[18:00] ENTERAIAMEBut.overall,TthisawasveryhealthyEPUIATITNPONTIAL  ||  但总体而言,这非常健康 -s23,674Biggest Winner
+[18:02] And our biggestloserforthisbacktesting'sessionwasabout s11,554.  ||  。。。。本次回测中,我们最关的亏损约为 11,554美元est Winner 。。—。
+[18:06] ENAAndourbiggestwinnerwasus23;6Z4NpNTIAL  ||  -s23,674 Biggest Winner
+[18:10] f you want to learnmoreabout.this.strategyorsome.ofithe.concepts that  ||  。，，所以,如果你想了解更多关于这个策略或我在本视频中讲过的兰些概念。。
+[18:13] talked about in.this,videomakesure.torclick.theplaylistron.screen now.  ||  。。。。。.。。。。请务必点击屏幕上的播放列表23,674Biggest Winner
+[18:16] eNreltais.afullcourse'onihowto'starttradingomal  ||  。这是一阿关于如何开始交易的完整课程4Biggest Winner
+[18:17] If thisvideoshelpedyousimake'surertorleaveitrarlike.  ||  .。。。。如果这个视频对你有帮助,请务必点赞4Biggest Winner
+[18:19] ENTERSAIAER PSESANANNIASADVISOROTHEIDSIDERDAINANTENAONEISYDINUBEHANNERISFOREDUIATITNOANTIAL  ||  -s23,674 Biggest Winner.
+[18:19] If you have.anyguestionssputtheminthe'commentsrdown below.  ||  .。如果你有任何问题,请在下方评论区留言+Biggest Winner。。
+[18:21] Make sure to.followmeron:lnstagramand.twitterforimore.education.  ||  .。请务必在 Instagram 和 Twitter 上关注我,获取更多教学内容r。。
+[18:23] enMakersurextosubscribeto.the'channeandmat  ||  下周新视频见。-s23,674 Biggest Winner

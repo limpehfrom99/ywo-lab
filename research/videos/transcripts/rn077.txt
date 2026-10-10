@@ -1,0 +1,368 @@
+# rn077 | 油管中文配音檔案館 (Scarface Trades) | Trading Isn't Hard, It's Misunderstood (daily trend + 9:30 break & retest) | 1076s | log #78
+# OCR of the burned-in bilingual subtitles (tools/video/sub_ocr.py): English line || Chinese line; the English line is cut at the frame edges when it is long.
+[00:00] ter seven years of trading, thousands of dollars spent on courses, educatic  ||  。．交易七年,花了数千美元在课程教育。。
+[00:04] trading losses, there is two concepts that I discovered that almost no strat  ||  以及交易亏损上后,我发现有两个概念,几乎没有任何策略
+[00:10] system, or setup can work without.  ||  系统或交易设置能缺少它们而奏效
+[00:12] two concepts are the backbone of why I've been able to make six figures t  ||  这两个概念是我今年仅靠交易就能赚到六位数的核心，
+[00:17] is year alone, and they helped me become a full-time trader for the last fi  ||  。也帮助我在过去五年成为全职交易
+[00:22] years.  ||  
+[00:22] this video, I'm going to simplify the two concepts you need, no matter wh  ||  在本视频中，
+[00:26] strategyyou trade..  ||  我将简化无论你交易什么策略都需要的两个概念
+[00:27] I'm going to show you exactly how I apply it in the real charts.  ||  我会展示我如何在真实图表中具体应用它们
+[00:31] I the best part is once you understand this,you don't need hours of prep t  ||  。。最棒的是,一旦你理解它,你不需要数小时准备时间让自己过度分析交易，。
+[00:35] king you overanalyze your trades, and you don't need thousands of dollar  ||  也不需要数千美元起步，。。。
+[00:39] start, as I'll show you how simple trading made me profitable.  ||  因为我会展示简单交易如何让我盈利
+[00:42]   ||  YOUARE SOL FIYRESPONSIRL E FORYOURTRADING DECISIONS
+[00:43] o the two concepts I'm going to talk about in this video are the backbone (  ||  。，所以本视频要讲的两个概念是每个交易策略的支柱，。。。
+[00:47] very trading strategy, and it's the reason why I've been able to have resul  ||  。。。也是我能用简单策略背后的这两。。。。。。
+[00:51] like this and this using the two concepts behindf my simple strategy.  ||  。。。。。。。。个概念取得这样和这样结果的原因，。。
+[00:56] Now remember, it took me years of losing to see what I'll show you today.  ||  。。记佳,我花了好几年亏损着清今天要展示给你的内容。。。。
+[01:00] m going to keep this video short but to the point, but this will be one of th  ||  。，。我会让本视频简短而切中要点,但一旦你理解这些概念，。。。.。
+[01:03] ost valuable trading videos you watch once you understand these concept  ||  。。。。。这蒋是你看过最有价值的交易视频乏一。，。。
+[01:07] e very first thing we want to do when we start trading or learning any con  ||  。。。所以开始交易或学习任何概念时。。。
+[01:11] is picking one strategy。  ||  我们要做的第一件事就是选择一种策略
+[01:13] en traders try to jump from strategy to strategy, and it takes them so long  ||  。。。。。交易者常从一个策略跳到另一个策略，。。。。。。
+[01:17] realize if they just pick one and they'll be way better off.  ||  。很久后意识到只要选定一个,情况会好得多。。
+[01:20] e have trend lines, break and retest, IcT and smart money concepts, volun  ||  。。。有趋势线哭破回踩和聪明钱概念。。
+[01:24] profiles, support and resistance, supply and demand, and the list goes on.  ||  。。成交量布支撑阻供需,等等。。。
+[01:28] the two concepts I'm going to talk about in this video work with any strat  ||  。。。本视频要讲的两个概念适用于任何策略。。。。。。
+[01:32] However, for myself, I personally trade the break and retest strategy.  ||  。。。。不过,我个人绞易的是哭破回踩策略。。。。。。
+[01:37] we'll talk a little bit more about the strategy when we get into the real ch  ||  。。。。进入真实图表并展示这些概念时。。。。。。。
+[01:40] and I show you these concepts, but all the break and retest simply is we  ||  。。。。我们会再谈这个策略但哭破回踩很简单，。。，。。。
+[01:43] have this previous resistance here.  ||  。。。就是这里有一个前阻。
+[01:45] You can see in buyers then broke the stock out.  ||  你可以着到实方随后推动股价哭破。。
+[01:49] We ended up entering in on the retest.  ||  。。我们最终在回踩时入场。
+[01:50] So therefore the break and retest, this is where we enter for the next leg  ||  。。。。因此哭破回踩。。。。
+[01:54]   ||  就是我们在下一波上涨前进场的位置
+[01:54] That's how simple the break and retest is.  ||  。。哭破回踩就这么简单。。
+[01:57] Andl this is the strategy that I personally use.  ||  。。。。。。这就是我介人便用的策略
+[01:59] ut once again, with the concepts I'm going to explain today, no matter wh  ||  ，。。。。但博次强调,今沃我解释的概念，。。。。。
+[02:02] your strategy is, these concepts apply to those strategies.  ||  。。无论你用件么策略,都适用于那些策略。。。。
+[02:05] So in this video, first, I will show you the first and second concept.  ||  。。。。。。所以在本视频中,首先我会展示第一和第二个概念。。
+[02:08] ien I'm going to combine it with the strategy to help you understand exact  ||  。。。。然后我会孵与策略结。。。。。
+[02:11] how the concept works in the market.  ||  。帮助你确切理解该概念在市场中如何运作。
+[02:13] y, I'll combine everything together and show you examples on the chart s  ||  、。。最后,我会把所有内容结合起来,并在图表上展示标例，。。。
+[02:17] can see how I implement it in the markets.  ||  。让你看到我如何在市场中实施。
+[02:20] So the first concept we have is direction.  ||  第一个概念是向。
+[02:22] Direction is very important for a stock.  ||  。。方向对股票非常重要。
+[02:24] Typically, what happens is often traders will enter into a trade.  ||  。。。通常发生的情况是,交易者常常进场交易。。。。。
+[02:28] Let's say we're entering into a break and retest into this area here.  ||  。。。假设我们在此区域做哭破回踩进场。。。。。
+[02:31] And it seems like buyers are going to step up.  ||  。看起来实方蒋要进场
+[02:34] But before they can, we get a huge sell off.  ||  。。。但在他们行动前我们遭遇幅抛售
+[02:36] where the stock shouldl have continued this trend up, we never got that tre  ||  。。。。。。本该继续上涨趋势的股票却从未上涨，。。。
+[02:41] and wegot stopped out.  ||  我们被损
+[02:42] Whywasthis?  ||  
+[02:43] Well, it was most likely because we didn't understand direction.  ||  。很可能是因为我们没理解方向。。。。
+[02:46] And that's exactly what the first concept helps us with.  ||  。。。。这正是第一个概念帮助我们解决的问题。。。。
+[02:49] To understand direction, we need to understand liquidity.  ||  要理解方向,我们需要理解流动性
+[02:53] 中文配音  ||  
+[02:53] to understand liquidity, you need to understand that 中文配音ubcateg  ||  要理解流动性,你需要知道流动性有两个子类别，
+[02:57] of liquidity that I'm going to simplify today.  ||  今天我会简化讲解
+[03:00] And that is external liquidity, and of course, internal liquidity.  ||  那就是外部流动性和内部流动性
+[03:05] t what you need to understand is when a stock is moving, it is going to be  ||  但你需要理解，当股票运动时，
+[03:09] external liquidity phase, then it will go over to internal liquidity, right?  ||  它会处于外部流动性阶段,然后转向内部流动性,对吧？
+[03:14] So it'll start at external liquidity, it'll grab internal liquidity.  ||  所以它会从外部流动性并始,抓取内部流动性
+[03:18] nd once it's grabbed internal liquidity, it'll go right back to external liquidit  ||  一旦抓取内部流动性，它就会回到外部流动性
+[03:22] So it's this continuous cycle of external liquidity going into internal liquidity  ||  所以这是一个外部流动性进入内部流动性
+[03:27] and internal liquidity going to external liquidity.  ||  内部流动性文到外部流动性的持续循环
+[03:30] But how does thatlook?  ||  那看起来怎样？
+[03:31]   ||  swing Low
+[03:31] , to help understandhow it looks, you need to understand what external  ||  s理解它的样子，
+[03:35] yinternal liquidity levels are.  ||  你需要明白然部和内部流动性水平是什么
+[03:36]   ||  swing Low
+[03:37] External liquidity is simply swing highs and swing lows.  ||  外部流动性就悬波段高点和波段低点
+[03:40]   ||  swing Low
+[03:40] ng high and swing lowsimply refer on the chart to the lowest area of the c  ||  ／波段高点和波羧低点在图表上就是最低
+[03:44] and the highest area of the chart.  ||  s域和最高区域
+[03:45] ve can see here, whenethe stock was developing, this was the swing low b  ||  /如这里所示股票发展时,这是波段低点，
+[03:49] this was,the lowest point that the stock has been.  ||  ／。因为这股票會到过的最低点
+[03:52] id then this was the swing high because this is the highest point up until th  ||  然后这是波段高点，
+[03:55] point that the stock has been to.  ||  因为这是股到此为止到过的最高点
+[03:57]   ||  /k swing Low
+[03:58] Therefore, this is external liquidity.  ||  因,这就是外部流动性
+[03:59]   ||  /k swing Low
+[04:00] ur external liquidity level was this swing low, and then it was this swing hig  ||  我们的外部流动性水来晨这个波段低点,然后是那个波段高点
+[04:03]   ||  /k swing Low
+[04:04] ever, as we move up,we can see next area where we got this reversal or b  ||  杰当我们上移，
+[04:08] stepping up was this swing low.  ||  可以着到下一次反转惑蒸方进场的位置是这个波段低点
+[04:10]   ||  /k swing Low
+[04:11] So this is the next.low on the chart that we do not want to break.  ||  所以这是图表点下个我们不想跌破的低点
+[04:14] This isewhere structure would break, right?  ||  这就是结构会被破坏的位置,对吧？
+[04:15] cit's not in these areas here.  ||  kswi晨这些区域
+[04:17] And IlBexplain what these areas are as well.  ||  我也会解释这些区域是什么
+[04:19] From this area, we then come up into swing highs, right?  ||  从这个区域,我们随后上升到波段高点,对吧？
+[04:23] Because this is the highest point that the stock has been.  ||  因为这是股票到过的最高点
+[04:25]   ||  /k swing Low
+[04:26] once again, we comecinto a swing low and we create a brand new swing  ||  然后再次,我们来到g个波段低点,并创造全新波段高点
+[04:30]   ||  /k swing Low
+[04:30] Once again,cif this is a little bit confusing, don't worry.  ||  再次,如果这有点困惑,别担心
+[04:32] When we get into the charts, this will make much more sense.  ||  进入泰后，这会清楚得多
+[04:36] /ice versa, when'we look at internal liquidity, these are internal pivot high  ||  反之,着内部流动性时，
+[04:40] vand pivot lows on the chart.  ||  它们是图表上的内部枢轴高点和枢轴低点
+[04:41] we can see here,our swing low was down here and our swing high was up  ||  /如这里所示,我们的波段低点在下方，波段高点在上方
+[04:46] But we stillphave these highs and lows that were created here.  ||  但这里仍产生了这些高点和低点
+[04:49] So what arethese?  ||  那这些是什么？
+[04:50] Well, these are exactly those internal levels that I'm talking about.  ||  这些正是我所说的内部水平
+[04:54] se internal levelshelp us see exactly where buyers and sellers have a little  ||  /这些内部水平帮助我们看清买卖双方轻微冲哭的位置，
+[04:58] conflict, but it wasn't strong enough to actually reverse the chart down or  ||  但强度不足以真正让图表向下反转，
+[05:03] wasn't strong enough to reverse the chart up.  ||  也不足以让图表向上反转
+[05:05] Therefore, these are the internal high and low levels.  ||  因此,这些就是内部高点和低点水平
+[05:08] s we can see, these levels continue to happen throughout the chart's actu  ||  /如我们所见,这些永平在图表实际发展过程中不断出现，
+[05:12] elopment, but the internal levels are simply the levels that are in between  ||  而内部水平只是在图表发展时位于波段
+[05:17] swing highs and swing lows as the chart is developing.  ||  高点和波段低点之间的水平
+[05:20] now that you understand what external liquidity is and what internal liquic  ||  现在你已理解件么是外部流动性和内部流动性，
+[05:24] , let's talk about exactly how external and internal liquidity work to help y  ||  ，我们来谈谈它们具体如何运作，
+[05:29] a better direction ofwhere the For step one, we need to understand that  ||  ，帮助你更好判断市场方向第一步，
+[05:34] willsweepexternal liquidity.  ||  ，我们需要理解价格会扫过外部流动性
+[05:36] So here we have our swing high and we have our swing low.  ||  ，这里我们有波段高点和波段低点
+[05:39] The reason this is,is because this is the lowest point of the chart.  ||  ，‘原因是这是图表的最低点
+[05:42] And of course, as wecan see, this is the highest point of the chart, right?  ||  ，当然,如我们所见,这是图表的最高点,对吧？
+[05:44] this would be our swing high up here and our swing low will be down her  ||  所以上方这是我们的波段高点，下方这是我们的波段低点
+[05:48] Internal Low  ||  
+[05:49] Now from thisnareawhat happened?  ||  ，现在炊这个区域,发生了什么？
+[05:50] u can see we had thatswing lowtdownhere, but now we made a brand ne  ||  你可以看到下方誉有那个波段低点，但现在我们创出全新高点
+[05:56] use we made a brandnew swingnhighthis previous external high or swing  ||  ，因为我们创出全新波段高点，
+[06:01] isnowanninternalhigh.  ||  之前的外部高点或波段高点现在成了内部高点
+[06:02] +inteWhy?  ||  为什么？
+[06:03] Internal Low  ||  
+[06:03] Because this is not the highest'point on the chart anymore.  ||  ，因为它不再是图表上的最高点
+[06:06] Internal Low  ||  
+[06:06] ng with this, we nowhave an internalilow as well, because this isn't the lov  ||  ，同时,我们现在也有内部低点，
+[06:10] Tpoint ofthelchart either.  ||  ，因为它也不再是图表最低点
+[06:11] nternal Low  ||  
+[06:11] So you can see we are nowecreating a brand new swing high.  ||  所以你可以看到;,我们现在正在创造全新波段高点
+[06:14] TAnd whattdoesuthat mean?  ||  ，下这意味着看什么？
+[06:15] lis means that liquiditytis taken andathis is typically where you see that pri  ||  这意味着流动性被拿走,这通常是你看到价格反转的地方，
+[06:19] reversaloright?  ||  
+[06:20] nce you get this swing high, nownwecan expect a price reversal from step  ||  所以一旦出现这个波段高点,我们现在可以预期第二步的价格反转
+[06:25] Internal Low  ||  
+[06:25] And once we getthat price reversal, where is the stock coming to?  ||  ，一旦出现价格反转,股票会来到哪里？
+[06:28] Well, that's wherenstepethree comes in place.  ||  ，下这就是第三步所在
+[06:30] Price movesrintointernal liquidity.  ||  ，下价格进入内部流动性
+[06:33] So we can see'we now created~a brand new external high.  ||  ，所以可以着到,我们现在创造了全新外部高点
+[06:36] So the only way thestock will come"back into an area is the internal high.  ||  ，所以股票唯一会回到的区域就是内部高点
+[06:40] internal Low  ||  
+[06:40] And thisis the inte'rnal-high right here, right?  ||  这就是这里的内部高点,对吧？
+[06:43] Because this was the previousiswing high, now internal high.  ||  ，因为这會是之前的波段高点,现在是内部高点
+[06:45] Internal Low  ||  
+[06:46] And this is where we want to buyathe stock for the next leg up, right?  ||  这就是我们想为下一波上涨买入股票的位置，对吧？
+[06:50] So external' liquidity'rcoming into internal liquidity.  ||  ，所以外部流动性进入内部流动性
+[06:53] And as we can see here, this is a great example and illustration of externa  ||  如这里所见,这是外部流动性的绝佳例子和说明，
+[06:57] quidity, which was previously this high rate here going into internal liquidit  ||  ，之前这里是高点,进入内部流动性
+[07:01] which was this previous high rate here, right?  ||  ，也就是之前这里的这个高点,对吧？
+[07:04] So it's retesting that internal liquidity for a move back up into where that  ||  所以它正在回测该内部流动性,以便回到外部高点，
+[07:08] ernal high external going into internal and then creating a brand new exte  ||  ，于下外部进入内部，
+[07:13] You can also see'this is a great example of the break and retest.  ||  ，你也可以着到,这是哭破回踩的绝佳例子
+[07:16] We broke out, we retested our support level and then buyer stepped up.  ||  ，我们哭破,回测支撑位,然后买方进场
+[07:19] and that's exactly why'if you've traded the break and retest before, it didn  ||  ，这正是为件么你以前交易哭破回踩时，
+[07:23] Tmakesensewhyitworked.  ||  ，下不明白它为什么有效
+[07:24] Now you understand why it works and how it works as well.  ||  ，现在你理解了它为什么有效,以及如何运作
+[07:28] So with that being said, now I've simplified the first concept, which is  ||  。。。。。。话虽如此,现在我简化第一个概念，。。。。。。
+[07:31] simply the direction of the market and how the system works.  ||  。。。。也就是市场向以统如何运作。。。
+[07:35] But what is the second concept?  ||  。但第二个概念是件么？
+[07:37] Because right now, there's a problem that you may not know.  ||  。。。因为现在有一个你可能不知道的问题。。
+[07:40] And that is, yes, now you understand structure and liguidity because I just  ||  。。。。。那就是,是的,现在你理解结构和流动性。。。。。
+[07:44] explained ittoyou。  ||  因为我刚解释冠
+[07:45] understanding that is useless to if they don't understand concept two and  ||  。，。但如果不理解第二个概念并蒋其与第一个概念结合。。。。。
+[07:50] combine both of these concepts.  ||  。。理解这些也没用
+[07:53] you're getting value"from*thisvideo so far,nmake'sure'to leave it a like an  ||  wru smplctuheatse如果你觉得本视频到目前为止有价值，。
+[07:55] quick reminderninnless"thanc24hours,Twill'be going"live on a private  ||  whu slmplct beatseveru 请点赞快速提醒不到24小时后，。
+[07:59] sterclass where Illsbe"talking"about the biggest"opportunity over the next  ||  wanu slmolctu eatserucompicte我将在私人大师课直播，。
+[08:03] benmonthsthatornobody is"talkingabouton  ||  whu smplctubeatse谈论未来六个月没人谈论的最大机会
+[08:05] I'll be sharing myerexact"playbook on what"I'm'doing'over the next six mor  ||  。。但我会分享未来六个月用我的简单系统策略的具体操作手册，。。
+[08:08] with my simple system*strategyennot onlyfor'day'trades, swing trades and  ||  whu slmplctubeat不仅用于日内交易波段交易和长期交易，。
+[08:13] long term,nq've"neveritalked about"publicly'anywhere.  ||  whu simpictubeat er compliatea这是我从未公开谈过的
+[08:16] bee soid and how t ial executewith confdenceEeverytning wil b show. do not ms ths son  ||  whu smplctubet ver complcate stem uouve
+[08:16] And because it'sa*two'dayefree"masterclass,l'm'going"to be live trading  ||  whu smplctubeat ever 因为这是为期两关的免费大师课，
+[08:19] bee soiainfrontofyou for absolutely'freessesson  ||  whu slmpletubeatey我将完全免费地在你们面前实盘交易
+[08:21] So the masterclassuwillstart Tuesday,june"l6th at 8 p.m.  ||  ×whu simplctube大师课将于6月16日星期二晚上8点开始
+[08:24] e sure to sign up*usingthe"waitnlist in the"description'and check your ema  ||  whu simplc请通过描述中的等待名单注册,并查看你的邮件。。
+[08:27] bee soid an o ret'sugetac back into'the Videomis hs sson  ||  wh slmplctu es er compicate stem让我们回到视频
+[08:29] And concept two simply refers to the location of where we want to enter a  ||  。。。，。第二个概念指的是我们想进场交易的位置。，。。
+[08:34] trade, because if you know the overall direction of the market, that's good  ||  。。。。因为知道市场整体方向很好。。。。。。。
+[08:37] that does not give you any indication of where you should enter for a low  ||  。，。。。但这并不能告诉你该在哪里进场,以进行低风险。。。。。
+[08:41] trade, a high reward trade, or even a mechanical and repeatable trade.  ||  。。。。。。。高回报湛至机械且重复的交易。。。。。。
+[08:45] You simply know the direction so far.  ||  。你自前只是知道方向。
+[08:47] How are we able to determine the actual location with precise entries?  ||  。。。。。我们如何确定实际位置并进行精准入场？。。。。。。
+[08:52] ell, to understand the location of a trade, you need to understand that eve  ||  
+[08:56] time frame you look at tells you a story.  ||  。你需要明自你看的每个时间框架都在讲述一个故事
+[08:59] And because of this, many traders, if they just trade small timeframes,  ||  。。。。。。因此,许多交易者如果只交易小时间框架。。。
+[09:03] et's say you trade the five minute time frame or the one minute time fram  ||  。。如你交易扮钟或1钟时间框架。。。。
+[09:06] they only look at the five minute or one minute time frame.  ||  。。。。。他们只看5钟或让纷钟时间框架。。。。
+[09:09] So what they're looking at is the details on the chart, which is good.  ||  。。，。。。。。他们看到的是图表细节,这很好。。。。。。。
+[09:12] They understand where they can get precise entries.  ||  。他们理解哪里可以获得精准入场。。
+[09:15] But the problem is they're completely forgetting to summarize the details.  ||  。。。。。但问题是,他们完全怎了总结这些细节。。。。
+[09:19] need to understand what happened in the previous chapters to actually m  ||  。。。。。你需要理解前面章节发生了件么。。。。。
+[09:23] forward in the story。  ||  。于能在故事中继续前进
+[09:24] hese details are useless if you don't understand what's happening in the b  ||  。。。。所以如果你述不理解书中正在发生件么，。「。。。。
+[09:28] already。  ||  这些细节就没用
+[09:28] And the higher time frame allows us to get that summary.  ||  。。。。。。而更高时间框架让我们获得这个总结。。「
+[09:32] I therefore, when we get that summary and jump into the smaller timefran  ||  。。。因此,当我们获得总结并进更小时间框架时。「。。
+[09:35] these details only help us get a more precise and high probability entry.  ||  。。。。这些细节只会帮助我们获得更精淮更高概率的人场「。。，，
+[09:40] So if we use the multi time frame analysis that I will teach in this video,  ||  。。。所以如果我们使用我将在本视频中教的多时间框架析。。。。。。
+[09:43] e will be able to get a clear thesis, low risk entries, and most importantly  ||  。。。，我们将能获得清晰的交易逻辑低风险入场点,最重要的是。。。
+[09:47] highrewardexits.  ||  高回报出场点
+[09:49] hese are the exact three things that allow me to be done the day in 6o mi  ||  、。。。正是这三件事让我用极简系统交易时。。。。。。。
+[09:53] when I trade using an extremely simple system.  ||  。。。能在60汾钝内结束当天交易。
+[09:57] hen we look at higher timeframes and lower timeframes, sometimes it ca  ||  。。。。。。当我们着高时间周期和低时间周期时。。。
+[10:00] pnfusing because there's so many different timeframes that you can look a  ||  。。。。有时会困惑,因为可选择的时间周期然多了。。。。
+[10:03] For me, I try to keep it very, very simple.  ||  对我来说,我尽量保持非常简单。。
+[10:06] On the higher time frame, you have the daily time frame, the four hour.  ||  。。。。。。高时间周期包括线4小时。。。。。
+[10:09] the one hour and 3o minutes.  ||  SM小时和30钟M
+[10:11] And then on the lower time frame, you have the one hour, the 3o minute,  ||  。。。。。低时间周期包括小时30扮钟。。。。，
+[10:14] the five minute, and the one minute.  ||  M5钝和纷钟M。
+[10:16] Now, these are a lot of different timeframes.  ||  M这些时间周期很多M。
+[10:18] So what shoula we be using them for?  ||  。那我们应该用它们做么。。
+[10:20] ell, when we look at these timeframes, the one hour should be used for sw  ||  。。。。OM看这些时间周期，M。SCALPING。。
+[10:24]   ||  SOMTMSCALPING
+[10:24] So anything that's the one hour or the four hour, these are typically swing  ||  。。。。。。所以小时或4小时通常是波段交易时？SCALPING。。
+[10:28] trading timefframes.  ||  SOM间周期，TMSCALPING
+[10:29] y trading, you can use anywhere in between the 3o minutes, a five minut  ||  内交易可使用3O汾钟到分钟乏间的时间周ALPING。。
+[10:32] frame.  ||  SOM期TMSCALPING
+[10:33] This is typically very good day trading as it gives you enough detail as well  ||  。。。。。这通常很适答间内交易,因为也能提供足够细节ALPING。。
+[10:37] And then for scalping, that's the one minute time frame.  ||  。。。。剥实皮易则用I纷钟时间周期SCALPING
+[10:39] That's where you want to get the most precise entries on the chart for the  ||  。。这时你希望在图面上获得最精确人场了。SCALPING。。。
+[10:43] highest possible reward.  ||  OT以争取尽可能高的回报。SCALPING
+[10:44]   ||  SOMTMSCALPING
+[10:44] ou can, of course, combine the higher time frame into the lower time fran  ||  。当然,如果能把高时间周期结合到低时间周期中CALPING。。
+[10:48] So what's my personal favorite multi time frame analysis strategy?  ||  。。那我个人最喜欢多时间周期析策略是什么CALPING一。
+[10:52] Well, for me, when I'm looking at the higher time frame, I look at the daily  ||  。。。对我来说,着高时间周期时）。。。。。。。
+[10:55] time frame.  ||  
+[10:55] d this gives me a very clear indication of not only direction, but it gives m  ||  。。。。这不仪清晰指示方向。。。
+[11:00] very clear thesis if the market is either bullish or bearish.  ||  。。让我清楚判断市场是着涨述是着跌。。。。
+[11:04] hen when I go to the lower time frame, I enter in on the one minute time f  ||  、。。。。。然后转到低时间周期我用工纷钝周期久场。。。。
+[11:08] is gives me the absolute best location to enter for the highest reward trad  ||  、。。。这让我找到最佳入场位置,以追求最高回报交易。。。。。。
+[11:13] d of course, when we get onto the charts, I'm going to show you exactly h  ||  ，，，M当然进图表后M，
+[11:16] I do this multi time frame analysis strategy on the real charts.  ||  。。。。我会在真实图表上展示我如何执衍这个多时间周期分析策略。。。
+[11:19] you can see how simple it is to combine two time frames and get rid of all  ||  。。你会看到结合两个时间周期并过滤其他噪音之一。，。。。。
+[11:24] noise onthe rest.  ||  有多简单
+[11:25] o, so far in the video, I've explained concept one and concept two, which i  ||  。。。。。到目前为止,我在视频中解释了概念一和概念二。，。。。
+[11:28] direction and location of the market.  ||  即市场向导位置。。
+[11:31] now let's hop on over to the real charts where I show you the exact strate  ||  。。。现在转到真实图表。。。
+[11:34] I use on how l look for trades.  ||  ，我会展示我寻找易时所用的确切策略
+[11:36] then I'm going to show you examples combining all of the things that I ta  ||  。。。然后我会展示结合本视频所讲所有内。。。。。。。。
+[11:39] about in this video。  ||  容的例子
+[11:40] So you can see exactly how I apply it in the real markets.  ||  。让你看到我如何在真实市场中应用。。。。
+[11:44] +++++++'t++++All'right,here we are on the very first example..  ||  “+++++，+好，现在看第一个例子
+[11:46] +*++.Now,th'is is on.iNTC or Intel and we're on the daily time frame. .  ||  *++++++.，+*这是IN,即英特尔,我们看日线
+[11:50] id on the daily time frame, all we're really looking for is what's happening.  ||  在日线上，
+[11:53] And we're going to use those same external and internal liquidity levels.  ||  我们将使用相同的外部与内部流动性水平
+[11:57] ve can'see on this chart all the way down here, this is where the stock star  ||  。可以着到图表最下方,这是该股启动的位置
+[12:01] * This was the lowest point of the stock since this run up..  ||  。这是这波上涨以来该股的最低点
+[12:03] *And this is why we're going to use this as a swing low..  ||  因此我们把它作为波段低点
+[12:06] I then from that swing low, we can see we came all the way up into this sw  ||  从这个波段低点，
+[12:09] high.ao  ||  可以着到一路涨到这个波段高点2
+[12:10] From this swing high area.  ||  从这个波段高点区域8
+[12:11] w you can see we have created a brand new low here where we're basing  ||  “现在可以着到,我们在这里形成了新的低点并以此为支撑2
+[12:15] And what does this mean?.  ||  这意味着看什么？
+[12:16] Well, this simply means that this is technically an internal low because we  ||  “这简单意味看,技术上这是内部低点，2
+[12:20] already have our swing low right here.s.  ||  因为这里已有波段低点
+[12:21] So this would be an internal low that we have.s.  ||  所以这就是我们的内部低点
+[12:23] -And therefore, we understand that after coming into this internal low, s.  ||  因此我们明白,在来到这个内部低点后
+[12:27] next area the stock can go to is going to be gravitating towards that exte  ||  该股下一个可能前往的区域将再次趋向那个外%
+[12:31] high again.ns  ||  
+[12:32] For me, all I'm understanding is this stock is indeed in an uptrend. as  ||  「—对我来说,我理解的就是该股确实处于上升趋势
+[12:36] Yes,it'sconsolidating.s  ||  是的,它在盘整
+[12:37] However, lit is still in an uptrend.s  ||  但它仍处于上升趋势
+[12:39] therefore, I will mark out my daily candle high and my daily candle low of  ||  因此，
+[12:44] previous day.as  ||  「．我会标出前一天的日K线高点和低点
+[12:45] From this, I can now go over to the one minute time frame.as  ||  「—由此,我现在可以转到工分钟周期
+[12:48] hat's where I'm actually entering the trade after understanding the higher  ||  「．在理解高时间周期逻辑后，
+[12:51] frame thesis.as  ||  我就在这里实际入场
+[12:52] "Alright, here we are on the one minute time frame. .  ||  。好,现在看工分钟周期
+[12:55] d on the one minute time frame for this strategy, I'm simply going to uset  ||  。。。。在这个策略的工分钟周期上，
+[12:58] first five minute opening range strategy or the first candle strategy.  ||  。我只用开盘前5分钟区间策略，即首根K线策略
+[13:01] that implies is we're going to mark out the first five minute high up herera  ||  。。。也就是说,标出前5分钟高点在上方，。
+[13:05] we're going to mark out the five minute low down here.us  ||  前5分钟低点在下方。
+[13:09] simply lets us know that right now we have an external high up here in the  ||  。。。。这让我们知道,当前5分钟区间上方有外部高点，。
+[13:13] e range and we have an external low down here of the five minute range"a  ||  下方也有外部低点
+[13:17] o external high and low of the five minute and all we're looking for is goin  ||  。。。。。。所以关注5分钟的外部高点和低点，
+[13:22] to be a break above a retest and continuation.muza  ||  。。。我们只寻找哭破回测和延续
+[13:25] Why?ao  ||  为什么？
+[13:25] Because if we get a break above, that would be a brand new external high  ||  。因为如果向上哭破,那将是全新的外部高点
+[13:28] would make this previous five iminute high now an internal high, which we  ||  。。。。。。这会使之前的5分钟高点变成内部高点，
+[13:32] retest for the' next external high level..  ||  我们会回测它以下一外部高点为自标
+[13:35] So let's see exactly what happens if we break above one of these areas  ||  来看看如果哭破这些区域之一会发生什么
+[13:39] Okay, so so far we can see werhave created a brand new external high.  ||  好,自前可以看到我们创造了全新的外部高点
+[13:44] So our brand new external high'is all the way up into this area here. us  ||  。。全新的外部高点直延伸到这里的区域5
+[13:48] This is our brand new swing high, right?us  ||  这是全新的波段高点,对吧？55
+[13:50] Because this is the lowest point of the chart.us  ||  因为这是图表最低点.
+[13:52] This is our swing low and then this is our swing high.us  ||  这是波段低点,然后这是波段高点
+[13:55] But where is our internal high now?us  ||  但现在内部高点在哪里545
+[13:57] here does the stock have to go for'that internal liquidity for the next leg u  ||  。。为了下一段上涨,该股必须去哪里获取内部流动性？5
+[14:02] Well, we know that the stock opened at the five minute range high. uss  ||  。。,我们知道该股在5分钟区间高点开盘1545
+[14:05] Therefore, the internal liquidity'is this five minute range high, right? us  ||  。。因此内部流动性就是5分钟区间高点,对吧？545
+[14:09] if you've ever traded the first candle strategy, now you understand why th  ||  。如果你交易过首根K线策略，55
+[14:13] works as well.us  ||  *现在也明白它为何有效了545
+[14:14] Let's see if'we can backlinto and retest this internal-liquidity.a  ||  神看着我们能否回撤并回测这个内部流动性。%
+[14:18] And as we can see, we came up, you can see some buyers actually did try  ||  。+“+可以看到,我们上来后，1545
+[14:22] to step'offithis previous day high.a  ||  *—些实家确实试图从前日高点场—545
+[14:23] if you were using the previousyday high strategy, you would have gotten"f  ||  +“如果你用前日高点策略，-545
+[14:27] ecause we understand the external and internal liquidity levels, we were 'a  ||  但因为我们理解外部和内部流动性水平，545
+[14:31] mpletely avoid this loss by'simply getting a better and higher risk to rewa  ||  。。。“我们通过获得更好更高的风险回报交易，—1545
+[14:35] trade.o  ||  +++完全避开了这笔亏损1545
+[14:36] So with that being said, all we have to do is enter into the trade here.  ||  。++“话虽如此,我们只需在这里入场1545
+[14:39] ur stop loss can simply be thebreak of the candle that we're entering in o  ||  正损可以简单设为我们入场K线的破位545
+[14:43] *And we need at least a 2R multiple.a  ||  +“我们至少需要2R倍数1545
+[14:45] *+ln this.example, we're risking about $1,400 to-make about $2,720.  ||  ，，．这个例子里,我们风险约400美元,盈利约2/20美元16.5
+[14:51] **.Let's.play out this trade-and-let's see-exactly-what happens.  ||  ，，．。。。来推演这笔交易,看看会发生什么6.5
+[14:55] And as we can see here, the stock came up nicely into our profit target.  ||  。。”可以着到,该股顺利涨到我们的正盈目标5
+[14:59] d this was a very simple trade executed using both of the concepts, which  ||  这是一笔非常简单的交易，50
+[15:03] irection and location'of the market and combining it with a simple strategy  ||  。“。1运用了市场方向享位置两个概念,并结合一个简单策略
+[15:07] With this being said, this is the first example.s.  ||  话虽如此,这是第一个例子
+[15:09] go over to anotherexample where l combine all of'these concepts into or  ||  再看另元个例子,我将这些概念合为一体，。
+[15:13] show you exactlyhow I trade it in the markets.s.  ||  +展示我如何在市场中交易
+[15:16] Alright, here we are on our next example..  ||  好,现在看下一个例子%
+[15:18] And this is on CRDO.s.  ||  这是CRDO%
+[15:20] This is a name that has been trending to the upside as well..  ||  这也是一个一直向止趋势的标的9.
+[15:23] So let's analyze the daily timeframe first..  ||  +先分析日线9.
+[15:26] ....Onthe.daily.timeframe,we can.seewe-have-aswing.ow.down..here.  ||  +在日线上,可以看到这里有一个波段低点.
+[15:29] We then have these two-internal lows that we've created as well. ..  ||  然后我们还形成了这两个内部低点.
+[15:33] We have' our external-high-or the highest point of the chart right here. .  ||  这里我们有外部高点,即图表最高点.
+[15:36] And you'can see we actually broke above God into that external high.  ||  问以看到,我们实际上向上哭破并进入了那个外部高点3.5
+[15:40] nd now we'retested where ourinternal high because this high earlier was  ||  现在我们回测了内部高点，.
+[15:44] externalhigh..  ||  因为早先这个高点是外部高点.
+[15:45] because we made a brand'new external high, this turns into an internal h  ||  但因为我们创造了全新的外部高点，它就变成了内部高点.
+[15:49] So we get the breakout,the-retest, and now we're looking to get back into  ||  "所以我们得到突破回测，9.
+[15:53] Iwhereia-brand new external high..  ||  现在期待回到全新外部高点9.5
+[15:56] o we're actually using that'liquidity concept that I talked about on the dail  ||  “所以我们在日线上也使用了之前谈到的流　.5
+[15:59] timeframe as well..  ||  动性概念.
+[16:00] 'So you can seetit-works on all timeframes in general..  ||  “荷以着到,它总体上适用于所有时间周期3.
+[16:03] d-therefore, now that we understand that, we'll simply mark out our previc  ||  因此,既然理解了这一点，9.5
+[16:06] +day high and previous day low levels..  ||  +、我们只需标出前日高点和前日低点水平.5
+[16:07] ++ And let's go over to the one minute timeframe.  ||  +现在转到工分钟周期9.5
+[16:10] the one minute timeframe, all I'm going to do is wait for the first five minu  ||  在1分钟周期上,我只等待开盘前5分钟，
+[16:14] of marketjopen to actually help me develop a thesis.m  ||  以帮助形成交易逻辑
+[16:17] I here once the first five minutes iof the market has developed, we can see  ||  。。。这里,开盘前5分钟形成后，.8
+[16:21] have our swinglow down here..  ||  可以看到下方有波段低点.8
+[16:22] This is our five minute low..  ||  这是5分钟低点2.8
+[16:23] ou can see we have our swing high up here, which is also our five minute  ||  。可以看到上方有波段高点,也就是5分钟高点2.8
+[16:28] So these are both external lows and external highs..  ||  。所以这些既是外部低点,也是外部高点.8
+[16:31] know what we want is a break above this external high, creating a brand..  ||  。我们要的是哭破这个外部高点,创造全新外部高点，8
+[16:35] external high, and then a retest of this previous external high turned into.  ||  。。。。。然后回测这个由前外部高点转成的内.8
+[16:39] internalhigh..  ||  
+[16:40] And then once again, continuation into a brand new external high.  ||  。。。然后再次延续到全新外部高点.8
+[16:44] Let's play out this trade and see if we can get that break and retest.  ||  。。。。。来推演这笔交易,着着能否得到突破和回测.8
+[16:48] We broke out, we created a brand new external high right here. ma  ||  。。我们突破了,在这里创造了全新外部高点
+[16:52] We then went to go sweep that high here.  ||  。然后我们上去扫过这里的高点5
+[16:56] So external, internal..  ||  所以外部内部
+[16:57] So what's the next level that this stock will go up into?  ||  。。。那么该股接下来会上涨到哪个水平？
+[17:00] It's going to be the next external high, which is this 252.81 area.  ||  。。。。将是下一个外部高点,即252.8区域
+[17:05] buyers have stepped up on thislchart, we can simply risk the break backak  ||  。。一旦买家在这张图上进场，
+[17:09] thisarea..  ||  我们只需以跌破该区域作为风险。
+[17:10] And we're looking for that 252 previous day high level.  ||  。。。。。我们自标看向252的前日高点水平。
+[17:13] This gives us about a 2.3 risk to reward trade.  ||  。。这给我们约2.3的风险回报交易。
+[17:16] This means we're risking about $2,770 for about $5,860 of potential profit  ||  。。这意味看风险约2/0美元,潜在利润约5860美元.。
+[17:22] Let's see whathappens-if we enter this trade. ..  ||  。看看如果我们入场会发生什么
+[17:26] s we can see, this trade was done-at 946,about 15 minutes into market op  ||  。。可以看到,这笔交易在9-46完成,开盘约15分钟，
+[17:31] ly-understanding these two concepts,which is the direction and location"o  ||  只因理解了市场方向导位置这两个概念，
+[17:36] Ii -- .----market and combining-it-with-a simple strategy.  ||  并结合个简单策略
+[17:38] th-this'being said, make sure to sign-up-for-the free live masterclass thatl  ||  话虽如此，
+[17:41] II -- .---.doing in the link-in-the-description..  ||  请务必通过描述中的链接报名我将举办的免费播大师课
+[17:42] lyou-want to learn more about these-concepts and strategies, make surert  ||  。如果你想了解更多这些概念和策略，
+[17:45] i --.---click the playliston-screen..  ||  。请点击屏幕上的播放列表
+[17:46] i --.----Now it's a 1o hour playlist-going over everything.  ||  。。现在这是一个10小时的播放列表,涵盖所有内容
+[17:48] Ii -- .---- If this video helped you-make-sure to leave it a like.  ||  。。。。如果这个视频帮到了你,请点赞
+[17:50] Ii-- If-you have any questions, put-them-in-the comments down below.  ||  。如果有任何问题,请留在下方评论区
+[17:52] scribe to the channel, follow me on-lnstagram and Twitter for more educat  ||  」。。订阅频道,在instagram和Iwitter关注我以获取更多教学..。
+[17:55] I --.---.and I'll see you-in-the-next video..  ||  我们下个视频见

@@ -1,0 +1,480 @@
+# rn073 | 油管中文配音檔案館 (JeaFx) | How I Day Trade GBPUSD (with price action) | 1580s | log #80
+# OCR of the burned-in bilingual subtitles (tools/video/sub_ocr.py): English line || Chinese line; the English line is cut at the frame edges when it is long.
+[00:01] In this video, we are going to break down this trade that I took recently on GBPUsD.  ||  在本视频中我们将拆解我最近在GBPUSD上做的这笔交易
+[00:06] Here is that trade sent out before it was taken, and here is that trade'after the  ||  这是并仓前发出的交易,这是事后记录，
+[00:11] facttoshowayouthatl didactuallytake it.  ||  。证明我确实做了这笔交易
+[00:14] Now, this is whatthe market looks like now。 ao  ||  。。现在,这是市场目前的样子
+[00:16] Although we rallied significantly since filling the target, we actually came into 1  ||  尽管自达到自标后我们天幅上涨，
+[00:20] the exact point that I said would be a good place to dlose the trade,  ||  。。。。。但我们实际到达了我所说的理想平仓位。。。
+[00:24] as you can see if l just zoom this out a little bit.  ||  如你所见,只要我把图表稍微缩一点139
+[00:28] Now, this is what I would dlassify as a daytrade.1  ||  。。现在,这会被我归类为间内交易。1398
+[00:31] It's not something I intended to hold for a long time, and it was pretty much just .  ||  。。。。。。。这不是我算长期持有的交易，。。。。1318
+[00:34] me taking advantage of a very obvious opportunity that I saw in the market when  ||  。。。。。基本上只是利用我昨天录视频时着图
+[00:39] I came to the charts, well, yesterday at the time of recording this.1  ||  。。。表发现的个非常明显的机会32
+[00:43] So, in this video, I'm going to break this trade down, start to finish, show you how.  ||  。。。所以,在本视频中我蒋从实到尾拆解这笔交易3
+[00:47] the idea was formed, how the target was chosen, and pretty much give you my  ||  。。展示想法如何形成目标如何选择，
+[00:51] thought processes behind the whole operation ofthis trade..  ||  并享整笔交易操作背后的思路
+[00:55] Now, generally, my analysis is going to begin on the higher timeframes..  ||  通常,我的分析会从更高时间周期并始。。。。。。13140
+[01:00] I begin on the weekly, go to the daily, and down.  ||  。。我从周线开始,到目线,再往下。。130
+[01:02] That is to build narratives, the big picture ideas.  ||  。。。这是为了构建叙事和宏观思路。。。130
+[01:05] Now, for GBPUsD, it's been a little bit difficult to do so, given that pretty much ...  ||  。-。对GBPUSD来说有点难,因为自2025年初以来，。。。。 1360
+[01:10] since theistart of 2o25biwe've been in a sideways consolidation..  ||  。。。+我们基本处手横盘整理。。。20
+[01:14] So, narratives-wise, what we're actually doing is we're pretty much zooming in on...  ||  。。。所以从叙事角度着。。。。200
+[01:18] ilinear-term pricea%  ||  我们实际上是在聚焦近期价格20
+[01:19] We're looking at what's going on over the past couple of weeks, and then running off  ||  。。。。。。。我们观察过去几周的情况，。。。。。20
+[01:23] Now, we did get a bit of insight because over the past couple of weeks here,..  ||  。。。不过我们确实得到了一些线索,因为过去几周这里。。。。 20
+[01:27] we'd seen the market breaking down through this low and trading towards the next low,  ||  。。。叶我们看到市场跌破这个低点,并向下一低点运行。。20
+[01:33] this low here, right? aa%  ||  就是这个低点对吧20
+[01:35] That's pretty much all the information we can gather from this..  ||  这基本上就是我们能从中获取的全部信息。。20
+[01:37] A lot of the information that led me to focusing on a short bias for GBPusD was ..  ||  。。。让我聚焦GBPUSD做空偏向的很多信息其实来，。。。.200
+[01:42] actuallycorrelation。%  ||  
+[01:44] So, this is the firstthing I wantto cover.  ||  。所以这是我想讲的第一点。0
+[01:47] That's a little lesson foryou。  ||  这算给你上的一小课0
+[01:48] If we take a look at the Us dollar index, this is the DxY, that's what the chart's ...  ||  。。。。！如果我们着美元指数,也就是DXY。。。。。。。3%
+[01:53] This shows the relative strength of the Us dollar versus pretty much all the other...  ||  。。。。「它显示美元相对于列表中几乎所有其他。。。。6
+[01:57] currencies in the list。s.o  ||  货市的相对强弱.6
+[01:59] Now, this one, obviously, has been rather bullish..o  ||  现在,这介指数显然相当着涨。。。
+[02:02] From this point, we broke into a higher high, printed a higher low, a higher high,  ||  。。。从这一点开始,我们哭破创下更高高点,形成更高低点更高高点。。。。。。。
+[02:06] and then we came down and created another higher low..  ||  。然后回落并形成另一个更高低点。。。。。6
+[02:09] Wethen started rallying once again。s.oo  ||  随后我们再次先始上涨.6
+[02:12] Now, the reason for the latest rally is the Us Federal Reserve have raised..  ||  。。。。最近这轮上涨的原因是美联储。。。。。.%
+[02:17] tinterestrates。a  ||  
+[02:18] Whatithat does is it means Us dollar interest rates are going to be higher...  ||  。。其作用是意味着看美完利率孵更高。。。。。。2
+[02:21] It means holding Us dollars is more viable, valuable, because you are going to ...  ||  。。这意味着持有美元更可更有价值，。。。20
+[02:26] I'make money or make more money for holding your Us dollars...  ||  。因为持有美元能赚钱或赚更多钱。20
+[02:29] And being the safe haven or world reserve currency, it's a very good place to park.  ||  。。而作为避险货市或世界储备货市。。。。.50
+[02:34] your moneyss  ||  它是很好的资金停滴处.5
+[02:34] So, if you've got a bunch of money, you want to put it somewhere safe and get ..  ||  。。所以如果你有一大笔钱，。。15
+[02:37] a yield for it, higher interest rates on the Us dollar is very attractive for  ||  。。。。仙山想放在安全处并获得收益，。。。。15
+[02:41] peopletothen buyusdollars.cuz  ||  呵美完更高利率会非常吸引次实久美元.5
+[02:43] So, that's why we saw such sharp reversals in the downside price action of the dollar  ||  。所以这就是为么我们看到美元指数下行走势出现如此急，。.5
+[02:47] People were buying Us dollars because the yield is higher and it's expected to go.  ||  。。功而人们在买美元因为收益率更高，。。，。.5
+[02:51] higher or stay higher for longer, which is a bullish sign forthe dollar  ||  。。且预计会更高或更长时间保持高位，。。。。。20
+[02:56] liindex orforthe Us dollarasa whole.  ||  这对美元指数或整体美完是看涨信号。2
+[02:59] So, because I was expecting the Us dollar to be bullish, I've been looking short .  ||  。。因为预期美元看涨,我一面在找EURUSD和GBPUSD的做空机会。。。。
+[03:03] side on EURUsD and GBPUsD, which are pretty much the onlytwo things that I  ||  。。这基本上是我持续交易的两个。。。。
+[03:08] consistentlytradeao  ||  品种
+[03:09] I don't trade everything else too frequently, but I always do stick by these ones.  ||  。。。我不然频繁交易其他品种但我—面坚持这两个！。。。。。
+[03:14] .Now, I haven't seen the movements that I wanted to see on EuRusD yet to actually  ||  。目前EURUSD述没出现我想看到足以捕捉交易的动，
+[03:20] capture a trade, but I did see something interesting on this one and also on the .  ||  。。。。。但我在这个品种和美元指数上都看到了有趣。
+[03:25] dollarindextooo  ||  的东西2
+[03:27] So, when we saw the market coming down, we'll jump back to this point.  ||  。。所以当我们看到市场下跌时,我们回到这一点。。。。。。128
+[03:31] when we saw the market coming down towards this low, we printed what we call equal.  ||  。。当市场跌向这个低点时,我们形成了所谓的等低点流动性，。。。。12%。
+[03:34] low liquidity, basically two equal points in the market that generally will then act  ||  。。。。基本上是市场中两个相等的点，。。。125%
+[03:38] as a magnet for price because we know there's going to be stop losses and sell  ||  通常会充当价格磁铁，
+[03:42] stop orders situated around that level. uso  ||  
+[03:43] So, I was expecting to not see this go higher, but actually to see this come1  ||  所以我预期不会走高是会走低并扭掉这个低点
+[03:49] lower and sweep out this low before a buying opportunity would come in mind. 1  ||  
+[03:54] And that kind of looks like it might be happening now that the market got a bit u  ||  现在看起来可能正在发生
+[03:57] deeperthan l expected it to. 2s  ||  。因为市场此我预期跌得更深18%
+[04:00] Now, because I expected EuR to come down significantly, it prompted me to takea  ||  。。。。因为预期欧元会天幅下跌，。。。。。131
+[04:05] l +lookatthedollar index..  ||  。这促使我查看美完指数
+[04:07] And we saw onithe dollar index while we didl have a break, it's not the strongest....  ||  。。*我们着到美元指数虽然确实有哭破，。。。。。。。」1034
+[04:11] illntt -fi'tbreak in the world. o  ||  +但并非最强哭破。034
+[04:12] Now, you'll see that just here where we immediately reverse and start trading .  ||  +”你会看到就在这里哭破一发生。。。。。。034
+[04:15] bullish with pretty significant wicks and a very large indecision candle as soon as...  ||  。。。。吐”。我们应刻反转并开始看涨交易，。。。。034
+[04:20] ntlilit -fi'!the breaktakesplace.o  ||  +带有相当明显的影线和一根很关的犹豫K线034
+[04:21] .. Now, when the marketigot up here and it drove through the only supply zone that..  ||  。由+上。当市场涨到这里，。。。034
+[04:24] could keep it down, fhad a pretty good inclination that the market was likely to ....  ||  。。。+。*并穿过唯一可能压制它的供给区时。。。。。。。0340
+[04:29] nilliet l-fi'ltake outthe high.o  ||  +上我相当倾向于认为市场可能担掉高点034
+[04:31] ntlit'So, these things are all correlated, right?  ||  +”所以这些事物都是相关的,对吧?。。。0.4
+[04:33] If the Us dollar is going to go up and take out the high, that tells us that.  ||  。+如果美元要上涨并担掉高点,那就告诉我们b。。。。。。。034
+[04:37] EuRusD, being versus the Us dollar, is likely to go down and take out the low,  ||  与美元相对的EURUSD可能下跌并招掉低点
+[04:43] because it's the EuR strength against the Us dollar strength.  ||  。。因为这是欧元强弱对美元强弱。。。130
+[04:45] And if the Us dollar is getting strong enough to take highs, then the EuR is  ||  。。。。。如果美元强到足以高点。。。。。。。。。130
+[04:50] likely going to get weak enough to take lows, right?  ||  。。那欧元可能弱到足以低点,对吧？。。。130
+[04:53] Relatve to the Us dollar, at leasta  ||  至少相对于美完是如此。130
+[04:54] Now, GBPusD was in an interesting position, because while this was kind of  ||  。-.—现在GBPUSD处于有趣位置,因为它有点跟随同样走势。。。。。。130
+[05:00] following Sue and does correlate in the same way as EuRusD, I mean, if we look at.  ||  。。。。并与EURUSD以相同方式相关我的意思是。。。。134%
+[05:05] ie recent movement down that we've seen on Gu and we compare that to the move dow  ||  。。。如果我们着GU近期下跌,讲对此EU近期下跌。。。
+[05:09] we've seen on Eu, you'll see these two pairs move very much the same, right? u  ||  会发现这两个货市对走势非常相似对吧—。。。
+[05:14] Now, the only difference was, obviously, on EuRusD, the low has now been taken.  ||  。。唯β别显然是,EURUSD的低点现在已被扫掉。。。。131%
+[05:19] On the dollar index, the high has almost been taken.  ||  在美元指数上,高点几乎被掉。。.8
+[05:23] And on GBPUsD, the low is still open in the same way as the dollar index it is, 1  ||  。.。而在GBPUSD上,低点仍然未被抖,就像美元指数一样。。。。。131%
+[05:28] although the dollar index is, quite obviously, leaning to the upside,1  ||  尽管美元指数明显偏向上行
+[05:31] likely to take outthe high 32  ||  可能摄掉高点134
+[05:33] Now, because we have this kind of, what could we call it, disparity where  ||  因为存在这种怎么说呢,差异1342
+[05:38] EURUsD has actually already taken the low, but GBPUsD hasn't done that yet, ..  ||  .。。EURUSD实际上已经担掉低点,但GBPUSD述没。。。。。138%
+[05:42] we get the idea that, okay, the low is probably rather likely to go...  ||  。。。。我们得到一个想法好吧低点很可能也会被招掉。。。138%
+[05:47] So now we just have to see if that makes any sense when we put it to the test..  ||  。。。。现在只需在验证时着它是否合理。。。。。13620
+[05:51] Now, obviously, we could say the markets created a confirmation, right?.2  ||  。。。。显然我们可以说市场形成了确认,对。。。.°
+[05:56] Soshouldn'twe belooking to buy?  ||  。那难道不该找机会做多吗。138%
+[05:59] - And that would be viable, we could keep that in mind, and it's definitely.  ||  。。。。。。。。。这可衍我们可以记住这一点，。。。。。。。13%
+[06:02] something I did keep in mind while I was setting the trade up..  ||  。。。。我在布置交易时确实考虑过。。138%
+[06:05] We can markthat high on.  ||  我们可以标出那个高点138%
+[06:07] We can see we gotthe break of structure.  ||  可以着到我们得到了结构哭破。。138%
+[06:08] That'sallgood. 3  ||  
+[06:10] And then we can drop down to a slightly lower timeframe and see what the market is  ||  。。。然后我们降到稍低时间周期，。。。。1。
+[06:14] upto here.3s  ||  看着市场在这里做么3929
+[06:15] Now, I saw one thing on this chart, which I found very interesting,.  ||  。。我在这张图看到一件很有趣的事。。。1310
+[06:19] and it was when the market had gone a little bit furtherthan this.  ||  。。。那是当市场此这里走得更远时。。。。。。1312%
+[06:22] So let's move itto where it was when we set this trade up.  ||  。。。诞我们移到我们布置这笔交易时的位置。。。。1312%
+[06:25] The market was trading here, before this drive higher.  ||  。。在这波上冲乏前,市场在这里交易。。。。。1312%
+[06:29] So with this bearish candle that we see just here, and let's zoom in a bit,1  ||  。。。。。。。就着这里这根阴线K线,诞我们放一点。。。。。。1312%
+[06:34] this bearish candle pushes us past what wouldl be the only meaningful demand zone  ||  。。。。。这根阴线K线让我们跌破唯一述有意义的需。。。。。1390
+[06:38] eft  ||  
+[06:39] Now, a demand zone, if you don't know, is an area of consolidation before an .  ||  。。如果你不知道,需求区是冲动行情前的盘整区域。。。。。1390
+[06:42] Impulsive move that indicates buying or selling strength.  ||  。。表明买盘或卖盘强度13950
+[06:45] Ademand zone is going to be for buying strength.  ||  。。。需求区对应的是实盘强度。13950
+[06:48] Wesee the marketflat out here.  ||  我们看到市场在这里走平1390
+[06:50] An impulsive move begins, driving us to a new high.  ||  。。。。—段冲动行情始,推动我们创出新高。。。1390
+[06:53] That creates demand. a  ||  ，这就创造了需求。1395
+[06:54] Now, if we were to then see the market create reactions in here, break structure .s.  ||  。。。如果我们随后看到市场在这里产生反应。。。。。。。1390
+[07:00] on the lower time frame, such as break through some internal structure like this.s.  ||  。。。。在较低时间周期突破结构,此如哭破这样的内部结构。。。。。139%
+[07:05] Solet meplot itforyou. as  ||  诞我给你标出来39s
+[07:06] If we were to see this, then sure, we could look to potentially buy this s  ||  。如果我们看到这个那当然如果市场回调，。。。。39%
+[07:11] market if it pulled back, right? as  ||  。我们可以考虑做多对吧？。139%
+[07:13] We could look for a pullback, and then we could buy the market because it would have.  ||  。。。。。。我们可以找回调然后做多。。。。。。。。。1395%
+[07:16] respected the demand zone and helped us to follow a continuation to the upside,..  ||  。。。。。因为尊重了需求区,并帮助我们跟随上行延续。。。。。。1395%
+[07:22] However, we didn't see that, okay? a  ||  然而我们没着到这一点,好吧？。1395%
+[07:24] I mean, all ofthatto say thatthat didn't happen.  ||  。我的意思是说了这么多就是那没有发生。13195%
+[07:26] What actually happened instead was we ended up closing beneath the low...  ||  。。。实际发生的是我们最终收在低点下。。。。。。1395%
+[07:30] So this bearish candle here dosed underneath the demand zone. .  ||  。。。。所以这里这根阴线K线收在需求区下。。。1395%
+[07:34] That actually creates something we call a demand fail or a zone failure. .  ||  。。这实际上形成了我们所说的需求失败或区间失效。395%
+[07:39] And all that is basically showing is buyers who were incredibly strong here .  ||  。。。。。。。它基本上表明,之前在这里极强的买家，。。。。1395%
+[07:43] previously are no longer incredibly strong here in the current because if they were,.  ||  。。。。现在不再那么强,因为如果他们仍然强。。1395%
+[07:48] it would have actually not been able to close lower than the demand. .  ||  。。。就不会收在需求区下。。。1395%
+[07:52] Generally, when we're looking at demand, we're looking for quick reactions.  .  ||  。。。通常,着需求区时我们寻找快速反应。。。。。。1395%
+[07:55] The theory behind it is it's a discount price level that buyers are happy to enter .  ||  。。。。。。其理论是这是一个折价价格水平买家乐意在此人市。。。。1395%
+[07:59] the market at, seen asa fair value forthe asset.  ||  。被视为资产的公充价值13195%
+[08:02] So if it's retested again, we should see fair value once taken up again and see the...  ||  。。。。所以如果它再次被测试我们应看到公充价值被重新拾升。。。。1395%
+[08:07] market drive higher. as  ||  
+[08:09] We don't getthat if the market doses underthe zone.  ||  。如果市场收在间下方我们就着不到这一点1395%
+[08:12] So it's classified as a demand zone failure and basically invalidates that .  ||  。。。。。。所以它被凋类为需求失败，。。。。。。1395%
+[08:16] zone entirely as  ||  基本上完全使该区间失效1395
+[08:17] Now, then we move into the second concept that I use quite a lot in my trades, .  ||  。。然后我们进认我在交易中经常使用的第二个概念。。。。。。1395%
+[08:22] especially in these smaller trades where we're just running through existing ranges:  ||  。。。尤其是在这些只是穿越现有β间的小易中。。。。1392°
+[08:26] In this one, we have what we call an efficient range below.  ||  。。在这笔交易中我们下有一个所谓的有效区间。。1392。
+[08:32] So if we go to the 30-minute, efficient ranges and inefficient ranges are two 1  ||  。。如果我们切到30分钟图,有效区间和低效区间是两回事，。。1312%
+[08:37] different things and lll explain them real briefly now.  ||  。我现在简要解释一下。118%
+[08:40] So an efficient range is a range where every time we create a demand zone, 1  ||  。。。有效区间是指每当形成需求区。。。119%
+[08:44] the market pushes away, but then it pulls back and retests the demand zone, right?  ||  α。。。市场推离后,双会回调并重新测试需求区,对吧。。。。。
+[08:49] So like this, this becomes an efficient range.  ||  。像这样这就成为有效区间。19%
+[08:53] Every zone created is then retested. 3  ||  每个形成的区间随后都被重新测试。119%
+[08:57] So there's no imbalance oryou might know it as fair value gaps.1  ||  。。所以没有失衡,或者你可能知道它叫公充价值缺回。。119%
+[09:01] That kind of open space we get, such as these candles here before the1  ||  。。。。。就是我们得到的那种空自空间,此如这里这些K线，。。。。118%
+[09:06] market came backand filled it in. 3  ||  。后来市场回来回补了。119%
+[09:08] There's none of that left in an efficient range.  ||  有效区间中不会留下这种空自。118%
+[09:11] Now, in an inefficient range, basically let's just use this last move like this.1  ||  。。。。在低效区间中,基本上就掌拿这最后一波走势来说。。。。。11%
+[09:16] We havea demand zone here.  ||  。我们这里有一个需求区。118%
+[09:17] The market's pushed up, created an imbalance, fair value gap, inefficiency1  ||  。。。。市场推高,创造了失衡公充价值缺回低效。。。11。
+[09:22] whatever you want to call it, and it hasn't pulled backyet through that.1  ||  。。。。随你怎么叫唑,而且它述没有回调穿过那里。。。。。。118%
+[09:25] Sothis is an inefficient range.  ||  所以这就是低效区间19%
+[09:29] Now, there's a difference between these two things that is very useful and not 1  ||  。。。这两者间有个很有用的区别，。。。。。。。119%
+[09:32] many peopletalkabout orl don'tthinkno.  ||  但很少有人谈论,或者我觉得没有。。119%
+[09:35] When the market pushes into an efficient range, meaning there's no imbalance left  ||  。。。当市场推人有效区间,也就是下没有留下失衡时。。。。。。。
+[09:39] below, it's very unlikely that it will actually reverse inside of that range back 1  ||  。。。。不然可能在该β间内反转并回到。。。。。。。。118%
+[09:44] into the overall direction。  ||  
+[09:45] So what I mean by that is if we have an efficient bullish range like what we've 1  ||  。。。。我的意思是,如果我们有一个像这里这样的有效看涨间，。。。1%
+[09:49] got going on here, and the market comes down to here, for example, and trades back.  ||  。。。。市场跌到这里,此如并回到些间需求区。。。。。。118。
+[09:54] into some of the old demand zones, it's very unlikely that the market will1  ||  。。。。。那市场乏后不然可能找到。。。。。118%
+[09:58] then be able to find the fuel to create this movement up and go higher.1  ||  。。。。。。。。动能来创造这波上涨并走高。。。。118%
+[10:02] And the reason for that is there's no significant points of interest in here.13  ||  。。。。。原因是这里没有重要的关注点。。。。。。。。118%
+[10:06] There's no areas of significant liquidity anymore.  ||  。不再有显著流动性的区域。119%
+[10:09] There's no areas of significant buying orders in the form of demand zones or any  ||  。。。没有以需求形式存在的重要买盘单区域。。。。119%
+[10:15] key points of interest that would actually prop the market up and give it the fuel to.  ||  。。。。。。。也没有任何关键关注点能真正支撑市场。。。。。。。。118%
+[10:18] create anotherlarge bullish movement. 3  ||  并给它动能创造另一波天涨19%
+[10:21] So when we see a market trade into an efficient range with no imbalances left, 1  ||  。所以当我们看到市场进没有留下失衡的有效区间时。。。。。118%
+[10:26] this is a pretty good sign that the next likely following move is going to be a1  ||  。。这很好地表明接下来可能的走势是回调并延续下衍。。1
+[10:31] pullbackand a continuation lower, okay a  ||  
+[10:34] So let's drawthat backto where we are on this chart.  ||  。。让我们把这介放回当前图表。。118%
+[10:37] We have a failed demand zone, and then we have an efficient range here..  ||  。。。。我们有一个失败的需求区然后这里有一个有效区间。。。11%
+[10:42] Wetakea lookhere. s  ||  
+[10:43] -Every single time we created a little demand, it was retested by the Wics  ||  。。。。每次形成一个小需求区，。，。。。。131%
+[10:47] pullingback in s  ||  都被回调的影线重新测试131%
+[10:48] So we have Wics, Wics, Wics, Wics retesting all of those open zones. s  ||  。所以有影线影线影线影线重新测试所有这些未回补凶间1310
+[10:52] Another thing is as well, drawing back to liquidity, we have some equal low  ||  。。。。另回到流动性。。。。11
+[10:56] liquidity down atthese lows.  ||  我们在这些低点有一些等低点流动性1310
+[10:58] So just there, we have the l, 2, 3. 3  ||  。就在那里我们有！231%
+[11:01] Now these are what we call relative equal lows, but they are still basically giving .  ||  。。。这些是我们所说的相对等低点，。。。。。110
+[11:05] us the same bit of information thatthe market has going to..  ||  。但它们基本上仍告诉我们同样的信息市场将要oo。1310
+[11:11] Well, it's going to have a collection of liquidity and orders beneath this level,  s  ||  。。。。。嗯,它在这个水平下会聚集流动性和单。。。。。。。131。
+[11:14] and therefore it will act as a magnetforprice, ok? s  ||  。。因此会充当价格磁铁,ok？。。11
+[11:18] So if we have a lot of orders, markets react to orders, we know the  ||  mg。。所以如果订单很多,市场会对单作出反应。。。。1
+[11:21] .market is likely to be drawn down towards that point, and therefore anything above  ||  。。。。。。我们知道市场很可能会被吸引向该点位。。。。。。131。
+[11:24] that isn't likely to create a reaction。  ||  因此该点位上方低何位置都不然可能引废反应1310
+[11:27] Asimple rule that l have in my trading is to never buy above equal lows,  ||  。。。。。我交易中的一桑简单规则是,泳远不要在等低点上方买入，。。11
+[11:31] never sell below equal highs, and that works very, very nicely for avoiding these  ||  。。。。。。永远不要在等高点下卖出，。。。。。131
+[11:35] bad situations. 3  ||  这对避免这些糟糕情况非常有效1310
+[11:38] Alright, so that's kind of the target, the premise, the basis of the trade.  ||  。。。。。。。。。好了,这就是目标前提和交易依据。。。。。。。110
+[11:41] How do we actually get in though?  ||  。那我们到底如何进场？1310
+[11:43] Andwhyarewetargetingthislowh  ||  以吸我们为代么要以这个低点为目标
+[11:44] Well, I thinkl explained thatpretty simply。  ||  。。嗯我想我已经解释得很简单了。。110
+[11:46] This is, of course, the current low of the range, and this range low is the same .  ||  。。。当然,这是当前≤间低点,而这个≤间低点与EURUSD上被扫掉的低点相同，。。11
+[11:53] correlating low that's been taken out on EuRUsD and on the opposite..  ||  。。。。并且在相反的0o0。1310
+[11:57] Well, yeah, at this point in time has just been taken out on the Us dollar index, .  ||  。。。。。嗯,是的,此时此刻它刚刚在美元指数上被摸，。。。。0.8
+[12:01] And that was when the tradeset up.  ||  。“而那时交易机会形成了。320%
+[12:04] So what I wanted to do from this point onwards was find a point to actually.  ||  。。。。所以从那时起，。。。，1368
+[12:07] execute atrade 32  ||  我想做的是找到一个实际执行交易的点位1317%
+[12:08] I'm pretty confident on the bias. 12  ||  我对访向很有信心1317%
+[12:10] ll run it backto where I actually found this setup. 2  ||  。。我会回放到我实际找到这个交易机会的地。。131%。
+[12:13] It was here.32  ||  
+[12:14] Pretty confident on the bias now。  ||  现在对方向很有信心。1317%
+[12:16] We've weakened into this zone.  ||  我们包经走弱进人这个域1318
+[12:17] We're definitely rolling over.  ||  我们肯定正在转跌1318
+[12:19] This is more of a bearish than bullish impulse.  ||  。。这更像是看跌而非看涨的推动。。。13180
+[12:22] We've failed thatzone.  ||  我们包经跌破该区域1318
+[12:23] We've pushed into anlefficient range.  ||  。我们包经进一个有效间1318%
+[12:24] We haveequal lows.  ||  。我们有等低点，1318
+[12:25] We have the range low and we have the correlation of those higher timeframes  ||  。。我们有β间低点,而且较高时间周期的相关性告诉我们，。。。。。1318%
+[12:28] suggesting to us that we are likely to move lower.  ||  我们很可能会走低。。1318
+[12:31] Now, another thing as well is on the 15-minute time frame, we actually do have  ||  。。。述有另件事,在15分钝周期上,我们实际上有一个供给区，。。
+[12:36] a supply zonethe opposite of a demand zone.  ||  。也就是需求区的反面1318
+[12:38] lt's for sellers.  ||  
+[12:39] An area that sellers stepped into the market and forced previously and therefore"  ||  。。。这是一个卖方鲁进入市场并强扭压的区域。。。。。1318%
+[12:43] we're likelyto see itagain.  ||  因此我们很可能再次着到这种情况1318%
+[12:45] And as you can see, we attempted to get there and failed, got there with a tiny .  ||  。如你所见,我们试图到达那里但失败了,带着小影线到达，。。。318°
+[12:48] wick, got there with another wick, had no closures in or anywhere significant 1.  ||  。。。。。。双带着另一根影线到达,区域内没有收线，。。。。318°
+[12:53] in the zone and then we just immediately started rolling over.  ||  。也没有任何显著收线,然后我们就立刻并始转跌。318°
+[12:56] So this shows us again, sellers have entered in force here.  ||  。。所以这再次表明,读方已强场。。31%
+[12:59] We have buyers attempting to take the market higher, sellers stepping in with 1.  ||  。。。买方试图把市场推高,读方强价入，。。。。。31°
+[13:03] force, buyers trying once again to actually regain the market there and failing. 1.  ||  。。。买方再次试图夺回市场但失败了。。。。。。31%
+[13:08] So now we have seller control and a failure from buyers, right?  ||  。所以现在是卖控制,方失败,对吧。。。1312%
+[13:12] We are going to be moving down.  ||  
+[13:14] Okay, so how do we actually sell into something like this?  ||  。。好那我们到底如何在这种行情中做空？。。。32。
+[13:16] of course, that is the big question。  ||  当然这是个问题132%
+[13:17] It's all good knowing how to read the market, but where exactly do you execute?  ||  。。会读市场固然好但到底在哪里执衔。32
+[13:23] Nowforthat, it'sactually quitesimple.  ||  其实这相当简单138%
+[13:24] I look at two things realistically to get into pretty much every trade I take..  ||  。。。。。我现实中看两样东西来进入我几乎每—笔交易，1°
+[13:28] First is supply and demand zones. 3s  ||  第是供给和需求区138%
+[13:30] love supply and demand 3  ||  我喜欢供需138
+[13:31] I've been trading with it ever since I started trading, which has got to be what, 1  ||  。。。。我从开始交易起就—面用,那得是多少。。。。132°
+[13:35] like loyearsago now 3  ||  
+[13:37] And it's pretty much the thing I'm going to be trading with forever because it 1  ||  。．．。这几乎是我永远都会用来交易的东西，°
+[13:41] makes the most sense to me and it's just so easy to set up your trades.1  ||  。。因为对我来说最合理,而且设置交易然容易了°
+[13:45] So with supply and demand, we're looking to find little consolidation areas before.  ||  所以在供需中138%
+[13:49] impulsive moves. 3s  ||  我们要寻找推动行情前的小盘整区13%
+[13:50] Now an obvious one is this one here.  ||  现在一个明显的是这里这个。13210
+[13:53] And an important note about supply and demand is it has to have imbalance into  ||  关于供需的重要一点是,它必须有失衡进入，。
+[13:57] it,ight?  ||  
+[13:58] So this candle, the impulse down, is of course, imbalanced.  ||  。。所以这根K线,向下的推动,当然就是失衡的。。。。321
+[14:02] It's inefficient  ||  是低效的321
+[14:03] So that creates a supply zone that we can focus on.  ||  。。。因此这创造了一个我们可以关注的供给区。321
+[14:05] Now l'm going to change the color of it so we know it's a bit more substantial. 1  ||  。。。现在我要改变它的颜色,这样我们就知道更重要一些。。。。。321
+[14:09] If we look inside of the current move, so after this pullback, we don't have any ..  ||  。。。。。。。如果我们看当前走势内部也就是这次回调乏后，。。。
+[14:14] supply zones. 3  ||  我们没有任何供给区3
+[14:14] They're all retested atthis point. 3  ||  ，此时它们都被重新测试13
+[14:16] Every time a wick taps back into the zone, it invalidates it.  ||  。每当根影线重新触及该区域,它就会使其失效132
+[14:20] Sothis is an efficient range once again.  ||  所以这再次是一个有效间1326
+[14:23] So we have efficiency to this high and then we have imbalance and a supply zone...  ||  。所以我们到这个高点为止是有效的,然后上方有失衡和一个低效的供给区。。。131
+[14:31] with inefficiencyabove, okay?  ||  
+[14:34] So that becomesa very prime pointforustosell.  ||  中。所以那成为我们做空的绝佳点位。32%
+[14:38] Now, there was also this area above, this one kind of back towards the highs, ..  ||  。现在,上方述有这个区域,这介更靠近高点的地方。。。。。。。2。
+[14:45] thatl made a note of just here.  ||  我在这里做了标记。2
+[14:48] so I mentioned in there, if we do get there, it's possible and we can look for  ||  。所以我在那里提到,如果我们真到了那里,是有可能的,我们可以寻找它，。
+[14:54] it, but I doubt it's going to get that far given the bearish momentum that we see.  ||  。New Class 但鉴于我们着到的看跌动能,我怀疑不会走那么远
+[14:57] The reason for that is simply this zone is not as significant as this one here,12  ||  l」。。。。原因很简单,这个区域不如这里这介重要。。。。。3%
+[15:01] okay  ||  
+[15:02] This one, if we look at the impulse that came from it, it didn't get through any  ||  」山恤。这个区域,如果我们看产生的推动,它没有穿过任何前低，。。。。21。
+[15:05] lprevious lows, noteven wicks. a1a  ||  连影线都没有。2
+[15:08] However, this zone has managed to push through previous lows in this trend, .1  ||  」。。。。然而,这介区域却成功穿过了本趋势中的前低，。。。。。。。212°
+[15:13] -push through that previous low, and even now push through this low and] 2  ||  
+[15:17] lcreate a demand failure. aa  ||  甚至现在穿过这个低点并造成需求失败
+[15:19] hSo this zone is a lot more significantthan the zone up here.  ||  。。所以这个区域比上面那个区域重要得多。212%
+[15:23] And of course, with the bearish momentum that we have, is it likely we get all the  ||  。。。。。。。。当然,鉴于我们的着跌动能,。。。。。132%
+[15:27] waybackupthere?a  ||  我们有可能路回到那里吗326
+[15:27] Probablynot13  ||  
+[15:28] Especially not when we're reaching for a pretty insignificant zone.  ||  。。。尤其是当我们是在奔向一个相当不重要的区域时。。31。
+[15:32] So it was a pretty obvious choice for me that we're going to look at this supply ...  ||  。。。。所以我来说，。。。。。。1397
+[15:36] Now, you also heard me mention internal liquidity.  ||  。现在,你也听到我提到内部流动性。。13975
+[15:39] So inside ofa movement, we are going to have...  ||  所以在走势内部我们会有0132%
+[15:41] basically, I break it into a swing move and then sub moves or internal moves.  ||  基本上,我把感为波段走势和子走势或内部走势132
+[15:46] So the swing move, for example, would be in a trend like this,  ||  例如波段走势在这种趋势里，132%
+[15:50] we have an impulse correction impulse.  ||  我们有推动回调推动3
+[15:52] . But inside of each of these impulses and corrections, we're basically going to have'  ||  。。。但在每一个推动和回调内部我们基本上会有趋势中的较小趋势。。。1322
+[15:57] smaller trends inside of trends with their own impulses and corrections taking place,  ||  。。它们有自已的推动和回调发生，1322
+[16:02] ight?  ||  
+[16:02] So inside of the one larger movement, which we would draw in this case,  ||  。。。。。。所以在一个更关的走势内部这里我们会这样画，。。。。。13212
+[16:07] ffromthis hightothislow  ||  从这介高点到这个低点132
+[16:10] So this would be ourlarger impulse move.  ||  。所以这会是我们的更天推动走势。132
+[16:12] Inside of this movement, you can see we actually have trends inside of trends. ..  ||  ”。。。。。在这个走势内部你可以着到我们实际上有趋势中的趋势。。。。。。。1312
+[16:17] We have our own small corrections and things taking place within that, right? ..  ||  。我们在其中有自已的小回调和走势对吧。。。。。。。132
+[16:21] And each ofthese little corrective moves that we get creates an internal high, ..  ||  ”。。。。而我们得到的每一个小回调走势都会产生一个内部隔点，。。。。。。132
+[16:25] Somemoresignificantthanothers.  ||  有些此其他更重要1328
+[16:27] So this is an internal high that creates liquidity because we know any selling .2  ||  。。。。。。。所以这是一个产生流动性的内部隔点。。131
+[16:31] that's taking place beneath that likely going to be stop losses, buy stop orders, 12  ||  。，。。。因为我们知道其下方何卖出很可能都是止损买人止损单，。。。1321
+[16:36] whateveritmaybe.13  ||  或者随便么1321
+[16:37] That'sthewrongtool.132  ||  
+[16:39] Above this high so that creates again an area that the market can potentially fuel .  ||  
+[16:44] thenextmovementdown132  ||  —所以这再次创造了一个市场可能借以推动下—段下跌的区域　1321
+[16:46] Now if we think about what is actually driving buying and selling moves,12  ||  。。。。。。现在如果我们思考到底是術么驱动买卖走势。。1321
+[16:50] . up and down moves, it's the transacting that's happening between participants, 2  ||  。。—。。。上下波动,是参与者乏间的易，。。。。。。1321
+[16:54] .If we have an area with a bunch of orders here, okay, we can see the market return  ||  。如果我们这里有一个布满订单的区域,好,我们可以看到市场回到那里，。。。，1321
+[16:59] there and then take the other side of those orders and run the market lower.  2  ||  然后吃掉那些订单的另边讲推动市场走低
+[17:03] Inside of this range, we're going to have less significant quantities of orders or 12  ||  。。。。。。在这个区间内部我们会有较少量的订单，。。。。1321
+[17:08] . random distribution of orders with more buying versus selling than we would have  ||  。。。。。。或随机吩布的单,盘相对卖盘更多。。。。。1321
+[17:12] at one set level where many people are looking for the same opportunity, right? 2  ||  。。而不像在某个固定价位那样许多人都在寻我同一个机会,对吧？。。。。。131
+[17:16] Because while we're low in the range, we don't really have sellers selling at .2  ||  。。。。。因为在区间低位时。。。1321
+[17:22] discountprices132  ||  卖并不会在折价价格卖出1321
+[17:23] They want to sell at premiums and we don't really have buyers well, yeah,.2  ||  。。他们想在溢价卖出,而实方也不真的,嗯,是的。。。1321
+[17:27] because we're in a bearish market, bearish controlled market, right?.  ||  因为我们在着跌市场着跌控制的市场,对吧。321
+[17:30] So what we are generally understanding from that is that traders want a good price.  ||  。所以我们通常从中理解到的是校易者想要好价格。。2
+[17:36] If it's sellers, they wantapremium. s  ||  如果是卖他们想要溢价1322
+[17:38] They wantto sell as high as possible.n  ||  他们想尽可能卖得高1322
+[17:39] -Obviously, if you're holding and selling, you're profiting when you exit.13s  ||  。。。显然如果你持仓并卖出你离场时获利。132
+[17:42] Soyou wantthe bestpricepossible. 3s  ||  所以你想要尽可能好的价格1322
+[17:44] And if you are getting into the market, you again want a premium price because ..  ||  。而如果你要进场你同样想要溢价价格，。。13
+[17:49] you're going to be able to get the maximum profit when the market runs lower. .  ||  。。。。。因为当市场走低时你能够获得最利润。。。132
+[17:52] Makes more sense to sell here than it does to sell here because if the market gets to  ||  在这里卖出此在这里卖出更答理因为如果市场到达同点，。。132
+[17:57] the same point, well, you've endured less drawdown on this entry and you have made  ||  。嗯你在这笔进场上承受的回撤更少。。。
+[18:02] significantly more profits in terms of the risk-reward and also the gain, .  ||  而风险回报以吸收益来看你赚得明显更多32
+[18:06] well, the distance beforeyourtarget is met.  ||  嗯弛就是自标达成前的距离。1322
+[18:10] So those things considered then anyway, we'll get back on track.  ||  所以考虑这些乏后无论如何我们回到正题。。132
+[18:12] Hopefully,thatwasanicelittlelesson aswell.  ||  希望这也是掌不错的孙课%
+[18:15] I pretty much locked in the entry and l think you can see why.  ||  。。。我基本上锁定了进场我想你能看出原因。13
+[18:18] Clear supply zone, clear internal liquidity and everywhere above is just..  ||  清晰的供给区,清晰的内部流动性，3
+[18:22] kind ofa bit mid.  ||  而正方各处都有点平3
+[18:23] There isn't really a significant zone that we'd want to sell from up there. .  ||  。上方并没有真正值得我们卖出的重要区域3
+[18:27] Sohowdoweexecutethistradethen?  ||  那我们如何执行这笔交易？3
+[18:28] Well, it'sactually very simple.  ||  嗯其实非常简单1324
+[18:30] Iplace a cell limitto order。  ||  我读出限价单13
+[18:33] I putthe stop loss there.  ||  我把放在那里13
+[18:36] llexplain that in a minute.  ||  
+[18:37] Again, another interesting thing  ||  再次件有趣的事1324
+[18:39] And  putthe target atthe low  ||  我把目标放在低点1324
+[18:40] And it wasaround 6R.  ||  
+[18:43] So, there it was.  ||  所以就是这样
+[18:46] So that wasthe trade startto finish.  ||  。所以这就是这笔交易从开始到结束。34
+[18:49] Pretty much enter on the zone regardless of what it does and then we run it to the  ||  。基本上在区域进场不管它么走。。34
+[18:54] target and we get out or it runs to the stop and we get out for a loss.  ||  。。。然后让它跑到目标我们出场,或者跑到正损我们亏损出场
+[18:58] Now, why would I take this trade with a cell limit and why wouldl llnot wait for .  ||  。。。。那,我为么用卖出限价单做这笔交易，。。3
+[19:02] confirmation inside ofthere?  ||  为么不等待那里面的确认3
+[19:03] Well, there's a couple of reasons forthis.  ||  有个原因
+[19:05] The first is the market has pretty much already confirmed its bias to me by.  ||  。第,市场包经通过形成这波失幅看跌推动。。。3
+[19:08] creating this large bearish impulse, failing the demand zone and of course the .  ||  
+[19:12] correlations leading us to believe the market is likely to draw towards the low 1  ||  以吸相关性让我们相信市场很可能被吸引向低点，3
+[19:16] and the macro economics of the dollar just being stronger than the pound at the  ||  。。还有美元当前宏观基本面强于英。。。1304
+[19:20] All of those things tell me that the market is likely to get down there so l.  ||  。。。所有这些都告诉我市场很可能到达那里。。3
+[19:25] have conviction and I'm happy to just place a cell limit..  ||  所以我有信心乐意值接下卖出限价单
+[19:28] And the other reason is we may not get a confirmation in this case because of the"  ||  。。另个原因是在这种情况下我们可能不会得到确认，。。。1324
+[19:34] bearish momentum。  ||  因为看跌动能3
+[19:35] For a day trade like this on the lower time frames I know you may classify 15 as  ||  。。。。。对于这种较低时间周期的目内交易，。。。
+[19:39] a higher time frame but it's really quite a low time frame for a day trade like this  ||  。。。。。我知道你可能把5分钟视为较高时间周期。。。。132
+[19:44] we do get fast momentum we don't always get pullbacks we do get a sharper  ||  。。。。但对于这种同内交易来说它其实相当低我们会遇到快速动能，。。3
+[19:49] movements than if we were trading some of the higher time frame stuff like hourlies  ||  不总能得到回调走势此交易小时图和四小时图等较高时间周期东西时更凌厉，
+[19:53] and four hours so we may not get the confirmation we want to see without the  ||  所以我们可能得不到想看到的确认，30
+[19:57] market just running straightto the target.  ||  市场就道接奔向目标3
+[20:00] Now the final reason is simply because with the conviction I've built in this  ||  。。现在最后一个原因很简单因为正如你所，。。。。。
+[20:04] trade as you can see I've got a lot of reasons to be taking it I don't care if it  ||  。我在这笔交易中建立了很多理由和信心
+[20:08] loses  ||  我不在乎它亏损
+[20:09] The loss is controlled I'm very happy to be holding the risk on this position if it 3  ||  。。。亏损是可控的我很乐意持有这个头的风险如果它亏损，。。。。。
+[20:14] does lose it will lead us into new potential opportunities obviously we'll3  ||  。。。会带我们进灭新的潜在机会当然我们会确认那些机会，。。。
+[20:17] confirm those ones because the conviction will be a little bit waned not in terms of'  ||  。因为信心会有所减弱—不是精神上。。。。
+[20:22] mentally but obviously things will have changed at that point and we may want to"  ||  。。。。而是届时情况显然包变。13
+[20:26] then reassess before we get back in but a controlled loss that leads to a new 3  ||  我们可能想重新评估后再认场但带来新潜在机会的可控亏损没件么好怕的，
+[20:30] potential opportunity is nothing to be scared of and will be the result of around  ||  。。而且在你整个交易生涯中，
+[20:33] half the trade you take in your entire trading career probably anyway if you're  ||  。。天约一半的交易可能都会如此一一如果你追求像样的风险回报此最后一点，，
+[20:37] trading for any decent risk reward and then the last point is look at the risk  ||  。着风险回报此这是6R我可以风险让美元，。。。。。。。
+[20:41] reward it's 6R I can risk $1 on this and make $6 in return Amplify that as many 3  ||  赚6美元你想放多少次3
+[20:47] timesasyou want.  ||  
+[20:48] You're making six times the amount you risk if it wins.  ||  。。。如果赢了你赚的是所风险金额的倍。。 030 2132
+[20:51] Do l care if a trade like thatloses?  ||  我会在意这样的交易号损吗13
+[20:52] As long as it'sa good one, no.  ||  只要它是好交易就不在意
+[20:54] Because if that happens five out of six times, I'm still profitable.  ||  因为即使次中有五次亏损我仍盈利4132
+[20:57] And when you build convicted trades like this, with a lot of reasons, a lot of  ||  当你像这样建立高信念交易理由充分分析充分。
+[21:01] analysis, it's not about finding reasons, but reading the story behind the market.  ||  。。。。重点不是找理由,而是读懂市场背后的故事。。。。。。
+[21:05] When you have the amount of conviction that I have behind the trades I take,  ||  。当你对我所做交易拥有我这样的信念时。。。。。。。。
+[21:08] you don't have to worry, you know, about losing so many trades, because  ||  你就不必担心会亏掉那多交易，18
+[21:13] you're not going to lose loads ofthem.  ||  因为你不会污掉一失堆13
+[21:14] And when you do lose, they're outweighed by the risk reward you're gaining on  ||  。。。而当你真的亏损时。。。。。。
+[21:17] winners anyway  ||  盈利交易正的风险回报此反正也会盖过亏损
+[21:18] All right?  ||  
+[21:19] Now 6R, I will say, isa very big trade. 3  ||  我得说,6R是非常天的交易。04130
+[21:21] I don'talways gettradesthat big.  ||  。。我不总能拿到那天的交易。。13%
+[21:24] I generally go for around 3R, but, I mean, this one was kind of free money in 1  ||  。我通常追求失约3R但我是说,这笔在某种意义上像自给的钱，。
+[21:28] that sense, that it was just allowing me to go for this much with a quite tight 1  ||  。因为让我能用相当紧的正损去博这么大。。
+[21:33] stop loss.aa  ||  
+[21:33] And now let me break down why the stop loss exactly is there, because we've done  ||  。。。。。现在让我拆解为么止损恰好放在那里，。。。。90。
+[21:36] pretty much everything else. 314  ||  因为其他部份我们几乎都讲过了。90
+[21:38] So, we'll start on the 15. 34a  ||  那,我们从15钟图开始130
+[21:41] First of all, you saw that when I executed, I was setting up off the  ||  。。首先,你看到我执行时,是基于15钟K线设置的。。。。319。
+[21:45] 15-minute candle, right?  ||  
+[21:46] It's that indecision candle just there before the impulsive move down.1  ||  。。。。。。。就是那根在冲动下跌前的不确定K线。。。39。
+[21:50] Now, I initiallythought, could we get away with putting the stop here?  ||  。。。起初我想,能不能把正损放在这里？。。。
+[21:54] I thoughtthat wouldHbe a bit crazy, though, because it would only be four pips. .  ||  。。。。。。但我觉得那有点疯狂,因为那只有4个点。。。。。。132
+[21:57] And l'm quite boring nowadays.  ||  而我现在相当无趣132
+[21:59] don't really do this kind ofthing anymore.  ||  。我不然再做这种事了32
+[22:01] Butl coulal havedone it, okay?  ||  但我本可以这么做,好吗132
+[22:03] So what we wanted to do then was check, is this viable or not?  ||  。。，所以当时我们要做的是检查这可行吗。。。。132
+[22:05] Because I will take a very small stop loss position if it becomes the logical point  ||  。。。因为如果某个介位置成为放正损的合理点位，。。。。132
+[22:10] toputthe stop  ||  我会接受非常小的正损132
+[22:11] What I did was I went two steps down from the 15-minute time frame to the  ||  膜。。。。。我所做的是从15分钟级别下移两级到5。。。。。。132
+[22:15] five-minute time fframe.  ||  
+[22:16] And in doing so, I sawthis, right?  ||  这样做时,我着到了这个对吧22
+[22:20] Now, this isn't going to change where I execute from, because if you over-refine .  ||  。。。这不会改变我的执行位置,因为如果你过度优化入场。。32
+[22:25] yourtrade entries, you will miss lots ofthem.  ||  就会错过很多易32
+[22:27] Like, let's say the market came up to here and then reversed, and I was trying to get  ||  。此如假设市场涨到这里然后反转。。。。。22
+[22:34] this perfect entry 32  ||  而我想抓到完美场22
+[22:36] Well, now I'm going to miss out on, like,l6R, 7R, 8R, simply because I wanted12  ||  那我现在就会错过此如6R R8R，。。。。。122
+[22:40] to, you know, go one piplhigherwith my entry.  ||  仅仅因为我想让入场高一个点，22
+[22:43] So I wasn't too interested in moving the execution for that, but what I did was .  ||  ，所以我没然天兴趣因此移动执行位，。。。。。。22
+[22:47] actually put the stop loss over this'zone and then over the wick as well,  ||  。。。但我实际做的是把正损放在这个区域上方也放在影线上方。。。3
+[22:52] just to account for any potential'tapslintolthis zone that we do get.  ||  。。。。只是为了应对可能出现的何扭人这个区域的插针。。。。13
+[22:57] Now, I could have put the stop over here, sure, but I just thought, what's actually...  ||  。。。。。当然我本可以把正损放在这里但我只是想，。。。。。。。3
+[23:01] the point in doingthat?  ||  这么做到底有么意义1323
+[23:02] You know, like, this highijust here.  ||  。你知道,就像这里的这企点，。1333
+[23:04] If the market's going to get up to over'thislhigh, then it's going to get up over .  ||  。。。。如果市场要涨过这个高点,那也会涨过另一个高点，。。。13
+[23:09] the other one, let's be real, because it's sufficient and there's no reason for the.  ||  。。。。。现实点说,因为这介正损邑经足够。。。。。13
+[23:13] market to pass the level that I'm currently holding, and then reverse.  ||  。。。而且市场没有理由越过我当前持有的永水平然后再反转。。133
+[23:16] So I thought, well, we might as well'go a little bittighter.  ||  。。所以我想那不如收紧点。。132
+[23:19] Raw spread accounts,lanyway  ||  反正这是原始点差账户1323
+[23:20] You don't have to worry about spread so much, especially on these majors.  ||  。。。。你不必然担心点差,无其是这些害要货市对。。。32
+[23:23] If you're on a prop firm account and yourispread gets bigger, then sure,  ||  。如果你用的是自营交易公司账户且点差变失,那当然，。133
+[23:26] put it overthehighs.  ||  就把放在高点临1323
+[23:27] Butforthe account I'm at, I thoughtthis is the viable point.  ||  。。。但对我所在的账户来说,我认为这是可衍点位。。。。133
+[23:29] This is the last point I'd expect the trade'to be valid, but this high just  ||  。。。。。。。这是我认为交易仍然有效的最后点位。。。。。。。。。。3
+[23:34] accounts for any spreads and any tiny possibility of a wick coming really high  ||  。。但这个高点识只是用来覆盖任何点差以吸插针冲得非常高。。。。13
+[23:37] up into the point before reversing down, okay?  ||  。。然后反转向的微小可能好吗。139
+[23:40] Sothatis whythestop loss is where it is.  ||  所以这就是正损放在那里的原因
+[23:43] Again,you could put itthere.  ||  再说次你可以把它放在那里0313
+[23:45] I wouldn't put it there because it's not safe when we refine down to the five  ||  我不会放在那里因为当我们细化到5分钟图时它不安全。
+[23:48] minute, but I thought around in that area was a pretty good point to be put in it,  ||  但我认为那附近是相当不错的正损点3
+[23:53] Now, you will see, actually, on the return back into the execution, so let's see how  ||  现在你会看到
+[23:58] the trade ran out now 3  ||  实际上在回到执行位时我们看看这笔交易后来怎么走
+[23:59] It did hitthat five minute zone.  ||  它确实扭到了那个5分钟区域
+[24:01] So there's probably someone on Instagram flexing their 17 hour trade now,  ||  所以现在可能有谁在lnstagram上炫耀他们小时的交易，
+[24:06] and that is really cool forthem. 3  ||  那对他们来说真
+[24:08] Butl didn't dothatone. 3  ||  但我没做那笔
+[24:11] I just went for this standard and slightly more boring approach, but probably more  ||  。。。。。我只是用了这种标准稍微更无聊。。。。。21
+[24:16] consistent as well. a  ||  但可能也更稳定的方法139
+[24:17] And that was to just execute off of the simple 15 and run it down into the low. ..  ||  。。。。。。那就是简单基于15分钝图执行然后一路拿到低点。。。。。。13975
+[24:22] And that's that a  ||  就这样139
+[24:23] That's pretty much the whole trade start to finish done, okay?.  ||  。这笔交易从实到尾基本就讲完了,好吗。」。。。1395
+[24:26] Now, I'm not sure what are the lessons I can pull out of this, but we can recap the"  ||  。。。现在,我不确定能从中提炼出哪些教训。。。。。1395
+[24:30] ones real quik.  ||  但我们可以快速回顾下
+[24:31] The first is correlations, something that not enough people use.  ||  。。第是相关性,这是使用的人述不够多的东西。。32
+[24:34] lf you trackthe Us dollar index, you can gain a lot of information from  ||  。。如果你跟踪美元指数,就能从中获得很多信息，。。。。。0.。
+[24:37] this as to whatyou're going to do with your othertrades.  ||  。。来判断其他交易该惩么做。07
+[24:41] If I'd seen, basically,this weakening, then I probably wouldn't have been looking.*-  ||  。。m。基本上,如果我当时着到美元走弱。。。。。。。0.0
+[24:45] to initially sell the pound against the dollar in the first place...  ||  。那我一始可能就不会想去做空英镑兑美元。士。。0.
+[24:49] But because we saw that strength building towards this high, because we saw EuRusD;  ||  但因为我们看到强势向这个高点积聚因为我们看到欧元兑美元
+[24:54] the most closely correlated pair with GBPUsD, taking out those lows,1  ||  与英兑美元相关性最高的货市对，跌破那些低点
+[24:58] that gave us the first idea that, okay, yeah, we're probably going to be1  ||  这给了我们第个想法好吧是
+[25:01] seeing moves down coming in soon on GBPusD.1  ||  。我们可能很快就会在英镑兑美完上看到下跌——士
+[25:04] The nextthing is macroeconomics. 3  ||  下一件事是宏观经济
+[25:06] And I don't go super crazy with macros, but if you understand what the Fed is 1  ||  。。。我不会对宏观特别狂热，使」。。。。
+[25:10] doing with interest rates, so literally just track Fed interest rate decisions  ||  。。。。。。。但如果你理解美联储在利率正做么。。。
+[25:14] month by month, you're going to get a good idea as to what the Us dollar is going to  ||  。。。。。也就是逐月跟踪美联储利率决议。。
+[25:18] When rates are higher, they're being held higher, they're not being cut,.  ||  。。。。当利率更高维持高位不被下调时。。。。。133%
+[25:22] that is generally more bullish forthe Us dollar.  ||  。这通常更利好美元。112%
+[25:24] When rates are being cut, when rates are lower, that is generally more bearish for..  ||  。。。。当利率被下调利率更低时。。。。。133%
+[25:28] the us dollara  ||  这通常更利空美元19%
+[25:29] So obviously with the new Fed chairman and the hikes that we saw coming in,  ||  。。。。。所以显然,随看新美联储主席上任以吸我们看到加息到来，。。1310
+[25:33] I was pretty confident that the dollar was going to be building strength,13  ||  。。。我相当有信心美元会积聚强势。。。。。。11%
+[25:36] therefore factoring additional conviction behind the buyers to sell the pound versus  ||  。。。。。。因此为做空英镑兑美元增添了额。
+[25:41] thedollar  ||  
+[25:43] What otherlessons do we have in here?  ||  这里述有低么其他教训？。。13940
+[25:44] I mean, the efficient ranges, okay, we came into an efficient range and we  ||  。。我是说,有效区间,好。。13940
+[25:47] took it all the way out, as you can see, that theory has now come true.  ||  。。。。我们进入一个有效区间并一路做到区间外如你所见,这个理论现在应验了。13140
+[25:51] And then'internalhighs, supply, demand, all that stuff that we taught,  ||  ““然后是内部高点供给需求,所有我们教过的东西，。。。。
+[25:55] butthe big core lessons l think we just recapped.  ||  。。但重要的核心教训我想我们刚刚包经回顾了。
+[25:58] So l hope this video was useful.  ||  。所以希望这介视频有用。1390
+[26:00] There's no editing and it's just like kind of off the hip, so hopefully it's not too  ||  。。。。。没有剪辑,基本是即兴讲的。。。。。。。。139%
+[26:04] rambly orwhatever.  ||  所以希望不会然啰乏类的
+[26:06] I'm sureyou've learned a thing ortwo.  ||  我相信你学到了两点
+[26:07] I won'tgoon.s  ||  我就不继续说了
+[26:08] Thankyou forwatching  ||  感谢观着
+[26:09] if you're interested in being in that group, it's totally up to you,  ||  New clas anc如果你有兴趣加入那个群,完全由你决定，
+[26:12] but there is a link in the description for that, and there'll be a link to some free  ||  。。。但简介里有相关链接，。。
+[26:16] cass as well. 3s  ||  也会有一个免费课程的链接
+[26:17] So thanks for watching, and lll see you in the next video. 3  ||  。那感谢观着我们下个视频见

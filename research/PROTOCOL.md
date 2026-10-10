@@ -148,3 +148,8 @@ quant/universe.load fixes these on every load; re-check them on any new export b
 - Stock CFDs open at 9:35 New York since 2024.
 - Pooled harness statistics across groups: report them without crypto too (2018-21 coins give single trades of +100R with tiny stops).
 
+## Burned-in subtitles (added 2026-10-10 10:00 MYT, log #78-#81)
+RedNote reposts by 油管中文配音檔案館 (Chinese-dubbed YouTube trading videos, 1920x1080) carry the speaker's original English line under
+the Chinese one. OCR them instead of transcribing the dub: python3 -I tools/video/sub_ocr.py VIDEO OUT.txt (RapidOCR recognition on fixed
+line crops, ~2-5 minutes for 25 minutes of video, no model download). The file's metadata (ffprobe -show_entries format_tags) carries
+the original YouTube title and description. Check sha1 against research/videos/index.csv first: this batch held an exact repeat (rn020).

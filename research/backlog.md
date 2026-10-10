@@ -166,3 +166,10 @@ Data available in the repo now: gold M1 2012-2026 (data/gold_m1), TSLA/AAPL/US10
 65. [queued] US-index ORB30 (#70 WATCH, p_best 0.010, +0.046R, 2026 -0.06): forward-log; and the noise band (#60/#68: US100 +0.15R/day
     unit, every year 2021-26 positive) -> backlog #20 paper test.
 
+66. [done #78: DEAD] Scarface "9:30 AM candle" (RedNote rn076/rn077): 5-minute opening range, 1-minute close beyond, retest entry, 2R;
+    + daily structure trend / prior-day target. Every symbol, M1 + M5/M15, OR 5/15/30 (quant/orb_retest.py).
+67. [done #79: DEAD] Inter Equity "induce -> trap -> sell" liquidity read (RedNote rn074/rn078), every symbol M5-D1 (bt/xrules_rn79.py).
+68. [done #80: DEAD] JeaFx correlation laggard (RedNote rn073): the twin took its low, the laggard hasn't -> trade the laggard to its low;
+    7 pairs, M15/H1/H4 (quant/laggard.py).
+69. [done #81: DEAD] Lance Breitstein's five S/R criteria on prior-day high/low breakouts (RedNote rn075), every symbol M5/M15
+    (quant/lance_levels.py). For #35/#75: the first-30-minute relative tick volume filter lifted US-stock breakouts by +0.06R (t ~4).

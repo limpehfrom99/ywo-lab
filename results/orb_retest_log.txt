@@ -1,0 +1,233 @@
+AAPL M5 us_cash: 2469 days 2015-01-02..2026-10-08
+AAPL: 27 cells in 5s
+ADAUSD M5 us_cash: 1313 days 2021-09-17..2026-10-08
+ADAUSD: 27 cells in 5s
+AMZN M5 us_cash: 1285 days 2021-08-02..2026-10-08
+AMZN: 27 cells in 2s
+AMD M5 us_cash: 1405 days 2020-10-22..2026-10-08
+AMD: 27 cells in 3s
+AUDCAD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+AUDCAD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+AUDCAD: 36 cells in 3s
+AUDCHF M15 us_cash: 3041 days 2015-01-02..2026-10-08
+AUDCHF M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+AUDCHF: 36 cells in 4s
+AUDJPY M15 us_cash: 3041 days 2015-01-02..2026-10-08
+AUDJPY M15 ny_fx: 3041 days 2015-01-02..2026-10-08
+AUDJPY: 36 cells in 4s
+AUDNZD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+AUDNZD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+AUDNZD: 36 cells in 4s
+AUDUSD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+AUDUSD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+AUDUSD: 36 cells in 4s
+AVGO M5 us_cash: 1202 days 2020-12-07..2026-10-08
+AVGO: 27 cells in 2s
+AUS200.cash M5 us_cash: 1713 days 2019-09-23..2026-10-08
+AUS200.cash M5 au_cash: 1744 days 2019-04-08..2026-10-09
+AUS200.cash: 54 cells in 6s
+BA M5 us_cash: 1367 days 2020-10-22..2026-10-08
+BA: 27 cells in 2s
+BABA M5 us_cash: 1285 days 2021-08-02..2026-10-08
+BABA: 27 cells in 2s
+BAC M5 us_cash: 1288 days 2021-07-28..2026-10-08
+BAC: 27 cells in 1s
+CADCHF M15 us_cash: 3042 days 2015-01-02..2026-10-08
+CADCHF M15 ny_fx: 3043 days 2015-01-02..2026-10-08
+CADCHF: 36 cells in 4s
+BTCUSD M5 us_cash: 2275 days 2018-01-02..2026-10-08
+BTCUSD: 27 cells in 5s
+CHFJPY M15 us_cash: 3041 days 2015-01-02..2026-10-08
+CHFJPY M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+CHFJPY: 36 cells in 3s
+CADJPY M15 us_cash: 3041 days 2015-01-02..2026-10-08
+CADJPY M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+CADJPY: 36 cells in 3s
+COCOA.c M5 us_cash: only 0 days
+COCOA.c: 0 cells in 1s
+COFFEE.c M5 us_cash: only 0 days
+COFFEE.c: 0 cells in 1s
+COTTON.c M5 us_cash: only 0 days
+COTTON.c: 0 cells in 0s
+CORN.c M5 us_cash: only 0 days
+CORN.c: 0 cells in 0s
+CVX M5 us_cash: 1382 days 2020-10-22..2026-10-08
+CVX: 27 cells in 1s
+DIS M5 us_cash: 1369 days 2020-10-22..2026-10-08
+DIS: 27 cells in 1s
+DXY.cash M5 us_cash: 473 days 2024-11-26..2026-10-08
+DXY.cash: 27 cells in 1s
+DOGEUSD M5 us_cash: 1316 days 2021-09-20..2026-10-08
+DOGEUSD: 27 cells in 3s
+ETHUSD M5 us_cash: 2269 days 2018-01-10..2026-10-08
+ETHUSD: 27 cells in 5s
+EU50.cash M5 us_cash: 1279 days 2021-09-14..2026-10-08
+EU50.cash M5 eu_cash: 1293 days 2021-09-14..2026-10-08
+EU50.cash: 54 cells in 3s
+EURAUD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+EURAUD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+EURAUD: 36 cells in 3s
+EURCAD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+EURCAD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+EURCAD: 36 cells in 3s
+EURCHF M15 us_cash: 3028 days 2015-01-19..2026-10-08
+EURCHF M15 ny_fx: 3029 days 2015-01-19..2026-10-08
+EURCHF: 36 cells in 4s
+EURGBP M15 us_cash: 3042 days 2015-01-02..2026-10-08
+EURGBP M15 ny_fx: 3043 days 2015-01-02..2026-10-08
+EURGBP: 36 cells in 3s
+EURJPY M15 us_cash: 3042 days 2015-01-02..2026-10-08
+EURJPY M15 ny_fx: 3043 days 2015-01-02..2026-10-08
+EURJPY: 36 cells in 3s
+EURNZD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+EURNZD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+EURNZD: 36 cells in 3s
+EURUSD M15 us_cash: 3040 days 2015-01-02..2026-10-08
+EURUSD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+EURUSD: 36 cells in 3s
+FRA40.cash M5 us_cash: 1285 days 2021-09-14..2026-10-08
+FRA40.cash M5 eu_cash: 1293 days 2021-09-14..2026-10-08
+FRA40.cash: 54 cells in 4s
+GBPAUD M15 us_cash: 3032 days 2015-01-02..2026-10-08
+GBPAUD M15 ny_fx: 3033 days 2015-01-02..2026-10-08
+GBPAUD: 36 cells in 3s
+GBPCAD M15 us_cash: 3033 days 2015-01-02..2026-10-08
+GBPCAD M15 ny_fx: 3035 days 2015-01-02..2026-10-08
+GBPCAD: 36 cells in 3s
+GBPCHF M15 us_cash: 3042 days 2015-01-02..2026-10-08
+GBPCHF M15 ny_fx: 3043 days 2015-01-02..2026-10-08
+GBPCHF: 36 cells in 3s
+GBPJPY M15 us_cash: 3041 days 2015-01-02..2026-10-08
+GBPJPY M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+GBPJPY: 36 cells in 3s
+GBPNZD M15 us_cash: 3006 days 2015-01-02..2026-10-08
+GBPNZD M15 ny_fx: 3006 days 2015-01-02..2026-10-08
+GBPNZD: 36 cells in 3s
+GBPUSD M15 us_cash: 2990 days 2015-01-02..2026-10-08
+GBPUSD M15 ny_fx: 2991 days 2015-01-02..2026-10-08
+GBPUSD: 36 cells in 3s
+GOOG M5 us_cash: 1288 days 2021-08-02..2026-10-08
+GOOG: 27 cells in 1s
+GER40.cash M5 us_cash: 1211 days 2021-12-28..2026-10-08
+GER40.cash M5 eu_cash: 1218 days 2021-12-29..2026-10-08
+GER40.cash: 54 cells in 3s
+HK50.cash M5 us_cash: 746 days 2021-09-13..2024-12-13
+HK50.cash M5 hk_cash: 1232 days 2021-09-13..2026-10-09
+HK50.cash: 54 cells in 3s
+INTC M5 us_cash: 1357 days 2020-12-08..2026-10-08
+INTC: 27 cells in 1s
+JNJ M5 us_cash: 1369 days 2020-10-22..2026-10-08
+JNJ: 27 cells in 1s
+JPM M5 us_cash: 1372 days 2020-10-22..2026-10-08
+JPM: 27 cells in 2s
+JP225.cash M5 us_cash: 1259 days 2021-09-14..2026-10-08
+JP225.cash M5 jp_cash: 1311 days 2021-09-14..2026-10-09
+JP225.cash: 54 cells in 3s
+KO M5 us_cash: 1373 days 2020-10-22..2026-10-08
+KO: 27 cells in 2s
+MCD M5 us_cash: 640 days 2024-03-12..2026-10-08
+MCD: 27 cells in 1s
+META M5 us_cash: 1282 days 2021-08-02..2026-10-08
+META: 27 cells in 2s
+LTCUSD M5 us_cash: 2235 days 2018-02-23..2026-10-08
+LTCUSD: 27 cells in 4s
+MSTR M5 us_cash: 1101 days 2020-12-08..2026-10-08
+MSTR: 27 cells in 1s
+MSFT M5 us_cash: 2460 days 2015-01-02..2026-10-08
+MSFT: 27 cells in 3s
+NATGAS.cash M5 us_cash: 488 days 2024-10-23..2026-10-08
+NATGAS.cash M5 nymex: 501 days 2024-10-23..2026-10-08
+NATGAS.cash: 54 cells in 1s
+N25.cash M5 us_cash: 534 days 2024-08-28..2026-10-08
+N25.cash M5 eu_cash: 924 days 2020-12-11..2026-10-08
+N25.cash: 54 cells in 2s
+NFLX M5 us_cash: 1285 days 2021-08-02..2026-10-08
+NFLX: 27 cells in 1s
+NKE M5 us_cash: 1370 days 2020-10-22..2026-10-08
+NKE: 27 cells in 1s
+NZDCAD M15 us_cash: 3034 days 2015-01-02..2026-10-08
+NZDCAD M15 ny_fx: 3035 days 2015-01-02..2026-10-08
+NZDCAD: 36 cells in 3s
+NZDCHF M15 us_cash: 3034 days 2015-01-02..2026-10-08
+NZDCHF M15 ny_fx: 3035 days 2015-01-02..2026-10-08
+NZDCHF: 36 cells in 3s
+NVDA M1 us_cash: 1284 days 2021-08-02..2026-10-08
+NVDA M5 us_cash: 1284 days 2021-08-02..2026-10-08
+NVDA: 54 cells in 6s
+NZDJPY M15 us_cash: 3041 days 2015-01-02..2026-10-08
+NZDJPY M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+NZDJPY: 36 cells in 3s
+NZDUSD M15 us_cash: 3041 days 2015-01-02..2026-10-08
+NZDUSD M15 ny_fx: 3042 days 2015-01-02..2026-10-08
+NZDUSD: 36 cells in 4s
+PFE M5 us_cash: 1288 days 2021-07-28..2026-10-08
+PFE: 27 cells in 1s
+PLTR M5 us_cash: 1357 days 2020-12-08..2026-10-08
+PLTR: 27 cells in 2s
+QCOM M5 us_cash: 1368 days 2020-10-22..2026-10-08
+QCOM: 27 cells in 1s
+SOLUSD M5 us_cash: 379 days 2025-04-28..2026-10-08
+SOLUSD: 27 cells in 1s
+SOYBEAN.c M5 us_cash: only 0 days
+SOYBEAN.c: 0 cells in 1s
+SUGAR.c M5 us_cash: only 0 days
+SUGAR.c: 0 cells in 0s
+SPN35.cash M5 us_cash: only 0 days
+SPN35.cash M5 eu_cash: 1301 days 2021-08-30..2026-10-08
+SPN35.cash: 27 cells in 2s
+T M5 us_cash: 1300 days 2021-06-18..2026-10-08
+T: 27 cells in 1s
+UK100.cash M5 us_cash: 1263 days 2021-09-14..2026-10-08
+UK100.cash M5 uk_cash: 1270 days 2021-09-14..2026-10-08
+UK100.cash: 54 cells in 3s
+TSLA M1 us_cash: 1285 days 2021-08-02..2026-10-08
+TSLA M5 us_cash: 1285 days 2021-08-02..2026-10-08
+TSLA: 54 cells in 6s
+UKOIL.cash M5 us_cash: 1268 days 2021-09-13..2026-10-08
+UKOIL.cash M5 nymex: 1278 days 2021-09-13..2026-10-08
+UKOIL.cash: 54 cells in 3s
+US2000.cash M5 us_cash: 2153 days 2018-01-23..2026-10-08
+US2000.cash: 27 cells in 4s
+US30.cash M5 us_cash: 1765 days 2019-02-08..2026-10-08
+US30.cash: 27 cells in 3s
+US100.cash M1 us_cash: 1255 days 2021-09-14..2026-10-08
+US100.cash M5 us_cash: 1255 days 2021-09-14..2026-10-08
+US100.cash: 54 cells in 12s
+USDCAD M15 us_cash: 3042 days 2015-01-02..2026-10-08
+USDCAD M15 ny_fx: 3043 days 2015-01-02..2026-10-08
+USDCAD: 36 cells in 3s
+USDCHF M15 us_cash: 3040 days 2015-01-02..2026-10-08
+USDCHF M15 ny_fx: 3041 days 2015-01-02..2026-10-08
+USDCHF: 36 cells in 3s
+US500.cash M1 us_cash: 1255 days 2021-09-14..2026-10-08
+US500.cash M5 us_cash: 1255 days 2021-09-14..2026-10-08
+US500.cash: 54 cells in 11s
+USDJPY M15 us_cash: 3042 days 2015-01-02..2026-10-08
+USDJPY M15 ny_fx: 3043 days 2015-01-02..2026-10-08
+USDJPY: 36 cells in 3s
+V M5 us_cash: 1243 days 2021-08-02..2026-10-08
+V: 27 cells in 2s
+WHEAT.c M5 us_cash: only 0 days
+WHEAT.c: 0 cells in 1s
+USOIL.cash M5 us_cash: 1435 days 2020-12-31..2026-10-08
+USOIL.cash M5 nymex: 1466 days 2020-12-31..2026-10-08
+USOIL.cash: 54 cells in 5s
+WMT M5 us_cash: 1283 days 2021-08-02..2026-10-08
+WMT: 27 cells in 2s
+XAGUSD M5 us_cash: 2929 days 2015-01-02..2026-10-08
+XAGUSD: 27 cells in 7s
+XCUUSD M5 us_cash: 461 days 2024-12-03..2026-10-08
+XCUUSD: 27 cells in 1s
+XOM M5 us_cash: 1380 days 2020-10-22..2026-10-08
+XOM: 27 cells in 2s
+XPDUSD M5 us_cash: 2365 days 2017-03-22..2026-10-08
+XPDUSD: 27 cells in 5s
+XPTUSD M5 us_cash: 2365 days 2017-04-04..2026-10-08
+XPTUSD: 27 cells in 5s
+XRPUSD M5 us_cash: 2235 days 2018-02-23..2026-10-08
+XRPUSD: 27 cells in 4s
+ZM M5 us_cash: 1285 days 2021-08-02..2026-10-08
+ZM: 27 cells in 2s
+XAUUSD M1 us_cash: 2937 days 2015-01-02..2026-10-08
+XAUUSD M5 us_cash: 2937 days 2015-01-02..2026-10-08
+XAUUSD: 54 cells in 28s
